@@ -1,0 +1,1957 @@
+.alolan-sandshrew,
+.ivysaur,
+.wigglytuff {
+	transform: scalex(-1) translatex(-2rem);
+}
+.alolan-ninetales,
+.charizard,
+.mega-charizard-y,
+.venusaur {
+	transform: scale(1.3) translatey(-3rem) translatex(1rem);
+}
+.mega-venusaur {
+	transform: scale(1.3) translatey(-3rem) translatex(3rem);
+}
+.gigantamax-venusaur {
+	transform: scale(1.5) translatey(-3rem) translatex(3rem);
+}
+.charmander,
+.charmeleon,
+.exeggutor,
+.ledian,
+.noctowl,
+.pelipper,
+.poliwhirl,
+.ponyta {
+	transform: translatex(1rem);
+}
+.gigantamax-charizard,
+.mega-charizard-x {
+	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-4rem);
+}
+.alolan-sandslash,
+.blastoise {
+	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
+}
+.mega-blastoise {
+	transform: scalex(1.3) scaley(1.3) translatey(-3rem) translatex(0);
+}
+.gigantamax-blastoise {
+	transform: scalex(-1.3) scaley(1.3) translatey(-3rem) translatex(-2rem);
+}
+.caterpie,
+.clefairy,
+.jigglypuff,
+.nidoran-male,
+.pidgey,
+.weedle {
+	transform: scale(0.8) translatey(2rem) translatex(1rem);
+}
+.metapod {
+	transform: scale(1.1) translatex(1rem) translatey(-1rem);
+}
+.beedrill {
+	transform: scalex(1.1) scaley(1.1) translatey(1rem) translatex(-1rem);
+}
+.mega-beedrill {
+	transform: scalex(1.1) scaley(1.1) translatey(-2rem) translatex(-1rem);
+}
+.alolan-raticate,
+.gigantamax-kingler,
+.pidgeotto {
+	transform: scale(1.2) translatey(-2rem) translatex(2rem);
+}
+.pidgeot {
+	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(-3rem);
+}
+.mega-pidgeot {
+	transform: scale(1.4) translatey(-3rem) translatex(5rem);
+}
+.alolan-rattata,
+.dragonite {
+	transform: scale(1.1) translatey(-1rem) translatex(2rem);
+}
+.ekans,
+.electabuzz,
+.lickitung,
+.marowak,
+.mudkip,
+.pikachu,
+.raticate,
+.sandshrew,
+.slowbro,
+.wingull {
+	transform: translatex(2rem);
+}
+.fearow,
+.nidoking {
+	transform: scale(1.2) translatey(-2rem) translatex(1rem);
+}
+.alakazam,
+.arbok,
+.nidoqueen {
+	transform: scale(1.1) translatey(-2rem) translatex(-1rem);
+}
+.gigantamax-pikachu {
+	transform: scale(1.4) translatey(-4rem) translatex(-1rem);
+}
+.raichu {
+	transform: scale(1.2) translatey(-3rem) translatex(5rem);
+}
+.alolan-raichu {
+	transform: scale(1.1) translatey(-2rem) translatex(-2rem);
+}
+.sandslash {
+	transform: scalex(-1) translatex(-1rem);
+}
+.nidoran-female {
+	transform: scale(0.8) translatey(3rem) translatex(1rem);
+}
+.alolan-vulpix {
+	transform: scale(0.9) translatey(1rem) translatex(1rem);
+}
+.ninetales {
+	transform: scale(1.1) translatex(-1rem);
+}
+.zubat {
+	transform: scale(0.8) translatey(2rem) translatex(-2rem);
+}
+.galarian-moltres,
+.golbat {
+	transform: translatey(-2rem) translatex(2rem);
+}
+.azurill,
+.bellsprout,
+.oddish,
+.poliwag {
+	transform: scale(0.8) translatey(2rem) translatex(2rem);
+}
+.alolan-diglett,
+.cubone,
+.diglett,
+.kabuto,
+.paras,
+.psyduck,
+.slowpoke {
+	transform: scale(0.8) translatey(2rem);
+}
+.venonat {
+	transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-1rem);
+}
+.venomoth {
+	transform: scale(1.4) translatey(-1rem) translatex(1rem);
+}
+.dugtrio {
+	transform: translatex(-2rem);
+}
+.alolan-dugtrio,
+.bisharp,
+.golem {
+	transform: scale(1.1);
+}
+.alolan-meowth,
+.cyndaquil {
+	transform: scalex(-1) translatey(-1rem);
+}
+.gigantamax-meowth {
+	transform: scale(1.3) translatey(-3rem) translatex(-2rem);
+}
+.persian {
+	transform: scale(1.1) translatey(-1rem) translatex(-3rem);
+}
+.alolan-persian {
+	transform: translatey(-1rem) translatex(2rem);
+}
+.growlithe {
+	transform: scale(0.9) translatey(1rem) translatex(-1rem);
+}
+.hisuian-growlithe {
+	transform: scale(0.9) translatex(1rem);
+}
+.arcanine,
+.rhydon {
+	transform: scale(1.1) translatey(-1rem) translatex(3rem);
+}
+.hisuian-arcanine {
+	transform: scale(1.3) translatey(-3rem) translatex(5rem);
+}
+.poliwrath {
+	transform: scale(1.3) translatey(-3rem) translatex(-1rem);
+}
+.abra {
+	transform: translatey(4rem) translatex(-1rem);
+}
+.kadabra {
+	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(0);
+}
+.mega-alakazam {
+	transform: scale(1.2) translatey(-2rem) translatex(-1rem);
+}
+.machop {
+	transform: scale(0.9) translatex(-1rem);
+}
+.machamp {
+	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(1rem);
+}
+.gigantamax-machamp,
+.lapras {
+	transform: scale(1.2) translatey(-2rem);
+}
+.weepinbell {
+	transform: scale(0.9) translatey(4rem);
+}
+.victreebel {
+	transform: translatey(1rem) translatex(1rem);
+}
+.alolan-geodude,
+.ledyba,
+.tentacool {
+	transform: scale(0.8);
+}
+.ambipom,
+.graveler {
+	transform: scale(1.4) translateY(-4rem);
+}
+.alolan-graveler {
+	transform: scale(1.4) translateY(-1rem) translateX(1rem);
+}
+.alolan-golem,
+.calyrex-shadow-rider,
+.combusken,
+.dewott,
+.mega-audino,
+.volbeat {
+	transform: scale(1.1) translateY(-1rem);
+}
+.galarian-ponyta {
+	transform: translatex(3rem);
+}
+.rapidash {
+	transform: scale(1.2) translateY(-1rem) translateX(-2rem);
+}
+.galarian-rapidash {
+	transform: scalex(-1) translateX(2rem);
+}
+.galarian-slowpoke {
+	transform: scale(1.1) translatey(-2rem) translatex(2rem);
+}
+.galarian-slowbro {
+	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translateX(1rem);
+}
+.galarian-farfetch’d {
+	transform: scale(1.6) translateY(-5rem) translateX(3rem);
+}
+.alcremie-berry-caramel-swirl,
+.alcremie-berry-lemon-cream,
+.alcremie-berry-matcha-cream,
+.alcremie-berry-mint-cream,
+.alcremie-berry-rainbow-swirl,
+.alcremie-berry-ruby-cream,
+.alcremie-berry-ruby-swirl,
+.alcremie-berry-salted-swirl,
+.alcremie-berry-vanilla-cream,
+.alcremie-clover-caramel-swirl,
+.alcremie-clover-lemon-cream,
+.alcremie-clover-matcha-cream,
+.alcremie-clover-mint-cream,
+.alcremie-clover-rainbow-swirl,
+.alcremie-clover-ruby-cream,
+.alcremie-clover-ruby-swirl,
+.alcremie-clover-salted-swirl,
+.alcremie-clover-vanilla-cream,
+.alcremie-flower-caramel-swirl,
+.alcremie-flower-lemon-cream,
+.alcremie-flower-matcha-cream,
+.alcremie-flower-mint-cream,
+.alcremie-flower-rainbow-swirl,
+.alcremie-flower-ruby-cream,
+.alcremie-flower-ruby-swirl,
+.alcremie-flower-salted-swirl,
+.alcremie-flower-vanilla-cream,
+.alcremie-love-caramel-swirl,
+.alcremie-love-lemon-cream,
+.alcremie-love-matcha-cream,
+.alcremie-love-mint-cream,
+.alcremie-love-rainbow-swirl,
+.alcremie-love-ruby-cream,
+.alcremie-love-ruby-swirl,
+.alcremie-love-salted-swirl,
+.alcremie-love-vanilla-cream,
+.alcremie-ribbon-caramel-swirl,
+.alcremie-ribbon-lemon-cream,
+.alcremie-ribbon-matcha-cream,
+.alcremie-ribbon-mint-cream,
+.alcremie-ribbon-rainbow-swirl,
+.alcremie-ribbon-ruby-cream,
+.alcremie-ribbon-ruby-swirl,
+.alcremie-ribbon-salted-swirl,
+.alcremie-ribbon-vanilla-cream,
+.alcremie-star-caramel-swirl,
+.alcremie-star-lemon-cream,
+.alcremie-star-matcha-cream,
+.alcremie-star-mint-cream,
+.alcremie-star-rainbow-swirl,
+.alcremie-star-ruby-cream,
+.alcremie-star-ruby-swirl,
+.alcremie-star-salted-swirl,
+.alcremie-star-vanilla-cream,
+.alcremie-strawberry-caramel-swirl,
+.alcremie-strawberry-lemon-cream,
+.alcremie-strawberry-matcha-cream,
+.alcremie-strawberry-mint-cream,
+.alcremie-strawberry-rainbow-swirl,
+.alcremie-strawberry-ruby-cream,
+.alcremie-strawberry-ruby-swirl,
+.alcremie-strawberry-salted-swirl,
+.alcremie-strawberry-vanilla-cream,
+.doduo,
+.grubbin,
+.haunter,
+.rotom-heat {
+	transform: translateX(-1rem);
+}
+.altaria,
+.arrokuda,
+.bagon,
+.cottonee,
+.dewgong,
+.drifloon,
+.flaaffy,
+.fraxure,
+.gabite,
+.hakamo-o,
+.mega-sableye,
+.meowstic-female,
+.minun,
+.onix,
+.pignite,
+.prinplup,
+.riolu,
+.sandile,
+.shaymin-sky,
+.spinda,
+.staravia,
+.swablu,
+.sylveon,
+.togetic,
+.torracat,
+.zamazenta-crowned-shield {
+	transform: translateX(2rem);
+}
+.muk {
+	transform: scalex(-1.6) scaley(1.6) translateY(-4rem) translateX(1rem);
+}
+.alolan-muk,
+.gigantamax-garbodor {
+	transform: scale(1.6) translateY(-4rem) translateX(1rem);
+}
+.cubchoo,
+.darmanitan-zen,
+.houndour,
+.magby,
+.phanpy,
+.rowlet,
+.shellder,
+.smoochum,
+.starly {
+	transform: scale(0.8) translateY(3rem) translateX(1rem);
+}
+.gastly {
+	transform: scale(0.8) translateX(1rem);
+}
+.blipbug,
+.buneary,
+.charjabug,
+.cinccino,
+.eiscue,
+.feebas,
+.gengar,
+.jellicent-female,
+.komala,
+.lunatone,
+.magcargo,
+.metang,
+.mime-jr,
+.plusle,
+.quilladin,
+.slurpuff,
+.smeargle,
+.snivy,
+.swadloon,
+.tirtouga,
+.weavile,
+.whimsicott,
+.whirlipede,
+.xatu,
+.yamask {
+	transform: translateX(1rem);
+}
+.gigantamax-gengar {
+	transform: scalex(-1.3) scaley(1.3) translateX(-1rem);
+}
+.drowzee {
+	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(1rem);
+}
+.kingler {
+	transform: scale(1.2) translatey(-3rem);
+}
+.omanyte,
+.voltorb {
+	transform: scalex(-0.8) scaley(0.8) translatey(2rem);
+}
+.hisuian-electrode,
+.hisuian-voltorb {
+	transform: scalex(-0.9) scaley(0.9) translatey(1rem);
+}
+.electrode {
+	transform: scale(0.9) translatey(1rem);
+}
+.exeggcute {
+	transform: scale(0.8) translatey(2rem) translatex(-1rem);
+}
+.alolan-exeggutor {
+	transform: scale(1.3) translatey(-3.5rem);
+}
+.alolan-marowak {
+	transform: scale(1.3) translatey(-3rem) translatex(2rem);
+}
+.hitmonlee {
+	transform: scalex(-1) translatey(-1rem) translatex(2rem);
+}
+.hitmonchan {
+	transform: translatey(-1rem) translatex(-1rem);
+}
+.galarian-weezing {
+	transform: scale(1.3) translatey(-5rem) translatex(3rem);
+}
+.rhyhorn {
+	transform: scale(0.8) translatey(2rem) translatex(3rem);
+}
+.tangela {
+	transform: scalex(-0.8) scaley(0.8) translatey(-1rem) translatey(6rem);
+}
+.castform-sunny,
+.cursola,
+.goldeen,
+.lombre,
+.mega-kangaskhan,
+.timburr {
+	transform: scalex(-1);
+}
+.horsea {
+	transform: scale(0.7) translateY(2rem);
+}
+.seaking {
+	transform: translateY(2rem) translateX(3rem);
+}
+.mareep,
+.meltan,
+.natu,
+.pidove,
+.staryu,
+.togepi {
+	transform: scale(0.8) translateY(3rem);
+}
+.starmie {
+	transform: translateY(1rem);
+}
+.magmar,
+.scyther {
+	transform: translatex(-1rem);
+}
+.pinsir {
+	transform: translatey(1rem) translatex(-2rem);
+}
+.mega-pinsir,
+.typhlosion {
+	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+}
+.tauros {
+	transform: scale(1.2) translatey(-2.5rem) translatex(3rem);
+}
+.magikarp {
+	transform: scale(0.8) translatey(1rem) translatex(3rem);
+}
+.gyarados {
+	transform: scale(1.1) translatey(1rem) translatex(3rem);
+}
+.mega-gyarados {
+	transform: scale(1.2) translatey(-2rem) translatex(3rem);
+}
+.gigantamax-lapras {
+	transform: scale(1.4) translatey(-4rem) translatex(2rem);
+}
+.gigantamax-eevee {
+	transform: scalex(-1.2) scaley(1.2) translatey(-2.5rem) translatex(0);
+}
+.flareon,
+.jolteon {
+	transform: translatey(0) translatex(3rem);
+}
+.porygon {
+	transform: scale(0.8) translatey(1rem) translatex(2rem);
+}
+.omastar {
+	transform: translatey(-1rem);
+}
+.kabutops {
+	transform: scale(1.2);
+}
+.aerodactyl {
+	transform: scale(1.4) translatey(-1rem) translatex(2rem);
+}
+.mega-aerodactyl {
+	transform: scale(1.6) translatey(-3rem) translatex(2rem);
+}
+.snorlax {
+	transform: scale(1.4) translatey(-3rem) translatex(1rem);
+}
+.gigantamax-snorlax {
+	transform: scalex(-1.5) scaley(1.5) translatey(-3.5rem) translatex(-3.5rem);
+}
+.articuno {
+	transform: scale(1.1) translatey(-3rem) translatex(3rem);
+}
+.galarian-articuno {
+	transform: scale(1.1) translatey(-3rem) translatex(2rem);
+}
+.zapdos {
+	transform: scale(1.2) translatey(-3rem) translatex(1rem);
+}
+.galarian-zapdos {
+	transform: scalex(-0.9) scaley(0.9) translatey(2rem) translatex(-1rem);
+}
+.moltres {
+	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-3rem);
+}
+.dratini {
+	transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-5rem);
+}
+.dragonair,
+.quilava {
+	transform: scale(1.1) translatey(-2rem);
+}
+.mewtwo {
+	transform: scalex(-1.2) scaley(1.2) translatey(-2.5rem) translatex(-1rem);
+}
+.mega-mewtwo-x {
+	transform: scalex(-1.1) scaley(1.1) translatey(-1rem);
+}
+.mega-mewtwo-y {
+	transform: scale(1.1) translatey(-1rem);
+}
+.mew {
+	transform: scale(0.8) translatey(-1rem);
+}
+.chikorita {
+	transform: scale(1) translatex(2rem);
+}
+.bayleef {
+	transform: scale(1.1) translatey(-1.5rem) translatex(1rem);
+}
+.meganium {
+	transform: scale(1.3) translatey(-3rem);
+}
+.hisuian-typhlosion {
+	transform: scalex(-1.5) scaley(1.5) translatey(-3rem) translatex(-3rem);
+}
+.croconaw {
+	transform: scale(1.1) translatey(-2rem) translatex(3rem);
+}
+.feraligatr {
+	transform: scale(1.3) translatey(-1rem) translatex(1rem);
+}
+.aipom,
+.furret {
+	transform: translateX(-2rem);
+}
+.hoothoot {
+	transform: scale(0.8) translatey(3rem);
+}
+.igglybuff,
+.spinarak {
+	transform: scale(0.8) translateY(2rem);
+}
+.crobat {
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translatex(-2rem);
+}
+.chinchou {
+	transform: translateY(2rem);
+}
+.barraskewda,
+.lanturn {
+	transform: scale(1.2) translateX(2rem);
+}
+.bellossom,
+.bergmite,
+.fletchling,
+.foongus,
+.froakie,
+.gligar,
+.lotad,
+.pichu,
+.seedot,
+.slugma,
+.sneasel,
+.snubbull,
+.swinub,
+.teddiursa {
+	transform: scale(0.8) translateY(2rem) translateX(1rem);
+}
+.cleffa {
+	transform: scalex(-0.8) scaley(0.8) translateY(2rem);
+}
+.ampharos,
+.beartic,
+.golurk,
+.hisuian-sliggoo,
+.leavanny,
+.oricorio-baile,
+.oricorio-pom-pom,
+.sawk,
+.ursaluna {
+	transform: scale(1.2) translateY(-2rem);
+}
+.mega-ampharos {
+	transform: scale(1.2) translateY(-2rem) translateX(4rem);
+}
+.marill,
+.sinistea-phony {
+	transform: scalex(-1) translateY(-2rem) translateX(-2rem);
+}
+.azumarill,
+.clauncher,
+.tyrogue {
+	transform: translateY(-1rem) translateX(1rem);
+}
+.cradily,
+.diggersby,
+.galarian-slowking,
+.galvantula,
+.girafarig,
+.gothitelle,
+.inteleon,
+.krookodile,
+.mega-scizor,
+.scizor,
+.seismitoad,
+.stantler,
+.sudowoodo,
+.urshifu-single-strike,
+.watchog,
+.wyrdeer {
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+}
+.carvanha,
+.chatot,
+.dreepy,
+.electrike,
+.espeon,
+.fletchinder,
+.grotle,
+.kecleon,
+.krokorok,
+.lairon,
+.leafeon,
+.luxio,
+.nuzleaf,
+.piloswine,
+.poochyena,
+.shedinja,
+.shelgon,
+.silcoon,
+.skiploom,
+.slakoth,
+.swanna {
+	transform: translateX(3rem);
+}
+.cosmoem,
+.jumpluff {
+	transform: translateY(-2rem) translateX(1rem);
+}
+.dwebble,
+.sunkern {
+	transform: scale(0.8) translateY(4rem) translateX(1rem);
+}
+.bewear,
+.hisuian-lilligant,
+.sunflora {
+	transform: scale(1.1) translateY(-2rem) translateX(1rem);
+}
+.bruxish,
+.grumpig,
+.lopunny,
+.mimikyu,
+.yanma {
+	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+}
+.wooper {
+	transform: scalex(-0.8) scaley(0.8) translateY(4rem) translateX(-1rem);
+}
+.corviknight,
+.umbreon {
+	transform: scalex(-1) translateX(-3rem);
+}
+.gible,
+.jangmo-o,
+.murkrow,
+.numel,
+.ralts,
+.taillow {
+	transform: scale(0.8) translateY(3rem) translateX(2rem);
+}
+.slowking {
+	transform: translateY(-0.5rem) translateX(2rem);
+}
+.misdreavus {
+	transform: scalex(-0.8) scaley(0.8) translateX(-2rem);
+}
+.pineco {
+	transform: scale(0.8) translateY(-1rem) translateX(0);
+}
+.dunsparce,
+.tympole,
+.vanillite {
+	transform: scale(0.8) translateY(-1rem) translateX(1rem);
+}
+.steelix {
+	transform: scale(1.1) translateY(0.5rem) translateX(1rem);
+}
+.mega-steelix {
+	transform: scale(1.5) translateX(4rem);
+}
+.aromatisse,
+.blissey,
+.carkol,
+.cramorant,
+.dottler,
+.dubwool,
+.granbull,
+.mandibuzz,
+.simipour {
+	transform: scalex(-1) translateX(-1rem);
+}
+.porygon2,
+.qwilfish {
+	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
+}
+.bidoof,
+.hisuian-qwilfish,
+.impidimp,
+.mudbray,
+.patrat,
+.pyukumuku,
+.scraggy,
+.silicobra,
+.stunky,
+.toxel {
+	transform: scale(0.9) translateY(1rem) translateX(2rem);
+}
+.shuckle {
+	transform: scalex(-1) translateY(1rem) translateX(-1rem);
+}
+.gastrodon-west-sea,
+.mega-heracross,
+.mega-houndoom {
+	transform: scale(1.1) translateY(-1rem) translateX(-1rem);
+}
+.hisuian-sneasel,
+.joltik,
+.wurmple {
+	transform: scale(0.8) translateY(2rem) translateX(-1rem);
+}
+.amoonguss,
+.galarian-stunfisk,
+.kricketune,
+.medicham,
+.nihilego,
+.roserade,
+.scorbunny,
+.stunfisk,
+.tapu-bulu,
+.ursaring {
+	transform: scale(1.1) translateY(-2rem);
+}
+.corsola,
+.elgyem,
+.galarian-corsola {
+	transform: scalex(-1) translateY(-1rem) translateX(-2rem);
+}
+.remoraid {
+	transform: scale(0.6) translateY(2rem) translateX(1rem);
+}
+.mantine {
+	transform: scale(1.2) translateX(1rem);
+}
+.skarmory {
+	transform: scale(1.1) translateY(0) translateX(3rem);
+}
+.donphan,
+.gigantamax-urshifu-single-strike,
+.registeel {
+	transform: scale(1.4) translateY(-4rem) translateX(1rem);
+}
+.aggron,
+.buizel,
+.exploud,
+.gastrodon-east-sea,
+.gogoat,
+.hitmontop,
+.simisage,
+.unfezant {
+	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+}
+.elekid,
+.empoleon,
+.garbodor,
+.goodra,
+.pheromosa,
+.tornadus {
+	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+}
+.miltank {
+	transform: scalex(-1) translateY(2rem) translateX(1rem);
+}
+.armaldo,
+.basculegion-female,
+.basculegion-male,
+.entei,
+.gigantamax-drednaw,
+.mega-absol,
+.raikou,
+.suicune {
+	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+}
+.blitzle,
+.jellicent-male,
+.meowstic-male,
+.panpour,
+.popplio,
+.pupitar,
+.skwovet,
+.wooloo,
+.yamper {
+	transform: scalex(-1) translateX(-2rem);
+}
+.bastiodon,
+.glastrier,
+.lycanroc-midday,
+.scolipede,
+.skuntank,
+.torkoal,
+.tyranitar,
+.zangoose {
+	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+}
+.cobalion,
+.eelektross,
+.hydreigon,
+.landorus-therian,
+.mega-gallade,
+.mega-swampert,
+.mega-tyranitar,
+.shiftry,
+.terrakion,
+.volcarona {
+	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+}
+.lugia {
+	transform: scale(1.4) translateY(-3rem) translateX(2rem);
+}
+.ho-oh {
+	transform: scalex(-1.4) scaley(1.4) translateY(-3rem) translateX(-2rem);
+}
+.celebi {
+	transform: scale(0.8) translateY(-3rem) translateX(2rem);
+}
+.genesect,
+.grovyle {
+	transform: scale(1.1) translateX(2rem);
+}
+.archeops,
+.crawdaunt,
+.sceptile,
+.sharpedo {
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+}
+.mega-sceptile {
+	transform: scale(1.6) translateY(-4.5rem) translateX(-6rem);
+}
+.blaziken {
+	transform: scalex(-1.2) scaley(1.2) translateY(-2rem);
+}
+.luxray,
+.mega-blaziken,
+.passimian {
+	transform: scale(1.3) translateY(-3rem) translateX(5rem);
+}
+.marshtomp {
+	transform: scalex(-1.2) scaley(1.2) translateY(1rem);
+}
+.swampert {
+	transform: scale(1.6) translateY(-3.5rem) translateX(3rem);
+}
+.mightyena {
+	transform: translateY(1rem) translateX(4rem);
+}
+.zigzagoon {
+	transform: translateY(-1rem) translateX(4rem);
+}
+.galarian-zigzagoon {
+	transform: scale(0.8) translateY(-1rem) translateX(2rem);
+}
+.linoone {
+	transform: scale(1.8) translateY(-8rem) translateX(7rem);
+}
+.galarian-linoone {
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-5rem);
+}
+.beautifly,
+.relicanth {
+	transform: scale(1.1) translateY(-2rem) translateX(4rem);
+}
+.cascoon {
+	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-2rem);
+}
+.dustox {
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
+}
+.cacturne,
+.hisuian-decidueye,
+.ludicolo,
+.lurantis,
+.overquil,
+.spiritomb,
+.stonjourner,
+.toxapex,
+.trevenant {
+	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+}
+.mega-gardevoir,
+.swellow,
+.zygarde-50 {
+	transform: scale(1.2) translateY(-2rem) translateX(5rem);
+}
+.gardevoir {
+	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-6rem);
+}
+.masquerain {
+	transform: scale(1.2) translateY(-4rem) translateX(3rem);
+}
+.breloom,
+.ninjask {
+	transform: scale(1.1) translateX(3rem);
+}
+.gigantamax-cinderace,
+.hippowdon,
+.hisuian-zorua,
+.mega-abomasnow,
+.stakataka,
+.vibrava,
+.vigoroth {
+	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+}
+.slaking {
+	transform: scalex(-1.4) scaley(1.4) translateY(-3rem) translateX(-3rem);
+}
+.whismur {
+	transform: scaleX(-0.9) scaleY(0.9) translateY(1rem) translatex(1rem);
+}
+.hariyama {
+	transform: scale(1.1) translatex(3rem);
+}
+.nosepass {
+	transform: scalex(-1) translateY(-1rem) translatex(1rem);
+}
+.crabrawler,
+.klefki,
+.mawile,
+.nickit,
+.pawniard {
+	transform: translateX(-3rem);
+}
+.dartrix,
+.mega-mawile {
+	transform: scalex(-1) translateX(5rem);
+}
+.aron {
+	transform: scale(0.8) translatey(3rem) translatex(2rem);
+}
+.drednaw,
+.mega-aggron {
+	transform: scale(1.4) translateY(-4rem) translateX(5rem);
+}
+.meditite {
+	transform: scale(0.8) translateY(4rem) translateX(2rem);
+}
+.mega-medicham {
+	transform: scale(1.1) translateY(-2rem) translatex(1rem);
+}
+.carracosta,
+.manectric,
+.mega-manectric,
+.scrafty,
+.victini,
+.whiscash {
+	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+}
+.swalot {
+	transform: scaleX(-1) translateX(-2rem);
+}
+.mega-sharpedo {
+	transform: scale(1.2) translateY(-1rem);
+}
+.wailmer {
+	transform: scale(1.4) translateX(3rem);
+}
+.wailord {
+	transform: scale(2.4) translateX(6rem);
+}
+.camerupt,
+.gigantamax-toxtricity-amped,
+.gigantamax-toxtricity-low-key,
+.milotic,
+.tyrantrum {
+	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+}
+.aurorus,
+.mega-camerupt,
+.stoutland {
+	transform: scale(1.3) translateY(-3rem) translateX(6rem);
+}
+.applin,
+.axew,
+.bonsly,
+.chewtle,
+.clamperl,
+.golett,
+.gothita,
+.happiny,
+.karrablast,
+.keldeo-ordinary,
+.kricketot,
+.kubfu,
+.lillipup,
+.litleo,
+.mareanie,
+.oshawott,
+.palpitoad,
+.rockruff,
+.rufflet,
+.scatterbug,
+.shellos-east-sea,
+.shellos-west-sea,
+.shelmet,
+.skorupi,
+.snorunt,
+.spoink,
+.stufful,
+.wynaut,
+.zorua {
+	transform: scale(0.9) translateY(1rem) translateX(1rem);
+}
+.darumaka,
+.roggenrola,
+.trapinch {
+	transform: scale(0.9) translateY(2rem) translateX(1rem);
+}
+.flygon,
+.gigantamax-grimmsnarl,
+.sawsbuck-autumn,
+.sawsbuck-spring,
+.sawsbuck-summer,
+.sawsbuck-winter,
+.tornadus-therian,
+.xurkitree {
+	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+}
+.mega-altaria {
+	transform: scale(1.5) translateY(1rem) translateX(2rem);
+}
+.arctovish,
+.barboach,
+.corvisquire,
+.herdier,
+.seviper,
+.spewpa,
+.staraptor,
+.venipede,
+.zamazenta {
+	transform: translateX(4rem);
+}
+.solrock {
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+}
+.baltoy {
+	transform: scale(0.9) translateY(3rem) translateX(1rem);
+}
+.claydol,
+.clobbopus,
+.salandit {
+	transform: translateY(-1rem) translateX(-1rem);
+}
+.amaura,
+.budew,
+.dewpider,
+.espurr,
+.fomantis,
+.helioptile,
+.hippopotas,
+.lileep,
+.litwick,
+.morelull,
+.pancham,
+.purrloin,
+.togedemaru {
+	transform: scale(0.9) translateY(1rem);
+}
+.duskull,
+.shuppet {
+	transform: scale(0.8) translateY(-2rem) translateX(1rem);
+}
+.appletun,
+.dusclops,
+.mega-banette {
+	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+}
+.tropius {
+	transform: scale(1.1) translateY(-1rem) translateX(-3rem);
+}
+.absol,
+.galarian-darmanitan-zen,
+.polteageist-phony,
+.sneasler {
+	transform: scale(1.2) translateY(-2rem) translateX(-1rem);
+}
+.basculin-white-stripe,
+.flapple,
+.glalie {
+	transform: translateY(-2rem) translateX(3rem);
+}
+.mega-glalie {
+	transform: scalex(-1) translateY(-2rem) translateX(-1rem);
+}
+.pachirisu,
+.spheal {
+	transform: scale(0.9) translateY(1rem) translateX(4rem);
+}
+.sealeo {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-4rem);
+}
+.walrein {
+	transform: scale(1.3) translateY(-1rem) translateX(5rem);
+}
+.huntail {
+	transform: scale(1.1) translateY(-2rem) translateX(5rem);
+}
+.floatzel,
+.gorebyss {
+	transform: scale(1.1) translateY(-2rem) translateX(3rem);
+}
+.luvdisc {
+	transform: scale(0.8) translateY(-2rem);
+}
+.salamence {
+	transform: scale(1.4) translateY(-2rem) translateX(6rem);
+}
+.mega-salamence {
+	transform: scale(1.9) translateY(-2rem) translateX(3rem);
+}
+.beldum {
+	transform: scale(0.9) translateY(-2rem) translateX(5rem);
+}
+.metagross {
+	transform: scale(1.5) translateY(-4rem) translateX(0);
+}
+.mega-metagross {
+	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
+}
+.emboar,
+.pangoro,
+.regirock,
+.silvally {
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+}
+.regice {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
+}
+.latias {
+	transform: translateY(-2rem) translateX(6rem);
+}
+.mega-latias {
+	transform: scalex(-1.2) scaley(1.2) translateY(-4rem) translateX(-1rem);
+}
+.latios {
+	transform: scale(1.3) translateY(-4rem) translateX(5rem);
+}
+.mega-latios,
+.palkia {
+	transform: scale(1.5) translateY(-2rem) translateX(7rem);
+}
+.kyogre {
+	transform: scale(1.7) translateY(-1rem) translateX(5rem);
+}
+.kyogre-primal {
+	transform: scale(1.8) translateY(-2rem) translateX(4rem);
+}
+.groudon {
+	transform: scalex(-1.5) scaley(1.5) translateY(-2rem) translateX(-6rem);
+}
+.groudon-primal {
+	transform: scalex(-1.8) scaley(1.8) translateY(-5rem) translateX(-8rem);
+}
+.rayquaza {
+	transform: scale(1.4) translateY(-4rem) translateX(7rem);
+}
+.mega-rayquaza {
+	transform: scale(1.8) translateY(-4rem) translateX(7rem);
+}
+.deoxys-normal {
+	transform: scale(1.3) translateY(0) translateX(3rem);
+}
+.deoxys-attack,
+.malamar {
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+}
+.deoxys-defense {
+	transform: scalex(-1.3) scaley(1.3) translateY(-1rem);
+}
+.deoxys-speed {
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+}
+.torterra {
+	transform: scale(1.5) translateY(-4rem) translateX(5rem);
+}
+.monferno {
+	transform: scale(1.1) translateY(-4rem) translateX(3rem);
+}
+.infernape,
+.samurott {
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+}
+.piplup {
+	transform: scalex(-0.8) scaley(0.8) translateY(3rem);
+}
+.bibarel {
+	transform: scale(1.1) translateY(-2rem) translateX(-2rem);
+}
+.shinx,
+.type-null {
+	transform: scalex(-1) translateY(0) translateX(-2rem);
+}
+.cranidos {
+	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-1rem);
+}
+.rampardos,
+.virizion {
+	transform: scalex(-1.3) scaley(1.3) translateY(-3rem) translateX(-3rem);
+}
+.shieldon {
+	transform: scale(0.8) translateY(3rem) translateX(3rem);
+}
+.wormadam-plant-cloak {
+	transform: scale(1.3) translateY(-4rem) translateX(0);
+}
+.wormadam-sandy-cloak {
+	transform: scalex(-1.3) scaley(1.3) translateY(-4rem);
+}
+.wormadam-trash-cloak {
+	transform: scale(1.3) translateY(-4rem) translateX(1rem);
+}
+.mothim {
+	transform: scale(1.4) translateY(-4rem) translateX(2rem);
+}
+.combee {
+	transform: translateY(-4rem) translateX(2rem);
+}
+.vespiquen {
+	transform: scale(1.1) translateY(-4rem) translateX(-1rem);
+}
+.cherubi {
+	transform: scale(0.8) translateY(2rem) translateX(0);
+}
+.drifblim,
+.mismagius {
+	transform: scale(1.2) translateY(-4rem);
+}
+.mega-lopunny {
+	transform: scale(1.2) translateY(-3rem) translateX(5rem);
+}
+.honchkrow,
+.landorus {
+	transform: scale(1.3) translateY(-3rem) translateX(-2rem);
+}
+.falinks,
+.glameow {
+	transform: scale(0.9) translateY(1rem) translateX(3rem);
+}
+.chingling {
+	transform: scale(0.8) translateY(-6rem) translateX(4rem);
+}
+.bronzor {
+	transform: scale(0.8) translateY(-4rem) translateX(1rem);
+}
+.bronzong {
+	transform: scale(1.6) translateY(-2rem) translateX(1rem);
+}
+.garchomp {
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+}
+.mega-garchomp {
+	transform: scale(1.7) translateY(-5rem) translateX(3rem);
+}
+.abomasnow,
+.coalossal,
+.crustle,
+.lickilicky,
+.lucario,
+.oricorio-sensu {
+	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+}
+.mega-lucario {
+	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(1rem);
+}
+.drapion,
+.tangrowth {
+	transform: scale(1.7) translateY(-5rem) translateX(2rem);
+}
+.croagunk,
+.goomy,
+.larvesta {
+	transform: scale(0.8) translateY(2rem) translateX(2rem);
+}
+.alomomola,
+.calyrex-ice-rider,
+.florges-blue-flower,
+.florges-orange-flower,
+.florges-red-flower,
+.florges-white-flower,
+.florges-yellow-flower,
+.toxicroak,
+.vikavolt {
+	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+}
+.carnivine,
+.magnezone,
+.probopass {
+	transform: scale(1.1) translateY(-4rem) translateX(1rem);
+}
+.finneon {
+	transform: scale(0.8) translateY(-4rem) translateX(4rem);
+}
+.lumineon {
+	transform: translateY(-4rem) translateX(5rem);
+}
+.mantyke,
+.uxie {
+	transform: scale(0.9) translateY(-4rem) translateX(3rem);
+}
+.rhyperior {
+	transform: scale(1.6) translateY(-3rem) translateX(3rem);
+}
+.arceus,
+.delphox,
+.electivire,
+.hisuian-goodra {
+	transform: scale(1.5) translateY(-4rem) translateX(3rem);
+}
+.magmortar {
+	transform: scale(1.3) translateY(-1rem) translateX(4rem);
+}
+.togekiss {
+	transform: scale(1.4) translateY(-4rem) translateX(4rem);
+}
+.yanmega {
+	transform: scale(1.2) translateY(-9rem) translateX(4rem);
+}
+.excadrill,
+.glaceon {
+	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-3rem);
+}
+.gliscor {
+	transform: scale(1.2) translateY(-2rem) translateX(0);
+}
+.bouffalant,
+.ferrothorn,
+.mamoswine,
+.palossand {
+	transform: scale(1.3) translateY(-3rem);
+}
+.aegislash,
+.aegislash-blade,
+.gallade,
+.mega-diancie,
+.toxtricity-amped,
+.tsareena {
+	transform: scale(1.2) translateY(-3rem);
+}
+.dusknoir {
+	transform: scalex(-1.3) scaley(1.3) translateY(-7rem) translateX(1rem);
+}
+.beheeyem,
+.froslass {
+	transform: scale(1.1) translateY(-3rem) translateX(1rem);
+}
+.mr-rime,
+.rotom {
+	transform: scalex(-1) translateX(1rem);
+}
+.rotom-wash {
+	transform: scale(1.1) translateY(-5rem) translateX(1rem);
+}
+.rotom-frost {
+	transform: scalex(-1.2) scaley(1.2) translateY(-6rem) translateX(-1rem);
+}
+.gothorita,
+.rotom-mow,
+.tepig {
+	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
+}
+.mesprit {
+	transform: translateY(-4rem);
+}
+.azelf {
+	transform: scalex(-1) translateY(-4rem) translateX(-1rem);
+}
+.dialga {
+	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-5rem);
+}
+.dialga-origin {
+	transform: scale(1.5) translateY(-3rem) translateX(2rem);
+}
+.palkia-origin {
+	transform: scalex(-1.6) scaleY(1.6) translateY(-4rem) translateX(-3rem);
+}
+.heatran {
+	transform: scale(1.5) translateY(-3rem) translateX(4rem);
+}
+.guzzlord,
+.regigigas {
+	transform: scale(1.7) translateY(-5rem) translateX(1rem);
+}
+.giratina-altered {
+	transform: scale(1.6) translateY(-3rem) translateX(1rem);
+}
+.giratina-origin,
+.kyurem-white {
+	transform: scale(1.5) translateY(-4rem) translateX(6rem);
+}
+.cresselia {
+	transform: scalex(-1.3) scaley(1.3) translateY(-4rem) translateX(-3rem);
+}
+.frogadier,
+.phione,
+.thievul,
+.yungoos {
+	transform: translateX(5rem);
+}
+.manaphy {
+	transform: scale(1.2) translateX(4rem);
+}
+.darkrai {
+	transform: scale(1.2) translateY(-4rem) translateX(2rem);
+}
+.shaymin-land {
+	transform: scale(0.8) translateY(2rem) translateX(3rem);
+}
+.servine,
+.zacian-crowned-sword {
+	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-4rem);
+}
+.serperior {
+	transform: scale(1.3) translateY(0) translateX(5rem);
+}
+.hisuian-samurott,
+.oranguru,
+.regieleki {
+	transform: scale(1.4) translateY(-3rem) translateX(3rem);
+}
+.liepard {
+	transform: scale(1.1) translateY(0) translateX(6rem);
+}
+.munna {
+	transform: scale(0.8) translateY(-4rem) translateX(3rem);
+}
+.musharna {
+	transform: scale(1.3) translateY(-5rem) translateX(0);
+}
+.zebstrika {
+	transform: scale(1.1) translateY(-1rem) translateX(5rem);
+}
+.doublade,
+.gigalith,
+.grimmsnarl,
+.heatmor {
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+}
+.swoobat {
+	transform: translateY(-4rem) translateX(1rem);
+}
+.conkeldurr {
+	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
+}
+.sliggoo,
+.throh {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-1rem);
+}
+.sewaddle {
+	transform: scale(0.8) translateY(5rem) translateX(0);
+}
+.basculin-blue-stripe {
+	transform: scale(1.2) translateY(0) translateX(4rem);
+}
+.galarian-darumaka {
+	transform: scale(0.9) translateY(3rem);
+}
+.darmanitan {
+	transform: scale(1.2) translateY(0);
+}
+.galarian-darmanitan {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(1rem);
+}
+.sigilyph {
+	transform: scale(1.2) translateY(-5rem) translateX(-1rem);
+}
+.cofagrigus {
+	transform: scale(1.4) translateY(-4rem) translateX(-2rem);
+}
+.archen {
+	transform: translateY(1rem) translateX(2rem);
+}
+.trubbish,
+.zygarde-10 {
+	transform: translateY(2rem) translateX(2rem);
+}
+.zoroark {
+	transform: scale(1.2) translateY(-1rem) translateX(4rem);
+}
+.gigantamax-coalossal,
+.hisuian-zoroark {
+	transform: scale(1.5) translateY(-3rem) translateX(1rem);
+}
+.minccino {
+	transform: translatey(-1rem) translateX(3rem);
+}
+.duosion,
+.solosis {
+	transform: scale(0.6) translateY(-1rem) translateX(1rem);
+}
+.reuniclus {
+	transform: scale(1.5) translateY(-1rem) translateX(1rem);
+}
+.ducklett,
+.grookey,
+.mienfoo {
+	transform: scale(0.9) translateY(1rem) translateX(-1rem);
+}
+.emolga {
+	transform: translateY(-4rem) translateX(4rem);
+}
+.escavalier {
+	transform: scale(1.1) translateY(-3rem) translateX(-1rem);
+}
+.comfey,
+.cryogonal,
+.ferroseed,
+.noibat,
+.pikipek,
+.pumpkaboo,
+.swirlix {
+	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+}
+.klinklang {
+	transform: scale(1.3) translateY(0) translateX(1rem);
+}
+.tynamo {
+	transform: scale(0.7) translateY(-1rem) translateX(4rem);
+}
+.eelektrik,
+.sinistea-antique {
+	transform: translateY(-2rem) translateX(2rem);
+}
+.chandelure {
+	transform: scale(1.2) translateY(-6rem) translateX(1rem);
+}
+.druddigon,
+.haxorus,
+.mienshao {
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+}
+.accelgor {
+	transform: scalex(-1.1) scaley(1.1) translateY(-5rem) translateX(-6rem);
+}
+.braviary,
+.heliolisk {
+	transform: scale(1.2) translateY(-3rem) translateX(4rem);
+}
+.hisuian-braviary {
+	transform: scale(1.2) translateY(-3rem) translateX(3rem);
+}
+.thundurus,
+.thundurus-therian {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-1rem);
+}
+.reshiram {
+	transform: scalex(-1.3) scaley(1.3) translateY(-3rem) translateX(-4rem);
+}
+.zekrom {
+	transform: scale(1.7) translateY(-3rem) translateX(3rem);
+}
+.kyurem {
+	transform: scale(1.5) translateY(-3rem) translateX(5rem);
+}
+.kyurem-black {
+	transform: scalex(-1.5) scaleY(1.5) translateY(-4rem) translateX(-5rem);
+}
+.keldeo-resolute {
+	transform: scalex(-0.9) scaleY(0.9) translateY(1rem);
+}
+.meloetta-pirouette {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(1rem);
+}
+.chesnaught,
+.greninja,
+.melmetal,
+.sirfetch’d {
+	transform: scale(1.5) translateY(-4rem);
+}
+.talonflame {
+	transform: scale(1.7) translateY(-3rem) translateX(5rem);
+}
+.toxtricity-low-key,
+.vivillon-archipelago,
+.vivillon-continental,
+.vivillon-elegant,
+.vivillon-fancy,
+.vivillon-garden,
+.vivillon-high-plains,
+.vivillon-icy-snow,
+.vivillon-jungle,
+.vivillon-marine,
+.vivillon-meadow,
+.vivillon-monsoon,
+.vivillon-mordern,
+.vivillon-ocean,
+.vivillon-poke-ball,
+.vivillon-polar,
+.vivillon-river,
+.vivillon-sandstorm,
+.vivillon-savanna,
+.vivillon-sun,
+.vivillon-tundra {
+	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+}
+.pyroar {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-4rem);
+}
+.flabebe-blue-flower,
+.flabebe-orange-flower,
+.flabebe-red-flower,
+.flabebe-white-flower,
+.flabebe-yellow-flower {
+	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+}
+.floette-blue-flower,
+.floette-orange-flower,
+.floette-red-flower,
+.floette-white-flower,
+.floette-yellow-flower {
+	transform: translateY(-3rem) translateX(-2rem);
+}
+.skiddo {
+	transform: scale(0.9) translateY(1rem) translateX(5rem);
+}
+.honedge {
+	transform: scale(0.9) translateY(-3rem) translateX(2rem);
+}
+.carbink,
+.skrelp,
+.spritzee {
+	transform: scale(0.8) translateY(-3rem) translateX(1rem);
+}
+.inkay {
+	transform: scalex(-0.8) scaleY(0.8) translateY(-3rem);
+}
+.barbaracle,
+.gigantamax-appletun,
+.gigantamax-flapple {
+	transform: scale(1.4) translateY(-3rem);
+}
+.dragalge,
+.kommo-o {
+	transform: scale(1.4) translateY(-3rem) translateX(4rem);
+}
+.clawitzer {
+	transform: scale(1.8) translateY(-1rem) translateX(1rem);
+}
+.tyrunt {
+	transform: scalex(-0.8) scaleY(0.8) translateY(2rem) translateX(1rem);
+}
+.hawlucha,
+.zeraora {
+	transform: scale(1.1) translateY(-3rem) translateX(3rem);
+}
+.phantump {
+	transform: scalex(-1) translateY(-3rem) translateX(-1rem);
+}
+.gourgeist {
+	transform: scale(1.1) translateY(-3rem) translateX(2rem);
+}
+.avalugg {
+	transform: scale(1.2) translateY(1rem) translateX(4rem);
+}
+.hisuian-avalugg {
+	transform: scale(1.3) translateY(-4rem) translateX(3rem);
+}
+.noivern {
+	transform: scale(1.5) translateY(-3rem) translateX(3rem);
+}
+.xerneas {
+	transform: scalex(-1.6) scaleY(1.6) translateY(-3rem) translateX(-1rem);
+}
+.yveltal {
+	transform: scale(1.4) translateY(-3rem) translateX(-1rem);
+}
+.zygarde-complete {
+	transform: scale(1.6) translateY(-4rem) translateX(4rem);
+}
+.diancie,
+.minior-blue,
+.minior-green,
+.minior-indigo,
+.minior-orange,
+.minior-red,
+.minior-violet,
+.minior-yellow {
+	transform: translateY(-3rem);
+}
+.hoopa {
+	transform: translateY(-5rem) translateX(-2rem);
+}
+.hoopa-unbound {
+	transform: scale(1.5) translateY(-4rem) translateX(1rem);
+}
+.volcanion {
+	transform: scale(1.6) translateY(-2rem) translateX(3rem);
+}
+.decidueye {
+	transform: scalex(-1.4) scaleY(1.4) translateY(-3rem) translateX(-3rem);
+}
+.incineroar {
+	transform: scale(1.5) translateY(-4rem) translateX(2rem);
+}
+.brionne {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-5rem) translateX(-4rem);
+}
+.primarina {
+	transform: scale(1.4) translateY(0) translateX(2rem);
+}
+.gumshoos,
+.mudsdale {
+	transform: scalex(-1) translateX(-5rem);
+}
+.crabominable {
+	transform: scale(1.5) translateY(-4rem) translateX(-2rem);
+}
+.oricorio-pau {
+	transform: scale(1.1) translateY(-1rem) translateX(-2rem);
+}
+.cutiefly {
+	transform: scale(0.7) translateY(-3rem) translateX(3rem);
+}
+.ribombee {
+	transform: translateY(-3rem) translateX(4rem);
+}
+.lycanroc-midnight {
+	transform: scalex(-1.1) scaleY(1.1) translateY(0) translateX(-1rem);
+}
+.lycanroc-dusk {
+	transform: scale(1.3) translateY(-3rem) translateX(-4rem);
+}
+.wishiwashi {
+	transform: scale(0.8) translateY(-3rem) translateX(3rem);
+}
+.wishiwashi-school {
+	transform: scale(1.6) translateY(-1rem) translateX(6rem);
+}
+.araquanid {
+	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-2rem);
+}
+.salazzle {
+	transform: scalex(-1) translateY(-3rem) translateX(-2rem);
+}
+.bounsweet {
+	transform: scale(0.8) translateY(5rem);
+}
+.raboot,
+.wimpod {
+	transform: scalex(-1) translateY(-1rem) translateX(-3rem);
+}
+.golisopod {
+	transform: scale(1.3) translateX(1rem);
+}
+.turtonator {
+	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-3rem);
+}
+.drampa {
+	transform: scale(1.3) translateY(2rem) translateX(4rem);
+}
+.dhelmise,
+.tapu-lele {
+	transform: translateY(-2rem);
+}
+.tapu-koko {
+	transform: scalex(-1.1) scaleY(1.1) translateY(-2rem) translateX(2rem);
+}
+.tapu-fini {
+	transform: scalex(-1.1) scaleY(1.1) translateY(-3rem) translateX(1rem);
+}
+.cosmog {
+	transform: scalex(-0.8) scaleY(0.8) translateY(-2rem);
+}
+.sandaconda,
+.solgaleo {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-3rem);
+}
+.lunala {
+	transform: scale(1.3) translateY(-6rem) translateX(-3rem);
+}
+.buzzwole {
+	transform: scale(1.3) translateY(-5rem);
+}
+.celesteela {
+	transform: scalex(-1.7) scaleY(1.7) translateY(-5rem);
+}
+.kartana {
+	transform: scalex(-1.6) scaleY(1.6) translateY(-6rem) translateX(2rem);
+}
+.necrozma {
+	transform: scale(1.6) translateY(-4rem);
+}
+.necrozma-dusk-mane {
+	transform: scale(1.4) translateY(-4rem) translateX(5.8rem);
+}
+.necrozma-dawn-wings {
+	transform: scalex(-1.7) scaleY(1.7) translateY(-5rem) translateX(3rem);
+}
+.necrozma-ultra {
+	transform: scale(1.5) translateY(-3rem) translateX(-1rem);
+}
+.marshadow {
+	transform: scale(0.9) translateY(0) translateX(1rem);
+}
+.naganadel {
+	transform: scale(1.4) translateY(-3rem) translateX(-2rem);
+}
+.gigantamax-melmetal {
+	transform: scale(1.6) translateY(-4rem) translateX(3rem);
+}
+.gigantamax-rillaboom {
+	transform: scale(1.7) translateY(-5rem);
+}
+.cinderace {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem);
+}
+.gigantamax-inteleon {
+	transform: scale(1.3) translateY(-3rem) translateX(0);
+}
+.greedent,
+.sizzlipede {
+	transform: scalex(-1) translateX(-4rem);
+}
+.rookidee {
+	transform: scalex(-0.9) scaleY(0.9) translateY(1rem) translateX(-3rem);
+}
+.gigantamax-corviknight {
+	transform: scale(2) translateY(-3rem) translateX(3rem);
+}
+.gigantamax-orbeetle {
+	transform: scale(1.5) translateY(-2rem) translateX(4rem);
+}
+.gossifleur {
+	transform: scale(0.9) translateX(2rem);
+}
+.boltund {
+	transform: scale(1.2) translateY(2rem) translateX(6rem);
+}
+.rolycoly {
+	transform: scale(0.8) translateY(-2rem) translateX(2rem);
+}
+.gigantamax-sandaconda {
+	transform: scalex(-1.4) scaleY(1.4) translateY(-4rem) translateX(0);
+}
+.centiskorch {
+	transform: scale(1.1) translateY(-1rem) translateX(4rem);
+}
+.gigantamax-centiskorch {
+	transform: scale(1.5) translateY(-4rem) translateX(-3rem);
+}
+.polteageist-antique {
+	transform: scale(0.9) translateY(-2rem) translateX(2rem);
+}
+.hattrem {
+	transform: scale(1.1) translateY(-2rem) translateX(0);
+}
+.hatterene {
+	transform: scale(1.2) translateY(-2rem) translateX(-2rem);
+}
+.gigantamax-hatterene {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-2rem);
+}
+.obstagoon {
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-3rem);
+}
+.perrserker {
+	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-4rem);
+}
+.runerigus {
+	transform: scale(1.3) translateY(-6rem);
+}
+.gigantamax-alcremie {
+	transform: scale(1.4) translateY(-3rem) translateX(0);
+}
+.snom {
+	transform: scalex(-0.9) scaleY(0.9) translateX(-1rem);
+}
+.frosmoth {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-1rem) translateX(-2rem);
+}
+.cufant {
+	transform: scalex(-1) translateX(0);
+}
+.gigantamax-copperajah {
+	transform: scale(1.4) translateY(-2rem) translateX(-5rem);
+}
+.dracozolt {
+	transform: scale(1.4) translateY(-3rem) translateX(7rem);
+}
+.duraludon {
+	transform: scale(1.1) translateY(0) translateX(1rem);
+}
+.gigantamax-duraludon {
+	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-2rem);
+}
+.zacian {
+	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-6rem);
+}
+.eternatus {
+	transform: scale(1.4) translateY(-3rem) translateX(6rem);
+}
+.urshifu-rapid-strike {
+	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(0);
+}
+.gigantamax-urshifu-rapid-strike {
+	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(1rem);
+}
+.zarude {
+	transform: scalex(-1.1) translateY(0) translateX(-2rem);
+}
+.regidrago {
+	transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(2rem);
+}
+.spectrier {
+	transform: scale(1.3) translateY(-2rem) translateX(6rem);
+}
+.enamorus {
+	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(0);
+}

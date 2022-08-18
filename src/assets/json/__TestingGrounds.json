@@ -1,0 +1,6382 @@
+{
+	"pokemon": [
+		{
+			"name": "Bulbasaur",
+			"dexNo": "1",
+			"apiNo": "1",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Ivysaur",
+			"dexNo": "2",
+			"apiNo": "2",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Venusaur",
+			"dexNo": "3",
+			"apiNo": "3",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Mega Venusaur",
+			"dexNo": "3",
+			"apiNo": "10033",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Charmander",
+			"dexNo": "4",
+			"apiNo": "4",
+			"type": ["fire"]
+		},
+		{
+			"name": "Charmeleon",
+			"dexNo": "5",
+			"apiNo": "5",
+			"type": ["fire"]
+		},
+		{
+			"name": "Charizard",
+			"dexNo": "6",
+			"apiNo": "6",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Mega Charizard X",
+			"dexNo": "6",
+			"apiNo": "10034",
+			"type": ["fire", "dragon"]
+		},
+		{
+			"name": "Mega Charizard Y",
+			"dexNo": "6",
+			"apiNo": "10035",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Squirtle",
+			"dexNo": "7",
+			"apiNo": "7",
+			"type": ["water"]
+		},
+		{
+			"name": "Wartortle",
+			"dexNo": "8",
+			"apiNo": "8",
+			"type": ["water"]
+		},
+		{
+			"name": "Blastoise",
+			"dexNo": "9",
+			"apiNo": "9",
+			"type": ["water"]
+		},
+		{
+			"name": "Mega Blastoise",
+			"dexNo": "9",
+			"apiNo": "10036",
+			"type": ["water"]
+		},
+		{
+			"name": "Caterpie",
+			"dexNo": "10",
+			"apiNo": "10",
+			"type": ["bug"]
+		},
+		{
+			"name": "Metapod",
+			"dexNo": "11",
+			"apiNo": "11",
+			"type": ["bug"]
+		},
+		{
+			"name": "Butterfree",
+			"dexNo": "12",
+			"apiNo": "12",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Weedle",
+			"dexNo": "13",
+			"apiNo": "13",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Kakuna",
+			"dexNo": "14",
+			"apiNo": "14",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Beedrill",
+			"dexNo": "15",
+			"apiNo": "15",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Mega Beedrill",
+			"dexNo": "15",
+			"apiNo": "10090",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Pidgey",
+			"dexNo": "16",
+			"apiNo": "16",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Pidgeotto",
+			"dexNo": "17",
+			"apiNo": "17",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Pidgeot",
+			"dexNo": "18",
+			"apiNo": "18",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Mega Pidgeot",
+			"dexNo": "18",
+			"apiNo": "10073",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Rattata",
+			"dexNo": "19",
+			"apiNo": "19",
+			"type": ["normal"]
+		},
+		{
+			"name": "Alolan Rattata",
+			"dexNo": "19",
+			"apiNo": "10091",
+			"type": ["normal", "dark"]
+		},
+		{
+			"name": "Raticate",
+			"dexNo": "20",
+			"apiNo": "20",
+			"type": ["normal"]
+		},
+		{
+			"name": "Alolan Raticate",
+			"dexNo": "20",
+			"apiNo": "10092",
+			"type": ["normal", "dark"]
+		},
+		{
+			"name": "Spearow",
+			"dexNo": "21",
+			"apiNo": "21",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Fearow",
+			"dexNo": "22",
+			"apiNo": "22",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Ekans",
+			"dexNo": "23",
+			"apiNo": "23",
+			"type": ["poison"]
+		},
+		{
+			"name": "Arbok",
+			"dexNo": "24",
+			"apiNo": "24",
+			"type": ["poison"]
+		},
+		{
+			"name": "Pikachu",
+			"dexNo": "25",
+			"apiNo": "25",
+			"type": ["electric"]
+		},
+		{
+			"name": "Raichu",
+			"dexNo": "26",
+			"apiNo": "26",
+			"type": ["electric"]
+		},
+		{
+			"name": "Alolan Raichu",
+			"dexNo": "26",
+			"apiNo": "10100",
+			"type": ["electric", "psychic"]
+		},
+		{
+			"name": "Sandshrew",
+			"dexNo": "27",
+			"apiNo": "27",
+			"type": ["ice", "steel"]
+		},
+		{
+			"name": "Alolan Sandshrew",
+			"dexNo": "27",
+			"apiNo": "10101",
+			"type": ["ground"]
+		},
+		{
+			"name": "Sandslash",
+			"dexNo": "28",
+			"apiNo": "28",
+			"type": ["ground"]
+		},
+		{
+			"name": "Alolan Sandslash",
+			"dexNo": "28",
+			"apiNo": "10102",
+			"type": ["ice", "steel"]
+		},
+		{
+			"name": "Nidoran Female",
+			"dexNo": "29",
+			"apiNo": "29",
+			"type": ["poison"]
+		},
+		{
+			"name": "Nidorina",
+			"dexNo": "30",
+			"apiNo": "30",
+			"type": ["poison"]
+		},
+		{
+			"name": "Nidoqueen",
+			"dexNo": "31",
+			"apiNo": "31",
+			"type": ["poison", "ground"]
+		},
+		{
+			"name": "Nidoran Male",
+			"dexNo": "32",
+			"apiNo": "32",
+			"type": ["poison"]
+		},
+		{
+			"name": "Nidorino",
+			"dexNo": "33",
+			"apiNo": "33",
+			"type": ["poison"]
+		},
+		{
+			"name": "Nidoking",
+			"dexNo": "34",
+			"apiNo": "34",
+			"type": ["poison", "ground"]
+		},
+		{
+			"name": "Clefairy",
+			"dexNo": "35",
+			"apiNo": "35",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Clefable",
+			"dexNo": "36",
+			"apiNo": "36",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Vulpix",
+			"dexNo": "37",
+			"apiNo": "37",
+			"type": ["fire"]
+		},
+		{
+			"name": "Alolan Vulpix",
+			"dexNo": "37",
+			"apiNo": "10103",
+			"type": ["ice"]
+		},
+		{
+			"name": "Ninetales",
+			"dexNo": "38",
+			"apiNo": "38",
+			"type": ["fire"]
+		},
+		{
+			"name": "Alolan Ninetales",
+			"dexNo": "38",
+			"apiNo": "10104",
+			"type": ["ice", "fairy"]
+		},
+		{
+			"name": "Jigglypuff",
+			"dexNo": "39",
+			"apiNo": "39",
+			"type": ["normal", "fairy"]
+		},
+		{
+			"name": "Wigglytuff",
+			"dexNo": "40",
+			"apiNo": "40",
+			"type": ["normal", "fairy"]
+		},
+		{
+			"name": "Zubat",
+			"dexNo": "41",
+			"apiNo": "41",
+			"type": ["poison", "flying"]
+		},
+		{
+			"name": "Golbat",
+			"dexNo": "42",
+			"apiNo": "42",
+			"type": ["poison", "flying"]
+		},
+		{
+			"name": "Oddish",
+			"dexNo": "43",
+			"apiNo": "43",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Gloom",
+			"dexNo": "44",
+			"apiNo": "44",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Vileplume",
+			"dexNo": "45",
+			"apiNo": "45",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Paras",
+			"dexNo": "46",
+			"apiNo": "46",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Parasect",
+			"dexNo": "47",
+			"apiNo": "47",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Venonat",
+			"dexNo": "48",
+			"apiNo": "48",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Venomoth",
+			"dexNo": "49",
+			"apiNo": "49",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Diglett",
+			"dexNo": "50",
+			"apiNo": "50",
+			"type": ["ground"]
+		},
+		{
+			"name": "Alolan Diglett",
+			"dexNo": "50",
+			"apiNo": "10105",
+			"type": ["ground", "steel"]
+		},
+		{
+			"name": "Dugtrio",
+			"dexNo": "51",
+			"apiNo": "51",
+			"type": ["ground"]
+		},
+		{
+			"name": "Alolan Dugtrio",
+			"dexNo": "51",
+			"apiNo": "10106",
+			"type": ["ground", "steel"]
+		},
+		{
+			"name": "Meowth",
+			"dexNo": "52",
+			"apiNo": "52",
+			"type": ["normal"]
+		},
+		{
+			"name": "Alolan Meowth",
+			"dexNo": "52",
+			"apiNo": "10107",
+			"type": ["dark"]
+		},
+		{
+			"name": "Galarian Meowth",
+			"dexNo": "52",
+			"apiNo": "10161",
+			"type": ["steel"]
+		},
+		{
+			"name": "Persian",
+			"dexNo": "53",
+			"apiNo": "53",
+			"type": ["normal"]
+		},
+		{
+			"name": "Alolan Persian",
+			"dexNo": "53",
+			"apiNo": "10108",
+			"type": ["dark"]
+		},
+		{
+			"name": "Psyduck",
+			"dexNo": "54",
+			"apiNo": "54",
+			"type": ["water"]
+		},
+		{
+			"name": "Golduck",
+			"dexNo": "55",
+			"apiNo": "55",
+			"type": ["water"]
+		},
+		{
+			"name": "Mankey",
+			"dexNo": "56",
+			"apiNo": "56",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Primeape",
+			"dexNo": "57",
+			"apiNo": "57",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Growlithe",
+			"dexNo": "58",
+			"apiNo": "58",
+			"type": ["fire"]
+		},
+		{
+			"name": "Hisuian Growlithe",
+			"dexNo": "58",
+			"apiNo": "10229",
+			"type": ["fire", "rock"]
+		},
+		{
+			"name": "Arcanine",
+			"dexNo": "59",
+			"apiNo": "59",
+			"type": ["fire"]
+		},
+		{
+			"name": "Hisuian Arcanine",
+			"dexNo": "59",
+			"apiNo": "10230",
+			"type": ["fire", "rock"]
+		},
+		{
+			"name": "Poliwag",
+			"dexNo": "60",
+			"apiNo": "60",
+			"type": ["water"]
+		},
+		{
+			"name": "Poliwhirl",
+			"dexNo": "61",
+			"apiNo": "61",
+			"type": ["water"]
+		},
+		{
+			"name": "Poliwrath",
+			"dexNo": "62",
+			"apiNo": "62",
+			"type": ["water", "fighting"]
+		},
+		{
+			"name": "Abra",
+			"dexNo": "63",
+			"apiNo": "63",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Kadabra",
+			"dexNo": "64",
+			"apiNo": "64",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Alakazam",
+			"dexNo": "65",
+			"apiNo": "65",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Mega Alakazam",
+			"dexNo": "65",
+			"apiNo": "10037",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Machop",
+			"dexNo": "66",
+			"apiNo": "66",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Machoke",
+			"dexNo": "67",
+			"apiNo": "67",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Machamp",
+			"dexNo": "68",
+			"apiNo": "68",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Bellsprout",
+			"dexNo": "69",
+			"apiNo": "69",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Weepinbell",
+			"dexNo": "70",
+			"apiNo": "70",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Victreebel",
+			"dexNo": "71",
+			"apiNo": "71",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Tentacool",
+			"dexNo": "72",
+			"apiNo": "72",
+			"type": ["water", "poison"]
+		},
+		{
+			"name": "Tentacruel",
+			"dexNo": "73",
+			"apiNo": "73",
+			"type": ["water", "poison"]
+		},
+		{
+			"name": "Geodude",
+			"dexNo": "74",
+			"apiNo": "74",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Alolan Geodude",
+			"dexNo": "74",
+			"apiNo": "10109",
+			"type": ["rock", "electric"]
+		},
+		{
+			"name": "Graveler",
+			"dexNo": "75",
+			"apiNo": "75",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Alolan Graveler",
+			"dexNo": "75",
+			"apiNo": "10110",
+			"type": ["rock", "electric"]
+		},
+		{
+			"name": "Golem",
+			"dexNo": "76",
+			"apiNo": "76",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Alolan Golem",
+			"dexNo": "76",
+			"apiNo": "10111",
+			"type": ["rock", "electric"]
+		},
+		{
+			"name": "Ponyta",
+			"dexNo": "77",
+			"apiNo": "77",
+			"type": ["fire"]
+		},
+		{
+			"name": "Galarian Ponyta",
+			"dexNo": "77",
+			"apiNo": "10162",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Rapidash",
+			"dexNo": "78",
+			"apiNo": "78",
+			"type": ["fire"]
+		},
+		{
+			"name": "Galarian Rapidash",
+			"dexNo": "78",
+			"apiNo": "10163",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Slowpoke",
+			"dexNo": "79",
+			"apiNo": "79",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Galarian Slowpoke",
+			"dexNo": "79",
+			"apiNo": "10164",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Slowbro",
+			"dexNo": "80",
+			"apiNo": "80",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Mega Slowbro",
+			"dexNo": "80",
+			"apiNo": "10071",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Galarian Slowbro",
+			"dexNo": "80",
+			"apiNo": "10165",
+			"type": ["poison", "psychic"]
+		},
+		{
+			"name": "Magnemite",
+			"dexNo": "81",
+			"apiNo": "81",
+			"type": ["electric", "steel"]
+		},
+		{
+			"name": "Magneton",
+			"dexNo": "82",
+			"apiNo": "82",
+			"type": ["electric", "steel"]
+		},
+		{
+			"name": "Farfetch’d",
+			"dexNo": "83",
+			"apiNo": "83",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Galarian Farfetch’d",
+			"dexNo": "83",
+			"apiNo": "10166",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Doduo",
+			"dexNo": "84",
+			"apiNo": "84",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Dodrio",
+			"dexNo": "85",
+			"apiNo": "85",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Seel",
+			"dexNo": "86",
+			"apiNo": "86",
+			"type": ["water"]
+		},
+		{
+			"name": "Dewgong",
+			"dexNo": "87",
+			"apiNo": "87",
+			"type": ["water", "ice"]
+		},
+		{
+			"name": "Grimer",
+			"dexNo": "88",
+			"apiNo": "88",
+			"type": ["poison"]
+		},
+		{
+			"name": "Alolan Grimer",
+			"dexNo": "88",
+			"apiNo": "10112",
+			"type": ["poison", "dark"]
+		},
+		{
+			"name": "Muk",
+			"dexNo": "89",
+			"apiNo": "89",
+			"type": ["poison"]
+		},
+		{
+			"name": "Alolan Muk",
+			"dexNo": "89",
+			"apiNo": "10113",
+			"type": ["poison", "dark"]
+		},
+		{
+			"name": "Shellder",
+			"dexNo": "90",
+			"apiNo": "90",
+			"type": ["water"]
+		},
+		{
+			"name": "Cloyster",
+			"dexNo": "91",
+			"apiNo": "91",
+			"type": ["water", "ice"]
+		},
+		{
+			"name": "Gastly",
+			"dexNo": "92",
+			"apiNo": "92",
+			"type": ["ghost", "poison"]
+		},
+		{
+			"name": "Haunter",
+			"dexNo": "93",
+			"apiNo": "93",
+			"type": ["ghost", "poison"]
+		},
+		{
+			"name": "Gengar",
+			"dexNo": "94",
+			"apiNo": "94",
+			"type": ["ghost", "poison"]
+		},
+		{
+			"name": "Mega Gengar",
+			"dexNo": "94",
+			"apiNo": "10038",
+			"type": ["ghost", "poison"]
+		},
+		{
+			"name": "Onix",
+			"dexNo": "95",
+			"apiNo": "95",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Drowzee",
+			"dexNo": "96",
+			"apiNo": "96",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Hypno",
+			"dexNo": "97",
+			"apiNo": "97",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Krabby",
+			"dexNo": "98",
+			"apiNo": "98",
+			"type": ["water"]
+		},
+		{
+			"name": "Kingler",
+			"dexNo": "99",
+			"apiNo": "99",
+			"type": ["water"]
+		},
+		{
+			"name": "Voltorb",
+			"dexNo": "100",
+			"apiNo": "100",
+			"type": ["electric"]
+		},
+		{
+			"name": "Hisuian Voltorb",
+			"dexNo": "100",
+			"apiNo": "10231",
+			"type": ["electric", "grass"]
+		},
+		{
+			"name": "Electrode",
+			"dexNo": "101",
+			"apiNo": "101",
+			"type": ["electric"]
+		},
+		{
+			"name": "Hisuian Electrode",
+			"dexNo": "101",
+			"apiNo": "10232",
+			"type": ["electric", "grass"]
+		},
+		{
+			"name": "Exeggcute",
+			"dexNo": "102",
+			"apiNo": "102",
+			"type": ["grass", "psychic"]
+		},
+		{
+			"name": "Exeggutor",
+			"dexNo": "103",
+			"apiNo": "103",
+			"type": ["grass", "psychic"]
+		},
+		{
+			"name": "Alolan Exeggutor",
+			"dexNo": "103",
+			"apiNo": "10114",
+			"type": ["grass", "dragon"]
+		},
+		{
+			"name": "Cubone",
+			"dexNo": "104",
+			"apiNo": "104",
+			"type": ["ground"]
+		},
+		{
+			"name": "Marowak",
+			"dexNo": "105",
+			"apiNo": "105",
+			"type": ["ground"]
+		},
+		{
+			"name": "Alolan Marowak",
+			"dexNo": "105",
+			"apiNo": "10115",
+			"type": ["fire", "ghost"]
+		},
+		{
+			"name": "Hitmonlee",
+			"dexNo": "106",
+			"apiNo": "106",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Hitmonchan",
+			"dexNo": "107",
+			"apiNo": "107",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Lickitung",
+			"dexNo": "108",
+			"apiNo": "108",
+			"type": ["normal"]
+		},
+		{
+			"name": "Koffing",
+			"dexNo": "109",
+			"apiNo": "109",
+			"type": ["poison"]
+		},
+		{
+			"name": "Weezing",
+			"dexNo": "110",
+			"apiNo": "110",
+			"type": ["poison"]
+		},
+		{
+			"name": "Galarian Weezing",
+			"dexNo": "110",
+			"apiNo": "10167",
+			"type": ["poison", "fairy"]
+		},
+		{
+			"name": "Rhyhorn",
+			"dexNo": "111",
+			"apiNo": "111",
+			"type": ["ground", "rock"]
+		},
+		{
+			"name": "Rhydon",
+			"dexNo": "112",
+			"apiNo": "112",
+			"type": ["ground", "rock"]
+		},
+		{
+			"name": "Chansey",
+			"dexNo": "113",
+			"apiNo": "113",
+			"type": ["normal"]
+		},
+		{
+			"name": "Tangela",
+			"dexNo": "114",
+			"apiNo": "114",
+			"type": ["grass"]
+		},
+		{
+			"name": "Kangaskhan",
+			"dexNo": "115",
+			"apiNo": "115",
+			"type": ["normal"]
+		},
+		{
+			"name": "Mega Kangaskhan",
+			"dexNo": "115",
+			"apiNo": "10039",
+			"type": ["normal"]
+		},
+		{
+			"name": "Horsea",
+			"dexNo": "116",
+			"apiNo": "116",
+			"type": ["water"]
+		},
+		{
+			"name": "Seadra",
+			"dexNo": "117",
+			"apiNo": "117",
+			"type": ["water"]
+		},
+		{
+			"name": "Goldeen",
+			"dexNo": "118",
+			"apiNo": "118",
+			"type": ["water"]
+		},
+		{
+			"name": "Seaking",
+			"dexNo": "119",
+			"apiNo": "119",
+			"type": ["water"]
+		},
+		{
+			"name": "Staryu",
+			"dexNo": "120",
+			"apiNo": "120",
+			"type": ["water"]
+		},
+		{
+			"name": "Starmie",
+			"dexNo": "121",
+			"apiNo": "121",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Mr. Mime",
+			"dexNo": "122",
+			"apiNo": "122",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Galarian Mr. Mime",
+			"dexNo": "122",
+			"apiNo": "10168",
+			"type": ["ice", "psychic"]
+		},
+		{
+			"name": "Scyther",
+			"dexNo": "123",
+			"apiNo": "123",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Jynx",
+			"dexNo": "124",
+			"apiNo": "124",
+			"type": ["ice", "psychic"]
+		},
+		{
+			"name": "Electabuzz",
+			"dexNo": "125",
+			"apiNo": "125",
+			"type": ["electric"]
+		},
+		{
+			"name": "Magmar",
+			"dexNo": "126",
+			"apiNo": "126",
+			"type": ["fire"]
+		},
+		{
+			"name": "Pinsir",
+			"dexNo": "127",
+			"apiNo": "127",
+			"type": ["bug"]
+		},
+		{
+			"name": "Mega Pinsir",
+			"dexNo": "127",
+			"apiNo": "10040",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Tauros",
+			"dexNo": "128",
+			"apiNo": "128",
+			"type": ["normal"]
+		},
+		{
+			"name": "Magikarp",
+			"dexNo": "129",
+			"apiNo": "129",
+			"type": ["water"]
+		},
+		{
+			"name": "Gyarados",
+			"dexNo": "130",
+			"apiNo": "130",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Mega Gyarados",
+			"dexNo": "130",
+			"apiNo": "10041",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Lapras",
+			"dexNo": "131",
+			"apiNo": "131",
+			"type": ["water", "ice"]
+		},
+		{
+			"name": "Ditto",
+			"dexNo": "132",
+			"apiNo": "132",
+			"type": ["normal"]
+		},
+		{
+			"name": "Eevee",
+			"dexNo": "133",
+			"apiNo": "133",
+			"type": ["normal"]
+		},
+		{
+			"name": "Vaporeon",
+			"dexNo": "134",
+			"apiNo": "134",
+			"type": ["water"]
+		},
+		{
+			"name": "Jolteon",
+			"dexNo": "135",
+			"apiNo": "135",
+			"type": ["electric"]
+		},
+		{
+			"name": "Flareon",
+			"dexNo": "136",
+			"apiNo": "136",
+			"type": ["fire"]
+		},
+		{
+			"name": "Porygon",
+			"dexNo": "137",
+			"apiNo": "137",
+			"type": ["normal"]
+		},
+		{
+			"name": "Omanyte",
+			"dexNo": "138",
+			"apiNo": "138",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Omastar",
+			"dexNo": "139",
+			"apiNo": "139",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Kabuto",
+			"dexNo": "140",
+			"apiNo": "140",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Kabutops",
+			"dexNo": "141",
+			"apiNo": "141",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Aerodactyl",
+			"dexNo": "142",
+			"apiNo": "142",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Mega Aerodactyl",
+			"dexNo": "142",
+			"apiNo": "10042",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Snorlax",
+			"dexNo": "143",
+			"apiNo": "143",
+			"type": ["normal"]
+		},
+		{
+			"name": "Articuno",
+			"dexNo": "144",
+			"apiNo": "144",
+			"type": ["ice", "flying"]
+		},
+		{
+			"name": "Galarian Articuno",
+			"dexNo": "144",
+			"apiNo": "10169",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Zapdos",
+			"dexNo": "145",
+			"apiNo": "145",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Galarian Zapdos",
+			"dexNo": "145",
+			"apiNo": "10170",
+			"type": ["fighting", "flying"]
+		},
+		{
+			"name": "Moltres",
+			"dexNo": "146",
+			"apiNo": "146",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Galarian Moltres",
+			"dexNo": "146",
+			"apiNo": "10171",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Dratini",
+			"dexNo": "147",
+			"apiNo": "147",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Dragonair",
+			"dexNo": "148",
+			"apiNo": "148",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Dragonite",
+			"dexNo": "149",
+			"apiNo": "149",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Mewtwo",
+			"dexNo": "150",
+			"apiNo": "150",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Mega Mewtwo X",
+			"dexNo": "150",
+			"apiNo": "10043",
+			"type": ["psychic", "fighting"]
+		},
+		{
+			"name": "Mega Mewtwo Y",
+			"dexNo": "150",
+			"apiNo": "10044",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Mew",
+			"dexNo": "151",
+			"apiNo": "151",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Chikorita",
+			"dexNo": "152",
+			"apiNo": "152",
+			"type": ["grass"]
+		},
+		{
+			"name": "Bayleef",
+			"dexNo": "153",
+			"apiNo": "153",
+			"type": ["grass"]
+		},
+		{
+			"name": "Meganium",
+			"dexNo": "154",
+			"apiNo": "154",
+			"type": ["grass"]
+		},
+		{
+			"name": "Cyndaquil",
+			"dexNo": "155",
+			"apiNo": "155",
+			"type": ["fire"]
+		},
+		{
+			"name": "Quilava",
+			"dexNo": "156",
+			"apiNo": "156",
+			"type": ["fire"]
+		},
+		{
+			"name": "Typhlosion",
+			"dexNo": "157",
+			"apiNo": "157",
+			"type": ["fire"]
+		},
+		{
+			"name": "Hisuian Typhlosion",
+			"dexNo": "157",
+			"apiNo": "10233",
+			"type": ["fire", "ghost"]
+		},
+		{
+			"name": "Totodile",
+			"dexNo": "158",
+			"apiNo": "158",
+			"type": ["water"]
+		},
+		{
+			"name": "Croconaw",
+			"dexNo": "159",
+			"apiNo": "159",
+			"type": ["water"]
+		},
+		{
+			"name": "Feraligatr",
+			"dexNo": "160",
+			"apiNo": "160",
+			"type": ["water"]
+		},
+		{
+			"name": "Sentret",
+			"dexNo": "161",
+			"apiNo": "161",
+			"type": ["normal"]
+		},
+		{
+			"name": "Furret",
+			"dexNo": "162",
+			"apiNo": "162",
+			"type": ["normal"]
+		},
+		{
+			"name": "Hoothoot",
+			"dexNo": "163",
+			"apiNo": "163",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Noctowl",
+			"dexNo": "164",
+			"apiNo": "164",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Ledyba",
+			"dexNo": "165",
+			"apiNo": "165",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Ledian",
+			"dexNo": "166",
+			"apiNo": "166",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Spinarak",
+			"dexNo": "167",
+			"apiNo": "167",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Ariados",
+			"dexNo": "168",
+			"apiNo": "168",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Crobat",
+			"dexNo": "169",
+			"apiNo": "169",
+			"type": ["poison", "flying"]
+		},
+		{
+			"name": "Chinchou",
+			"dexNo": "170",
+			"apiNo": "170",
+			"type": ["water", "electric"]
+		},
+		{
+			"name": "Lanturn",
+			"dexNo": "171",
+			"apiNo": "171",
+			"type": ["water", "electric"]
+		},
+		{
+			"name": "Pichu",
+			"dexNo": "172",
+			"apiNo": "172",
+			"type": ["electric"]
+		},
+		{
+			"name": "Cleffa",
+			"dexNo": "173",
+			"apiNo": "173",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Igglybuff",
+			"dexNo": "174",
+			"apiNo": "174",
+			"type": ["normal", "fairy"]
+		},
+		{
+			"name": "Togepi",
+			"dexNo": "175",
+			"apiNo": "175",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Togetic",
+			"dexNo": "176",
+			"apiNo": "176",
+			"type": ["fairy", "flying"]
+		},
+		{
+			"name": "Natu",
+			"dexNo": "177",
+			"apiNo": "177",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Xatu",
+			"dexNo": "178",
+			"apiNo": "178",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Mareep",
+			"dexNo": "179",
+			"apiNo": "179",
+			"type": ["electric"]
+		},
+		{
+			"name": "Flaaffy",
+			"dexNo": "180",
+			"apiNo": "180",
+			"type": ["electric"]
+		},
+		{
+			"name": "Ampharos",
+			"dexNo": "181",
+			"apiNo": "181",
+			"type": ["electric"]
+		},
+		{
+			"name": "Mega Ampharos",
+			"dexNo": "181",
+			"apiNo": "10045",
+			"type": ["electric", "dragon"]
+		},
+		{
+			"name": "Bellossom",
+			"dexNo": "182",
+			"apiNo": "182",
+			"type": ["grass"]
+		},
+		{
+			"name": "Marill",
+			"dexNo": "183",
+			"apiNo": "183",
+			"type": ["water", "fairy"]
+		},
+		{
+			"name": "Azumarill",
+			"dexNo": "184",
+			"apiNo": "184",
+			"type": ["water", "fairy"]
+		},
+		{
+			"name": "Sudowoodo",
+			"dexNo": "185",
+			"apiNo": "185",
+			"type": ["rock"]
+		},
+		{
+			"name": "Politoed",
+			"dexNo": "186",
+			"apiNo": "186",
+			"type": ["water"]
+		},
+		{
+			"name": "Hoppip",
+			"dexNo": "187",
+			"apiNo": "187",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Skiploom",
+			"dexNo": "188",
+			"apiNo": "188",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Jumpluff",
+			"dexNo": "189",
+			"apiNo": "189",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Aipom",
+			"dexNo": "190",
+			"apiNo": "190",
+			"type": ["normal"]
+		},
+		{
+			"name": "Sunkern",
+			"dexNo": "191",
+			"apiNo": "191",
+			"type": ["grass"]
+		},
+		{
+			"name": "Sunflora",
+			"dexNo": "192",
+			"apiNo": "192",
+			"type": ["grass"]
+		},
+		{
+			"name": "Yanma",
+			"dexNo": "193",
+			"apiNo": "193",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Wooper",
+			"dexNo": "194",
+			"apiNo": "194",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Quagsire",
+			"dexNo": "195",
+			"apiNo": "195",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Espeon",
+			"dexNo": "196",
+			"apiNo": "196",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Umbreon",
+			"dexNo": "197",
+			"apiNo": "197",
+			"type": ["dark"]
+		},
+		{
+			"name": "Murkrow",
+			"dexNo": "198",
+			"apiNo": "198",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Slowking",
+			"dexNo": "199",
+			"apiNo": "199",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Galarian Slowking",
+			"dexNo": "199",
+			"apiNo": "10172",
+			"type": ["poison", "psychic"]
+		},
+		{
+			"name": "Misdreavus",
+			"dexNo": "200",
+			"apiNo": "200",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Unown",
+			"dexNo": "201",
+			"apiNo": "201",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Wobbuffet",
+			"dexNo": "202",
+			"apiNo": "202",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Girafarig",
+			"dexNo": "203",
+			"apiNo": "203",
+			"type": ["normal", "psychic"]
+		},
+		{
+			"name": "Pineco",
+			"dexNo": "204",
+			"apiNo": "204",
+			"type": ["bug"]
+		},
+		{
+			"name": "Forretress",
+			"dexNo": "205",
+			"apiNo": "205",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Dunsparce",
+			"dexNo": "206",
+			"apiNo": "206",
+			"type": ["normal"]
+		},
+		{
+			"name": "Gligar",
+			"dexNo": "207",
+			"apiNo": "207",
+			"type": ["ground", "flying"]
+		},
+		{
+			"name": "Steelix",
+			"dexNo": "208",
+			"apiNo": "208",
+			"type": ["steel", "ground"]
+		},
+		{
+			"name": "Mega Steelix",
+			"dexNo": "208",
+			"apiNo": "10072",
+			"type": ["steel", "ground"]
+		},
+		{
+			"name": "Snubbull",
+			"dexNo": "209",
+			"apiNo": "209",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Granbull",
+			"dexNo": "210",
+			"apiNo": "210",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Qwilfish",
+			"dexNo": "211",
+			"apiNo": "211",
+			"type": ["water", "poison"]
+		},
+		{
+			"name": "Hisuian Qwilfish",
+			"dexNo": "211",
+			"apiNo": "10234",
+			"type": ["dark", "poison"]
+		},
+		{
+			"name": "Scizor",
+			"dexNo": "212",
+			"apiNo": "212",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Mega Scizor",
+			"dexNo": "212",
+			"apiNo": "10046",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Shuckle",
+			"dexNo": "213",
+			"apiNo": "213",
+			"type": ["bug", "rock"]
+		},
+		{
+			"name": "Heracross",
+			"dexNo": "214",
+			"apiNo": "214",
+			"type": ["bug", "fighting"]
+		},
+		{
+			"name": "Mega Heracross",
+			"dexNo": "214",
+			"apiNo": "10047",
+			"type": ["bug", "fighting"]
+		},
+		{
+			"name": "Sneasel",
+			"dexNo": "215",
+			"apiNo": "215",
+			"type": ["dark", "ice"]
+		},
+		{
+			"name": "Hisuian Sneasel",
+			"dexNo": "215",
+			"apiNo": "10235",
+			"type": ["fighting", "poison"]
+		},
+		{
+			"name": "Teddiursa",
+			"dexNo": "216",
+			"apiNo": "216",
+			"type": ["normal"]
+		},
+		{
+			"name": "Ursaring",
+			"dexNo": "217",
+			"apiNo": "217",
+			"type": ["normal"]
+		},
+		{
+			"name": "Slugma",
+			"dexNo": "218",
+			"apiNo": "218",
+			"type": ["fire"]
+		},
+		{
+			"name": "Magcargo",
+			"dexNo": "219",
+			"apiNo": "219",
+			"type": ["fire", "rock"]
+		},
+		{
+			"name": "Swinub",
+			"dexNo": "220",
+			"apiNo": "220",
+			"type": ["ice", "ground"]
+		},
+		{
+			"name": "Piloswine",
+			"dexNo": "221",
+			"apiNo": "221",
+			"type": ["ice", "ground"]
+		},
+		{
+			"name": "Corsola",
+			"dexNo": "222",
+			"apiNo": "222",
+			"type": ["water", "rock"]
+		},
+		{
+			"name": "Galarian Corsola",
+			"dexNo": "222",
+			"apiNo": "10173",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Remoraid",
+			"dexNo": "223",
+			"apiNo": "223",
+			"type": ["water"]
+		},
+		{
+			"name": "Octillery",
+			"dexNo": "224",
+			"apiNo": "224",
+			"type": ["water"]
+		},
+		{
+			"name": "Delibird",
+			"dexNo": "225",
+			"apiNo": "225",
+			"type": ["ice", "flying"]
+		},
+		{
+			"name": "Mantine",
+			"dexNo": "226",
+			"apiNo": "226",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Skarmory",
+			"dexNo": "227",
+			"apiNo": "227",
+			"type": ["steel", "flying"]
+		},
+		{
+			"name": "Houndour",
+			"dexNo": "228",
+			"apiNo": "228",
+			"type": ["dark", "fire"]
+		},
+		{
+			"name": "Houndoom",
+			"dexNo": "229",
+			"apiNo": "229",
+			"type": ["dark", "fire"]
+		},
+		{
+			"name": "Mega Houndoom",
+			"dexNo": "229",
+			"apiNo": "10048",
+			"type": ["dark", "fire"]
+		},
+		{
+			"name": "Kingdra",
+			"dexNo": "230",
+			"apiNo": "230",
+			"type": ["water", "dragon"]
+		},
+		{
+			"name": "Phanpy",
+			"dexNo": "231",
+			"apiNo": "231",
+			"type": ["ground"]
+		},
+		{
+			"name": "Donphan",
+			"dexNo": "232",
+			"apiNo": "232",
+			"type": ["ground"]
+		},
+		{
+			"name": "Porygon2",
+			"dexNo": "233",
+			"apiNo": "233",
+			"type": ["normal"]
+		},
+		{
+			"name": "Stantler",
+			"dexNo": "234",
+			"apiNo": "234",
+			"type": ["normal"]
+		},
+		{
+			"name": "Smeargle",
+			"dexNo": "235",
+			"apiNo": "235",
+			"type": ["normal"]
+		},
+		{
+			"name": "Tyrogue",
+			"dexNo": "236",
+			"apiNo": "236",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Hitmontop",
+			"dexNo": "237",
+			"apiNo": "237",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Smoochum",
+			"dexNo": "238",
+			"apiNo": "238",
+			"type": ["ice", "psychic"]
+		},
+		{
+			"name": "Elekid",
+			"dexNo": "239",
+			"apiNo": "239",
+			"type": ["electric"]
+		},
+		{
+			"name": "Magby",
+			"dexNo": "240",
+			"apiNo": "240",
+			"type": ["fire"]
+		},
+		{
+			"name": "Miltank",
+			"dexNo": "241",
+			"apiNo": "241",
+			"type": ["normal"]
+		},
+		{
+			"name": "Blissey",
+			"dexNo": "242",
+			"apiNo": "242",
+			"type": ["normal"]
+		},
+		{
+			"name": "Raikou",
+			"dexNo": "243",
+			"apiNo": "243",
+			"type": ["electric"]
+		},
+		{
+			"name": "Entei",
+			"dexNo": "244",
+			"apiNo": "244",
+			"type": ["fire"]
+		},
+		{
+			"name": "Suicune",
+			"dexNo": "245",
+			"apiNo": "245",
+			"type": ["water"]
+		},
+		{
+			"name": "Larvitar",
+			"dexNo": "246",
+			"apiNo": "246",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Pupitar",
+			"dexNo": "247",
+			"apiNo": "247",
+			"type": ["rock", "ground"]
+		},
+		{
+			"name": "Tyranitar",
+			"dexNo": "248",
+			"apiNo": "248",
+			"type": ["rock", "dark"]
+		},
+		{
+			"name": "Mega Tyranitar",
+			"dexNo": "248",
+			"apiNo": "10049",
+			"type": ["rock", "dark"]
+		},
+		{
+			"name": "Lugia",
+			"dexNo": "249",
+			"apiNo": "249",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Ho-Oh",
+			"dexNo": "250",
+			"apiNo": "250",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Celebi",
+			"dexNo": "251",
+			"apiNo": "251",
+			"type": ["psychic", "grass"]
+		},
+		{
+			"name": "Treecko",
+			"dexNo": "252",
+			"apiNo": "252",
+			"type": ["grass"]
+		},
+		{
+			"name": "Grovyle",
+			"dexNo": "253",
+			"apiNo": "253",
+			"type": ["grass"]
+		},
+		{
+			"name": "Sceptile",
+			"dexNo": "254",
+			"apiNo": "254",
+			"type": ["grass"]
+		},
+		{
+			"name": "Mega Sceptile",
+			"dexNo": "254",
+			"apiNo": "10065",
+			"type": ["grass", "dragon"]
+		},
+		{
+			"name": "Torchic",
+			"dexNo": "255",
+			"apiNo": "255",
+			"type": ["fire"]
+		},
+		{
+			"name": "Combusken",
+			"dexNo": "256",
+			"apiNo": "256",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Blaziken",
+			"dexNo": "257",
+			"apiNo": "257",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Mega Blaziken",
+			"dexNo": "257",
+			"apiNo": "10050",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Mudkip",
+			"dexNo": "258",
+			"apiNo": "258",
+			"type": ["water"]
+		},
+		{
+			"name": "Marshtomp",
+			"dexNo": "259",
+			"apiNo": "259",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Swampert",
+			"dexNo": "260",
+			"apiNo": "260",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Mega Swampert",
+			"dexNo": "260",
+			"apiNo": "10064",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Poochyena",
+			"dexNo": "261",
+			"apiNo": "261",
+			"type": ["dark"]
+		},
+		{
+			"name": "Mightyena",
+			"dexNo": "262",
+			"apiNo": "262",
+			"type": ["dark"]
+		},
+		{
+			"name": "Zigzagoon",
+			"dexNo": "263",
+			"apiNo": "263",
+			"type": ["normal"]
+		},
+		{
+			"name": "Galarian Zigzagoon",
+			"dexNo": "263",
+			"apiNo": "10174",
+			"type": ["dark", "normal"]
+		},
+		{
+			"name": "Linoone",
+			"dexNo": "264",
+			"apiNo": "264",
+			"type": ["normal"]
+		},
+		{
+			"name": "Galarian Linoone",
+			"dexNo": "264",
+			"apiNo": "10175",
+			"type": ["dark", "normal"]
+		},
+		{
+			"name": "Wurmple",
+			"dexNo": "265",
+			"apiNo": "265",
+			"type": ["bug"]
+		},
+		{
+			"name": "Silcoon",
+			"dexNo": "266",
+			"apiNo": "266",
+			"type": ["bug"]
+		},
+		{
+			"name": "Beautifly",
+			"dexNo": "267",
+			"apiNo": "267",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Cascoon",
+			"dexNo": "268",
+			"apiNo": "268",
+			"type": ["bug"]
+		},
+		{
+			"name": "Dustox",
+			"dexNo": "269",
+			"apiNo": "269",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Lotad",
+			"dexNo": "270",
+			"apiNo": "270",
+			"type": ["water", "grass"]
+		},
+		{
+			"name": "Lombre",
+			"dexNo": "271",
+			"apiNo": "271",
+			"type": ["water", "grass"]
+		},
+		{
+			"name": "Ludicolo",
+			"dexNo": "272",
+			"apiNo": "272",
+			"type": ["water", "grass"]
+		},
+		{
+			"name": "Seedot",
+			"dexNo": "273",
+			"apiNo": "273",
+			"type": ["grass"]
+		},
+		{
+			"name": "Nuzleaf",
+			"dexNo": "274",
+			"apiNo": "274",
+			"type": ["grass", "dark"]
+		},
+		{
+			"name": "Shiftry",
+			"dexNo": "275",
+			"apiNo": "275",
+			"type": ["grass", "dark"]
+		},
+		{
+			"name": "Taillow",
+			"dexNo": "276",
+			"apiNo": "276",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Swellow",
+			"dexNo": "277",
+			"apiNo": "277",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Wingull",
+			"dexNo": "278",
+			"apiNo": "278",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Pelipper",
+			"dexNo": "279",
+			"apiNo": "279",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Ralts",
+			"dexNo": "280",
+			"apiNo": "280",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Kirlia",
+			"dexNo": "281",
+			"apiNo": "281",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Gardevoir",
+			"dexNo": "282",
+			"apiNo": "282",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Mega Gardevoir",
+			"dexNo": "282",
+			"apiNo": "10051",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Surskit",
+			"dexNo": "283",
+			"apiNo": "283",
+			"type": ["bug", "water"]
+		},
+		{
+			"name": "Masquerain",
+			"dexNo": "284",
+			"apiNo": "284",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Shroomish",
+			"dexNo": "285",
+			"apiNo": "285",
+			"type": ["grass"]
+		},
+		{
+			"name": "Breloom",
+			"dexNo": "286",
+			"apiNo": "286",
+			"type": ["grass", "fighting"]
+		},
+		{
+			"name": "Slakoth",
+			"dexNo": "287",
+			"apiNo": "287",
+			"type": ["normal"]
+		},
+		{
+			"name": "Vigoroth",
+			"dexNo": "288",
+			"apiNo": "288",
+			"type": ["normal"]
+		},
+		{
+			"name": "Slaking",
+			"dexNo": "289",
+			"apiNo": "289",
+			"type": ["normal"]
+		},
+		{
+			"name": "Nincada",
+			"dexNo": "290",
+			"apiNo": "290",
+			"type": ["bug", "ground"]
+		},
+		{
+			"name": "Ninjask",
+			"dexNo": "291",
+			"apiNo": "291",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Shedinja",
+			"dexNo": "292",
+			"apiNo": "292",
+			"type": ["bug", "ghost"]
+		},
+		{
+			"name": "Whismur",
+			"dexNo": "293",
+			"apiNo": "293",
+			"type": ["normal"]
+		},
+		{
+			"name": "Loudred",
+			"dexNo": "294",
+			"apiNo": "294",
+			"type": ["normal"]
+		},
+		{
+			"name": "Exploud",
+			"dexNo": "295",
+			"apiNo": "295",
+			"type": ["normal"]
+		},
+		{
+			"name": "Makuhita",
+			"dexNo": "296",
+			"apiNo": "296",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Hariyama",
+			"dexNo": "297",
+			"apiNo": "297",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Azurill",
+			"dexNo": "298",
+			"apiNo": "298",
+			"type": ["normal", "fairy"]
+		},
+		{
+			"name": "Nosepass",
+			"dexNo": "299",
+			"apiNo": "299",
+			"type": ["rock"]
+		},
+		{
+			"name": "Skitty",
+			"dexNo": "300",
+			"apiNo": "300",
+			"type": ["normal"]
+		},
+		{
+			"name": "Delcatty",
+			"dexNo": "301",
+			"apiNo": "301",
+			"type": ["normal"]
+		},
+		{
+			"name": "Sableye",
+			"dexNo": "302",
+			"apiNo": "302",
+			"type": ["dark", "ghost"]
+		},
+		{
+			"name": "Mega Sableye",
+			"dexNo": "302",
+			"apiNo": "10066",
+			"type": ["dark", "ghost"]
+		},
+		{
+			"name": "Mawile",
+			"dexNo": "303",
+			"apiNo": "303",
+			"type": ["steel", "fairy"]
+		},
+		{
+			"name": "Mega Mawile",
+			"dexNo": "303",
+			"apiNo": "10052",
+			"type": ["steel", "fairy"]
+		},
+		{
+			"name": "Aron",
+			"dexNo": "304",
+			"apiNo": "304",
+			"type": ["steel", "rock"]
+		},
+		{
+			"name": "Lairon",
+			"dexNo": "305",
+			"apiNo": "305",
+			"type": ["steel", "rock"]
+		},
+		{
+			"name": "Aggron",
+			"dexNo": "306",
+			"apiNo": "306",
+			"type": ["steel", "rock"]
+		},
+		{
+			"name": "Mega Aggron",
+			"dexNo": "306",
+			"apiNo": "10053",
+			"type": ["steel"]
+		},
+		{
+			"name": "Meditite",
+			"dexNo": "307",
+			"apiNo": "307",
+			"type": ["fighting", "psychic"]
+		},
+		{
+			"name": "Medicham",
+			"dexNo": "308",
+			"apiNo": "308",
+			"type": ["fighting", "psychic"]
+		},
+		{
+			"name": "Mega Medicham",
+			"dexNo": "308",
+			"apiNo": "10054",
+			"type": ["fighting", "psychic"]
+		},
+		{
+			"name": "Electrike",
+			"dexNo": "309",
+			"apiNo": "309",
+			"type": ["electric"]
+		},
+		{
+			"name": "Manectric",
+			"dexNo": "310",
+			"apiNo": "310",
+			"type": ["electric"]
+		},
+		{
+			"name": "Mega Manectric",
+			"dexNo": "310",
+			"apiNo": "10055",
+			"type": ["electric"]
+		},
+		{
+			"name": "Plusle",
+			"dexNo": "311",
+			"apiNo": "311",
+			"type": ["electric"]
+		},
+		{
+			"name": "Minun",
+			"dexNo": "312",
+			"apiNo": "312",
+			"type": ["electric"]
+		},
+		{
+			"name": "Volbeat",
+			"dexNo": "313",
+			"apiNo": "313",
+			"type": ["bug"]
+		},
+		{
+			"name": "Illumise",
+			"dexNo": "314",
+			"apiNo": "314",
+			"type": ["bug"]
+		},
+		{
+			"name": "Roselia",
+			"dexNo": "315",
+			"apiNo": "315",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Gulpin",
+			"dexNo": "316",
+			"apiNo": "316",
+			"type": ["poison"]
+		},
+		{
+			"name": "Swalot",
+			"dexNo": "317",
+			"apiNo": "317",
+			"type": ["poison"]
+		},
+		{
+			"name": "Carvanha",
+			"dexNo": "318",
+			"apiNo": "318",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Sharpedo",
+			"dexNo": "319",
+			"apiNo": "319",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Mega Sharpedo",
+			"dexNo": "319",
+			"apiNo": "10070",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Wailmer",
+			"dexNo": "320",
+			"apiNo": "320",
+			"type": ["water"]
+		},
+		{
+			"name": "Wailord",
+			"dexNo": "321",
+			"apiNo": "321",
+			"type": ["water"]
+		},
+		{
+			"name": "Numel",
+			"dexNo": "322",
+			"apiNo": "322",
+			"type": ["fire", "ground"]
+		},
+		{
+			"name": "Camerupt",
+			"dexNo": "323",
+			"apiNo": "323",
+			"type": ["fire", "ground"]
+		},
+		{
+			"name": "Mega Camerupt",
+			"dexNo": "323",
+			"apiNo": "10087",
+			"type": ["fire", "ground"]
+		},
+		{
+			"name": "Torkoal",
+			"dexNo": "324",
+			"apiNo": "324",
+			"type": ["fire"]
+		},
+		{
+			"name": "Spoink",
+			"dexNo": "325",
+			"apiNo": "325",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Grumpig",
+			"dexNo": "326",
+			"apiNo": "326",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Spinda",
+			"dexNo": "327",
+			"apiNo": "327",
+			"type": ["normal"]
+		},
+		{
+			"name": "Trapinch",
+			"dexNo": "328",
+			"apiNo": "328",
+			"type": ["ground"]
+		},
+		{
+			"name": "Vibrava",
+			"dexNo": "329",
+			"apiNo": "329",
+			"type": ["ground", "dragon"]
+		},
+		{
+			"name": "Flygon",
+			"dexNo": "330",
+			"apiNo": "330",
+			"type": ["ground", "dragon"]
+		},
+		{
+			"name": "Cacnea",
+			"dexNo": "331",
+			"apiNo": "331",
+			"type": ["grass"]
+		},
+		{
+			"name": "Cacturne",
+			"dexNo": "332",
+			"apiNo": "332",
+			"type": ["grass", "dark"]
+		},
+		{
+			"name": "Swablu",
+			"dexNo": "333",
+			"apiNo": "333",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Altaria",
+			"dexNo": "334",
+			"apiNo": "334",
+			"type": ["dragon", "fairy"]
+		},
+		{
+			"name": "Mega Altaria",
+			"dexNo": "334",
+			"apiNo": "10067",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Zangoose",
+			"dexNo": "335",
+			"apiNo": "335",
+			"type": ["normal"]
+		},
+		{
+			"name": "Seviper",
+			"dexNo": "336",
+			"apiNo": "336",
+			"type": ["poison"]
+		},
+		{
+			"name": "Lunatone",
+			"dexNo": "337",
+			"apiNo": "337",
+			"type": ["rock", "psychic"]
+		},
+		{
+			"name": "Solrock",
+			"dexNo": "338",
+			"apiNo": "338",
+			"type": ["rock", "psychic"]
+		},
+		{
+			"name": "Barboach",
+			"dexNo": "339",
+			"apiNo": "339",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Whiscash",
+			"dexNo": "340",
+			"apiNo": "340",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Corphish",
+			"dexNo": "341",
+			"apiNo": "341",
+			"type": ["water"]
+		},
+		{
+			"name": "Crawdaunt",
+			"dexNo": "342",
+			"apiNo": "342",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Baltoy",
+			"dexNo": "343",
+			"apiNo": "343",
+			"type": ["ground", "psychic"]
+		},
+		{
+			"name": "Claydol",
+			"dexNo": "344",
+			"apiNo": "344",
+			"type": ["ground", "psychic"]
+		},
+		{
+			"name": "Lileep",
+			"dexNo": "345",
+			"apiNo": "345",
+			"type": ["rock", "grass"]
+		},
+		{
+			"name": "Cradily",
+			"dexNo": "346",
+			"apiNo": "346",
+			"type": ["rock", "grass"]
+		},
+		{
+			"name": "Anorith",
+			"dexNo": "347",
+			"apiNo": "347",
+			"type": ["rock", "bug"]
+		},
+		{
+			"name": "Armaldo",
+			"dexNo": "348",
+			"apiNo": "348",
+			"type": ["rock", "bug"]
+		},
+		{
+			"name": "Feebas",
+			"dexNo": "349",
+			"apiNo": "349",
+			"type": ["water"]
+		},
+		{
+			"name": "Milotic",
+			"dexNo": "350",
+			"apiNo": "350",
+			"type": ["water"]
+		},
+		{
+			"name": "Castform",
+			"dexNo": "351",
+			"apiNo": "351",
+			"type": ["normal"]
+		},
+		{
+			"name": "Castform Sunny",
+			"dexNo": "351",
+			"apiNo": "10013",
+			"type": ["fire"]
+		},
+		{
+			"name": "Castform Rainy",
+			"dexNo": "351",
+			"apiNo": "10014",
+			"type": ["water"]
+		},
+		{
+			"name": "Castform Snowy",
+			"dexNo": "351",
+			"apiNo": "10015",
+			"type": ["ice"]
+		},
+		{
+			"name": "Kecleon",
+			"dexNo": "352",
+			"apiNo": "352",
+			"type": ["normal"]
+		},
+		{
+			"name": "Shuppet",
+			"dexNo": "353",
+			"apiNo": "353",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Banette",
+			"dexNo": "354",
+			"apiNo": "354",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Mega Banette",
+			"dexNo": "354",
+			"apiNo": "10056",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Duskull",
+			"dexNo": "355",
+			"apiNo": "355",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Dusclops",
+			"dexNo": "356",
+			"apiNo": "356",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Tropius",
+			"dexNo": "357",
+			"apiNo": "357",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Chimecho",
+			"dexNo": "358",
+			"apiNo": "358",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Absol",
+			"dexNo": "359",
+			"apiNo": "359",
+			"type": ["dark"]
+		},
+		{
+			"name": "Mega Absol",
+			"dexNo": "359",
+			"apiNo": "10057",
+			"type": ["dark"]
+		},
+		{
+			"name": "Wynaut",
+			"dexNo": "360",
+			"apiNo": "360",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Snorunt",
+			"dexNo": "361",
+			"apiNo": "361",
+			"type": ["ice"]
+		},
+		{
+			"name": "Glalie",
+			"dexNo": "362",
+			"apiNo": "362",
+			"type": ["ice"]
+		},
+		{
+			"name": "Mega Glalie",
+			"dexNo": "362",
+			"apiNo": "10074",
+			"type": ["ice"]
+		},
+		{
+			"name": "Spheal",
+			"dexNo": "363",
+			"apiNo": "363",
+			"type": ["ice", "water"]
+		},
+		{
+			"name": "Sealeo",
+			"dexNo": "364",
+			"apiNo": "364",
+			"type": ["ice", "water"]
+		},
+		{
+			"name": "Walrein",
+			"dexNo": "365",
+			"apiNo": "365",
+			"type": ["ice", "water"]
+		},
+		{
+			"name": "Clamperl",
+			"dexNo": "366",
+			"apiNo": "366",
+			"type": ["water"]
+		},
+		{
+			"name": "Huntail",
+			"dexNo": "367",
+			"apiNo": "367",
+			"type": ["water"]
+		},
+		{
+			"name": "Gorebyss",
+			"dexNo": "368",
+			"apiNo": "368",
+			"type": ["water"]
+		},
+		{
+			"name": "Relicanth",
+			"dexNo": "369",
+			"apiNo": "369",
+			"type": ["water", "rock"]
+		},
+		{
+			"name": "Luvdisc",
+			"dexNo": "370",
+			"apiNo": "370",
+			"type": ["water"]
+		},
+		{
+			"name": "Bagon",
+			"dexNo": "371",
+			"apiNo": "371",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Shelgon",
+			"dexNo": "372",
+			"apiNo": "372",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Salamence",
+			"dexNo": "373",
+			"apiNo": "373",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Mega Salamence",
+			"dexNo": "373",
+			"apiNo": "10089",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Beldum",
+			"dexNo": "374",
+			"apiNo": "374",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Metang",
+			"dexNo": "375",
+			"apiNo": "375",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Metagross",
+			"dexNo": "376",
+			"apiNo": "376",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Mega Metagross",
+			"dexNo": "376",
+			"apiNo": "10076",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Regirock",
+			"dexNo": "377",
+			"apiNo": "377",
+			"type": ["rock"]
+		},
+		{
+			"name": "Regice",
+			"dexNo": "378",
+			"apiNo": "378",
+			"type": ["ice"]
+		},
+		{
+			"name": "Registeel",
+			"dexNo": "379",
+			"apiNo": "379",
+			"type": ["steel"]
+		},
+		{
+			"name": "Latias",
+			"dexNo": "380",
+			"apiNo": "380",
+			"type": ["dragon", "psychic"]
+		},
+		{
+			"name": "Mega Latias",
+			"dexNo": "380",
+			"apiNo": "10062",
+			"type": ["dragon", "psychic"]
+		},
+		{
+			"name": "Latios",
+			"dexNo": "381",
+			"apiNo": "381",
+			"type": ["dragon", "psychic"]
+		},
+		{
+			"name": "Mega Latios",
+			"dexNo": "381",
+			"apiNo": "10063",
+			"type": ["dragon", "psychic"]
+		},
+		{
+			"name": "Kyogre",
+			"dexNo": "382",
+			"apiNo": "382",
+			"type": ["water"]
+		},
+		{
+			"name": "Kyogre Primal",
+			"dexNo": "382",
+			"apiNo": "10077",
+			"type": ["water"]
+		},
+		{
+			"name": "Groudon",
+			"dexNo": "383",
+			"apiNo": "383",
+			"type": ["ground"]
+		},
+		{
+			"name": "Groudon Primal",
+			"dexNo": "383",
+			"apiNo": "10078",
+			"type": ["ground"]
+		},
+		{
+			"name": "Rayquaza",
+			"dexNo": "384",
+			"apiNo": "384",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Mega Rayquaza",
+			"dexNo": "384",
+			"apiNo": "10079",
+			"type": ["dragon", "flying"]
+		},
+		{
+			"name": "Jirachi",
+			"dexNo": "385",
+			"apiNo": "385",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Deoxys Normal",
+			"dexNo": "386",
+			"apiNo": "386",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Deoxys Attack",
+			"dexNo": "386",
+			"apiNo": "10001",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Deoxys Defense",
+			"dexNo": "386",
+			"apiNo": "10002",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Deoxys Speed",
+			"dexNo": "386",
+			"apiNo": "10003",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Turtwig",
+			"dexNo": "387",
+			"apiNo": "387",
+			"type": ["grass"]
+		},
+		{
+			"name": "Grotle",
+			"dexNo": "388",
+			"apiNo": "388",
+			"type": ["grass"]
+		},
+		{
+			"name": "Torterra",
+			"dexNo": "389",
+			"apiNo": "389",
+			"type": ["grass", "ground"]
+		},
+		{
+			"name": "Chimchar",
+			"dexNo": "390",
+			"apiNo": "390",
+			"type": ["fire"]
+		},
+		{
+			"name": "Monferno",
+			"dexNo": "391",
+			"apiNo": "391",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Infernape",
+			"dexNo": "392",
+			"apiNo": "392",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Piplup",
+			"dexNo": "393",
+			"apiNo": "393",
+			"type": ["water"]
+		},
+		{
+			"name": "Prinplup",
+			"dexNo": "394",
+			"apiNo": "394",
+			"type": ["water"]
+		},
+		{
+			"name": "Empoleon",
+			"dexNo": "395",
+			"apiNo": "395",
+			"type": ["water", "steel"]
+		},
+		{
+			"name": "Starly",
+			"dexNo": "396",
+			"apiNo": "396",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Staravia",
+			"dexNo": "397",
+			"apiNo": "397",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Staraptor",
+			"dexNo": "398",
+			"apiNo": "398",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Bidoof",
+			"dexNo": "399",
+			"apiNo": "399",
+			"type": ["normal"]
+		},
+		{
+			"name": "Bibarel",
+			"dexNo": "400",
+			"apiNo": "400",
+			"type": ["normal", "water"]
+		},
+		{
+			"name": "Kricketot",
+			"dexNo": "401",
+			"apiNo": "401",
+			"type": ["bug"]
+		},
+		{
+			"name": "Kricketune",
+			"dexNo": "402",
+			"apiNo": "402",
+			"type": ["bug"]
+		},
+		{
+			"name": "Shinx",
+			"dexNo": "403",
+			"apiNo": "403",
+			"type": ["electric"]
+		},
+		{
+			"name": "Luxio",
+			"dexNo": "404",
+			"apiNo": "404",
+			"type": ["electric"]
+		},
+		{
+			"name": "Luxray",
+			"dexNo": "405",
+			"apiNo": "405",
+			"type": ["electric"]
+		},
+		{
+			"name": "Budew",
+			"dexNo": "406",
+			"apiNo": "406",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Roserade",
+			"dexNo": "407",
+			"apiNo": "407",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Cranidos",
+			"dexNo": "408",
+			"apiNo": "408",
+			"type": ["rock"]
+		},
+		{
+			"name": "Rampardos",
+			"dexNo": "409",
+			"apiNo": "409",
+			"type": ["rock"]
+		},
+		{
+			"name": "Shieldon",
+			"dexNo": "410",
+			"apiNo": "410",
+			"type": ["rock", "steel"]
+		},
+		{
+			"name": "Bastiodon",
+			"dexNo": "411",
+			"apiNo": "411",
+			"type": ["rock", "steel"]
+		},
+		{
+			"name": "Burmy",
+			"dexNo": "412",
+			"apiNo": "412",
+			"type": ["bug"]
+		},
+		{
+			"name": "Wormadam Plant",
+			"dexNo": "413",
+			"apiNo": "413",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Wormadam Sandy",
+			"dexNo": "413",
+			"apiNo": "10004",
+			"type": ["bug", "ground"]
+		},
+		{
+			"name": "Wormadam Trash",
+			"dexNo": "413",
+			"apiNo": "10005",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Mothim",
+			"dexNo": "414",
+			"apiNo": "414",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Combee",
+			"dexNo": "415",
+			"apiNo": "415",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Vespiquen",
+			"dexNo": "416",
+			"apiNo": "416",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Pachirisu",
+			"dexNo": "417",
+			"apiNo": "417",
+			"type": ["electric"]
+		},
+		{
+			"name": "Buizel",
+			"dexNo": "418",
+			"apiNo": "418",
+			"type": ["water"]
+		},
+		{
+			"name": "Floatzel",
+			"dexNo": "419",
+			"apiNo": "419",
+			"type": ["water"]
+		},
+		{
+			"name": "Cherubi",
+			"dexNo": "420",
+			"apiNo": "420",
+			"type": ["grass"]
+		},
+		{
+			"name": "Cherrim",
+			"dexNo": "421",
+			"apiNo": "421",
+			"type": ["grass"]
+		},
+		{
+			"name": "Shellos",
+			"dexNo": "422",
+			"apiNo": "422",
+			"type": ["water"]
+		},
+		{
+			"name": "Gastrodon",
+			"dexNo": "423",
+			"apiNo": "423",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Ambipom",
+			"dexNo": "424",
+			"apiNo": "424",
+			"type": ["normal"]
+		},
+		{
+			"name": "Drifloon",
+			"dexNo": "425",
+			"apiNo": "425",
+			"type": ["ghost", "flying"]
+		},
+		{
+			"name": "Drifblim",
+			"dexNo": "426",
+			"apiNo": "426",
+			"type": ["ghost", "flying"]
+		},
+		{
+			"name": "Buneary",
+			"dexNo": "427",
+			"apiNo": "427",
+			"type": ["normal"]
+		},
+		{
+			"name": "Lopunny",
+			"dexNo": "428",
+			"apiNo": "428",
+			"type": ["normal"]
+		},
+		{
+			"name": "Mega Lopunny",
+			"dexNo": "428",
+			"apiNo": "10088",
+			"type": ["normal", "fighting"]
+		},
+		{
+			"name": "Mismagius",
+			"dexNo": "429",
+			"apiNo": "429",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Honchkrow",
+			"dexNo": "430",
+			"apiNo": "430",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Glameow",
+			"dexNo": "431",
+			"apiNo": "431",
+			"type": ["normal"]
+		},
+		{
+			"name": "Purugly",
+			"dexNo": "432",
+			"apiNo": "432",
+			"type": ["normal"]
+		},
+		{
+			"name": "Chingling",
+			"dexNo": "433",
+			"apiNo": "433",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Stunky",
+			"dexNo": "434",
+			"apiNo": "434",
+			"type": ["poison", "dark"]
+		},
+		{
+			"name": "Skuntank",
+			"dexNo": "435",
+			"apiNo": "435",
+			"type": ["poison", "dark"]
+		},
+		{
+			"name": "Bronzor",
+			"dexNo": "436",
+			"apiNo": "436",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Bronzong",
+			"dexNo": "437",
+			"apiNo": "437",
+			"type": ["steel", "psychic"]
+		},
+		{
+			"name": "Bonsly",
+			"dexNo": "438",
+			"apiNo": "438",
+			"type": ["rock"]
+		},
+		{
+			"name": "Mime Jr.",
+			"dexNo": "439",
+			"apiNo": "439",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Happiny",
+			"dexNo": "440",
+			"apiNo": "440",
+			"type": ["normal"]
+		},
+		{
+			"name": "Chatot",
+			"dexNo": "441",
+			"apiNo": "441",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Spiritomb",
+			"dexNo": "442",
+			"apiNo": "442",
+			"type": ["ghost", "dark"]
+		},
+		{
+			"name": "Gible",
+			"dexNo": "443",
+			"apiNo": "443",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Gabite",
+			"dexNo": "444",
+			"apiNo": "444",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Garchomp",
+			"dexNo": "445",
+			"apiNo": "445",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Mega Garchomp",
+			"dexNo": "445",
+			"apiNo": "10058",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Munchlax",
+			"dexNo": "446",
+			"apiNo": "446",
+			"type": ["normal"]
+		},
+		{
+			"name": "Riolu",
+			"dexNo": "447",
+			"apiNo": "447",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Lucario",
+			"dexNo": "448",
+			"apiNo": "448",
+			"type": ["fighting", "steel"]
+		},
+		{
+			"name": "Mega Lucario",
+			"dexNo": "448",
+			"apiNo": "10059",
+			"type": ["fighting", "steel"]
+		},
+		{
+			"name": "Hippopotas",
+			"dexNo": "449",
+			"apiNo": "449",
+			"type": ["ground"]
+		},
+		{
+			"name": "Hippowdon",
+			"dexNo": "450",
+			"apiNo": "450",
+			"type": ["ground"]
+		},
+		{
+			"name": "Skorupi",
+			"dexNo": "451",
+			"apiNo": "451",
+			"type": ["poison", "bug"]
+		},
+		{
+			"name": "Drapion",
+			"dexNo": "452",
+			"apiNo": "452",
+			"type": ["poison", "dark"]
+		},
+		{
+			"name": "Croagunk",
+			"dexNo": "453",
+			"apiNo": "453",
+			"type": ["poison", "fighting"]
+		},
+		{
+			"name": "Toxicroak",
+			"dexNo": "454",
+			"apiNo": "454",
+			"type": ["poison", "fighting"]
+		},
+		{
+			"name": "Carnivine",
+			"dexNo": "455",
+			"apiNo": "455",
+			"type": ["grass"]
+		},
+		{
+			"name": "Finneon",
+			"dexNo": "456",
+			"apiNo": "456",
+			"type": ["water"]
+		},
+		{
+			"name": "Lumineon",
+			"dexNo": "457",
+			"apiNo": "457",
+			"type": ["water"]
+		},
+		{
+			"name": "Mantyke",
+			"dexNo": "458",
+			"apiNo": "458",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Snover",
+			"dexNo": "459",
+			"apiNo": "459",
+			"type": ["grass", "ice"]
+		},
+		{
+			"name": "Abomasnow",
+			"dexNo": "460",
+			"apiNo": "460",
+			"type": ["grass", "ice"]
+		},
+		{
+			"name": "Mega Abomasnow",
+			"dexNo": "460",
+			"apiNo": "10060",
+			"type": ["grass", "ice"]
+		},
+		{
+			"name": "Weavile",
+			"dexNo": "461",
+			"apiNo": "461",
+			"type": ["dark", "ice"]
+		},
+		{
+			"name": "Magnezone",
+			"dexNo": "462",
+			"apiNo": "462",
+			"type": ["electric", "steel"]
+		},
+		{
+			"name": "Lickilicky",
+			"dexNo": "463",
+			"apiNo": "463",
+			"type": ["normal"]
+		},
+		{
+			"name": "Rhyperior",
+			"dexNo": "464",
+			"apiNo": "464",
+			"type": ["ground", "rock"]
+		},
+		{
+			"name": "Tangrowth",
+			"dexNo": "465",
+			"apiNo": "465",
+			"type": ["grass"]
+		},
+		{
+			"name": "Electivire",
+			"dexNo": "466",
+			"apiNo": "466",
+			"type": ["electric"]
+		},
+		{
+			"name": "Magmortar",
+			"dexNo": "467",
+			"apiNo": "467",
+			"type": ["fire"]
+		},
+		{
+			"name": "Togekiss",
+			"dexNo": "468",
+			"apiNo": "468",
+			"type": ["fairy", "flying"]
+		},
+		{
+			"name": "Yanmega",
+			"dexNo": "469",
+			"apiNo": "469",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Leafeon",
+			"dexNo": "470",
+			"apiNo": "470",
+			"type": ["grass"]
+		},
+		{
+			"name": "Glaceon",
+			"dexNo": "471",
+			"apiNo": "471",
+			"type": ["ice"]
+		},
+		{
+			"name": "Gliscor",
+			"dexNo": "472",
+			"apiNo": "472",
+			"type": ["ground", "flying"]
+		},
+		{
+			"name": "Mamoswine",
+			"dexNo": "473",
+			"apiNo": "473",
+			"type": ["ice", "ground"]
+		},
+		{
+			"name": "Porygon-Z",
+			"dexNo": "474",
+			"apiNo": "474",
+			"type": ["normal"]
+		},
+		{
+			"name": "Gallade",
+			"dexNo": "475",
+			"apiNo": "475",
+			"type": ["psychic", "fighting"]
+		},
+		{
+			"name": "Mega Gallade",
+			"dexNo": "475",
+			"apiNo": "10068",
+			"type": ["psychic", "fighting"]
+		},
+		{
+			"name": "Probopass",
+			"dexNo": "476",
+			"apiNo": "476",
+			"type": ["rock", "steel"]
+		},
+		{
+			"name": "Dusknoir",
+			"dexNo": "477",
+			"apiNo": "477",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Froslass",
+			"dexNo": "478",
+			"apiNo": "478",
+			"type": ["ice", "ghost"]
+		},
+		{
+			"name": "Rotom",
+			"dexNo": "479",
+			"apiNo": "479",
+			"type": ["electric", "ghost"]
+		},
+		{
+			"name": "Rotom Heat",
+			"dexNo": "479",
+			"apiNo": "10008",
+			"type": ["electric", "fire"]
+		},
+		{
+			"name": "Rotom Wash",
+			"dexNo": "479",
+			"apiNo": "10009",
+			"type": ["electric", "water"]
+		},
+		{
+			"name": "Rotom Frost",
+			"dexNo": "479",
+			"apiNo": "10010",
+			"type": ["electric", "ice"]
+		},
+		{
+			"name": "Rotom Fan",
+			"dexNo": "479",
+			"apiNo": "10011",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Rotom Mow",
+			"dexNo": "479",
+			"apiNo": "10012",
+			"type": ["electric", "grass"]
+		},
+		{
+			"name": "Uxie",
+			"dexNo": "480",
+			"apiNo": "480",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Mesprit",
+			"dexNo": "481",
+			"apiNo": "481",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Azelf",
+			"dexNo": "482",
+			"apiNo": "482",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Dialga",
+			"dexNo": "483",
+			"apiNo": "483",
+			"type": ["steel", "dragon"]
+		},
+		{
+			"name": "Dialga Origin",
+			"dexNo": "483",
+			"apiNo": "10245",
+			"type": ["steel", "dragon"]
+		},
+		{
+			"name": "Palkia",
+			"dexNo": "484",
+			"apiNo": "484",
+			"type": ["water", "dragon"]
+		},
+		{
+			"name": "Palkia Origin",
+			"dexNo": "484",
+			"apiNo": "10246",
+			"type": ["water", "dragon"]
+		},
+		{
+			"name": "Heatran",
+			"dexNo": "485",
+			"apiNo": "485",
+			"type": ["fire", "steel"]
+		},
+		{
+			"name": "Regigigas",
+			"dexNo": "486",
+			"apiNo": "486",
+			"type": ["normal"]
+		},
+		{
+			"name": "Giratina Altered",
+			"dexNo": "487",
+			"apiNo": "487",
+			"type": ["ghost", "dragon"]
+		},
+		{
+			"name": "Giratina Origin",
+			"dexNo": "487",
+			"apiNo": "10007",
+			"type": ["ghost", "dragon"]
+		},
+		{
+			"name": "Cresselia",
+			"dexNo": "488",
+			"apiNo": "488",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Phione",
+			"dexNo": "489",
+			"apiNo": "489",
+			"type": ["water"]
+		},
+		{
+			"name": "Manaphy",
+			"dexNo": "490",
+			"apiNo": "490",
+			"type": ["water"]
+		},
+		{
+			"name": "Darkrai",
+			"dexNo": "491",
+			"apiNo": "491",
+			"type": ["dark"]
+		},
+		{
+			"name": "Shaymin Land",
+			"dexNo": "492",
+			"apiNo": "492",
+			"type": ["grass"]
+		},
+		{
+			"name": "Shaymin Sky",
+			"dexNo": "492",
+			"apiNo": "10006",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Arceus",
+			"dexNo": "493",
+			"apiNo": "493",
+			"type": ["normal"]
+		},
+		{
+			"name": "Victini",
+			"dexNo": "494",
+			"apiNo": "494",
+			"type": ["psychic", "fire"]
+		},
+		{
+			"name": "Snivy",
+			"dexNo": "495",
+			"apiNo": "495",
+			"type": ["grass"]
+		},
+		{
+			"name": "Servine",
+			"dexNo": "496",
+			"apiNo": "496",
+			"type": ["grass"]
+		},
+		{
+			"name": "Serperior",
+			"dexNo": "497",
+			"apiNo": "497",
+			"type": ["grass"]
+		},
+		{
+			"name": "Tepig",
+			"dexNo": "498",
+			"apiNo": "498",
+			"type": ["fire"]
+		},
+		{
+			"name": "Pignite",
+			"dexNo": "499",
+			"apiNo": "499",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Emboar",
+			"dexNo": "500",
+			"apiNo": "500",
+			"type": ["fire", "fighting"]
+		},
+		{
+			"name": "Oshawott",
+			"dexNo": "501",
+			"apiNo": "501",
+			"type": ["water"]
+		},
+		{
+			"name": "Dewott",
+			"dexNo": "502",
+			"apiNo": "502",
+			"type": ["water"]
+		},
+		{
+			"name": "Samurott",
+			"dexNo": "503",
+			"apiNo": "503",
+			"type": ["water"]
+		},
+		{
+			"name": "Hisuian Samurott",
+			"dexNo": "503",
+			"apiNo": "10236",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Patrat",
+			"dexNo": "504",
+			"apiNo": "504",
+			"type": ["normal"]
+		},
+		{
+			"name": "Watchog",
+			"dexNo": "505",
+			"apiNo": "505",
+			"type": ["normal"]
+		},
+		{
+			"name": "Lillipup",
+			"dexNo": "506",
+			"apiNo": "506",
+			"type": ["normal"]
+		},
+		{
+			"name": "Herdier",
+			"dexNo": "507",
+			"apiNo": "507",
+			"type": ["normal"]
+		},
+		{
+			"name": "Stoutland",
+			"dexNo": "508",
+			"apiNo": "508",
+			"type": ["normal"]
+		},
+		{
+			"name": "Purrloin",
+			"dexNo": "509",
+			"apiNo": "509",
+			"type": ["dark"]
+		},
+		{
+			"name": "Liepard",
+			"dexNo": "510",
+			"apiNo": "510",
+			"type": ["dark"]
+		},
+		{
+			"name": "Pansage",
+			"dexNo": "511",
+			"apiNo": "511",
+			"type": ["grass"]
+		},
+		{
+			"name": "Simisage",
+			"dexNo": "512",
+			"apiNo": "512",
+			"type": ["grass"]
+		},
+		{
+			"name": "Pansear",
+			"dexNo": "513",
+			"apiNo": "513",
+			"type": ["fire"]
+		},
+		{
+			"name": "Simisear",
+			"dexNo": "514",
+			"apiNo": "514",
+			"type": ["fire"]
+		},
+		{
+			"name": "Panpour",
+			"dexNo": "515",
+			"apiNo": "515",
+			"type": ["water"]
+		},
+		{
+			"name": "Simipour",
+			"dexNo": "516",
+			"apiNo": "516",
+			"type": ["water"]
+		},
+		{
+			"name": "Munna",
+			"dexNo": "517",
+			"apiNo": "517",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Musharna",
+			"dexNo": "518",
+			"apiNo": "518",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Pidove",
+			"dexNo": "519",
+			"apiNo": "519",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Tranquill",
+			"dexNo": "520",
+			"apiNo": "520",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Unfezant",
+			"dexNo": "521",
+			"apiNo": "521",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Blitzle",
+			"dexNo": "522",
+			"apiNo": "522",
+			"type": ["electric"]
+		},
+		{
+			"name": "Zebstrika",
+			"dexNo": "523",
+			"apiNo": "523",
+			"type": ["electric"]
+		},
+		{
+			"name": "Roggenrola",
+			"dexNo": "524",
+			"apiNo": "524",
+			"type": ["rock"]
+		},
+		{
+			"name": "Boldore",
+			"dexNo": "525",
+			"apiNo": "525",
+			"type": ["rock"]
+		},
+		{
+			"name": "Gigalith",
+			"dexNo": "526",
+			"apiNo": "526",
+			"type": ["rock"]
+		},
+		{
+			"name": "Woobat",
+			"dexNo": "527",
+			"apiNo": "527",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Swoobat",
+			"dexNo": "528",
+			"apiNo": "528",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Drilbur",
+			"dexNo": "529",
+			"apiNo": "529",
+			"type": ["ground"]
+		},
+		{
+			"name": "Excadrill",
+			"dexNo": "530",
+			"apiNo": "530",
+			"type": ["ground", "steel"]
+		},
+		{
+			"name": "Audino",
+			"dexNo": "531",
+			"apiNo": "531",
+			"type": ["normal"]
+		},
+		{
+			"name": "Mega Audino",
+			"dexNo": "531",
+			"apiNo": "10069",
+			"type": ["normal", "fairy"]
+		},
+		{
+			"name": "Timburr",
+			"dexNo": "532",
+			"apiNo": "532",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Gurdurr",
+			"dexNo": "533",
+			"apiNo": "533",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Conkeldurr",
+			"dexNo": "534",
+			"apiNo": "534",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Tympole",
+			"dexNo": "535",
+			"apiNo": "535",
+			"type": ["water"]
+		},
+		{
+			"name": "Palpitoad",
+			"dexNo": "536",
+			"apiNo": "536",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Seismitoad",
+			"dexNo": "537",
+			"apiNo": "537",
+			"type": ["water", "ground"]
+		},
+		{
+			"name": "Throh",
+			"dexNo": "538",
+			"apiNo": "538",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Sawk",
+			"dexNo": "539",
+			"apiNo": "539",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Sewaddle",
+			"dexNo": "540",
+			"apiNo": "540",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Swadloon",
+			"dexNo": "541",
+			"apiNo": "541",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Leavanny",
+			"dexNo": "542",
+			"apiNo": "542",
+			"type": ["bug", "grass"]
+		},
+		{
+			"name": "Venipede",
+			"dexNo": "543",
+			"apiNo": "543",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Whirlipede",
+			"dexNo": "544",
+			"apiNo": "544",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Scolipede",
+			"dexNo": "545",
+			"apiNo": "545",
+			"type": ["bug", "poison"]
+		},
+		{
+			"name": "Cottonee",
+			"dexNo": "546",
+			"apiNo": "546",
+			"type": ["grass", "fairy"]
+		},
+		{
+			"name": "Whimsicott",
+			"dexNo": "547",
+			"apiNo": "547",
+			"type": ["grass", "fairy"]
+		},
+		{
+			"name": "Petilil",
+			"dexNo": "548",
+			"apiNo": "548",
+			"type": ["grass"]
+		},
+		{
+			"name": "Lilligant",
+			"dexNo": "549",
+			"apiNo": "549",
+			"type": ["grass"]
+		},
+		{
+			"name": "Hisuian Lilligant",
+			"dexNo": "549",
+			"apiNo": "10237",
+			"type": ["grass", "fighting"]
+		},
+		{
+			"name": "Basculin Red Stripe",
+			"dexNo": "550",
+			"apiNo": "550",
+			"type": ["water"]
+		},
+		{
+			"name": "Basculin Blue Stripe",
+			"dexNo": "550",
+			"apiNo": "10016",
+			"type": ["water"]
+		},
+		{
+			"name": "Basculin White Stripe",
+			"dexNo": "550",
+			"apiNo": "10247",
+			"type": ["water"]
+		},
+		{
+			"name": "Sandile",
+			"dexNo": "551",
+			"apiNo": "551",
+			"type": ["ground", "dark"]
+		},
+		{
+			"name": "Krokorok",
+			"dexNo": "552",
+			"apiNo": "552",
+			"type": ["ground", "dark"]
+		},
+		{
+			"name": "Krookodile",
+			"dexNo": "553",
+			"apiNo": "553",
+			"type": ["ground", "dark"]
+		},
+		{
+			"name": "Darumaka",
+			"dexNo": "554",
+			"apiNo": "554",
+			"type": ["fire"]
+		},
+		{
+			"name": "Galarian Darumaka",
+			"dexNo": "554",
+			"apiNo": "10176",
+			"type": ["ice"]
+		},
+		{
+			"name": "Darmanitan",
+			"dexNo": "555",
+			"apiNo": "555",
+			"type": ["fire"]
+		},
+		{
+			"name": "Darmanitan Zen",
+			"dexNo": "555",
+			"apiNo": "10017",
+			"type": ["fire", "psychic"]
+		},
+		{
+			"name": "Galarian Darmanitan",
+			"dexNo": "555",
+			"apiNo": "10177",
+			"type": ["ice"]
+		},
+		{
+			"name": "Galarian Darmanitan Zen",
+			"dexNo": "555",
+			"apiNo": "10178",
+			"type": ["ice", "fire"]
+		},
+		{
+			"name": "Maractus",
+			"dexNo": "556",
+			"apiNo": "556",
+			"type": ["grass"]
+		},
+		{
+			"name": "Dwebble",
+			"dexNo": "557",
+			"apiNo": "557",
+			"type": ["bug", "rock"]
+		},
+		{
+			"name": "Crustle",
+			"dexNo": "558",
+			"apiNo": "558",
+			"type": ["bug", "rock"]
+		},
+		{
+			"name": "Scraggy",
+			"dexNo": "559",
+			"apiNo": "559",
+			"type": ["dark", "fighting"]
+		},
+		{
+			"name": "Scrafty",
+			"dexNo": "560",
+			"apiNo": "560",
+			"type": ["dark", "fighting"]
+		},
+		{
+			"name": "Sigilyph",
+			"dexNo": "561",
+			"apiNo": "561",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Yamask",
+			"dexNo": "562",
+			"apiNo": "562",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Galarian Yamask",
+			"dexNo": "562",
+			"apiNo": "10179",
+			"type": ["ground", "ghost"]
+		},
+		{
+			"name": "Cofagrigus",
+			"dexNo": "563",
+			"apiNo": "563",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Tirtouga",
+			"dexNo": "564",
+			"apiNo": "564",
+			"type": ["water", "rock"]
+		},
+		{
+			"name": "Carracosta",
+			"dexNo": "565",
+			"apiNo": "565",
+			"type": ["water", "rock"]
+		},
+		{
+			"name": "Archen",
+			"dexNo": "566",
+			"apiNo": "566",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Archeops",
+			"dexNo": "567",
+			"apiNo": "567",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Trubbish",
+			"dexNo": "568",
+			"apiNo": "568",
+			"type": ["poison"]
+		},
+		{
+			"name": "Garbodor",
+			"dexNo": "569",
+			"apiNo": "569",
+			"type": ["poison"]
+		},
+		{
+			"name": "Zorua",
+			"dexNo": "570",
+			"apiNo": "570",
+			"type": ["dark"]
+		},
+		{
+			"name": "Hisuian Zorua",
+			"dexNo": "570",
+			"apiNo": "10238",
+			"type": ["normal", "ghost"]
+		},
+		{
+			"name": "Zoroark",
+			"dexNo": "571",
+			"apiNo": "571",
+			"type": ["dark"]
+		},
+		{
+			"name": "Hisuian Zoroark",
+			"dexNo": "571",
+			"apiNo": "10239",
+			"type": ["normal", "ghost"]
+		},
+		{
+			"name": "Minccino",
+			"dexNo": "572",
+			"apiNo": "572",
+			"type": ["normal"]
+		},
+		{
+			"name": "Cinccino",
+			"dexNo": "573",
+			"apiNo": "573",
+			"type": ["normal"]
+		},
+		{
+			"name": "Gothita",
+			"dexNo": "574",
+			"apiNo": "574",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Gothorita",
+			"dexNo": "575",
+			"apiNo": "575",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Gothitelle",
+			"dexNo": "576",
+			"apiNo": "576",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Solosis",
+			"dexNo": "577",
+			"apiNo": "577",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Duosion",
+			"dexNo": "578",
+			"apiNo": "578",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Reuniclus",
+			"dexNo": "579",
+			"apiNo": "579",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Ducklett",
+			"dexNo": "580",
+			"apiNo": "580",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Swanna",
+			"dexNo": "581",
+			"apiNo": "581",
+			"type": ["water", "flying"]
+		},
+		{
+			"name": "Vanillite",
+			"dexNo": "582",
+			"apiNo": "582",
+			"type": ["ice"]
+		},
+		{
+			"name": "Vanillish",
+			"dexNo": "583",
+			"apiNo": "583",
+			"type": ["ice"]
+		},
+		{
+			"name": "Vanilluxe",
+			"dexNo": "584",
+			"apiNo": "584",
+			"type": ["ice"]
+		},
+		{
+			"name": "Deerling",
+			"dexNo": "585",
+			"apiNo": "585",
+			"type": ["normal", "grass"]
+		},
+		{
+			"name": "Sawsbuck",
+			"dexNo": "586",
+			"apiNo": "586",
+			"type": ["normal", "grass"]
+		},
+		{
+			"name": "Emolga",
+			"dexNo": "587",
+			"apiNo": "587",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Karrablast",
+			"dexNo": "588",
+			"apiNo": "588",
+			"type": ["bug"]
+		},
+		{
+			"name": "Escavalier",
+			"dexNo": "589",
+			"apiNo": "589",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Foongus",
+			"dexNo": "590",
+			"apiNo": "590",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Amoonguss",
+			"dexNo": "591",
+			"apiNo": "591",
+			"type": ["grass", "poison"]
+		},
+		{
+			"name": "Frillish",
+			"dexNo": "592",
+			"apiNo": "592",
+			"type": ["water", "ghost"]
+		},
+		{
+			"name": "Jellicent",
+			"dexNo": "593",
+			"apiNo": "593",
+			"type": ["water", "ghost"]
+		},
+		{
+			"name": "Alomomola",
+			"dexNo": "594",
+			"apiNo": "594",
+			"type": ["water"]
+		},
+		{
+			"name": "Joltik",
+			"dexNo": "595",
+			"apiNo": "595",
+			"type": ["bug", "electric"]
+		},
+		{
+			"name": "Galvantula",
+			"dexNo": "596",
+			"apiNo": "596",
+			"type": ["bug", "electric"]
+		},
+		{
+			"name": "Ferroseed",
+			"dexNo": "597",
+			"apiNo": "597",
+			"type": ["grass", "steel"]
+		},
+		{
+			"name": "Ferrothorn",
+			"dexNo": "598",
+			"apiNo": "598",
+			"type": ["grass", "steel"]
+		},
+		{
+			"name": "Klink",
+			"dexNo": "599",
+			"apiNo": "599",
+			"type": ["steel"]
+		},
+		{
+			"name": "Klang",
+			"dexNo": "600",
+			"apiNo": "600",
+			"type": ["steel"]
+		},
+		{
+			"name": "Klinklang",
+			"dexNo": "601",
+			"apiNo": "601",
+			"type": ["steel"]
+		},
+		{
+			"name": "Tynamo",
+			"dexNo": "602",
+			"apiNo": "602",
+			"type": ["electric"]
+		},
+		{
+			"name": "Eelektrik",
+			"dexNo": "603",
+			"apiNo": "603",
+			"type": ["electric"]
+		},
+		{
+			"name": "Eelektross",
+			"dexNo": "604",
+			"apiNo": "604",
+			"type": ["electric"]
+		},
+		{
+			"name": "Elgyem",
+			"dexNo": "605",
+			"apiNo": "605",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Beheeyem",
+			"dexNo": "606",
+			"apiNo": "606",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Litwick",
+			"dexNo": "607",
+			"apiNo": "607",
+			"type": ["ghost", "fire"]
+		},
+		{
+			"name": "Lampent",
+			"dexNo": "608",
+			"apiNo": "608",
+			"type": ["ghost", "fire"]
+		},
+		{
+			"name": "Chandelure",
+			"dexNo": "609",
+			"apiNo": "609",
+			"type": ["ghost", "fire"]
+		},
+		{
+			"name": "Axew",
+			"dexNo": "610",
+			"apiNo": "610",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Fraxure",
+			"dexNo": "611",
+			"apiNo": "611",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Haxorus",
+			"dexNo": "612",
+			"apiNo": "612",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Cubchoo",
+			"dexNo": "613",
+			"apiNo": "613",
+			"type": ["ice"]
+		},
+		{
+			"name": "Beartic",
+			"dexNo": "614",
+			"apiNo": "614",
+			"type": ["ice"]
+		},
+		{
+			"name": "Cryogonal",
+			"dexNo": "615",
+			"apiNo": "615",
+			"type": ["ice"]
+		},
+		{
+			"name": "Shelmet",
+			"dexNo": "616",
+			"apiNo": "616",
+			"type": ["bug"]
+		},
+		{
+			"name": "Accelgor",
+			"dexNo": "617",
+			"apiNo": "617",
+			"type": ["bug"]
+		},
+		{
+			"name": "Stunfisk",
+			"dexNo": "618",
+			"apiNo": "618",
+			"type": ["ground", "electric"]
+		},
+		{
+			"name": "Galarian Stunfisk",
+			"dexNo": "618",
+			"apiNo": "10180",
+			"type": ["ground", "steel"]
+		},
+		{
+			"name": "Mienfoo",
+			"dexNo": "619",
+			"apiNo": "619",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Mienshao",
+			"dexNo": "620",
+			"apiNo": "620",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Druddigon",
+			"dexNo": "621",
+			"apiNo": "621",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Golett",
+			"dexNo": "622",
+			"apiNo": "622",
+			"type": ["ground", "ghost"]
+		},
+		{
+			"name": "Golurk",
+			"dexNo": "623",
+			"apiNo": "623",
+			"type": ["ground", "ghost"]
+		},
+		{
+			"name": "Pawniard",
+			"dexNo": "624",
+			"apiNo": "624",
+			"type": ["dark", "steel"]
+		},
+		{
+			"name": "Bisharp",
+			"dexNo": "625",
+			"apiNo": "625",
+			"type": ["dark", "steel"]
+		},
+		{
+			"name": "Bouffalant",
+			"dexNo": "626",
+			"apiNo": "626",
+			"type": ["normal"]
+		},
+		{
+			"name": "Rufflet",
+			"dexNo": "627",
+			"apiNo": "627",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Braviary",
+			"dexNo": "628",
+			"apiNo": "628",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Hisuian Braviary",
+			"dexNo": "628",
+			"apiNo": "10240",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Vullaby",
+			"dexNo": "629",
+			"apiNo": "629",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Mandibuzz",
+			"dexNo": "630",
+			"apiNo": "630",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Heatmor",
+			"dexNo": "631",
+			"apiNo": "631",
+			"type": ["fire"]
+		},
+		{
+			"name": "Durant",
+			"dexNo": "632",
+			"apiNo": "632",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Deino",
+			"dexNo": "633",
+			"apiNo": "633",
+			"type": ["dark", "dragon"]
+		},
+		{
+			"name": "Zweilous",
+			"dexNo": "634",
+			"apiNo": "634",
+			"type": ["dark", "dragon"]
+		},
+		{
+			"name": "Hydreigon",
+			"dexNo": "635",
+			"apiNo": "635",
+			"type": ["dark", "dragon"]
+		},
+		{
+			"name": "Larvesta",
+			"dexNo": "636",
+			"apiNo": "636",
+			"type": ["bug", "fire"]
+		},
+		{
+			"name": "Volcarona",
+			"dexNo": "637",
+			"apiNo": "637",
+			"type": ["bug", "fire"]
+		},
+		{
+			"name": "Cobalion",
+			"dexNo": "638",
+			"apiNo": "638",
+			"type": ["steel", "fighting"]
+		},
+		{
+			"name": "Terrakion",
+			"dexNo": "639",
+			"apiNo": "639",
+			"type": ["rock", "fighting"]
+		},
+		{
+			"name": "Virizion",
+			"dexNo": "640",
+			"apiNo": "640",
+			"type": ["grass", "fighting"]
+		},
+		{
+			"name": "Tornadus",
+			"dexNo": "641",
+			"apiNo": "641",
+			"type": ["flying"]
+		},
+		{
+			"name": "Tornadus Therian",
+			"dexNo": "641",
+			"apiNo": "10019",
+			"type": ["flying"]
+		},
+		{
+			"name": "Thundurus",
+			"dexNo": "642",
+			"apiNo": "642",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Thundurus Therian",
+			"dexNo": "642",
+			"apiNo": "10020",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Reshiram",
+			"dexNo": "643",
+			"apiNo": "643",
+			"type": ["dragon", "fire"]
+		},
+		{
+			"name": "Zekrom",
+			"dexNo": "644",
+			"apiNo": "644",
+			"type": ["dragon", "electric"]
+		},
+		{
+			"name": "Landorus",
+			"dexNo": "645",
+			"apiNo": "645",
+			"type": ["ground", "flying"]
+		},
+		{
+			"name": "Landorus Therian",
+			"dexNo": "645",
+			"apiNo": "10021",
+			"type": ["ground", "flying"]
+		},
+		{
+			"name": "Kyurem",
+			"dexNo": "646",
+			"apiNo": "646",
+			"type": ["dragon", "ice"]
+		},
+		{
+			"name": "Kyurem Black",
+			"dexNo": "646",
+			"apiNo": "10022",
+			"type": ["dragon", "ice"]
+		},
+		{
+			"name": "Kyurem White",
+			"dexNo": "646",
+			"apiNo": "10023",
+			"type": ["dragon", "ice"]
+		},
+		{
+			"name": "Keldeo Ordinary",
+			"dexNo": "647",
+			"apiNo": "647",
+			"type": ["water", "fighting"]
+		},
+		{
+			"name": "Keldeo Resolute",
+			"dexNo": "647",
+			"apiNo": "10024",
+			"type": ["water", "fighting"]
+		},
+		{
+			"name": "Meloetta Aria",
+			"dexNo": "648",
+			"apiNo": "648",
+			"type": ["normal", "psychic"]
+		},
+		{
+			"name": "Meloetta Pirouette",
+			"dexNo": "648",
+			"apiNo": "10018",
+			"type": ["normal", "fighting"]
+		},
+		{
+			"name": "Genesect",
+			"dexNo": "649",
+			"apiNo": "649",
+			"type": ["bug", "steel"]
+		},
+		{
+			"name": "Chespin",
+			"dexNo": "650",
+			"apiNo": "650",
+			"type": ["grass"]
+		},
+		{
+			"name": "Quilladin",
+			"dexNo": "651",
+			"apiNo": "651",
+			"type": ["grass"]
+		},
+		{
+			"name": "Chesnaught",
+			"dexNo": "652",
+			"apiNo": "652",
+			"type": ["grass", "fighting"]
+		},
+		{
+			"name": "Fennekin",
+			"dexNo": "653",
+			"apiNo": "653",
+			"type": ["fire"]
+		},
+		{
+			"name": "Braixen",
+			"dexNo": "654",
+			"apiNo": "654",
+			"type": ["fire"]
+		},
+		{
+			"name": "Delphox",
+			"dexNo": "655",
+			"apiNo": "655",
+			"type": ["fire", "psychic"]
+		},
+		{
+			"name": "Froakie",
+			"dexNo": "656",
+			"apiNo": "656",
+			"type": ["water"]
+		},
+		{
+			"name": "Frogadier",
+			"dexNo": "657",
+			"apiNo": "657",
+			"type": ["water"]
+		},
+		{
+			"name": "Greninja",
+			"dexNo": "658",
+			"apiNo": "658",
+			"type": ["water", "dark"]
+		},
+		{
+			"name": "Bunnelby",
+			"dexNo": "659",
+			"apiNo": "659",
+			"type": ["normal"]
+		},
+		{
+			"name": "Diggersby",
+			"dexNo": "660",
+			"apiNo": "660",
+			"type": ["normal", "ground"]
+		},
+		{
+			"name": "Fletchling",
+			"dexNo": "661",
+			"apiNo": "661",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Fletchinder",
+			"dexNo": "662",
+			"apiNo": "662",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Talonflame",
+			"dexNo": "663",
+			"apiNo": "663",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Scatterbug",
+			"dexNo": "664",
+			"apiNo": "664",
+			"type": ["bug"]
+		},
+		{
+			"name": "Spewpa",
+			"dexNo": "665",
+			"apiNo": "665",
+			"type": ["bug"]
+		},
+		{
+			"name": "Vivillon",
+			"dexNo": "666",
+			"apiNo": "666",
+			"type": ["bug", "flying"]
+		},
+		{
+			"name": "Litleo",
+			"dexNo": "667",
+			"apiNo": "667",
+			"type": ["fire", "normal"]
+		},
+		{
+			"name": "Pyroar",
+			"dexNo": "668",
+			"apiNo": "668",
+			"type": ["fire", "normal"]
+		},
+		{
+			"name": "Flabébé",
+			"dexNo": "669",
+			"apiNo": "669",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Floette",
+			"dexNo": "670",
+			"apiNo": "670",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Florges",
+			"dexNo": "671",
+			"apiNo": "671",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Skiddo",
+			"dexNo": "672",
+			"apiNo": "672",
+			"type": ["grass"]
+		},
+		{
+			"name": "Gogoat",
+			"dexNo": "673",
+			"apiNo": "673",
+			"type": ["grass"]
+		},
+		{
+			"name": "Pancham",
+			"dexNo": "674",
+			"apiNo": "674",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Pangoro",
+			"dexNo": "675",
+			"apiNo": "675",
+			"type": ["fighting", "dark"]
+		},
+		{
+			"name": "Furfrou",
+			"dexNo": "676",
+			"apiNo": "676",
+			"type": ["normal"]
+		},
+		{
+			"name": "Espurr",
+			"dexNo": "677",
+			"apiNo": "677",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Meowstic Male",
+			"dexNo": "678",
+			"apiNo": "678",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Meowstic Female",
+			"dexNo": "678",
+			"apiNo": "10025",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Honedge",
+			"dexNo": "679",
+			"apiNo": "679",
+			"type": ["steel", "ghost"]
+		},
+		{
+			"name": "Doublade",
+			"dexNo": "680",
+			"apiNo": "680",
+			"type": ["steel", "ghost"]
+		},
+		{
+			"name": "Aegislash Shield",
+			"dexNo": "681",
+			"apiNo": "681",
+			"type": ["steel", "ghost"]
+		},
+		{
+			"name": "Aegislash Blade",
+			"dexNo": "681",
+			"apiNo": "10026",
+			"type": ["steel", "ghost"]
+		},
+		{
+			"name": "Spritzee",
+			"dexNo": "682",
+			"apiNo": "682",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Aromatisse",
+			"dexNo": "683",
+			"apiNo": "683",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Swirlix",
+			"dexNo": "684",
+			"apiNo": "684",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Slurpuff",
+			"dexNo": "685",
+			"apiNo": "685",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Inkay",
+			"dexNo": "686",
+			"apiNo": "686",
+			"type": ["dark", "psychic"]
+		},
+		{
+			"name": "Malamar",
+			"dexNo": "687",
+			"apiNo": "687",
+			"type": ["dark", "psychic"]
+		},
+		{
+			"name": "Binacle",
+			"dexNo": "688",
+			"apiNo": "688",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Barbaracle",
+			"dexNo": "689",
+			"apiNo": "689",
+			"type": ["rock", "water"]
+		},
+		{
+			"name": "Skrelp",
+			"dexNo": "690",
+			"apiNo": "690",
+			"type": ["poison", "water"]
+		},
+		{
+			"name": "Dragalge",
+			"dexNo": "691",
+			"apiNo": "691",
+			"type": ["poison", "dragon"]
+		},
+		{
+			"name": "Clauncher",
+			"dexNo": "692",
+			"apiNo": "692",
+			"type": ["water"]
+		},
+		{
+			"name": "Clawitzer",
+			"dexNo": "693",
+			"apiNo": "693",
+			"type": ["water"]
+		},
+		{
+			"name": "Helioptile",
+			"dexNo": "694",
+			"apiNo": "694",
+			"type": ["electric", "normal"]
+		},
+		{
+			"name": "Heliolisk",
+			"dexNo": "695",
+			"apiNo": "695",
+			"type": ["electric", "normal"]
+		},
+		{
+			"name": "Tyrunt",
+			"dexNo": "696",
+			"apiNo": "696",
+			"type": ["rock", "dragon"]
+		},
+		{
+			"name": "Tyrantrum",
+			"dexNo": "697",
+			"apiNo": "697",
+			"type": ["rock", "dragon"]
+		},
+		{
+			"name": "Amaura",
+			"dexNo": "698",
+			"apiNo": "698",
+			"type": ["rock", "ice"]
+		},
+		{
+			"name": "Aurorus",
+			"dexNo": "699",
+			"apiNo": "699",
+			"type": ["rock", "ice"]
+		},
+		{
+			"name": "Sylveon",
+			"dexNo": "700",
+			"apiNo": "700",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Hawlucha",
+			"dexNo": "701",
+			"apiNo": "701",
+			"type": ["fighting", "flying"]
+		},
+		{
+			"name": "Dedenne",
+			"dexNo": "702",
+			"apiNo": "702",
+			"type": ["electric", "fairy"]
+		},
+		{
+			"name": "Carbink",
+			"dexNo": "703",
+			"apiNo": "703",
+			"type": ["rock", "fairy"]
+		},
+		{
+			"name": "Goomy",
+			"dexNo": "704",
+			"apiNo": "704",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Sliggoo",
+			"dexNo": "705",
+			"apiNo": "705",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Hisuian Sliggoo",
+			"dexNo": "705",
+			"apiNo": "10241",
+			"type": ["steel", "dragon"]
+		},
+		{
+			"name": "Goodra",
+			"dexNo": "706",
+			"apiNo": "706",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Hisuian Goodra",
+			"dexNo": "706",
+			"apiNo": "10242",
+			"type": ["steel", "dragon"]
+		},
+		{
+			"name": "Klefki",
+			"dexNo": "707",
+			"apiNo": "707",
+			"type": ["steel", "fairy"]
+		},
+		{
+			"name": "Phantump",
+			"dexNo": "708",
+			"apiNo": "708",
+			"type": ["ghost", "grass"]
+		},
+		{
+			"name": "Trevenant",
+			"dexNo": "709",
+			"apiNo": "709",
+			"type": ["ghost", "grass"]
+		},
+		{
+			"name": "Pumpkaboo",
+			"dexNo": "710",
+			"apiNo": "710",
+			"type": ["ghost", "grass"]
+		},
+		{
+			"name": "Gourgeist",
+			"dexNo": "711",
+			"apiNo": "711",
+			"type": ["ghost", "grass"]
+		},
+		{
+			"name": "Bergmite",
+			"dexNo": "712",
+			"apiNo": "712",
+			"type": ["ice"]
+		},
+		{
+			"name": "Avalugg",
+			"dexNo": "713",
+			"apiNo": "713",
+			"type": ["ice"]
+		},
+		{
+			"name": "Hisuian Avalugg",
+			"dexNo": "713",
+			"apiNo": "10243",
+			"type": ["ice", "rock"]
+		},
+		{
+			"name": "Noibat",
+			"dexNo": "714",
+			"apiNo": "714",
+			"type": ["flying", "dragon"]
+		},
+		{
+			"name": "Noivern",
+			"dexNo": "715",
+			"apiNo": "715",
+			"type": ["flying", "dragon"]
+		},
+		{
+			"name": "Xerneas",
+			"dexNo": "716",
+			"apiNo": "716",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Yveltal",
+			"dexNo": "717",
+			"apiNo": "717",
+			"type": ["dark", "flying"]
+		},
+		{
+			"name": "Zygarde 10",
+			"dexNo": "718",
+			"apiNo": "10118",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Zygarde 50",
+			"dexNo": "718",
+			"apiNo": "718",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Zygarde Complete",
+			"dexNo": "718",
+			"apiNo": "10120",
+			"type": ["dragon", "ground"]
+		},
+		{
+			"name": "Diancie",
+			"dexNo": "719",
+			"apiNo": "719",
+			"type": ["rock", "fairy"]
+		},
+		{
+			"name": "Mega Diancie",
+			"dexNo": "719",
+			"apiNo": "10075",
+			"type": ["rock", "fairy"]
+		},
+		{
+			"name": "Hoopa",
+			"dexNo": "720",
+			"apiNo": "720",
+			"type": ["psychic", "ghost"]
+		},
+		{
+			"name": "Hoopa Unbound",
+			"dexNo": "720",
+			"apiNo": "10086",
+			"type": ["psychic", "dark"]
+		},
+		{
+			"name": "Volcanion",
+			"dexNo": "721",
+			"apiNo": "721",
+			"type": ["fire", "water"]
+		},
+		{
+			"name": "Rowlet",
+			"dexNo": "722",
+			"apiNo": "722",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Dartrix",
+			"dexNo": "723",
+			"apiNo": "723",
+			"type": ["grass", "flying"]
+		},
+		{
+			"name": "Decidueye",
+			"dexNo": "724",
+			"apiNo": "724",
+			"type": ["grass", "ghost"]
+		},
+		{
+			"name": "Hisuian Decidueye",
+			"dexNo": "724",
+			"apiNo": "10244",
+			"type": ["grass", "fighting"]
+		},
+		{
+			"name": "Litten",
+			"dexNo": "725",
+			"apiNo": "725",
+			"type": ["fire"]
+		},
+		{
+			"name": "Torracat",
+			"dexNo": "726",
+			"apiNo": "726",
+			"type": ["fire"]
+		},
+		{
+			"name": "Incineroar",
+			"dexNo": "727",
+			"apiNo": "727",
+			"type": ["fire", "dark"]
+		},
+		{
+			"name": "Popplio",
+			"dexNo": "728",
+			"apiNo": "728",
+			"type": ["water"]
+		},
+		{
+			"name": "Brionne",
+			"dexNo": "729",
+			"apiNo": "729",
+			"type": ["water"]
+		},
+		{
+			"name": "Primarina",
+			"dexNo": "730",
+			"apiNo": "730",
+			"type": ["water", "fairy"]
+		},
+		{
+			"name": "Pikipek",
+			"dexNo": "731",
+			"apiNo": "731",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Trumbeak",
+			"dexNo": "732",
+			"apiNo": "732",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Toucannon",
+			"dexNo": "733",
+			"apiNo": "733",
+			"type": ["normal", "flying"]
+		},
+		{
+			"name": "Yungoos",
+			"dexNo": "734",
+			"apiNo": "734",
+			"type": ["normal"]
+		},
+		{
+			"name": "Gumshoos",
+			"dexNo": "735",
+			"apiNo": "735",
+			"type": ["normal"]
+		},
+		{
+			"name": "Grubbin",
+			"dexNo": "736",
+			"apiNo": "736",
+			"type": ["bug"]
+		},
+		{
+			"name": "Charjabug",
+			"dexNo": "737",
+			"apiNo": "737",
+			"type": ["bug", "electric"]
+		},
+		{
+			"name": "Vikavolt",
+			"dexNo": "738",
+			"apiNo": "738",
+			"type": ["bug", "electric"]
+		},
+		{
+			"name": "Crabrawler",
+			"dexNo": "739",
+			"apiNo": "739",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Crabominable",
+			"dexNo": "740",
+			"apiNo": "740",
+			"type": ["fighting", "ice"]
+		},
+		{
+			"name": "Oricorio Baile",
+			"dexNo": "741",
+			"apiNo": "741",
+			"type": ["fire", "flying"]
+		},
+		{
+			"name": "Oricorio Pom Pom",
+			"dexNo": "741",
+			"apiNo": "10123",
+			"type": ["electric", "flying"]
+		},
+		{
+			"name": "Oricorio Pau",
+			"dexNo": "741",
+			"apiNo": "10124",
+			"type": ["psychic", "flying"]
+		},
+		{
+			"name": "Oricorio Sensu",
+			"dexNo": "741",
+			"apiNo": "10125",
+			"type": ["ghost", "flying"]
+		},
+		{
+			"name": "Cutiefly",
+			"dexNo": "742",
+			"apiNo": "742",
+			"type": ["bug", "fairy"]
+		},
+		{
+			"name": "Ribombee",
+			"dexNo": "743",
+			"apiNo": "743",
+			"type": ["bug", "fairy"]
+		},
+		{
+			"name": "rockruff",
+			"dexNo": "744",
+			"apiNo": "744",
+			"type": ["rock"]
+		},
+		{
+			"name": "Lycanroc Midday",
+			"dexNo": "745",
+			"apiNo": "745",
+			"type": ["rock"]
+		},
+		{
+			"name": "Lycanroc Midnight",
+			"dexNo": "745",
+			"apiNo": "10126",
+			"type": ["rock"]
+		},
+		{
+			"name": "Lycanroc Dusk",
+			"dexNo": "745",
+			"apiNo": "10152",
+			"type": ["rock"]
+		},
+		{
+			"name": "Wishiwashi Solo",
+			"dexNo": "746",
+			"apiNo": "746",
+			"type": ["water"]
+		},
+		{
+			"name": "Wishiwashi School",
+			"dexNo": "746",
+			"apiNo": "10127",
+			"type": ["water"]
+		},
+		{
+			"name": "Mareanie",
+			"dexNo": "747",
+			"apiNo": "747",
+			"type": ["poison", "water"]
+		},
+		{
+			"name": "Toxapex",
+			"dexNo": "748",
+			"apiNo": "748",
+			"type": ["poison", "water"]
+		},
+		{
+			"name": "Mudbray",
+			"dexNo": "749",
+			"apiNo": "749",
+			"type": ["ground"]
+		},
+		{
+			"name": "Mudsdale",
+			"dexNo": "750",
+			"apiNo": "750",
+			"type": ["ground"]
+		},
+		{
+			"name": "Dewpider",
+			"dexNo": "751",
+			"apiNo": "751",
+			"type": ["water", "bug"]
+		},
+		{
+			"name": "Araquanid",
+			"dexNo": "752",
+			"apiNo": "752",
+			"type": ["water", "bug"]
+		},
+		{
+			"name": "Fomantis",
+			"dexNo": "753",
+			"apiNo": "753",
+			"type": ["grass"]
+		},
+		{
+			"name": "Lurantis",
+			"dexNo": "754",
+			"apiNo": "754",
+			"type": ["grass"]
+		},
+		{
+			"name": "Morelull",
+			"dexNo": "755",
+			"apiNo": "755",
+			"type": ["grass", "fairy"]
+		},
+		{
+			"name": "Shiinotic",
+			"dexNo": "756",
+			"apiNo": "756",
+			"type": ["grass", "fairy"]
+		},
+		{
+			"name": "Salandit",
+			"dexNo": "757",
+			"apiNo": "757",
+			"type": ["poison", "fire"]
+		},
+		{
+			"name": "Salazzle",
+			"dexNo": "758",
+			"apiNo": "758",
+			"type": ["poison", "fire"]
+		},
+		{
+			"name": "Stufful",
+			"dexNo": "759",
+			"apiNo": "759",
+			"type": ["normal", "fighting"]
+		},
+		{
+			"name": "Bewear",
+			"dexNo": "760",
+			"apiNo": "760",
+			"type": ["normal", "fighting"]
+		},
+		{
+			"name": "Bounsweet",
+			"dexNo": "761",
+			"apiNo": "761",
+			"type": ["grass"]
+		},
+		{
+			"name": "Steenee",
+			"dexNo": "762",
+			"apiNo": "762",
+			"type": ["grass"]
+		},
+		{
+			"name": "Tsareena",
+			"dexNo": "763",
+			"apiNo": "763",
+			"type": ["grass"]
+		},
+		{
+			"name": "Comfey",
+			"dexNo": "764",
+			"apiNo": "764",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Oranguru",
+			"dexNo": "765",
+			"apiNo": "765",
+			"type": ["normal", "psychic"]
+		},
+		{
+			"name": "Passimian",
+			"dexNo": "766",
+			"apiNo": "766",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Wimpod",
+			"dexNo": "767",
+			"apiNo": "767",
+			"type": ["bug", "water"]
+		},
+		{
+			"name": "Golisopod",
+			"dexNo": "768",
+			"apiNo": "768",
+			"type": ["bug", "water"]
+		},
+		{
+			"name": "Sandygast",
+			"dexNo": "769",
+			"apiNo": "769",
+			"type": ["ghost", "ground"]
+		},
+		{
+			"name": "Palossand",
+			"dexNo": "770",
+			"apiNo": "770",
+			"type": ["ghost", "ground"]
+		},
+		{
+			"name": "Pyukumuku",
+			"dexNo": "771",
+			"apiNo": "771",
+			"type": ["water"]
+		},
+		{
+			"name": "Type: Null",
+			"dexNo": "772",
+			"apiNo": "772",
+			"type": ["normal"]
+		},
+		{
+			"name": "Silvally",
+			"dexNo": "773",
+			"apiNo": "773",
+			"type": ["normal"]
+		},
+		{
+			"name": "Minior Red",
+			"dexNo": "774",
+			"apiNo": "10136",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Orange",
+			"dexNo": "774",
+			"apiNo": "10137",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Yellow",
+			"dexNo": "774",
+			"apiNo": "10138",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Green",
+			"dexNo": "774",
+			"apiNo": "10139",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Blue",
+			"dexNo": "774",
+			"apiNo": "10140",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Indigo",
+			"dexNo": "774",
+			"apiNo": "10141",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Minior Violet",
+			"dexNo": "774",
+			"apiNo": "10142",
+			"type": ["rock", "flying"]
+		},
+		{
+			"name": "Komala",
+			"dexNo": "775",
+			"apiNo": "775",
+			"type": ["normal"]
+		},
+		{
+			"name": "Turtonator",
+			"dexNo": "776",
+			"apiNo": "776",
+			"type": ["fire", "dragon"]
+		},
+		{
+			"name": "Togedemaru",
+			"dexNo": "777",
+			"apiNo": "777",
+			"type": ["electric", "steel"]
+		},
+		{
+			"name": "Mimikyu",
+			"dexNo": "778",
+			"apiNo": "778",
+			"type": ["ghost", "fairy"]
+		},
+		{
+			"name": "Bruxish",
+			"dexNo": "779",
+			"apiNo": "779",
+			"type": ["water", "psychic"]
+		},
+		{
+			"name": "Drampa",
+			"dexNo": "780",
+			"apiNo": "780",
+			"type": ["normal", "dragon"]
+		},
+		{
+			"name": "Dhelmise",
+			"dexNo": "781",
+			"apiNo": "781",
+			"type": ["ghost", "grass"]
+		},
+		{
+			"name": "Jangmo-o",
+			"dexNo": "782",
+			"apiNo": "782",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Hakamo-o",
+			"dexNo": "783",
+			"apiNo": "783",
+			"type": ["dragon", "fighting"]
+		},
+		{
+			"name": "Kommo-o",
+			"dexNo": "784",
+			"apiNo": "784",
+			"type": ["dragon", "fighting"]
+		},
+		{
+			"name": "Tapu Koko",
+			"dexNo": "785",
+			"apiNo": "785",
+			"type": ["electric", "fairy"]
+		},
+		{
+			"name": "Tapu Lele",
+			"dexNo": "786",
+			"apiNo": "786",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Tapu Bulu",
+			"dexNo": "787",
+			"apiNo": "787",
+			"type": ["grass", "fairy"]
+		},
+		{
+			"name": "Tapu Fini",
+			"dexNo": "788",
+			"apiNo": "788",
+			"type": ["water", "fairy"]
+		},
+		{
+			"name": "Cosmog",
+			"dexNo": "789",
+			"apiNo": "789",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Cosmoem",
+			"dexNo": "790",
+			"apiNo": "790",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Solgaleo",
+			"dexNo": "791",
+			"apiNo": "791",
+			"type": ["psychic", "steel"]
+		},
+		{
+			"name": "Lunala",
+			"dexNo": "792",
+			"apiNo": "792",
+			"type": ["psychic", "ghost"]
+		},
+		{
+			"name": "Nihilego",
+			"dexNo": "793",
+			"apiNo": "793",
+			"type": ["rock", "poison"]
+		},
+		{
+			"name": "Buzzwole",
+			"dexNo": "794",
+			"apiNo": "794",
+			"type": ["bug", "fighting"]
+		},
+		{
+			"name": "Pheromosa",
+			"dexNo": "795",
+			"apiNo": "795",
+			"type": ["bug", "fighting"]
+		},
+		{
+			"name": "Xurkitree",
+			"dexNo": "796",
+			"apiNo": "796",
+			"type": ["electric"]
+		},
+		{
+			"name": "Celesteela",
+			"dexNo": "797",
+			"apiNo": "797",
+			"type": ["steel", "flying"]
+		},
+		{
+			"name": "Kartana",
+			"dexNo": "798",
+			"apiNo": "798",
+			"type": ["grass", "steel"]
+		},
+		{
+			"name": "Guzzlord",
+			"dexNo": "799",
+			"apiNo": "799",
+			"type": ["dark", "dragon"]
+		},
+		{
+			"name": "Necrozma",
+			"dexNo": "800",
+			"apiNo": "800",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Necrozma Dusk Mane",
+			"dexNo": "800",
+			"apiNo": "10155",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Necrozma Dawn Wings",
+			"dexNo": "800",
+			"apiNo": "10156",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Necrozma Ultra",
+			"dexNo": "800",
+			"apiNo": "10157",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Magearna",
+			"dexNo": "801",
+			"apiNo": "801",
+			"type": ["steel", "fairy"]
+		},
+		{
+			"name": "Magearna Original",
+			"dexNo": "801",
+			"apiNo": "10147",
+			"type": ["steel", "fairy"]
+		},
+		{
+			"name": "Marshadow",
+			"dexNo": "802",
+			"apiNo": "802",
+			"type": ["fighting", "ghost"]
+		},
+		{
+			"name": "Poipole",
+			"dexNo": "803",
+			"apiNo": "803",
+			"type": ["poison"]
+		},
+		{
+			"name": "Naganadel",
+			"dexNo": "804",
+			"apiNo": "804",
+			"type": ["poison", "dragon"]
+		},
+		{
+			"name": "Stakataka",
+			"dexNo": "805",
+			"apiNo": "805",
+			"type": ["rock", "steel"]
+		},
+		{
+			"name": "Blacephalon",
+			"dexNo": "806",
+			"apiNo": "806",
+			"type": ["fire", "ghost"]
+		},
+		{
+			"name": "Zeraora",
+			"dexNo": "807",
+			"apiNo": "807",
+			"type": ["electric"]
+		},
+		{
+			"name": "Meltan",
+			"dexNo": "808",
+			"apiNo": "808",
+			"type": ["steel"]
+		},
+		{
+			"name": "Melmetal",
+			"dexNo": "809",
+			"apiNo": "809",
+			"type": ["steel"]
+		},
+		{
+			"name": "Grookey",
+			"dexNo": "810",
+			"apiNo": "810",
+			"type": ["grass"]
+		},
+		{
+			"name": "Thwackey",
+			"dexNo": "811",
+			"apiNo": "811",
+			"type": ["grass"]
+		},
+		{
+			"name": "Rillaboom",
+			"dexNo": "812",
+			"apiNo": "812",
+			"type": ["grass"]
+		},
+		{
+			"name": "Scorbunny",
+			"dexNo": "813",
+			"apiNo": "813",
+			"type": ["fire"]
+		},
+		{
+			"name": "Raboot",
+			"dexNo": "814",
+			"apiNo": "814",
+			"type": ["fire"]
+		},
+		{
+			"name": "Cinderace",
+			"dexNo": "815",
+			"apiNo": "815",
+			"type": ["fire"]
+		},
+		{
+			"name": "Sobble",
+			"dexNo": "816",
+			"apiNo": "816",
+			"type": ["water"]
+		},
+		{
+			"name": "Drizzile",
+			"dexNo": "817",
+			"apiNo": "817",
+			"type": ["water"]
+		},
+		{
+			"name": "Inteleon",
+			"dexNo": "818",
+			"apiNo": "818",
+			"type": ["water"]
+		},
+		{
+			"name": "Skwovet",
+			"dexNo": "819",
+			"apiNo": "819",
+			"type": ["normal"]
+		},
+		{
+			"name": "Greedent",
+			"dexNo": "820",
+			"apiNo": "820",
+			"type": ["normal"]
+		},
+		{
+			"name": "Rookidee",
+			"dexNo": "821",
+			"apiNo": "821",
+			"type": ["flying"]
+		},
+		{
+			"name": "Corvisquire",
+			"dexNo": "822",
+			"apiNo": "822",
+			"type": ["flying"]
+		},
+		{
+			"name": "Corviknight",
+			"dexNo": "823",
+			"apiNo": "823",
+			"type": ["flying", "steel"]
+		},
+		{
+			"name": "Blipbug",
+			"dexNo": "824",
+			"apiNo": "824",
+			"type": ["bug"]
+		},
+		{
+			"name": "Dottler",
+			"dexNo": "825",
+			"apiNo": "825",
+			"type": ["bug", "psychic"]
+		},
+		{
+			"name": "Orbeetle",
+			"dexNo": "826",
+			"apiNo": "826",
+			"type": ["bug", "psychic"]
+		},
+		{
+			"name": "Nickit",
+			"dexNo": "827",
+			"apiNo": "827",
+			"type": ["dark"]
+		},
+		{
+			"name": "Thievul",
+			"dexNo": "828",
+			"apiNo": "828",
+			"type": ["dark"]
+		},
+		{
+			"name": "Gossifleur",
+			"dexNo": "829",
+			"apiNo": "829",
+			"type": ["grass"]
+		},
+		{
+			"name": "Eldegoss",
+			"dexNo": "830",
+			"apiNo": "830",
+			"type": ["grass"]
+		},
+		{
+			"name": "Wooloo",
+			"dexNo": "831",
+			"apiNo": "831",
+			"type": ["normal"]
+		},
+		{
+			"name": "Dubwool",
+			"dexNo": "832",
+			"apiNo": "832",
+			"type": ["normal"]
+		},
+		{
+			"name": "Chewtle",
+			"dexNo": "833",
+			"apiNo": "833",
+			"type": ["water"]
+		},
+		{
+			"name": "Drednaw",
+			"dexNo": "834",
+			"apiNo": "834",
+			"type": ["water", "rock"]
+		},
+		{
+			"name": "Yamper",
+			"dexNo": "835",
+			"apiNo": "835",
+			"type": ["electric"]
+		},
+		{
+			"name": "Boltund",
+			"dexNo": "836",
+			"apiNo": "836",
+			"type": ["electric"]
+		},
+		{
+			"name": "Rolycoly",
+			"dexNo": "837",
+			"apiNo": "837",
+			"type": ["rock"]
+		},
+		{
+			"name": "Carkol",
+			"dexNo": "838",
+			"apiNo": "838",
+			"type": ["rock", "fire"]
+		},
+		{
+			"name": "Coalossal",
+			"dexNo": "839",
+			"apiNo": "839",
+			"type": ["rock", "fire"]
+		},
+		{
+			"name": "Applin",
+			"dexNo": "840",
+			"apiNo": "840",
+			"type": ["grass", "dragon"]
+		},
+		{
+			"name": "Flapple",
+			"dexNo": "841",
+			"apiNo": "841",
+			"type": ["grass", "dragon"]
+		},
+		{
+			"name": "Appletun",
+			"dexNo": "842",
+			"apiNo": "842",
+			"type": ["grass", "dragon"]
+		},
+		{
+			"name": "Silicobra",
+			"dexNo": "843",
+			"apiNo": "843",
+			"type": ["ground"]
+		},
+		{
+			"name": "Sandaconda",
+			"dexNo": "844",
+			"apiNo": "844",
+			"type": ["ground"]
+		},
+		{
+			"name": "Cramorant",
+			"dexNo": "845",
+			"apiNo": "845",
+			"type": ["flying", "water"]
+		},
+		{
+			"name": "Arrokuda",
+			"dexNo": "846",
+			"apiNo": "846",
+			"type": ["water"]
+		},
+		{
+			"name": "Barraskewda",
+			"dexNo": "847",
+			"apiNo": "847",
+			"type": ["water"]
+		},
+		{
+			"name": "Toxel",
+			"dexNo": "848",
+			"apiNo": "848",
+			"type": ["electric", "poison"]
+		},
+		{
+			"name": "Toxtricity Amped",
+			"dexNo": "849",
+			"apiNo": "849",
+			"type": ["electric", "poison"]
+		},
+		{
+			"name": "Toxtricity Low Key",
+			"dexNo": "849",
+			"apiNo": "10184",
+			"type": ["electric", "poison"]
+		},
+		{
+			"name": "Sizzlipede",
+			"dexNo": "850",
+			"apiNo": "850",
+			"type": ["fire", "bug"]
+		},
+		{
+			"name": "Centiskorch",
+			"dexNo": "851",
+			"apiNo": "851",
+			"type": ["fire", "bug"]
+		},
+		{
+			"name": "Clobbopus",
+			"dexNo": "852",
+			"apiNo": "852",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Grapploct",
+			"dexNo": "853",
+			"apiNo": "853",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Sinistea",
+			"dexNo": "854",
+			"apiNo": "854",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Polteageist",
+			"dexNo": "855",
+			"apiNo": "855",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Hatenna",
+			"dexNo": "856",
+			"apiNo": "856",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Hattrem",
+			"dexNo": "857",
+			"apiNo": "857",
+			"type": ["psychic"]
+		},
+		{
+			"name": "Hatterene",
+			"dexNo": "858",
+			"apiNo": "858",
+			"type": ["psychic", "fairy"]
+		},
+		{
+			"name": "Impidimp",
+			"dexNo": "859",
+			"apiNo": "859",
+			"type": ["dark", "fairy"]
+		},
+		{
+			"name": "Morgrem",
+			"dexNo": "860",
+			"apiNo": "860",
+			"type": ["dark", "fairy"]
+		},
+		{
+			"name": "Grimmsnarl",
+			"dexNo": "861",
+			"apiNo": "861",
+			"type": ["dark", "fairy"]
+		},
+		{
+			"name": "Obstagoon",
+			"dexNo": "862",
+			"apiNo": "862",
+			"type": ["dark", "normal"]
+		},
+		{
+			"name": "Perrserker",
+			"dexNo": "863",
+			"apiNo": "863",
+			"type": ["steel"]
+		},
+		{
+			"name": "Cursola",
+			"dexNo": "864",
+			"apiNo": "864",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Sirfetch’d",
+			"dexNo": "865",
+			"apiNo": "865",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Mr. Rime",
+			"dexNo": "866",
+			"apiNo": "866",
+			"type": ["ice", "psychic"]
+		},
+		{
+			"name": "Runerigus",
+			"dexNo": "867",
+			"apiNo": "867",
+			"type": ["ground", "ghost"]
+		},
+		{
+			"name": "Milcery",
+			"dexNo": "868",
+			"apiNo": "868",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Alcremie",
+			"dexNo": "869",
+			"apiNo": "869",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Falinks",
+			"dexNo": "870",
+			"apiNo": "870",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Pincurchin",
+			"dexNo": "871",
+			"apiNo": "871",
+			"type": ["electric"]
+		},
+		{
+			"name": "Snom",
+			"dexNo": "872",
+			"apiNo": "872",
+			"type": ["ice", "bug"]
+		},
+		{
+			"name": "Frosmoth",
+			"dexNo": "873",
+			"apiNo": "873",
+			"type": ["ice", "bug"]
+		},
+		{
+			"name": "Stonjourner",
+			"dexNo": "874",
+			"apiNo": "874",
+			"type": ["rock"]
+		},
+		{
+			"name": "Eiscue",
+			"dexNo": "875",
+			"apiNo": "875",
+			"type": ["ice"]
+		},
+		{
+			"name": "Indeedee",
+			"dexNo": "876",
+			"apiNo": "876",
+			"type": ["psychic", "normal"]
+		},
+		{
+			"name": "Morpeko",
+			"dexNo": "877",
+			"apiNo": "877",
+			"type": ["electric", "dark"]
+		},
+		{
+			"name": "Cufant",
+			"dexNo": "878",
+			"apiNo": "878",
+			"type": ["steel"]
+		},
+		{
+			"name": "Copperajah",
+			"dexNo": "879",
+			"apiNo": "879",
+			"type": ["steel"]
+		},
+		{
+			"name": "Dracozolt",
+			"dexNo": "880",
+			"apiNo": "880",
+			"type": ["electric", "dragon"]
+		},
+		{
+			"name": "Arctozolt",
+			"dexNo": "881",
+			"apiNo": "881",
+			"type": ["electric", "ice"]
+		},
+		{
+			"name": "Dracovish",
+			"dexNo": "882",
+			"apiNo": "882",
+			"type": ["water", "dragon"]
+		},
+		{
+			"name": "Arctovish",
+			"dexNo": "883",
+			"apiNo": "883",
+			"type": ["water", "ice"]
+		},
+		{
+			"name": "Duraludon",
+			"dexNo": "884",
+			"apiNo": "884",
+			"type": ["steel", "dragon"]
+		},
+		{
+			"name": "Dreepy",
+			"dexNo": "885",
+			"apiNo": "885",
+			"type": ["dragon", "ghost"]
+		},
+		{
+			"name": "Drakloak",
+			"dexNo": "886",
+			"apiNo": "886",
+			"type": ["dragon", "ghost"]
+		},
+		{
+			"name": "Dragapult",
+			"dexNo": "887",
+			"apiNo": "887",
+			"type": ["dragon", "ghost"]
+		},
+		{
+			"name": "Zacian",
+			"dexNo": "888",
+			"apiNo": "888",
+			"type": ["fairy"]
+		},
+		{
+			"name": "Zamazenta",
+			"dexNo": "889",
+			"apiNo": "889",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Eternatus",
+			"dexNo": "890",
+			"apiNo": "890",
+			"type": ["poison", "dragon"]
+		},
+		{
+			"name": "Kubfu",
+			"dexNo": "891",
+			"apiNo": "891",
+			"type": ["fighting"]
+		},
+		{
+			"name": "Urshifu Single Strike",
+			"dexNo": "892",
+			"apiNo": "892",
+			"type": ["fighting", "dark"]
+		},
+		{
+			"name": "Urshifu Rapid Strike",
+			"dexNo": "892",
+			"apiNo": "10191",
+			"type": ["fighting", "water"]
+		},
+		{
+			"name": "Zarude",
+			"dexNo": "893",
+			"apiNo": "893",
+			"type": ["dark", "grass"]
+		},
+		{
+			"name": "Regieleki",
+			"dexNo": "894",
+			"apiNo": "894",
+			"type": ["electric"]
+		},
+		{
+			"name": "Regidrago",
+			"dexNo": "895",
+			"apiNo": "895",
+			"type": ["dragon"]
+		},
+		{
+			"name": "Glastrier",
+			"dexNo": "896",
+			"apiNo": "896",
+			"type": ["ice"]
+		},
+		{
+			"name": "Spectrier",
+			"dexNo": "897",
+			"apiNo": "897",
+			"type": ["ghost"]
+		},
+		{
+			"name": "Calyrex",
+			"dexNo": "898",
+			"apiNo": "898",
+			"type": ["psychic", "grass"]
+		},
+		{
+			"name": "Calyrex Ice Rider",
+			"dexNo": "898",
+			"apiNo": "10193",
+			"type": ["psychic", "ice"]
+		},
+		{
+			"name": "Calyrex Shadow Rider",
+			"dexNo": "898",
+			"apiNo": "10194",
+			"type": ["psychic", "ghost"]
+		},
+		{
+			"name": "Wyrdeer",
+			"dexNo": "899",
+			"apiNo": "899",
+			"type": ["normal", "psychic"]
+		},
+		{
+			"name": "Kleavor",
+			"dexNo": "900",
+			"apiNo": "900",
+			"type": ["bug", "rock"]
+		},
+		{
+			"name": "Ursaluna",
+			"dexNo": "901",
+			"apiNo": "901",
+			"type": ["ground", "normal"]
+		},
+		{
+			"name": "Basculegion Male",
+			"dexNo": "902",
+			"apiNo": "902",
+			"type": ["water", "ghost"]
+		},
+		{
+			"name": "Basculegion Female",
+			"dexNo": "902",
+			"apiNo": "10248",
+			"type": ["water", "ghost"]
+		},
+		{
+			"name": "Sneasler",
+			"dexNo": "903",
+			"apiNo": "903",
+			"type": ["fighting", "poison"]
+		},
+		{
+			"name": "Overquil",
+			"dexNo": "904",
+			"apiNo": "904",
+			"type": ["dark", "poison"]
+		},
+		{
+			"name": "Enamorus",
+			"dexNo": "905",
+			"apiNo": "905",
+			"type": ["fairy", "flying"]
+		},
+		{
+			"name": "Enamorus Therian",
+			"dexNo": "905",
+			"apiNo": "10249",
+			"type": ["fairy", "flying"]
+		}
+	]
+}

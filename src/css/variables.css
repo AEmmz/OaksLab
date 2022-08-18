@@ -1,0 +1,151 @@
+:root {
+	/* Page */
+	--light-bg: #f5f3f5;
+	--med-bg: #d1dede;
+	--dark-bg: #343434;
+
+	--primary: #b7245c;
+	--secondary: #17a39d;
+	--accent: #2081c3;
+	--dark: #343434;
+	--dark-page: #121212;
+	--light: #f5f3f5;
+	--positive: #00a352;
+	--negative: #c10015;
+	--info: #2081c3;
+	--warning: #f2c037;
+}
+
+.bg-light {
+	background: #f5f3f5;
+}
+.text-light {
+	color: #f5f3f5;
+}
+.bg-dark {
+	background: #343434;
+}
+.text-dark {
+	color: #343434;
+}
+
+/* BG Variables*/
+
+.bg-defaultType {
+	background: #5c5c5c !important;
+}
+.bg-bugType {
+	background: #9ca60f !important;
+}
+.bg-darkType {
+	background: #644c3e !important;
+}
+.bg-dragonType {
+	background: #8a75e2 !important;
+}
+.bg-electricType {
+	background: #fec61d !important;
+}
+.bg-fairyType {
+	background: #f9c3f7 !important;
+}
+.bg-fightingType {
+	background: #843a2a !important;
+}
+.bg-fireType {
+	background: #ca5502 !important;
+}
+.bg-flyingType {
+	background: #758ade !important;
+}
+.bg-ghostType {
+	background: #6f73be !important;
+}
+.bg-grassType {
+	background: #7dc148 !important;
+}
+.bg-groundType {
+	background: #d5b86b !important;
+}
+.bg-iceType {
+	background: #7adbf7 !important;
+}
+.bg-normalType {
+	background: #c6c2b9 !important;
+}
+.bg-poisonType {
+	background: #9d5ba2 !important;
+}
+.bg-psychicType {
+	background: #f46094 !important;
+}
+.bg-rockType {
+	background: #a89949 !important;
+}
+.bg-steelType {
+	background: #babac6 !important;
+}
+.bg-waterType {
+	background: #39a4f6 !important;
+}
+
+/* Text Variables*/
+
+.text-defaultType {
+	color: #5c5c5c !important;
+}
+.text-bugType {
+	color: #9ca60f !important;
+}
+.text-darkType {
+	color: #644c3e !important;
+}
+.text-dragonType {
+	color: #8a75e2 !important;
+}
+.text-electricType {
+	color: #fec61d !important;
+}
+.text-fairyType {
+	color: #f9c3f7 !important;
+}
+.text-fightingType {
+	color: #843a2a !important;
+}
+.text-fireType {
+	color: #ca5502 !important;
+}
+.text-flyingType {
+	color: #758ade !important;
+}
+.text-ghostType {
+	color: #6f73be !important;
+}
+
+.text-grassType {
+	color: #7dc148 !important;
+}
+.text-groundType {
+	color: #d5b86b !important;
+}
+.text-iceType {
+	color: #7adbf7 !important;
+}
+.text-normalType {
+	color: #c6c2b9 !important;
+}
+.text-poisonType {
+	color: #9d5ba2 !important;
+}
+.text-psychicType {
+	color: #f46094 !important;
+}
+.text-rockType {
+	color: #a89949 !important;
+}
+.text-steelType {
+	color: #babac6 !important;
+}
+.text-waterType {
+	color: #39a4f6 !important;
+}

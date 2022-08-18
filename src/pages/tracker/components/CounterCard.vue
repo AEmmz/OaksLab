@@ -1,0 +1,146 @@
+<template>
+	<q-card class="bg-dark flex justify-evenly items-center text-h6">
+		<q-card-section class="main-cont flex column items-center justify-evenly q-pa-none q-pb-lg">
+			<div
+				class="name-cont flex items-center justify-center full-width text-h3 text-light q-pa-lg"
+			>
+				{{ pkName }}
+			</div>
+			<div class="counter-cont flex justify-center row">
+				<q-btn
+					push
+					class="counter-main text-h1 full-width"
+					:class="`bg-${pkType1 || 'default'}Type`"
+					@click="countUp"
+					@mousedown="holdCountUp"
+					@mouseup="clearCountHold"
+				>
+					<div>{{ mainCount }}</div>
+				</q-btn>
+				<div class="secondary-cont full-width justify-center row">
+					<div class="col">
+						<q-btn
+							push
+							class="btn bg-light secondary-btn full-width text-h6"
+							@click="countDown"
+							@mousedown="holdCountDown"
+							@mouseup="clearCountHold"
+							>-</q-btn
+						>
+					</div>
+					<div class="col">
+						<q-btn push class="btn bg-light secondary-btn full-width text-h6"
+							>Reset</q-btn
+						>
+					</div>
+				</div>
+			</div>
+		</q-card-section>
+		<q-card-section class="inc-cont flex justify-center items-center q-pa-sm">
+			<q-slider
+				v-model="incrementCount"
+				class="slider"
+				:thumb-color="pkTypeColor()"
+				:color="pkTypeColor2()"
+				label-text-color="dark"
+				vertical
+				label
+				switch-label-side
+				track-size="10px"
+				thumb-size="30px"
+				:min="1"
+				:max="100"
+				reverse
+			></q-slider>
+			<h5 class="text-light">Increment</h5>
+		</q-card-section>
+	</q-card>
+</template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex';
+
+export default {
+	components: {},
+	computed: {
+		...mapGetters('tracker/counter', ['mainCount']),
+		...mapGetters('tracker', ['pkName', 'pkType1', 'pkType2']),
+		incrementCount: {
+			get() {
+				return this.$store.getters['tracker/counter/incrementCount'];
+			},
+			set(value) {
+				this.$store.dispatch('tracker/counter/changeIncrement', value);
+			},
+		},
+	},
+	methods: {
+		...mapActions('tracker/counter', [
+			'countUp',
+			'countDown',
+			'holdCountUp',
+			'holdCountDown',
+			'clearCountHold',
+			'resetCounter',
+		]),
+		pkTypeColor() {
+			return `${this.pkType1}Type`;
+		},
+		pkTypeColor2() {
+			return `${this.pkType2 || this.pkType1}Type`;
+		},
+	},
+};
+</script>
+
+<style scoped>
+.main-cont {
+	width: 89%;
+	height: 100%;
+}
+
+.name-cont {
+	text-align: center;
+}
+
+.inc-cont {
+	width: 11%;
+	height: 25rem;
+}
+
+.inc-cont h5 {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+}
+
+.counter-cont {
+	width: 95%;
+	gap: 1rem;
+}
+
+.counter-main {
+	height: 15rem;
+	border-radius: 0.7rem;
+}
+
+.secondary-cont {
+	height: 6rem;
+	gap: 1rem;
+}
+
+.secondary-btn {
+	height: 100%;
+}
+
+.btn {
+	border-radius: 0.7rem;
+}
+
+.slider {
+	height: 100%;
+}
+
+.slider >>> .q-slider__text {
+	font-size: 1.2rem;
+}
+</style>
