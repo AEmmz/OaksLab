@@ -1,5 +1,28 @@
 <template>
-	<div class="progress-cont"></div>
+	<div class="progress-cont">
+		<ve-progress
+			class="progress"
+			:progress="caughtCount"
+			:legend="count"
+			:size="150"
+			:thickness="10"
+			:emptyThickness="5"
+			line-mode="out 5"
+			:color="color"
+			emptyColor="var(--bg-offwhite)"
+			fontColor="var(--bg-offwhite)"
+			fontSize="1.75rem"
+			dot="6 var(--bg-offwhite)"
+		>
+			<template #legend>
+				<span> / {{ total }}</span>
+			</template>
+			<template #legend-caption
+				><span class="progress-caption">{{ name }}</span></template
+			>
+		</ve-progress>
+		<img :src="icon" class="progress-icon" />
+	</div>
 </template>
 
 <script>
@@ -29,9 +52,7 @@ export default {
 
 	methods: {
 		async getIcon(iconType) {
-			const image = await import(
-				/*vite-ignore */ `../../../assets/icons/types/${iconType}Icon.svg`
-			);
+			const image = await import(/*vite-ignore */ `../../../assets/icons/types/${iconType}Icon.svg`);
 			this.icon = image.default.replace(/^\/@fs/, '');
 		},
 	},

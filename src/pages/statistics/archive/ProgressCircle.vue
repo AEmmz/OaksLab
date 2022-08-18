@@ -1,5 +1,28 @@
 <template>
-	<div class="progress-cont"></div>
+	<div class="progress-cont">
+		<ve-progress
+			class="progress"
+			:progress="caughtCount"
+			:legend="counts"
+			:size="size"
+			:thickness="10"
+			:emptyThickness="5"
+			line-mode="out 5"
+			color="var(--main-red)"
+			emptyColor="var(--bg-offwhite)"
+			fontColor="var(--bg-offwhite)"
+			:fontSize="fontSize"
+			dot="6 var(--bg-offwhite)"
+		>
+			<template #legend>
+				<span> / {{ total }}</span>
+			</template>
+			<template #legend-caption
+				><span class="progress-caption">{{ name }}</span></template
+			>
+		</ve-progress>
+		<img :src="icon" class="progress-icon" />
+	</div>
 </template>
 
 <script>

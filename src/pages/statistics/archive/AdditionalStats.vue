@@ -1,5 +1,20 @@
 <template>
-	<div class="additional-stats-cont"></div>
+	<div class="additional-stats-cont">
+		<p class="additional-stats-title">Longest Hunt</p>
+		<div class="additional-stats-details">
+			<p class="additional-stats-details__name">Pikachu</p>
+			<p class="additional-stats-details__number">12345</p>
+			<img src="../../../assets/icons/PokeballIcon.svg" class="additional-stats-bg" />
+		</div>
+	</div>
+	<div class="additional-stats-cont">
+		<p class="additional-stats-title">Shortest Hunt</p>
+		<div class="additional-stats-details">
+			<p class="additional-stats-details__name">Pikachu</p>
+			<p class="additional-stats-details__number">12345</p>
+			<img src="../../../assets/icons/PokeballIcon.svg" class="additional-stats-bg" />
+		</div>
+	</div>
 </template>
 
 <style scoped>
