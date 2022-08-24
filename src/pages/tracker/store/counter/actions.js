@@ -102,7 +102,6 @@ export default {
 			const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
 			if (hunt === 'normalCount') {
 				const updateDb = await update(dbRef, { normalCount: count });
-				console.log(hi);
 			}
 			if (hunt === 'shinyCount') {
 				const updateDb = await update(dbRef, { shinyCount: count });

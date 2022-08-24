@@ -1,135 +1,266 @@
 <template>
-	<v-card
-		class="pokemon-card-container"
-		width="12rem"
-		height="20rem"
-		:color="type1"
-		elevation="4"
-		@mouseover="expand = true"
-		@mouseleave="expand = false"
-		:class="{ disabled: deactivated }"
-	>
-		<div v-if="!type2">
-			<v-icon class="background-icon-single" :icon="`$${type1}Icon`" x-large />
-		</div>
-		<div v-if="type2">
-			<v-icon class="background-icon-double-1" :icon="`$${type1}Icon`" x-large />
-			<v-icon class="background-icon-double-2" :icon="`$${type2}Icon`" x-large />
-		</div>
+	<q-dialog v-model="details">
+		<more-info
+			:pokemonInfo="pokemonInfo"
+			:pokemonId="pokemonId"
+			:selectedImage="selectedImage"
+			:pkClasses="pkClasses"
+			:close="close"
+		></more-info>
+	</q-dialog>
 
-		<div class="pokemon-card__bg-name">
-			<fit-text>{{ pkName }}</fit-text>
-		</div>
-		<img
-			class="pokemon-card__image"
-			:src="selectedImage"
-			:alt="pkName + '-image'"
-			:class="[{ 'disabled-image': deactivated }, pkClasses]"
-		/>
+	<div class="card-cont" @mouseenter="flipToBack" @mouseleave="flipToFront">
+		<q-card
+			class="card card-front"
+			:class="[`bg-${pokemonInfo.type1}Type`, { flipped: flipped }]"
+		>
+			<div
+				class="background-type-icon flex justify-center items-center full-height absolute-center"
+			>
+				<q-icon
+					:name="`icon-type-2-${pokemonInfo.type1}`"
+					color="white"
+					class="type-icon"
+					size="250px"
+				></q-icon>
+			</div>
+			<div class="card-front-number absolute-top-right q-pr-sm">
+				<h6>{{ pokemonInfo.dexNo }}</h6>
+			</div>
+			<div class="card-front-name">
+				<fit-text class="name">
+					{{ pokemonInfo.name }}
+				</fit-text>
+			</div>
+			<div class="flex items-end full-height">
+				<q-img
+					class="card-image"
+					:src="selectedImage"
+					:alt="`${pokemonInfo.name}-Image`"
+					:class="[{ 'disabled-image': deactivated }, pkClasses]"
+					style="min-width: 250px"
+				></q-img>
+			</div>
+		</q-card>
 
-		<v-expand-x-transition>
-			<div v-if="expand">
-				<v-card
-					class="card-back"
-					width="12rem"
-					height="20rem"
-					:color="type2 || type1"
-					elevation="1"
-				>
-					<div class="card-back-name">
-						<p>{{ pkName }}</p>
-					</div>
-					<v-divider thickness="2px" width="70%" class="divider"></v-divider>
-					<div class="card-back-badges">
-						<div class="card-back-badges-cont">
-							<h2>Caught</h2>
-							<div class="badge-icons">
-								<v-chip prepend-icon="$PokeballIcon" v-if="normalCaught"
-									>Normal</v-chip
-								>
-								<v-chip prepend-icon="$ShinyIcon" v-if="shinyCaught">Shiny</v-chip>
-								<v-chip prepend-icon="$AlphaIcon" v-if="alphaCaught">Alpha</v-chip>
-								<v-chip prepend-icon="$ShinyAlphaIcon" v-if="shinyAlphaCaught"
-									>Shiny Alpha</v-chip
-								>
-								<v-chip prepend-icon="$MarkedIcon" v-if="markedCaught"
-									>Marked</v-chip
-								>
-								<v-chip prepend-icon="$ShinyMarkedIcon" v-if="shinyMarkedCaught"
-									>Shiny Marked</v-chip
-								>
-								<v-chip prepend-icon="$PokerusIcon" v-if="pokerusCaught"
-									>Pokerus</v-chip
-								>
-								<v-chip prepend-icon="$ShinyPokerusIcon" v-if="shinyPokerusCaught"
-									>Shiny Pokerus</v-chip
-								>
-								<v-chip prepend-icon="$ZeroIcon" v-if="zeroIvCaught"
-									>Zero IV</v-chip
-								>
-								<v-chip prepend-icon="$ShinyZeroIcon" v-if="shinyZeroIvCaught"
-									>Shiny Zero IV</v-chip
-								>
-								<v-chip prepend-icon="$SixIcon" v-if="sixIvCaught">Six IV</v-chip>
-								<v-chip prepend-icon="$ShinySixIcon" v-if="shinySixIvCaught"
-									>Shiny Six IV</v-chip
-								>
-								<v-chip prepend-icon="$HeartIcon" v-if="favoriteCaught"
-									>Favorite</v-chip
-								>
-							</div>
+		<q-card
+			class="card card-back absolute-top-left"
+			:class="[`bg-${pokemonInfo.type1}Type`, { flipped: !flipped }]"
+		>
+			<div class="card-back-info-cont column items-center q-px-xs absolute-center bg-light">
+				<div class="card-back-name col flex items-center justify-center">
+					<fit-text-alt class="name">
+						{{ pokemonInfo.name }}
+					</fit-text-alt>
+				</div>
+				<div class="card-back-info col-8 full-width column">
+					<q-separator inset />
+					<div class="q-ma-xs col column items-center justify-center">
+						<span class="card-back-subtitle text-subtitle2 q-pb-xs">Caught</span>
+						<div class="icons flex justify-center q-gutter-xs">
+							<q-icon
+								v-if="pokemonInfo.catch.normalCaught"
+								size="xs"
+								name="icon-poke-pokeball"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinyCaught"
+								size="xs"
+								name="icon-poke-shiny"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.alphaCaught"
+								size="xs"
+								name="icon-poke-alpha"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinyAlphaCaught"
+								size="xs"
+								name="icon-poke-alpha-shiny"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.pokerusCaught"
+								size="xs"
+								name="icon-poke-pokerus"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinyPokerusCaught"
+								size="xs"
+								name="icon-poke-pokerus-shiny"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.markedCaught"
+								size="xs"
+								name="icon-poke-marked"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinyMarkedCaught"
+								size="xs"
+								name="icon-poke-marked-shiny"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.sixIvCaught"
+								size="xs"
+								name="icon-poke-six"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinySixIvCaught"
+								size="xs"
+								name="icon-poke-six-shiny"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.zeroIvCaught"
+								size="xs"
+								name="icon-poke-zero"
+							/>
+							<q-icon
+								v-if="pokemonInfo.catch.shinyZeroIvCaught"
+								size="xs"
+								name="icon-poke-zero-shiny"
+							/>
 						</div>
 					</div>
-				</v-card>
+					<q-separator inset />
+					<div class="q-ma-xs col column items-center justify-center q-pb-xs">
+						<span class="card-back-subtitle text-subtitle2">Uncaught</span>
+						<div class="icons flex justify-center q-gutter-xs">
+							<q-icon
+								v-if="!pokemonInfo.catch.normalCaught"
+								size="xs"
+								name="icon-poke-pokeball"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinyCaught"
+								size="xs"
+								name="icon-poke-shiny"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.alphaCaught"
+								size="xs"
+								name="icon-poke-alpha"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinyAlphaCaught"
+								size="xs"
+								name="icon-poke-alpha-shiny"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.pokerusCaught"
+								size="xs"
+								name="icon-poke-pokerus"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinyPokerusCaught"
+								size="xs"
+								name="icon-poke-pokerus-shiny"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.markedCaught"
+								size="xs"
+								name="icon-poke-marked"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinyMarkedCaught"
+								size="xs"
+								name="icon-poke-marked-shiny"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.sixIvCaught"
+								size="xs"
+								name="icon-poke-six"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinySixIvCaught"
+								size="xs"
+								name="icon-poke-six-shiny"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.zeroIvCaught"
+								size="xs"
+								name="icon-poke-zero"
+							/>
+							<q-icon
+								v-if="!pokemonInfo.catch.shinyZeroIvCaught"
+								size="xs"
+								name="icon-poke-zero-shiny"
+							/>
+						</div>
+					</div>
+					<q-separator inset />
+				</div>
+
+				<div class="card-back-buttons column items-center justify-center col-2 full-width">
+					<router-link
+						:to="{
+							name: 'tracking',
+							params: { pkName: pokemonInfo.name.toLowerCase() },
+						}"
+						class="track-button-cont"
+					>
+						<q-btn round class="q-ma-xs" size="sm" color="primary" icon="fas fa-paw">
+							<q-tooltip class="text-body1">Track</q-tooltip>
+						</q-btn>
+					</router-link>
+					<q-btn
+						round
+						class="q-ma-xs"
+						size="sm"
+						color="primary"
+						icon="fas fa-info"
+						@click="details = true"
+					>
+						<q-tooltip class="text-body1">More Info</q-tooltip>
+					</q-btn>
+					<q-btn round class="q-ma-xs" size="sm" color="primary" icon="fas fa-pen">
+						<q-tooltip class="text-body1">Quick Edit</q-tooltip>
+					</q-btn>
+				</div>
 			</div>
-		</v-expand-x-transition>
-	</v-card>
+		</q-card>
+	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import FitText from '../../../components/ui/FitText/FitText.vue';
+import FitTextAlt from '../../../components/ui/FitText/FitText-Alt.vue';
+import MoreInfo from './CollectionMoreInfo.vue';
 
 export default {
-	components: { FitText },
+	components: { FitText, FitTextAlt, MoreInfo },
 	props: {
-		pkName: { type: String },
-		pkId: { type: Number },
-		normalCaught: { type: Boolean, default: false },
-		shinyCaught: { type: Boolean, default: false },
-		alphaCaught: { type: Boolean, default: false },
-		shinyAlphaCaught: { type: Boolean, default: false },
-		markedCaught: { type: Boolean, default: false },
-		shinyMarkedCaught: { type: Boolean, default: false },
-		pokerusCaught: { type: Boolean, default: false },
-		shinyPokerusCaught: { type: Boolean, default: false },
-		zeroIvCaught: { type: Boolean, default: false },
-		shinyZeroIvCaught: { type: Boolean, default: false },
-		sixIvCaught: { type: Boolean, default: false },
-		shinySixIvCaught: { type: Boolean, default: false },
-		favoriteCaught: { type: Boolean, default: false },
-		type1: { type: String },
-		type2: { type: String },
+		pokemon: { type: Object },
 	},
 	data() {
 		return {
-			active: false,
-			monImage: null,
-			expand: false,
+			flipped: false,
+			details: false,
+			edit: false,
 		};
 	},
 	computed: {
-		selectedImage() {
-			return `https://ik.imagekit.io/kw2qoeib2/Home-Normal/${this.pkId}.png`;
+		...mapGetters('tracker', ['pkType1']),
+		pokemonInfo() {
+			console.log(this.pokemon[1]);
+			return this.pokemon[1];
 		},
-
+		pokemonId() {
+			return this.pokemon[0];
+		},
+		selectedImage() {
+			return `https://ik.imagekit.io/kw2qoeib2/Home-Normal/${this.pokemon[0]}.png`;
+		},
 		deactivated() {
 			return (
-				!this.normalCaught && !this.alphaCaught && !this.shinyCaught && !this.favoriteCaught
+				!this.pokemonInfo.normalCaught &&
+				!this.pokemonInfo.alphaCaught &&
+				!this.pokemonInfo.shinyCaught &&
+				!this.pokemonInfo.favoriteCaught
 			);
 		},
 
 		pkClasses() {
-			return this.pkName
+			return this.pokemonInfo.name
 				.toLowerCase()
 				.replaceAll(' ', '-')
 				.replaceAll('.', '')
@@ -139,118 +270,85 @@ export default {
 				.replaceAll('!', 'excl');
 		},
 	},
+	methods: {
+		flipToFront() {
+			setTimeout(() => {
+				this.flipped = false;
+			}, 450);
+		},
+		flipToBack() {
+			setTimeout(() => {
+				this.flipped = true;
+			}, 200);
+		},
+		close() {
+			this.details = false;
+		},
+	},
 };
 </script>
 
 <style scoped>
-@import url(../../../css/card-styles-min.css);
-@import url(../../../css/card-styles-min-mobile.css) (max-width: 48rem);
+@import url(../../../css/card-styles.css);
 
-.disabled {
-	filter: grayscale(1) brightness(0.7);
+.card-cont {
+	position: relative;
 }
 
-.disabled-image {
-	filter: brightness(0.1);
+.card {
+	height: 20rem;
+	width: 12rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	transition: all 400ms ease-in-out;
 }
-.pokemon-card__bg-name {
+
+.card {
+	backface-visibility: hidden;
+}
+
+.flipped {
+	transform: rotatey(180deg);
+}
+
+.type-icon {
+	opacity: 0.15;
+}
+
+.card-front-name {
 	display: block;
-	align-items: center;
 	position: absolute;
 	text-align: left;
-	top: 0rem;
+	top: 3rem;
 	left: -0.5rem;
-	width: 18rem;
+	height: 8rem;
+	width: 15rem;
 	transform: rotate(-90deg) translate(-107%, 0);
 	transform-origin: 0 0;
 	opacity: 50%;
 }
-
 .card-back-name {
-	display: flex;
-	align-items: center;
-	margin: 1rem;
 	text-align: center;
-}
-.card-back-name p {
-	font-size: 1.2rem;
-}
-
-.pokemon-card__image {
-	position: absolute;
-	width: 250px;
-	bottom: -1rem;
-	left: 0;
+	height: 5rem;
+	width: 10rem;
+	opacity: 70%;
 }
 
-.card-back {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: top;
-	opacity: 100%;
-	border-right: 0.2rem solid white;
-	overflow: hidden;
+.card-back-info-cont {
+	height: 19.5rem;
+	width: 11.5rem;
 }
 
-.card-back-badges-cont {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	padding-top: 1rem;
+/* .card-back-buttons {
+	width: 11.5rem;
+} */
+
+.card-front-number {
+	opacity: 50%;
 }
 
-.card-back-badges-cont h2 {
-	padding-bottom: 0.2rem;
-	font-size: 1.2rem;
-}
-
-.badge-icons {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.badge-icons .v-chip {
-	/* padding: 0.5rem; */
-	margin: 0.2rem;
-}
-
-.divider {
-	background-color: white;
-}
-
-.background-icon-single {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 10%;
-	z-index: -10;
-}
-.background-icon-single {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 7.5%;
-	z-index: -10;
-}
-.background-icon-double-1 {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 7.5%;
-	z-index: -10;
-	top: -5rem;
-	left: -2rem;
-}
-.background-icon-double-2 {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 7.5%;
-	z-index: -10;
-	bottom: -5rem;
-	right: -2rem;
+.card-back-subtitle,
+.icons {
+	opacity: 70%;
 }
 </style>

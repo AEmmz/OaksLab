@@ -63,7 +63,6 @@ export default {
 			};
 			const changePkmn = await this.changeActivePokemon(inputPokemon);
 			const data = this.hunt.split('Count')[0];
-			console.log('data', data);
 			this.changeCount(data);
 			this.fetchForms();
 		},

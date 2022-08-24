@@ -18,10 +18,6 @@ import { mapGetters } from 'vuex';
 import TheNavigationBar from './components/navigation/TheNavigationBar.vue';
 
 export default {
-	mounted() {
-		console.log(this.uid);
-	},
-
 	components: {
 		TheNavigationBar,
 	},
@@ -29,10 +25,7 @@ export default {
 		...mapGetters('authorization', ['uid']),
 	},
 	watch: {
-		uid(cur, prev) {
-			console.log(cur);
-			console.log(prev);
-		},
+		uid(cur, prev) {},
 		// didAutoLogout(curVal, oldVal) {
 		// 	if (curVal && curVal !== oldVal) {
 		// 		this.$router.replace('/login');
@@ -50,6 +43,10 @@ export default {
 * {
 	margin: 0;
 	box-sizing: border-box;
+}
+
+.q-dialog__backdrop {
+	background: rgba(0, 0, 0, 0.7);
 }
 
 html {

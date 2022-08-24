@@ -1,42 +1,35 @@
 <template>
 	<div>
-		<Suspense>
-			<template #default>
-				<div class="page-container flex row justify-center q-ma-md q-gutter-x-lg">
-					<div class="left q-gutter-y-md">
-						<q-card class="bg-light images-cont">
-							<pokemon-images></pokemon-images>
-						</q-card>
-						<q-card class="bg-light toggle-cont">
-							<caught-buttons></caught-buttons>
-						</q-card>
-						<q-card class="bg-dark type-cont">
-							<type-bar></type-bar>
-						</q-card>
-					</div>
+		<div class="page-container flex row justify-center q-ma-md q-gutter-x-lg">
+			<div class="left q-gutter-y-md">
+				<q-card class="bg-light images-cont">
+					<pokemon-images></pokemon-images>
+				</q-card>
+				<q-card class="bg-light toggle-cont">
+					<caught-buttons></caught-buttons>
+				</q-card>
+				<q-card class="bg-dark type-cont">
+					<type-bar></type-bar>
+				</q-card>
+			</div>
 
-					<q-separator vertical inset />
+			<q-separator vertical inset />
 
-					<div class="right q-gutter-y-md">
-						<q-card class="bg-dark search-cont">
-							<tracker-search-bar></tracker-search-bar>
-						</q-card>
-						<q-card class="bg-dark counter-cont">
-							<counter-card></counter-card>
-							<!-- <transition name="right-top-cont-group">
+			<div class="right q-gutter-y-md">
+				<q-card class="bg-dark search-cont">
+					<tracker-search-bar></tracker-search-bar>
+				</q-card>
+				<q-card class="bg-dark counter-cont">
+					<counter-card></counter-card>
+					<!-- <transition name="right-top-cont-group">
 								<tracker-forms v-show="isForms"></tracker-forms>
 							</transition> -->
-						</q-card>
-						<q-card class="bg-dark form-cont">
-							<tracker-forms></tracker-forms>
-						</q-card>
-					</div>
-				</div>
-			</template>
-			<template #fallback>
-				<loading-screen></loading-screen>
-			</template>
-		</Suspense>
+				</q-card>
+				<q-card class="bg-dark form-cont">
+					<tracker-forms></tracker-forms>
+				</q-card>
+			</div>
+		</div>
 	</div>
 </template>
 

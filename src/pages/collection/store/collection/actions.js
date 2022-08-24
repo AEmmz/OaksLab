@@ -9,7 +9,6 @@ export default {
 		const dbRef = await ref(getDatabase());
 		const data = await get(child(dbRef, `users/${uid}/pokedex`));
 		const userInfo = await Object.entries(data.val());
-		console.log('1');
 
 		context.dispatch('setDefaultLists', userInfo);
 	},

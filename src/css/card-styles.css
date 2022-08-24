@@ -2,13 +2,13 @@
 	transform: scalex(-1) translatex(-2rem);
 }
 .venusaur {
-	transform: scale(1.3) translatey(-3rem) translatex(1rem);
+	transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
 .mega-venusaur {
-	transform: scale(1.3) translatey(-3rem) translatex(3rem);
+	transform: scale(1.3) translatey(-2rem) translatex(3rem);
 }
 .gigantamax-venusaur {
-	transform: scale(1.5) translatey(-4rem) translatex(3rem);
+	transform: scale(1.5) translatey(-2rem) translatex(3rem);
 }
 .charmander {
 	transform: translatex(1rem);
@@ -17,16 +17,16 @@
 	transform: translatex(1rem);
 }
 .charizard {
-	transform: scale(1.3) translatey(-3rem) translatex(1rem);
+	transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
 .mega-charizard-x {
-	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-4rem);
+	transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-4rem);
 }
 .mega-charizard-y {
-	transform: scale(1.3) translatey(-3rem) translatex(1rem);
+	transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
 .gigantamax-charizard {
-	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-4rem);
+	transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-3rem);
 }
 .squirtle {
 }
@@ -36,10 +36,10 @@
 	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
 }
 .mega-blastoise {
-	transform: scalex(1.3) scaley(1.3) translatey(-3rem) translatex(-0rem);
+	transform: scalex(1.3) scaley(1.3) translatey(-2rem) translatex(-0rem);
 }
 .gigantamax-blastoise {
-	transform: scalex(-1.3) scaley(1.3) translatey(-3rem) translatex(-2rem);
+	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-2rem);
 }
 .caterpie {
 	transform: scale(0.8) translatey(2rem) translatex(1rem);
@@ -48,8 +48,10 @@
 	transform: scale(1.1) translatex(1rem) translatey(-1rem);
 }
 .butterfree {
+	transform: translatey(-1rem);
 }
 .gigantamax-butterfree {
+	transform: translatey(-3rem) translatex(-1rem) scalex(-1.5) scaley(1.5);
 }
 .weedle {
 	transform: scale(0.8) translatey(2rem) translatex(1rem);
@@ -72,7 +74,7 @@
 	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(-3rem);
 }
 .mega-pidgeot {
-	transform: scale(1.4) translatey(-3rem) translatex(5rem);
+	transform: scale(1.4) translatey(-3rem) translatex(4rem);
 }
 .rattata {
 }
@@ -91,19 +93,19 @@
 	transform: scale(1.2) translatey(-2rem) translatex(1rem);
 }
 .ekans {
-	transform: translatex(2rem);
+	transform: translatex(2rem) translatey(1rem);
 }
 .arbok {
-	transform: scale(1.1) translatey(-2rem) translatex(-1rem);
+	transform: scale(1.1) translatey(-1rem);
 }
 .pikachu {
 	transform: translatex(2rem);
 }
 .gigantamax-pikachu {
-	transform: scale(1.4) translatey(-4rem) translatex(-1rem);
+	transform: scale(1.4) translatey(-2rem);
 }
 .raichu {
-	transform: scale(1.2) translatey(-3rem) translatex(5rem);
+	transform: scale(1.2) translatey(-1rem) translatex(4rem);
 }
 .alolan-raichu {
 	transform: scale(1.1) translatey(-2rem) translatex(-2rem);
@@ -126,7 +128,7 @@
 .nidorina {
 }
 .nidoqueen {
-	transform: scale(1.1) translatey(-2rem) translatex(-1rem);
+	transform: scale(1.1) translatey(-1rem) translatex(-1rem);
 }
 .nidoran-male {
 	transform: scale(0.8) translatey(2rem) translatex(1rem);
@@ -134,7 +136,7 @@
 .nidorino {
 }
 .nidoking {
-	transform: scale(1.2) translatey(-2rem) translatex(1rem);
+	transform: scale(1.2) translatey(-1rem) translatex(1rem);
 }
 .clefairy {
 	transform: scale(0.8) translatey(2rem) translatex(1rem);
@@ -142,6 +144,7 @@
 .clefable {
 }
 .vulpix {
+	transform: translatex(1rem);
 }
 .alolan-vulpix {
 	transform: scale(0.9) translatey(1rem) translatex(1rem);
@@ -150,7 +153,7 @@
 	transform: scale(1.1) translatex(-1rem);
 }
 .alolan-ninetales {
-	transform: scale(1.3) translatey(-3rem) translatex(1rem);
+	transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
 .jigglypuff {
 	transform: scale(0.8) translatey(2rem) translatex(1rem);
@@ -159,7 +162,7 @@
 	transform: scalex(-1) translatex(-2rem);
 }
 .zubat {
-	transform: scale(0.8) translatey(2rem) translatex(-2rem);
+	transform: scale(0.8) translatey(-1rem) translatex(-2rem);
 }
 .golbat {
 	transform: translatey(-2rem) translatex(2rem);
@@ -180,7 +183,7 @@
 	transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-1rem);
 }
 .venomoth {
-	transform: scale(1.4) translatey(-1rem) translatex(1rem);
+	transform: scale(1.4) translatey(-2rem) translatex(1rem);
 }
 .diglett {
 	transform: scale(0.8) translatey(2rem);
@@ -202,10 +205,10 @@
 .galarian-meowth {
 }
 .gigantamax-meowth {
-	transform: scale(1.3) translatey(-3rem) translatex(-2rem);
+	transform: scale(1.3) translatey(-1rem) translatex(-1rem);
 }
 .persian {
-	transform: scale(1.1) translatey(-1rem) translatex(-3rem);
+	transform: scale(1.1) translatey(-1rem) translatex(-2rem);
 }
 .alolan-persian {
 	transform: translatey(-1rem) translatex(2rem);
@@ -223,13 +226,13 @@
 	transform: scale(0.9) translatey(1rem) translatex(-1rem);
 }
 .hisuian-growlithe {
-	transform: scale(0.9) translatex(1rem);
+	transform: scale(0.9) translatex(2rem);
 }
 .arcanine {
 	transform: scale(1.1) translatey(-1rem) translatex(3rem);
 }
 .hisuian-arcanine {
-	transform: scale(1.3) translatey(-3rem) translatex(5rem);
+	transform: scale(1.3) translatey(-3rem) translatex(3rem);
 }
 .poliwag {
 	transform: scale(0.8) translatey(2rem) translatex(2rem);
@@ -238,7 +241,7 @@
 	transform: translatex(1rem);
 }
 .poliwrath {
-	transform: scale(1.3) translatey(-3rem) translatex(-1rem);
+	transform: scale(1.3) translatey(-2rem) translatex(-1rem);
 }
 .abra {
 	transform: translatey(4rem) translatex(-1rem);
@@ -250,7 +253,7 @@
 	transform: scale(1.1) translatey(-2rem) translatex(-1rem);
 }
 .mega-alakazam {
-	transform: scale(1.2) translatey(-2rem) translatex(-1rem);
+	transform: scale(1.2) translatey(-2rem) translatex(0rem);
 }
 .machop {
 	transform: scale(0.9) translatex(-1rem);
@@ -258,10 +261,10 @@
 .machoke {
 }
 .machamp {
-	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(1rem);
+	transform: scalex(-1.2) scaley(1.2) translatey(-1rem) translatex(1rem);
 }
 .gigantamax-machamp {
-	transform: scale(1.2) translatey(-2rem);
+	transform: scale(1.2) translatey(-1rem);
 }
 .bellsprout {
 	transform: scale(0.8) translatey(2rem) translatex(2rem);
@@ -276,6 +279,7 @@
 	transform: scale(0.8);
 }
 .tentacruel {
+	transform: translatey(1rem);
 }
 .geodude {
 }
@@ -327,7 +331,7 @@
 .farfetch’d {
 }
 .galarian-farfetch’d {
-	transform: scale(1.6) translateY(-5rem) translateX(3rem);
+	transform: scale(1.6) translateY(-3rem) translateX(2rem);
 }
 .doduo {
 	transform: translateX(-1rem);
@@ -344,10 +348,10 @@
 .alolan-grimer {
 }
 .muk {
-	transform: scalex(-1.6) scaley(1.6) translateY(-4rem) translateX(1rem);
+	transform: scalex(-1.6) scaley(1.6) translateY(-3rem) translateX(0rem);
 }
 .alolan-muk {
-	transform: scale(1.6) translateY(-4rem) translateX(1rem);
+	transform: scale(1.6) translateY(-3rem) translateX(1rem);
 }
 .shellder {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
@@ -370,7 +374,7 @@
 }
 
 .onix {
-	transform: translateX(2rem);
+	transform: translateX(1rem);
 }
 .drowzee {
 	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(1rem);
@@ -404,7 +408,7 @@
 	transform: translatex(1rem);
 }
 .alolan-exeggutor {
-	transform: scale(1.3) translatey(-3.5rem);
+	transform: scale(1.3) translatey(-1.5rem);
 }
 .cubone {
 	transform: scale(0.8) translatey(2rem);
@@ -413,13 +417,13 @@
 	transform: translatex(2rem);
 }
 .alolan-marowak {
-	transform: scale(1.3) translatey(-3rem) translatex(2rem);
+	transform: scale(1.3) translatey(-2rem) translatex(2rem);
 }
 .hitmonlee {
-	transform: scalex(-1) translatey(-1rem) translatex(2rem);
+	transform: scalex(-1) translatey(0rem) translatex(2rem);
 }
 .hitmonchan {
-	transform: translatey(-1rem) translatex(-1rem);
+	transform: translatey(0rem) translatex(-1rem);
 }
 .lickitung {
 	transform: translatex(2rem);
@@ -429,7 +433,7 @@
 .weezing {
 }
 .galarian-weezing {
-	transform: scale(1.3) translatey(-5rem) translatex(3rem);
+	transform: scale(1.3) translatey(-4rem) translatex(3rem);
 }
 .rhyhorn {
 	transform: scale(0.8) translatey(2rem) translatex(3rem);
@@ -486,7 +490,7 @@
 	transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
 .tauros {
-	transform: scale(1.2) translatey(-2.5rem) translatex(3rem);
+	transform: scale(1.2) translatey(-1.5rem) translatex(3rem);
 }
 .magikarp {
 	transform: scale(0.8) translatey(1rem) translatex(3rem);
@@ -501,14 +505,14 @@
 	transform: scale(1.2) translatey(-2rem);
 }
 .gigantamax-lapras {
-	transform: scale(1.4) translatey(-4rem) translatex(2rem);
+	transform: scale(1.4) translatey(-2rem) translatex(2rem);
 }
 .ditto {
 }
 .eevee {
 }
 .gigantamax-eevee {
-	transform: scalex(-1.2) scaley(1.2) translatey(-2.5rem) translatex(0rem);
+	transform: scalex(-1.2) scaley(1.2) translatey(-1.5rem) translatex(0rem);
 }
 
 .vaporeon {
@@ -540,7 +544,7 @@
 	transform: scale(1.4) translatey(-1rem) translatex(2rem);
 }
 .mega-aerodactyl {
-	transform: scale(1.6) translatey(-3rem) translatex(2rem);
+	transform: scale(1.6) translatey(-2rem) translatex(2rem);
 }
 .snorlax {
 	transform: scale(1.4) translatey(-3rem) translatex(1rem);
@@ -552,7 +556,7 @@
 	transform: scale(1.1) translatey(-3rem) translatex(3rem);
 }
 .galarian-articuno {
-	transform: scale(1.1) translatey(-3rem) translatex(2rem);
+	transform: scale(1.1) translatey(-2rem) translatex(1rem);
 }
 .zapdos {
 	transform: scale(1.2) translatey(-3rem) translatex(1rem);
@@ -591,30 +595,30 @@
 	transform: scale(1) translatex(2rem);
 }
 .bayleef {
-	transform: scale(1.1) translatey(-1.5rem) translatex(1rem);
+	transform: scale(1.1) translatey(-0.5rem) translatex(1rem);
 }
 .meganium {
-	transform: scale(1.3) translatey(-3rem);
+	transform: scale(1.3) translatey(-2rem);
 }
 .cyndaquil {
-	transform: scalex(-1) translatey(-1rem);
+	transform: scalex(-1) translatey(0rem);
 }
 .quilava {
-	transform: scale(1.1) translatey(-2rem);
+	transform: scale(1.1) translatey(-1rem);
 }
 .typhlosion {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+	transform: scale(1.3) translatey(-1rem) translatex(1rem);
 }
 .hisuian-typhlosion {
-	transform: scalex(-1.5) scaley(1.5) translatey(-3rem) translatex(-3rem);
+	transform: scalex(-1.5) scaley(1.5) translatey(-2rem) translatex(-3rem);
 }
 .totodile {
 }
 .croconaw {
-	transform: scale(1.1) translatey(-2rem) translatex(3rem);
+	transform: scale(1.1) translatey(-1rem) translatex(3rem);
 }
 .feraligatr {
-	transform: scale(1.3) translatey(-1rem) translatex(1rem);
+	transform: scale(1.3) translatey(0rem) translatex(1rem);
 }
 .sentret {
 }
@@ -675,10 +679,10 @@
 	transform: translateX(2rem);
 }
 .ampharos {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .mega-ampharos {
-	transform: scale(1.2) translateY(-2rem) translateX(4rem);
+	transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
 .bellossom {
 	transform: scale(0.8) translateY(2rem) translateX(1rem);
@@ -687,7 +691,7 @@
 	transform: scalex(-1) translateY(-2rem) translateX(-2rem);
 }
 .azumarill {
-	transform: translateY(-1rem) translateX(1rem);
+	transform: translateY(0rem) translateX(1rem);
 }
 .sudowoodo {
 	transform: scale(1.1) translateY(-1rem) translateX(1rem);
@@ -709,7 +713,7 @@
 	transform: scale(0.8) translateY(4rem) translateX(1rem);
 }
 .sunflora {
-	transform: scale(1.1) translateY(-2rem) translateX(1rem);
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .yanma {
 	transform: scale(1.1) translateY(-2rem) translateX(2rem);
@@ -813,7 +817,7 @@
 	transform: scale(1.1) translateY(0.5rem) translateX(1rem);
 }
 .mega-steelix {
-	transform: scale(1.5) translateX(4rem);
+	transform: scale(1.5) translateX(3rem);
 }
 .snubbull {
 	transform: scale(0.8) translateY(2rem) translateX(1rem);
@@ -866,10 +870,10 @@
 	transform: translateX(3rem);
 }
 .corsola {
-	transform: scalex(-1) translateY(-1rem) translateX(-2rem);
+	transform: scalex(-1) translateY(0rem) translateX(-2rem);
 }
 .galarian-corsola {
-	transform: scalex(-1) translateY(-1rem) translateX(-2rem);
+	transform: scalex(-1) translateY(0rem) translateX(-2rem);
 }
 .remoraid {
 	transform: scale(0.6) translateY(2rem) translateX(1rem);
@@ -898,7 +902,7 @@
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
 .donphan {
-	transform: scale(1.4) translateY(-4rem) translateX(1rem);
+	transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
 .porygon2 {
 	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
@@ -916,10 +920,10 @@
 	transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
 .smoochum {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+	transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
 .elekid {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(0rem);
 }
 .magby {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
@@ -931,10 +935,10 @@
 	transform: scalex(-1) translateX(-1rem);
 }
 .raikou {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .entei {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .suicune {
 	transform: scale(1.3) translateY(-2rem) translateX(4rem);
@@ -965,10 +969,10 @@
 	transform: scale(1.1) translateX(2rem);
 }
 .sceptile {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+	transform: scale(1.2) translateY(0rem) translateX(2rem);
 }
 .mega-sceptile {
-	transform: scale(1.6) translateY(-4.5rem) translateX(-6rem);
+	transform: scale(1.6) translateY(-2.5rem) translateX(-4rem);
 }
 .torchic {
 }
@@ -976,10 +980,10 @@
 	transform: scale(1.1) translateY(-1rem);
 }
 .blaziken {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem);
 }
 .mega-blaziken {
-	transform: scale(1.3) translateY(-3rem) translateX(5rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .mudkip {
 	transform: translatex(2rem);
@@ -988,28 +992,28 @@
 	transform: scalex(-1.2) scaley(1.2) translateY(1rem);
 }
 .swampert {
-	transform: scale(1.6) translateY(-3.5rem) translateX(3rem);
+	transform: scale(1.6) translateY(-2.5rem) translateX(2rem);
 }
 .mega-swampert {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
 .poochyena {
-	transform: translateX(3rem);
+	transform: translateX(2rem);
 }
 .mightyena {
-	transform: translateY(1rem) translateX(4rem);
+	transform: translateY(1rem) translateX(3rem);
 }
 .zigzagoon {
-	transform: translateY(-1rem) translateX(4rem);
+	transform: translateY(0rem) translateX(3rem);
 }
 .galarian-zigzagoon {
 	transform: scale(0.8) translateY(-1rem) translateX(2rem);
 }
 .linoone {
-	transform: scale(1.8) translateY(-8rem) translateX(7rem);
+	transform: scale(1.8) translateY(-6rem) translateX(4rem);
 }
 .galarian-linoone {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-5rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-4rem);
 }
 .wurmple {
 	transform: scale(0.8) translateY(2rem) translateX(-1rem);
@@ -1042,13 +1046,13 @@
 	transform: translateX(3rem);
 }
 .shiftry {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .taillow {
 	transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
 .swellow {
-	transform: scale(1.2) translateY(-2rem) translateX(5rem);
+	transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
 .wingull {
 	transform: translatex(2rem);
@@ -1062,15 +1066,15 @@
 .kirlia {
 }
 .gardevoir {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-6rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-4rem);
 }
 .mega-gardevoir {
-	transform: scale(1.2) translateY(-2rem) translateX(5rem);
+	transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
 .surskit {
 }
 .masquerain {
-	transform: scale(1.2) translateY(-4rem) translateX(3rem);
+	transform: scale(1.2) translateY(-4rem) translateX(2rem);
 }
 .shroomish {
 }
@@ -1081,10 +1085,10 @@
 	transform: translateX(3rem);
 }
 .vigoroth {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
 .slaking {
-	transform: scalex(-1.4) scaley(1.4) translateY(-3rem) translateX(-3rem);
+	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-2rem);
 }
 .nincada {
 }
@@ -1092,7 +1096,7 @@
 	transform: scale(1.1) translateX(3rem);
 }
 .shedinja {
-	transform: translateX(3rem);
+	transform: translateX(3rem) translatey(-1rem);
 }
 .whismur {
 	transform: scaleX(-0.9) scaleY(0.9) translateY(1rem) translatex(1rem);
@@ -1123,10 +1127,10 @@
 	transform: translateX(2rem);
 }
 .mawile {
-	transform: translateX(-3rem);
+	transform: translateX(-2rem);
 }
 .mega-mawile {
-	transform: scalex(-1) translateX(5rem);
+	transform: scalex(-1) translateX(3rem);
 }
 .aron {
 	transform: scale(0.8) translatey(3rem) translatex(2rem);
@@ -1135,19 +1139,19 @@
 	transform: translateX(3rem);
 }
 .aggron {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+	transform: scale(1.1) translateY(0rem) translateX(2rem);
 }
 .mega-aggron {
-	transform: scale(1.4) translateY(-4rem) translateX(5rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
 .meditite {
 	transform: scale(0.8) translateY(4rem) translateX(2rem);
 }
 .medicham {
-	transform: scale(1.1) translateY(-2rem);
+	transform: scale(1.1) translateY(-1rem);
 }
 .mega-medicham {
-	transform: scale(1.1) translateY(-2rem) translatex(1rem);
+	transform: scale(1.1) translateY(-1rem) translatex(1rem);
 }
 .electrike {
 	transform: translateX(3rem);
@@ -1189,25 +1193,25 @@
 	transform: scale(1.4) translateX(3rem);
 }
 .wailord {
-	transform: scale(2.4) translateX(6rem);
+	transform: scale(2.4) translateX(4rem);
 }
 .numel {
 	transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
 .camerupt {
-	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .mega-camerupt {
-	transform: scale(1.3) translateY(-3rem) translateX(6rem);
+	transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
 .torkoal {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .spoink {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .grumpig {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+	transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
 .spinda {
 	transform: translateX(2rem);
@@ -1224,7 +1228,7 @@
 .cacnea {
 }
 .cacturne {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .swablu {
 	transform: translateX(2rem);
@@ -1233,7 +1237,7 @@
 	transform: translateX(2rem);
 }
 .mega-altaria {
-	transform: scale(1.5) translateY(1rem) translateX(2rem);
+	transform: scale(1.5) translateY(1rem) translateX(1rem);
 }
 .zangoose {
 	transform: scale(1.2) translateY(-2rem) translateX(3rem);
@@ -1273,13 +1277,13 @@
 .anorith {
 }
 .armaldo {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(4rem);
 }
 .feebas {
 	transform: translateX(1rem);
 }
 .milotic {
-	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .castform {
 }
@@ -1291,7 +1295,7 @@
 .castform-snowy {
 }
 .kecleon {
-	transform: translateX(3rem);
+	transform: translateX(2rem);
 }
 .shuppet {
 	transform: scale(0.8) translateY(-2rem) translateX(1rem);
@@ -1313,10 +1317,10 @@
 .chimecho {
 }
 .absol {
-	transform: scale(1.2) translateY(-2rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
 }
 .mega-absol {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .wynaut {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
@@ -1325,7 +1329,7 @@
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .glalie {
-	transform: translateY(-2rem) translateX(3rem);
+	transform: translateY(-2rem) translateX(2rem);
 }
 .mega-glalie {
 	transform: scalex(-1) translateY(-2rem) translateX(-1rem);
@@ -1337,47 +1341,47 @@
 	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-4rem);
 }
 .walrein {
-	transform: scale(1.3) translateY(-1rem) translateX(5rem);
+	transform: scale(1.3) translateY(0rem) translateX(4rem);
 }
 .clamperl {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .huntail {
-	transform: scale(1.1) translateY(-2rem) translateX(5rem);
+	transform: scale(1.1) translateY(-2rem) translateX(4rem);
 }
 .gorebyss {
-	transform: scale(1.1) translateY(-2rem) translateX(3rem);
+	transform: scale(1.1) translateY(-2rem) translateX(2rem);
 }
 .relicanth {
-	transform: scale(1.1) translateY(-2rem) translateX(4rem);
+	transform: scale(1.1) translateY(-2rem) translateX(3rem);
 }
 .luvdisc {
 	transform: scale(0.8) translateY(-2rem);
 }
 
 .bagon {
-	transform: translateX(2rem);
+	transform: translateX(1rem);
 }
 .shelgon {
-	transform: translateX(3rem);
+	transform: translateX(2rem);
 }
 .salamence {
-	transform: scale(1.4) translateY(-2rem) translateX(6rem);
+	transform: scale(1.4) translateY(-1rem) translateX(4rem);
 }
 .mega-salamence {
-	transform: scale(1.9) translateY(-2rem) translateX(3rem);
+	transform: scale(1.9) translateY(-2rem) translateX(2rem);
 }
 .beldum {
-	transform: scale(0.9) translateY(-2rem) translateX(5rem);
+	transform: scale(0.9) translateY(-2rem) translateX(4rem);
 }
 .metang {
 	transform: translateX(1rem);
 }
 .metagross {
-	transform: scale(1.5) translateY(-4rem) translateX(0rem);
+	transform: scale(1.5) translateY(-2rem) translateX(0rem);
 }
 .mega-metagross {
-	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .regirock {
 	transform: scale(1.3) translateY(-2rem) translateX(2rem);
@@ -1389,48 +1393,48 @@
 	transform: scale(1.4) translateY(-4rem) translateX(1rem);
 }
 .latias {
-	transform: translateY(-2rem) translateX(6rem);
+	transform: translateY(-2rem) translateX(4rem);
 }
 .mega-latias {
-	transform: scalex(-1.2) scaley(1.2) translateY(-4rem) translateX(-1rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-3rem) translateX(0rem);
 }
 .latios {
-	transform: scale(1.3) translateY(-4rem) translateX(5rem);
+	transform: scale(1.3) translateY(-4rem) translateX(3rem);
 }
 .mega-latios {
-	transform: scale(1.5) translateY(-2rem) translateX(7rem);
+	transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
 .kyogre {
-	transform: scale(1.7) translateY(-1rem) translateX(5rem);
+	transform: scale(1.7) translateY(-1rem) translateX(3rem);
 }
 .kyogre-primal {
-	transform: scale(1.8) translateY(-2rem) translateX(4rem);
+	transform: scale(1.8) translateY(-2rem) translateX(2rem);
 }
 .groudon {
-	transform: scalex(-1.5) scaley(1.5) translateY(-2rem) translateX(-6rem);
+	transform: scalex(-1.5) scaley(1.5) translateY(-1rem) translateX(-4rem);
 }
 .groudon-primal {
-	transform: scalex(-1.8) scaley(1.8) translateY(-5rem) translateX(-8rem);
+	transform: scalex(-1.8) scaley(1.8) translateY(-3rem) translateX(-4rem);
 }
 .rayquaza {
-	transform: scale(1.4) translateY(-4rem) translateX(7rem);
+	transform: scale(1.4) translateY(-2rem) translateX(4rem);
 }
 .mega-rayquaza {
-	transform: scale(1.8) translateY(-4rem) translateX(7rem);
+	transform: scale(1.8) translateY(-2rem) translateX(5rem);
 }
 .jirachi {
 }
 .deoxys-normal {
-	transform: scale(1.3) translateY(0rem) translateX(3rem);
+	transform: scale(1.3) translateY(0rem) translateX(2rem);
 }
 .deoxys-attack {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-1rem) translateX(-1rem);
 }
 .deoxys-defense {
 	transform: scalex(-1.3) scaley(1.3) translateY(-1rem);
 }
 .deoxys-speed {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .turtwig {
 }
@@ -1438,7 +1442,7 @@
 	transform: translateX(3rem);
 }
 .torterra {
-	transform: scale(1.5) translateY(-4rem) translateX(5rem);
+	transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
 .chimchar {
 }
@@ -1446,7 +1450,7 @@
 	transform: scale(1.1) translateY(-4rem) translateX(3rem);
 }
 .infernape {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+	transform: scale(1.4) translateY(-1rem) translateX(2rem);
 }
 .piplup {
 	transform: scalex(-0.8) scaley(0.8) translateY(3rem);
@@ -1455,7 +1459,7 @@
 	transform: translateX(2rem);
 }
 .empoleon {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .starly {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
@@ -1464,19 +1468,19 @@
 	transform: translateX(2rem);
 }
 .staraptor {
-	transform: translateX(4rem);
+	transform: translateX(3rem);
 }
 .bidoof {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .bibarel {
-	transform: scale(1.1) translateY(-2rem) translateX(-2rem);
+	transform: scale(1.1) translateY(-1rem) translateX(-2rem);
 }
 .kricketot {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .kricketune {
-	transform: scale(1.1) translateY(-2rem);
+	transform: scale(1.1) translateY(-1rem);
 }
 .shinx {
 	transform: scalex(-1) translateY(0rem) translateX(-2rem);
@@ -1485,25 +1489,25 @@
 	transform: translateX(3rem);
 }
 .luxray {
-	transform: scale(1.3) translateY(-3rem) translateX(5rem);
+	transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
 .budew {
 	transform: scale(0.9) translateY(1rem);
 }
 .roserade {
-	transform: scale(1.1) translateY(-2rem);
+	transform: scale(1.1) translateY(-1rem);
 }
 .cranidos {
 	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-1rem);
 }
 .rampardos {
-	transform: scalex(-1.3) scaley(1.3) translateY(-3rem) translateX(-3rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
 }
 .shieldon {
 	transform: scale(0.8) translateY(3rem) translateX(3rem);
 }
 .bastiodon {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .burmy-plant-cloak {
 }
@@ -1512,22 +1516,22 @@
 .burmy-trash-cloak {
 }
 .wormadam-plant-cloak {
-	transform: scale(1.3) translateY(-4rem) translateX(0rem);
+	transform: scale(1.3) translateY(-3rem) translateX(0rem);
 }
 .wormadam-sandy-cloak {
-	transform: scalex(-1.3) scaley(1.3) translateY(-4rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-3rem);
 }
 .wormadam-trash-cloak {
-	transform: scale(1.3) translateY(-4rem) translateX(1rem);
+	transform: scale(1.3) translateY(-3rem) translateX(1rem);
 }
 .mothim {
-	transform: scale(1.4) translateY(-4rem) translateX(2rem);
+	transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
 .combee {
-	transform: translateY(-4rem) translateX(2rem);
+	transform: translateY(-3rem) translateX(2rem);
 }
 .vespiquen {
-	transform: scale(1.1) translateY(-4rem) translateX(-1rem);
+	transform: scale(1.1) translateY(-3rem) translateX(-1rem);
 }
 .pachirisu {
 	transform: scale(0.9) translateY(1rem) translateX(4rem);
@@ -1536,7 +1540,7 @@
 	transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
 .floatzel {
-	transform: scale(1.1) translateY(-2rem) translateX(3rem);
+	transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
 .cherubi {
 	transform: scale(0.8) translateY(2rem) translateX(0rem);
@@ -1553,31 +1557,31 @@
 	transform: scale(1.1) translateY(-1rem) translateX(-1rem);
 }
 .gastrodon-east-sea {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+	transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
 .ambipom {
-	transform: scale(1.4) translateY(-4rem);
+	transform: scale(1.4) translateY(-2rem);
 }
 .drifloon {
 	transform: translateX(2rem);
 }
 .drifblim {
-	transform: scale(1.2) translateY(-4rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .buneary {
 	transform: translateX(1rem);
 }
 .lopunny {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .mega-lopunny {
-	transform: scale(1.2) translateY(-3rem) translateX(5rem);
+	transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
 .mismagius {
-	transform: scale(1.2) translateY(-4rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .honchkrow {
-	transform: scale(1.3) translateY(-3rem) translateX(-2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .glameow {
 	transform: scale(0.9) translateY(1rem) translateX(3rem);
@@ -1585,13 +1589,13 @@
 .purugly {
 }
 .chingling {
-	transform: scale(0.8) translateY(-6rem) translateX(4rem);
+	transform: scale(0.8) translateY(-6rem) translateX(3rem);
 }
 .stunky {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .skuntank {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .bronzor {
 	transform: scale(0.8) translateY(-4rem) translateX(1rem);
@@ -1624,7 +1628,7 @@
 	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .mega-garchomp {
-	transform: scale(1.7) translateY(-5rem) translateX(3rem);
+	transform: scale(1.7) translateY(-3rem) translateX(2rem);
 }
 .munchlax {
 }
@@ -1632,38 +1636,38 @@
 	transform: translateX(2rem);
 }
 .lucario {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .mega-lucario {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(1rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(1rem);
 }
 .hippopotas {
 	transform: scale(0.9) translateY(1rem);
 }
 .hippowdon {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .skorupi {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .drapion {
-	transform: scale(1.7) translateY(-5rem) translateX(2rem);
+	transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 
 .croagunk {
 	transform: scale(0.8) translateY(2rem) translateX(2rem);
 }
 .toxicroak {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .carnivine {
-	transform: scale(1.1) translateY(-4rem) translateX(1rem);
+	transform: scale(1.1) translateY(-2rem) translateX(0rem);
 }
 .finneon {
-	transform: scale(0.8) translateY(-4rem) translateX(4rem);
+	transform: scale(0.8) translateY(-4rem) translateX(2rem);
 }
 .lumineon {
-	transform: translateY(-4rem) translateX(5rem);
+	transform: translateY(-4rem) translateX(3rem);
 }
 .mantyke {
 	transform: scale(0.9) translateY(-4rem) translateX(3rem);
@@ -1671,66 +1675,66 @@
 .snover {
 }
 .abomasnow {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .mega-abomasnow {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .weavile {
 	transform: translateX(1rem);
 }
 .magnezone {
-	transform: scale(1.1) translateY(-4rem) translateX(1rem);
+	transform: scale(1.1) translateY(-3rem) translateX(0rem);
 }
 .lickilicky {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .rhyperior {
-	transform: scale(1.6) translateY(-3rem) translateX(3rem);
+	transform: scale(1.6) translateY(-2rem) translateX(2rem);
 }
 .tangrowth {
-	transform: scale(1.7) translateY(-5rem) translateX(2rem);
+	transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 .electivire {
-	transform: scale(1.5) translateY(-4rem) translateX(3rem);
+	transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
 .magmortar {
-	transform: scale(1.3) translateY(-1rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .togekiss {
-	transform: scale(1.4) translateY(-4rem) translateX(4rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
 .yanmega {
-	transform: scale(1.2) translateY(-9rem) translateX(4rem);
+	transform: scale(1.2) translateY(-7rem) translateX(2rem);
 }
 .leafeon {
 	transform: translateX(3rem);
 }
 .glaceon {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-3rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-3rem);
 }
 .gliscor {
-	transform: scale(1.2) translateY(-2rem) translateX(0rem);
+	transform: scale(1.2) translateY(-1rem) translateX(0rem);
 }
 .mamoswine {
-	transform: scale(1.3) translateY(-3rem);
+	transform: scale(1.3) translateY(-1rem);
 }
 .porygon-z {
 }
 .gallade {
-	transform: scale(1.2) translateY(-3rem);
+	transform: scale(1.2) translateY(-2rem);
 }
 .mega-gallade {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
 .probopass {
 	transform: scale(1.1) translateY(-4rem) translateX(1rem);
 }
 .dusknoir {
-	transform: scalex(-1.3) scaley(1.3) translateY(-7rem) translateX(1rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-4rem) translateX(1rem);
 }
 .froslass {
-	transform: scale(1.1) translateY(-3rem) translateX(1rem);
+	transform: scale(1.1) translateY(-3rem) translateX(0rem);
 }
 .rotom {
 	transform: scalex(-1) translateX(1rem);
@@ -1750,7 +1754,7 @@
 	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
 }
 .uxie {
-	transform: scale(0.9) translateY(-4rem) translateX(3rem);
+	transform: scale(0.9) translateY(-4rem) translateX(2rem);
 }
 .mesprit {
 	transform: translateY(-4rem);
@@ -1759,40 +1763,40 @@
 	transform: scalex(-1) translateY(-4rem) translateX(-1rem);
 }
 .dialga {
-	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-5rem);
+	transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-3rem);
 }
 .dialga-origin {
-	transform: scale(1.5) translateY(-3rem) translateX(2rem);
+	transform: scale(1.5) translateY(-1rem) translateX(2rem);
 }
 .palkia {
-	transform: scale(1.5) translateY(-2rem) translateX(7rem);
+	transform: scale(1.5) translateY(-1rem) translateX(4rem);
 }
 .palkia-origin {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-4rem) translateX(-3rem);
+	transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-2rem);
 }
 .heatran {
-	transform: scale(1.5) translateY(-3rem) translateX(4rem);
+	transform: scale(1.5) translateY(-1rem) translateX(2rem);
 }
 .regigigas {
-	transform: scale(1.7) translateY(-5rem) translateX(1rem);
+	transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 .giratina-altered {
-	transform: scale(1.6) translateY(-3rem) translateX(1rem);
+	transform: scale(1.6) translateY(-2rem) translateX(1rem);
 }
 .giratina-origin {
-	transform: scale(1.5) translateY(-4rem) translateX(6rem);
+	transform: scale(1.5) translateY(-3rem) translateX(4rem);
 }
 .cresselia {
-	transform: scalex(-1.3) scaley(1.3) translateY(-4rem) translateX(-3rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
 }
 .phione {
-	transform: translateX(5rem);
+	transform: translateX(3rem);
 }
 .manaphy {
-	transform: scale(1.2) translateX(4rem);
+	transform: scale(1.2) translateX(2rem);
 }
 .darkrai {
-	transform: scale(1.2) translateY(-4rem) translateX(2rem);
+	transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
 .shaymin-land {
 	transform: scale(0.8) translateY(2rem) translateX(3rem);
@@ -1801,7 +1805,7 @@
 	transform: translateX(2rem);
 }
 .arceus {
-	transform: scale(1.5) translateY(-4rem) translateX(3rem);
+	transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
 .victini {
 	transform: scale(1.1) translateY(-1rem) translateX(2rem);
@@ -1810,10 +1814,10 @@
 	transform: translateX(1rem);
 }
 .servine {
-	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-4rem);
+	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
 }
 .serperior {
-	transform: scale(1.3) translateY(0rem) translateX(5rem);
+	transform: scale(1.3) translateY(0rem) translateX(2rem);
 }
 .tepig {
 	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
@@ -1831,10 +1835,10 @@
 	transform: scale(1.1) translateY(-1rem);
 }
 .samurott {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+	transform: scale(1.4) translateY(-1rem) translateX(3rem);
 }
 .hisuian-samurott {
-	transform: scale(1.4) translateY(-3rem) translateX(3rem);
+	transform: scale(1.4) translateY(-2rem) translateX(2rem);
 }
 .patrat {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
@@ -1846,21 +1850,21 @@
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .herdier {
-	transform: translateX(4rem);
+	transform: translateX(3rem);
 }
 .stoutland {
-	transform: scale(1.3) translateY(-3rem) translateX(6rem);
+	transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
 .purrloin {
 	transform: scale(0.9) translateY(1rem);
 }
 .liepard {
-	transform: scale(1.1) translateY(0rem) translateX(6rem);
+	transform: scale(1.1) translateY(0rem) translateX(4rem);
 }
 .pansage {
 }
 .simisage {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+	transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
 .pansear {
 }
@@ -1890,7 +1894,7 @@
 	transform: scalex(-1) translateX(-2rem);
 }
 .zebstrika {
-	transform: scale(1.1) translateY(-1rem) translateX(5rem);
+	transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
 .roggenrola {
 	transform: scale(0.9) translateY(2rem) translateX(1rem);
@@ -1908,7 +1912,7 @@
 .drilbur {
 }
 .excadrill {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-3rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-2rem);
 }
 .audino {
 }
@@ -1933,19 +1937,19 @@
 	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .throh {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-1rem);
+	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-1rem);
 }
 .sawk {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .sewaddle {
-	transform: scale(0.8) translateY(5rem) translateX(0rem);
+	transform: scale(0.8) translateY(3rem) translateX(0rem);
 }
 .swadloon {
 	transform: translateX(1rem);
 }
 .leavanny {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .venipede {
 	transform: translateX(4rem);
@@ -1954,7 +1958,7 @@
 	transform: translateX(1rem);
 }
 .scolipede {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .cottonee {
 	transform: translateX(2rem);
@@ -1967,7 +1971,7 @@
 .lilligant {
 }
 .hisuian-lilligant {
-	transform: scale(1.1) translateY(-2rem) translateX(1rem);
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .basculin-red-stripe {
 }
@@ -1981,7 +1985,7 @@
 	transform: translateX(2rem);
 }
 .krokorok {
-	transform: translateX(3rem);
+	transform: translateX(2rem);
 }
 .krookodile {
 	transform: scale(1.1) translateY(-1rem) translateX(1rem);
@@ -1996,7 +2000,7 @@
 	transform: scale(1.2) translateY(0rem);
 }
 .galarian-darmanitan {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(1rem);
+	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(1rem);
 }
 .darmanitan-zen {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
@@ -2019,7 +2023,7 @@
 	transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
 .sigilyph {
-	transform: scale(1.2) translateY(-5rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-4rem) translateX(-1rem);
 }
 .yamask {
 	transform: translateX(1rem);
@@ -2027,43 +2031,43 @@
 .galarian-yamask {
 }
 .cofagrigus {
-	transform: scale(1.4) translateY(-4rem) translateX(-2rem);
+	transform: scale(1.4) translateY(-3rem) translateX(-2rem);
 }
 .tirtouga {
 	transform: translateX(1rem);
 }
 .carracosta {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+	transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
 .archen {
 	transform: translateY(1rem) translateX(2rem);
 }
 .archeops {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .trubbish {
 	transform: translateY(2rem) translateX(2rem);
 }
 .garbodor {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-1rem) translateX(0rem);
 }
 .gigantamax-garbodor {
-	transform: scale(1.6) translateY(-4rem) translateX(1rem);
+	transform: scale(1.6) translateY(-2rem) translateX(1rem);
 }
 .zorua {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .hisuian-zorua {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .zoroark {
-	transform: scale(1.2) translateY(-1rem) translateX(4rem);
+	transform: scale(1.2) translateY(0rem) translateX(3rem);
 }
 .hisuian-zoroark {
-	transform: scale(1.5) translateY(-3rem) translateX(1rem);
+	transform: scale(1.5) translateY(-2rem) translateX(0rem);
 }
 .minccino {
-	transform: translatey(-1rem) translateX(3rem);
+	transform: translatey(0rem) translateX(2rem);
 }
 .cinccino {
 	transform: translateX(1rem);
@@ -2072,10 +2076,10 @@
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .gothorita {
-	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
+	transform: scalex(-1) translateY(0rem) translateX(-1rem);
 }
 .gothitelle {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+	transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
 .solosis {
 	transform: scale(0.6) translateY(-1rem) translateX(1rem);
@@ -2108,31 +2112,31 @@
 .deerling-winter {
 }
 .sawsbuck-spring {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .sawsbuck-summer {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .sawsbuck-autumn {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .sawsbuck-winter {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .emolga {
-	transform: translateY(-4rem) translateX(4rem);
+	transform: translateY(-3rem) translateX(3rem);
 }
 .karrablast {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .escavalier {
-	transform: scale(1.1) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.1) translateY(-2rem) translateX(-1rem);
 }
 .foongus {
 	transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
 .amoonguss {
-	transform: scale(1.1) translateY(-2rem);
+	transform: scale(1.1) translateY(-1rem);
 }
 .frillish-male {
 }
@@ -2145,13 +2149,13 @@
 	transform: translateX(1rem);
 }
 .alomomola {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+	transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
 .joltik {
 	transform: scale(0.8) translateY(2rem) translateX(-1rem);
 }
 .galvantula {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+	transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
 .ferroseed {
 	transform: scale(0.9) translateY(-3rem) translateX(1rem);
@@ -2173,7 +2177,7 @@
 	transform: translateY(-2rem) translateX(2rem);
 }
 .eelektross {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-3rem) translateX(2rem);
 }
 .elgyem {
 	transform: scalex(-1) translateY(-1rem) translateX(-2rem);
@@ -2196,13 +2200,13 @@
 	transform: translateX(2rem);
 }
 .haxorus {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .cubchoo {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
 .beartic {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .cryogonal {
 	transform: scale(0.9) translateY(-3rem) translateX(1rem);
@@ -2211,7 +2215,7 @@
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .accelgor {
-	transform: scalex(-1.1) scaley(1.1) translateY(-5rem) translateX(-6rem);
+	transform: scalex(-1.1) scaley(1.1) translateY(-4rem) translateX(-5rem);
 }
 .stunfisk {
 	transform: scale(1.1) translateY(-2rem);
@@ -2223,16 +2227,16 @@
 	transform: scale(0.9) translateY(1rem) translateX(-1rem);
 }
 .mienshao {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .druddigon {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .golett {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .golurk {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .pawniard {
 	transform: translateX(-3rem);
@@ -2241,16 +2245,16 @@
 	transform: scale(1.1);
 }
 .bouffalant {
-	transform: scale(1.3) translateY(-3rem);
+	transform: scale(1.3) translateY(-2rem);
 }
 .rufflet {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .braviary {
-	transform: scale(1.2) translateY(-3rem) translateX(4rem);
+	transform: scale(1.2) translateY(-3rem) translateX(3rem);
 }
 .hisuian-braviary {
-	transform: scale(1.2) translateY(-3rem) translateX(3rem);
+	transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
 .vullaby {
 }
@@ -2267,56 +2271,56 @@
 .zweilous {
 }
 .hydreigon {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .larvesta {
 	transform: scale(0.8) translateY(2rem) translateX(2rem);
 }
 .volcarona {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
 .cobalion {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
 .terrakion {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .virizion {
-	transform: scalex(-1.3) scaley(1.3) translateY(-3rem) translateX(-3rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
 }
 .tornadus {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .tornadus-therian {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .thundurus {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
 .thundurus-therian {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
 .reshiram {
-	transform: scalex(-1.3) scaley(1.3) translateY(-3rem) translateX(-4rem);
+	transform: scalex(-1.3) scaley(1.3) translateY(-1rem) translateX(-3rem);
 }
 .zekrom {
-	transform: scale(1.7) translateY(-3rem) translateX(3rem);
+	transform: scale(1.7) translateY(-1rem) translateX(2rem);
 }
 
 .landorus {
-	transform: scale(1.3) translateY(-3rem) translateX(-2rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
 }
 .landorus-therian {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+	transform: scale(1.3) translateY(-3rem) translateX(2rem);
 }
 .kyurem {
-	transform: scale(1.5) translateY(-3rem) translateX(5rem);
+	transform: scale(1.5) translateY(-3rem) translateX(4rem);
 }
 .kyurem-black {
-	transform: scalex(-1.5) scaleY(1.5) translateY(-4rem) translateX(-5rem);
+	transform: scalex(-1.5) scaleY(1.5) translateY(-2rem) translateX(-4rem);
 }
 .kyurem-white {
-	transform: scale(1.5) translateY(-4rem) translateX(6rem);
+	transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
 .keldeo-ordinary {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
@@ -2327,7 +2331,7 @@
 .meloetta-aria {
 }
 .meloetta-pirouette {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(1rem);
+	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(1rem);
 }
 .genesect {
 	transform: scale(1.1) translateX(2rem);
@@ -2338,24 +2342,24 @@
 	transform: translateX(1rem);
 }
 .chesnaught {
-	transform: scale(1.5) translateY(-4rem);
+	transform: scale(1.5) translateY(-2rem);
 }
 .fennekin {
 }
 .braixen {
 }
 .delphox {
-	transform: scale(1.5) translateY(-4rem) translateX(3rem);
+	transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
 .froakie {
 	transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
 
 .frogadier {
-	transform: translateX(5rem);
+	transform: translateX(3rem);
 }
 .greninja {
-	transform: scale(1.5) translateY(-4rem);
+	transform: scale(1.5) translateY(-2rem);
 }
 .bunnelby {
 }
@@ -2369,7 +2373,7 @@
 	transform: translateX(3rem);
 }
 .talonflame {
-	transform: scale(1.7) translateY(-3rem) translateX(5rem);
+	transform: scale(1.7) translateY(-3rem) translateX(3rem);
 }
 .scatterbug {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
@@ -2378,70 +2382,70 @@
 	transform: translateX(4rem);
 }
 .vivillon-archipelago {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-continental {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-elegant {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-fancy {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-garden {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-high-plains {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-icy-snow {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-jungle {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-marine {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-meadow {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-mordern {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-monsoon {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-ocean {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-poke-ball {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-polar {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-river {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-sandstorm {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-savanna {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-sun {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .vivillon-tundra {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-3rem);
 }
 .litleo {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .pyroar {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-4rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-3rem);
 }
 .flabebe-red-flower {
 	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
@@ -2489,7 +2493,7 @@
 	transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
 .skiddo {
-	transform: scale(0.9) translateY(1rem) translateX(5rem);
+	transform: scale(0.9) translateY(1rem) translateX(4rem);
 }
 .gogoat {
 	transform: scale(1.1) translateY(-1rem) translateX(3rem);
@@ -2498,7 +2502,7 @@
 	transform: scale(0.9) translateY(1rem);
 }
 .pangoro {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .furfrou-natural {
 }
@@ -2557,18 +2561,18 @@
 	transform: scalex(-0.8) scaleY(0.8) translateY(-3rem);
 }
 .malamar {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-1rem) translateX(-1rem);
 }
 .binacle {
 }
 .barbaracle {
-	transform: scale(1.4) translateY(-3rem);
+	transform: scale(1.4) translateY(-2rem);
 }
 .skrelp {
 	transform: scale(0.8) translateY(-3rem) translateX(1rem);
 }
 .dragalge {
-	transform: scale(1.4) translateY(-3rem) translateX(4rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
 .clauncher {
 	transform: translateY(-1rem) translateX(1rem);
@@ -2580,19 +2584,19 @@
 	transform: scale(0.9) translateY(1rem);
 }
 .heliolisk {
-	transform: scale(1.2) translateY(-3rem) translateX(4rem);
+	transform: scale(1.2) translateY(-2rem) translateX(3rem);
 }
 .tyrunt {
 	transform: scalex(-0.8) scaleY(0.8) translateY(2rem) translateX(1rem);
 }
 .tyrantrum {
-	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .amaura {
 	transform: scale(0.9) translateY(1rem);
 }
 .aurorus {
-	transform: scale(1.3) translateY(-3rem) translateX(6rem);
+	transform: scale(1.3) translateY(-2rem) translateX(5rem);
 }
 .sylveon {
 	transform: translateX(2rem);
@@ -2612,13 +2616,13 @@
 	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-1rem);
 }
 .hisuian-sliggoo {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .goodra {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .hisuian-goodra {
-	transform: scale(1.5) translateY(-4rem) translateX(3rem);
+	transform: scale(1.5) translateY(-3rem) translateX(2rem);
 }
 .klefki {
 	transform: translateX(-3rem);
@@ -2627,7 +2631,7 @@
 	transform: scalex(-1) translateY(-3rem) translateX(-1rem);
 }
 .trevenant {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .pumpkaboo {
 	transform: scale(0.9) translateY(-3rem) translateX(1rem);
@@ -2642,56 +2646,56 @@
 	transform: scale(1.2) translateY(1rem) translateX(4rem);
 }
 .hisuian-avalugg {
-	transform: scale(1.3) translateY(-4rem) translateX(3rem);
+	transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
 .noibat {
 	transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
 .noivern {
-	transform: scale(1.5) translateY(-3rem) translateX(3rem);
+	transform: scale(1.5) translateY(-1rem) translateX(3rem);
 }
 .xerneas {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-3rem) translateX(-1rem);
+	transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-1rem);
 }
 .yveltal {
-	transform: scale(1.4) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.4) translateY(-2rem) translateX(-1rem);
 }
 .zygarde-10 {
 	transform: translateY(2rem) translateX(2rem);
 }
 .zygarde-50 {
-	transform: scale(1.2) translateY(-2rem) translateX(5rem);
+	transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
 .zygarde-complete {
-	transform: scale(1.6) translateY(-4rem) translateX(4rem);
+	transform: scale(1.6) translateY(-2rem) translateX(3rem);
 }
 .diancie {
 	transform: translateY(-3rem);
 }
 
 .mega-diancie {
-	transform: scale(1.2) translateY(-3rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .hoopa {
-	transform: translateY(-5rem) translateX(-2rem);
+	transform: translateY(-5rem) translateX(-1rem);
 }
 .hoopa-unbound {
-	transform: scale(1.5) translateY(-4rem) translateX(1rem);
+	transform: scale(1.5) translateY(-2rem) translateX(1rem);
 }
 .volcanion {
-	transform: scale(1.6) translateY(-2rem) translateX(3rem);
+	transform: scale(1.6) translateY(-1rem) translateX(2rem);
 }
 .rowlet {
 	transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
 .dartrix {
-	transform: scalex(-1) translateX(5rem);
+	transform: scalex(-1) translateX(3rem);
 }
 .decidueye {
-	transform: scalex(-1.4) scaleY(1.4) translateY(-3rem) translateX(-3rem);
+	transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(-2rem);
 }
 .hisuian-decidueye {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .litten {
 }
@@ -2699,13 +2703,13 @@
 	transform: translateX(2rem);
 }
 .incineroar {
-	transform: scale(1.5) translateY(-4rem) translateX(2rem);
+	transform: scale(1.5) translateY(-3rem) translateX(1rem);
 }
 .popplio {
 	transform: scalex(-1) translateX(-2rem);
 }
 .brionne {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-5rem) translateX(-4rem);
+	transform: scalex(-1.2) scaleY(1.2) translateY(-5rem) translateX(-3rem);
 }
 .primarina {
 	transform: scale(1.4) translateY(0rem) translateX(2rem);
@@ -2718,10 +2722,10 @@
 .toucannon {
 }
 .yungoos {
-	transform: translateX(5rem);
+	transform: translateX(4rem);
 }
 .gumshoos {
-	transform: scalex(-1) translateX(-5rem);
+	transform: scalex(-1) translateX(-3rem);
 }
 .grubbin {
 	transform: translateX(-1rem);
@@ -2736,67 +2740,67 @@
 	transform: translateX(-3rem);
 }
 .crabominable {
-	transform: scale(1.5) translateY(-4rem) translateX(-2rem);
+	transform: scale(1.5) translateY(-2rem) translateX(-1rem);
 }
 .oricorio-baile {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .oricorio-pom-pom {
-	transform: scale(1.2) translateY(-2rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .oricorio-pau {
 	transform: scale(1.1) translateY(-1rem) translateX(-2rem);
 }
 .oricorio-sensu {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
 .cutiefly {
 	transform: scale(0.7) translateY(-3rem) translateX(3rem);
 }
 .ribombee {
-	transform: translateY(-3rem) translateX(4rem);
+	transform: translateY(-3rem) translateX(3rem);
 }
 .rockruff {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .lycanroc-midday {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
 .lycanroc-midnight {
 	transform: scalex(-1.1) scaleY(1.1) translateY(0rem) translateX(-1rem);
 }
 .lycanroc-dusk {
-	transform: scale(1.3) translateY(-3rem) translateX(-4rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
 }
 .wishiwashi {
 	transform: scale(0.8) translateY(-3rem) translateX(3rem);
 }
 .wishiwashi-school {
-	transform: scale(1.6) translateY(-1rem) translateX(6rem);
+	transform: scale(1.6) translateY(-1rem) translateX(4rem);
 }
 .mareanie {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .toxapex {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .mudbray {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .mudsdale {
-	transform: scalex(-1) translateX(-5rem);
+	transform: scalex(-1) translateX(-4rem);
 }
 .dewpider {
 	transform: scale(0.9) translateY(1rem);
 }
 .araquanid {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-2rem);
+	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
 }
 .fomantis {
 	transform: scale(0.9) translateY(1rem);
 }
 .lurantis {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .morelull {
 	transform: scale(0.9) translateY(1rem);
@@ -2807,13 +2811,13 @@
 	transform: translateY(-1rem) translateX(-1rem);
 }
 .salazzle {
-	transform: scalex(-1) translateY(-3rem) translateX(-2rem);
+	transform: scalex(-1) translateY(1rem) translateX(-2rem);
 }
 .stufful {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .bewear {
-	transform: scale(1.1) translateY(-2rem) translateX(1rem);
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .bounsweet {
 	transform: scale(0.8) translateY(5rem);
@@ -2821,16 +2825,16 @@
 .steenee {
 }
 .tsareena {
-	transform: scale(1.2) translateY(-3rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .comfey {
 	transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
 .oranguru {
-	transform: scale(1.4) translateY(-3rem) translateX(3rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
 .passimian {
-	transform: scale(1.3) translateY(-3rem) translateX(5rem);
+	transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
 .wimpod {
 	transform: scalex(-1) translateY(-1rem) translateX(-3rem);
@@ -2841,16 +2845,16 @@
 .sandygast {
 }
 .palossand {
-	transform: scale(1.3) translateY(-3rem);
+	transform: scale(1.3) translateY(-2rem);
 }
 .pyukumuku {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .type-null {
-	transform: scalex(-1) translateY(0rem) translateX(-2rem);
+	transform: scalex(-1) translateY(1rem) translateX(-2rem);
 }
 .silvally {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .minior-red {
 	transform: translateY(-3rem);
@@ -2877,19 +2881,19 @@
 	transform: translateX(1rem);
 }
 .turtonator {
-	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-3rem);
+	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
 }
 .togedemaru {
 	transform: scale(0.9) translateY(1rem);
 }
 .mimikyu {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .bruxish {
 	transform: scale(1.1) translateY(-2rem) translateX(2rem);
 }
 .drampa {
-	transform: scale(1.3) translateY(2rem) translateX(4rem);
+	transform: scale(1.3) translateY(2rem) translateX(3rem);
 }
 .dhelmise {
 	transform: translateY(-2rem);
@@ -2898,13 +2902,13 @@
 	transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
 .hakamo-o {
-	transform: translateX(2rem);
+	transform: translateX(1rem);
 }
 .kommo-o {
-	transform: scale(1.4) translateY(-3rem) translateX(4rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
 .tapu-koko {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-2rem) translateX(2rem);
+	transform: scalex(-1.1) scaleY(1.1) translateY(-2rem) translateX(1rem);
 }
 .tapu-lele {
 	transform: translateY(-2rem);
@@ -2922,72 +2926,74 @@
 	transform: translateY(-2rem) translateX(1rem);
 }
 .solgaleo {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-3rem);
+	transform: scalex(-1.2) scaleY(1.2) translateY(0rem) translateX(-2rem);
 }
 .lunala {
-	transform: scale(1.3) translateY(-6rem) translateX(-3rem);
+	transform: scale(1.3) translateY(-4rem) translateX(-2rem);
 }
 .nihilego {
 	transform: scale(1.1) translateY(-2rem);
 }
 .buzzwole {
-	transform: scale(1.3) translateY(-5rem);
+	transform: scale(1.3) translateY(-3rem);
 }
 .pheromosa {
-	transform: scale(1.3) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
 .xurkitree {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
 .celesteela {
-	transform: scalex(-1.7) scaleY(1.7) translateY(-5rem);
+	transform: scalex(-1.7) scaleY(1.7) translateY(-3rem);
 }
 .kartana {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-6rem) translateX(2rem);
+	transform: scalex(-1.6) scaleY(1.6) translateY(-4rem) translateX(1rem);
 }
 .guzzlord {
-	transform: scale(1.7) translateY(-5rem) translateX(1rem);
+	transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 .necrozma {
-	transform: scale(1.6) translateY(-4rem);
+	transform: scale(1.6) translateY(-3rem);
 }
 .necrozma-dusk-mane {
-	transform: scale(1.4) translateY(-4rem) translateX(5.8rem);
+	transform: scale(1.4) translateY(-2rem) translateX(3.8rem);
 }
 .necrozma-dawn-wings {
-	transform: scalex(-1.7) scaleY(1.7) translateY(-5rem) translateX(3rem);
+	transform: scalex(-1.7) scaleY(1.7) translateY(-2rem) translateX(2rem);
 }
 .necrozma-ultra {
-	transform: scale(1.5) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.5) translateY(-1rem) translateX(-1rem);
 }
 .magearna {
+	transform: translateY(1rem);
 }
 .magearna-original {
+	transform: translateY(1rem);
 }
 .marshadow {
-	transform: scale(0.9) translateY(0rem) translateX(1rem);
+	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .poipole {
 }
 .naganadel {
-	transform: scale(1.4) translateY(-3rem) translateX(-2rem);
+	transform: scale(1.4) translateY(-2rem) translateX(-1rem);
 }
 .stakataka {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .blacephalon {
 }
 .zeraora {
-	transform: scale(1.1) translateY(-3rem) translateX(3rem);
+	transform: scale(1.1) translateY(-2rem) translateX(3rem);
 }
 .meltan {
-	transform: scale(0.8) translateY(3rem);
+	transform: scale(0.8) translateY(2rem);
 }
 .melmetal {
-	transform: scale(1.5) translateY(-4rem);
+	transform: scale(1.5) translateY(-2rem);
 }
 .gigantamax-melmetal {
-	transform: scale(1.6) translateY(-4rem) translateX(3rem);
+	transform: scale(1.6) translateY(-2rem) translateX(3rem);
 }
 .grookey {
 	transform: scale(0.9) translateY(1rem) translateX(-1rem);
@@ -2997,19 +3003,19 @@
 .rillaboom {
 }
 .gigantamax-rillaboom {
-	transform: scale(1.7) translateY(-5rem);
+	transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 .scorbunny {
 	transform: scale(1.1) translateY(-2rem);
 }
 .raboot {
-	transform: scalex(-1) translateY(-1rem) translateX(-3rem);
+	transform: scalex(-1) translateY(0rem) translateX(-3rem);
 }
 .cinderace {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem);
 }
 .gigantamax-cinderace {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+	transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
 .sobble {
 }
@@ -3019,7 +3025,7 @@
 	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .gigantamax-inteleon {
-	transform: scale(1.3) translateY(-3rem) translateX(0rem);
+	transform: scaley(1.3) scalex(-1.3) translateY(-1rem) translateX(0rem);
 }
 .skwovet {
 	transform: scalex(-1) translateX(-2rem);
@@ -3037,7 +3043,7 @@
 	transform: scalex(-1) translateX(-3rem);
 }
 .gigantamax-corviknight {
-	transform: scale(2) translateY(-3rem) translateX(3rem);
+	transform: scale(2) translateY(-2rem) translateX(2rem);
 }
 .blipbug {
 	transform: translateX(1rem);
@@ -3048,16 +3054,16 @@
 .orbeetle {
 }
 .gigantamax-orbeetle {
-	transform: scale(1.5) translateY(-2rem) translateX(4rem);
+	transform: scale(1.5) translateY(-2rem) translateX(3rem);
 }
 .nickit {
 	transform: translateX(-3rem);
 }
 .thievul {
-	transform: translateX(5rem);
+	transform: translateX(4rem);
 }
 .gossifleur {
-	transform: scale(0.9) translateX(2rem);
+	transform: scale(0.9) translateX(2rem) translateY(1rem);
 }
 .eldegoss {
 }
@@ -3071,28 +3077,28 @@
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
 .drednaw {
-	transform: scale(1.4) translateY(-4rem) translateX(5rem);
+	transform: scale(1.4) translateY(-2rem) translateX(4rem);
 }
 .gigantamax-drednaw {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .yamper {
 	transform: scalex(-1) translateX(-2rem);
 }
 .boltund {
-	transform: scale(1.2) translateY(2rem) translateX(6rem);
+	transform: scale(1.2) translateY(2rem) translateX(4rem);
 }
 .rolycoly {
 	transform: scale(0.8) translateY(-2rem) translateX(2rem);
 }
 .carkol {
-	transform: scalex(-1) translateX(-1rem);
+	transform: scalex(-1) translateX(-2rem);
 }
 .coalossal {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+	transform: scale(1.2) translateY(0rem) translateX(2rem);
 }
 .gigantamax-coalossal {
-	transform: scale(1.5) translateY(-3rem) translateX(1rem);
+	transform: scale(1.5) translateY(-1rem) translateX(1rem);
 }
 .applin {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
@@ -3101,13 +3107,13 @@
 	transform: translateY(-2rem) translateX(3rem);
 }
 .gigantamax-flapple {
-	transform: scale(1.4) translateY(-3rem);
+	transform: scale(1.4) translateY(-1rem);
 }
 .appletun {
-	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .gigantamax-appletun {
-	transform: scale(1.4) translateY(-3rem);
+	transform: scale(1.4) translateY(-1rem);
 }
 .silicobra {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
@@ -3116,7 +3122,7 @@
 	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-3rem);
 }
 .gigantamax-sandaconda {
-	transform: scalex(-1.4) scaleY(1.4) translateY(-4rem) translateX(0rem);
+	transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(0rem);
 }
 .cramorant {
 	transform: scalex(-1) translateX(-1rem);
@@ -3131,29 +3137,29 @@
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .toxtricity-amped {
-	transform: scale(1.2) translateY(-3rem);
+	transform: scale(1.2) translateY(-1rem);
 }
 .gigantamax-toxtricity-amped {
-	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .toxtricity-low-key {
-	transform: scale(1.2) translateY(-3rem) translateX(-1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
 }
 .gigantamax-toxtricity-low-key {
-	transform: scale(1.3) translateY(-3rem) translateX(4rem);
+	transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
 .sizzlipede {
-	transform: scalex(-1) translateX(-4rem);
+	transform: scalex(-1) translateX(-3rem);
 }
 .centiskorch {
-	transform: scale(1.1) translateY(-1rem) translateX(4rem);
+	transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
 .gigantamax-centiskorch {
-	transform: scale(1.5) translateY(-4rem) translateX(-3rem);
+	transform: scale(1.5) translateY(-2rem) translateX(-3rem);
 }
 .clobbopus {
-	transform: translateY(-1rem) translateX(-1rem);
 }
+
 .grapploct {
 }
 .sinistea-phony {
@@ -3171,13 +3177,13 @@
 .hatenna {
 }
 .hattrem {
-	transform: scale(1.1) translateY(-2rem) translateX(0rem);
+	transform: scale(1.1) translateY(0rem) translateX(0rem);
 }
 .hatterene {
-	transform: scale(1.2) translateY(-2rem) translateX(-2rem);
+	transform: scale(1.2) translateY(-1rem) translateX(-2rem);
 }
 .gigantamax-hatterene {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(-2rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
 .impidimp {
 	transform: scale(0.9) translateY(1rem) translateX(2rem);
@@ -3188,25 +3194,25 @@
 	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .gigantamax-grimmsnarl {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+	transform: scale(1.3) translateY(-1rem) translateX(1rem);
 }
 .obstagoon {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-3rem);
+	transform: scalex(-1.2) scaley(1.2) translateY(0rem) translateX(-2rem);
 }
 .perrserker {
-	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-4rem);
+	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-3rem);
 }
 .cursola {
 	transform: scalex(-1);
 }
 .sirfetch’d {
-	transform: scale(1.5) translateY(-4rem);
+	transform: scale(1.5) translateY(-2rem);
 }
 .mr-rime {
 	transform: scalex(-1) translateX(1rem);
 }
 .runerigus {
-	transform: scale(1.3) translateY(-6rem);
+	transform: scale(1.3) translateY(-5rem);
 }
 .milcery {
 }
@@ -3400,10 +3406,10 @@
 	transform: translateX(-1rem);
 }
 .gigantamax-alcremie {
-	transform: scale(1.4) translateY(-3rem) translateX(0rem);
+	transform: scale(1.4) translateY(-2rem) translateX(0rem);
 }
 .falinks {
-	transform: scale(0.9) translateY(1rem) translateX(3rem);
+	transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
 .pincurchin {
 }
@@ -3414,7 +3420,7 @@
 	transform: scalex(-1.3) scaleY(1.3) translateY(-1rem) translateX(-2rem);
 }
 .stonjourner {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+	transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
 .eiscue {
 	transform: translateX(1rem);
@@ -3430,10 +3436,10 @@
 .copperajah {
 }
 .gigantamax-copperajah {
-	transform: scale(1.4) translateY(-2rem) translateX(-5rem);
+	transform: scale(1.4) translateY(-1rem) translateX(-3rem);
 }
 .dracozolt {
-	transform: scale(1.4) translateY(-3rem) translateX(7rem);
+	transform: scale(1.4) translateY(-2rem) translateX(5rem);
 }
 .arctozolt {
 }
@@ -3446,7 +3452,7 @@
 	transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
 .gigantamax-duraludon {
-	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-2rem);
+	transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-2rem);
 }
 .dreepy {
 	transform: translateX(3rem);
@@ -3456,10 +3462,10 @@
 .dragapult {
 }
 .zacian {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-6rem);
+	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-4rem);
 }
 .zacian-crowned-sword {
-	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-4rem);
+	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
 }
 .zamazenta {
 	transform: translateX(4rem);
@@ -3468,7 +3474,7 @@
 	transform: translateX(2rem);
 }
 .eternatus {
-	transform: scale(1.4) translateY(-3rem) translateX(6rem);
+	transform: scale(1.4) translateY(-3rem) translateX(4rem);
 }
 .kubfu {
 	transform: scale(0.9) translateY(1rem) translateX(1rem);
@@ -3477,13 +3483,13 @@
 	transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
 .gigantamax-urshifu-single-strike {
-	transform: scale(1.4) translateY(-4rem) translateX(1rem);
+	transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
 .urshifu-rapid-strike {
 	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(0rem);
 }
 .gigantamax-urshifu-rapid-strike {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-3rem) translateX(1rem);
+	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(0rem);
 }
 .zarude {
 	transform: scalex(-1.1) translateY(0rem) translateX(-2rem);
@@ -3495,15 +3501,15 @@
 	transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(2rem);
 }
 .glastrier {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+	transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
 .spectrier {
-	transform: scale(1.3) translateY(-2rem) translateX(6rem);
+	transform: scale(1.3) translateY(-1rem) translateX(4rem);
 }
 .calyrex {
 }
 .calyrex-ice-rider {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+	transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
 .calyrex-shadow-rider {
 	transform: scale(1.1) translateY(-1rem);

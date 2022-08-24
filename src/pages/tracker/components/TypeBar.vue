@@ -8,7 +8,7 @@
 					v-if="pkType1"
 				>
 					<q-icon
-						:name="`icon-type-${pkType1}`"
+						:name="`icon-type-2-${pkType1}`"
 						size="xl"
 						class="absolute-left icon"
 						color="white"
@@ -25,7 +25,7 @@
 					v-if="pkType2"
 				>
 					<q-icon
-						:name="`icon-type-${pkType2}`"
+						:name="`icon-type-2-${pkType2}`"
 						size="xl"
 						class="absolute-left icon"
 						color="white"

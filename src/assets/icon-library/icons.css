@@ -1,7 +1,7 @@
 @font-face {
     font-family: "icons";
-    src: url("./icons.woff?8c8c99b234c1786137a437a5cd940055") format("woff"),
-url("./icons.woff2?8c8c99b234c1786137a437a5cd940055") format("woff2");
+    src: url("./icons.woff?d6a3ed2c952bed93a9fd16d9b1df8200") format("woff"),
+url("./icons.woff2?d6a3ed2c952bed93a9fd16d9b1df8200") format("woff2");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -87,57 +87,111 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
 .icon-poke-zero:before {
     content: "\f118";
 }
-.icon-type-bug:before {
+.icon-type-1-bug:before {
     content: "\f119";
 }
-.icon-type-dark:before {
+.icon-type-1-dark:before {
     content: "\f11a";
 }
-.icon-type-dragon:before {
+.icon-type-1-dragon:before {
     content: "\f11b";
 }
-.icon-type-electric:before {
+.icon-type-1-electric:before {
     content: "\f11c";
 }
-.icon-type-fairy:before {
+.icon-type-1-fairy:before {
     content: "\f11d";
 }
-.icon-type-fighting:before {
+.icon-type-1-fighting:before {
     content: "\f11e";
 }
-.icon-type-fire:before {
+.icon-type-1-fire:before {
     content: "\f11f";
 }
-.icon-type-flying:before {
+.icon-type-1-flying:before {
     content: "\f120";
 }
-.icon-type-ghost:before {
+.icon-type-1-ghost:before {
     content: "\f121";
 }
-.icon-type-grass:before {
+.icon-type-1-grass:before {
     content: "\f122";
 }
-.icon-type-ground:before {
+.icon-type-1-ground:before {
     content: "\f123";
 }
-.icon-type-ice:before {
+.icon-type-1-ice:before {
     content: "\f124";
 }
-.icon-type-normal:before {
+.icon-type-1-normal:before {
     content: "\f125";
 }
-.icon-type-poison:before {
+.icon-type-1-poison:before {
     content: "\f126";
 }
-.icon-type-psychic:before {
+.icon-type-1-psychic:before {
     content: "\f127";
 }
-.icon-type-rock:before {
+.icon-type-1-rock:before {
     content: "\f128";
 }
-.icon-type-steel:before {
+.icon-type-1-steel:before {
     content: "\f129";
 }
-.icon-type-water:before {
+.icon-type-1-water:before {
     content: "\f12a";
+}
+.icon-type-2-bug:before {
+    content: "\f12b";
+}
+.icon-type-2-dark:before {
+    content: "\f12c";
+}
+.icon-type-2-dragon:before {
+    content: "\f12d";
+}
+.icon-type-2-electric:before {
+    content: "\f12e";
+}
+.icon-type-2-fairy:before {
+    content: "\f12f";
+}
+.icon-type-2-fighting:before {
+    content: "\f130";
+}
+.icon-type-2-fire:before {
+    content: "\f131";
+}
+.icon-type-2-flying:before {
+    content: "\f132";
+}
+.icon-type-2-ghost:before {
+    content: "\f133";
+}
+.icon-type-2-grass:before {
+    content: "\f134";
+}
+.icon-type-2-ground:before {
+    content: "\f135";
+}
+.icon-type-2-ice:before {
+    content: "\f136";
+}
+.icon-type-2-normal:before {
+    content: "\f137";
+}
+.icon-type-2-poison:before {
+    content: "\f138";
+}
+.icon-type-2-psychic:before {
+    content: "\f139";
+}
+.icon-type-2-rock:before {
+    content: "\f13a";
+}
+.icon-type-2-steel:before {
+    content: "\f13b";
+}
+.icon-type-2-water:before {
+    content: "\f13c";
 }

@@ -3,7 +3,7 @@
 		<Suspense>
 			<template #default>
 				<div class="collection">
-					<!-- <div class="collection-top" :class="{ active: collectionFilter }">
+					<!-- <div class="collection-top" :class="{ active: mobileCollectionFilter }">
 						<base-card class="collection-filter">
 							<collection-filter></collection-filter>
 						</base-card>
@@ -20,32 +20,50 @@
 									<h1 color="secondary">Your Collection</h1>
 								</div>
 								<div class="divider"></div>
-								<collection-search></collection-search>
+								<div class="collection-filters">
+									<collection-search
+										class="search-filter"
+										:getSearch="getSearch"
+									></collection-search>
+									<v-switch
+										@change="setFilters"
+										label="My Caught"
+										v-model="filters"
+										color="blue"
+										value="myCaught"
+										ripple
+									></v-switch>
+								</div>
+
+								<h2>{{ search }}</h2>
 								<div class="collection-card-container-inner">
 									<collection-card
-										:pkName="pkName(pokemon)"
+										:pkName="pokemon[1].name"
 										:pkId="+pokemon[0]"
-										:normalCaught="normalCaught(pokemon)"
-										:alphaCaught="alphaCaught(pokemon)"
-										:shinyCaught="shinyCaught(pokemon)"
-										:shinyAlphaCaught="shinyAlphaCaught(pokemon)"
-										:markedCaught="markedCaught(pokemon)"
-										:shinyMarkedCaught="shinyMarkedCaught(pokemon)"
-										:pokerusCaught="pokerusCaught(pokemon)"
-										:shinyPokerusCaught="shinyPokerusCaught(pokemon)"
-										:zeroIvCaught="zeroIvCaught(pokemon)"
-										:shinyZeroIvCaught="shinyZeroIvCaught(pokemon)"
-										:sixIvCaught="sixIvCaught(pokemon)"
-										:shinySixIvCaught="shinySixIvCaught(pokemon)"
-										:favoriteCaught="favoriteCaught(pokemon)"
-										:type1="typePrimary(pokemon)"
-										:type2="typeSecondary(pokemon)"
+										:normalCaught="pokemon[1].catch?.normalCaught"
+										:alphaCaught="pokemon[1].catch?.alphaCaught"
+										:shinyCaught="pokemon[1].catch?.shinyCaught"
+										:shinyAlphaCaught="pokemon[1].catch?.shinyAlphaCaught"
+										:markedCaught="pokemon[1].catch?.markedCaught"
+										:shinyMarkedCaught="pokemon[1].catch?.shinyMarkedCaught"
+										:pokerusCaught="pokemon[1].catch?.pokerusCaught"
+										:shinyPokerusCaught="pokemon[1].catch?.shinyPokerusCaught"
+										:zeroIvCaught="pokemon[1].catch?.zeroIvCaught"
+										:shinyZeroIvCaught="pokemon[1].catch?.shinyZeroIvCaught"
+										:sixIvCaught="pokemon[1].catch?.sixIvCaught"
+										:shinySixIvCaught="pokemon[1].catch?.shinySixIvCaught"
+										:favoriteCaught="pokemon[1].catch?.favoriteCaught"
+										:type1="pokemon[1].type1"
+										:type2="pokemon[1].type2 || null"
 										:endList="this.endList"
-										v-for="pokemon in loadedList"
-										:key="pokemon"
+										v-for="(pokemon, index) in loadedList"
+										:key="index"
 									></collection-card>
 								</div>
 								<!-- <end-card :endList="endList" v-if="endList"></end-card> -->
+								<collection-pagination
+									:setPerPage="setPerPage"
+								></collection-pagination>
 							</v-card>
 						</v-card>
 					</transition>
@@ -60,28 +78,25 @@
 
 <script>
 import { defineAsyncComponent } from 'vue';
-import FitText from '../../components/ui/FitText/FitText.vue';
 import PokemonList from '../../assets/json/pokemonList.json';
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 const CollectionCard = defineAsyncComponent(() => import('./components/CollectionCard.vue'));
-const EndCard = defineAsyncComponent(() => import('./components/EndCard.vue'));
 const CollectionSearch = defineAsyncComponent(() => import('./components/CollectionSearch.vue'));
-const CollectionFilter = defineAsyncComponent(() => import('./components/CollectionFilters.vue'));
-const CollectionToggles = defineAsyncComponent(() => import('./components/CollectionToggles.vue'));
+
+const CollectionPagination = defineAsyncComponent(() =>
+	import('./components/CollectionPagination.vue')
+);
 
 export default {
 	components: {
-		FitText,
 		CollectionCard,
-		EndCard,
-		CollectionFilter,
-		CollectionToggles,
 		CollectionSearch,
+		CollectionPagination,
 	},
 
-	mounted() {
-		this.fetchPk();
+	async mounted() {
+		await this.fetchStartingView();
 	},
 	unmounted() {
 		window.removeEventListener('scroll', this.handleScroll);
@@ -89,32 +104,45 @@ export default {
 	data() {
 		return {
 			listReady: false,
-			dummyData: [{ name: 'pizza' }, { name: 'rolls' }, { name: 'friends' }],
 			search: '',
+			filters: ['myCaught', 'dexNo'],
+			sortOrder: 'asc',
+			perPage: null,
 		};
 	},
 
 	computed: {
-		...mapGetters('collection/cards', ['loadedList', 'endList']),
-		...mapGetters('collection', ['filtered']),
-		...mapGetters('navigation', ['collectionFilter']),
-	},
-	watch: {
-		...mapActions('collection/cards', ['resetLiveList']),
-		liveList(newVal, oldVal) {
-			if (oldVal && newVal !== oldVal) {
-				setTimeout(async () => {
-					await this.resetLiveList(newVal);
-					this.listReady = true;
-				}, 250);
+		...mapGetters('collection', ['filteredList', 'paginatedList']),
+		...mapGetters('collection/cards', ['endList']),
+		loadedList() {
+			let list = this.filteredList;
+			if (list && this.search.length >= 3) {
+				const query = this.search.toLowerCase().trim();
+				list = list.filter((p) => {
+					const name = p[1].name.toLowerCase();
+					return name.includes(query);
+				});
 			}
+			return list;
 		},
 	},
 
 	methods: {
+		...mapActions('collection', [
+			'paginate',
+			'applySearch',
+			'applyFilters',
+			'collectionFilters',
+		]),
 		...mapActions('collection/cards', ['fetchFullList', 'updateLoadedList']),
-		...mapActions('collection', ['collectionFilters']),
-		async fetchPk() {
+		async setFilters() {
+			this.applyFilters({
+				filter: this.filters,
+				sortOrder: this.sortOrder,
+			});
+		},
+
+		async fetchStartingView() {
 			const fetch = await this.fetchFullList();
 			// const defaultSort = await this.collectionFilters({
 			// 	option: 'Sort Order:',
@@ -126,61 +154,20 @@ export default {
 			// });
 			// window.addEventListener('scroll', this.handleScroll);
 		},
-		pkName(pokemon) {
-			return pokemon[1].name;
+		// handleScroll() {
+		// 	if (
+		// 		window.scrollY + window.innerHeight > document.body.scrollHeight - 50 &&
+		// 		this.loadedList.length > 0
+		// 	) {
+		// 		this.updateLoadedList());
+		// 	}
+		// },
+		getSearch(input) {
+			this.search = input;
 		},
-		normalCaught(pokemon) {
-			return pokemon[1].catch?.normalCaught;
-		},
-		alphaCaught(pokemon) {
-			return pokemon[1].catch?.alphaCaught;
-		},
-		shinyCaught(pokemon) {
-			return pokemon[1].catch?.shinyCaught;
-		},
-		shinyAlphaCaught(pokemon) {
-			return pokemon[1].catch?.shinyAlphaCaught;
-		},
-		markedCaught(pokemon) {
-			return pokemon[1].catch?.markedCaught;
-		},
-		shinyMarkedCaught(pokemon) {
-			return pokemon[1].catch?.shinyMarkedCaught;
-		},
-		pokerusCaught(pokemon) {
-			return pokemon[1].catch?.pokerusCaught;
-		},
-		shinyPokerusCaught(pokemon) {
-			return pokemon[1].catch?.shinyPokerusCaught;
-		},
-		zeroIvCaught(pokemon) {
-			return pokemon[1].catch?.zeroIvCaught;
-		},
-		shinyZeroIvCaught(pokemon) {
-			return pokemon[1].catch?.shinyZeroIvCaught;
-		},
-		sixIvCaught(pokemon) {
-			return pokemon[1].catch?.sixIvCaught;
-		},
-		shinySixIvCaught(pokemon) {
-			return pokemon[1].catch?.shinySixIvCaught;
-		},
-		favoriteCaught(pokemon) {
-			return pokemon[1].catch?.favoriteCaught;
-		},
-		typePrimary(pokemon) {
-			return pokemon[1].type1;
-		},
-		typeSecondary(pokemon) {
-			return pokemon[1].type2 || null;
-		},
-		handleScroll() {
-			if (
-				window.scrollY + window.innerHeight > document.body.scrollHeight - 50 &&
-				this.loadedList.length > 0
-			) {
-				this.updateLoadedList();
-			}
+
+		setPerPage(input) {
+			this.perPage = input;
 		},
 	},
 };
@@ -191,6 +178,14 @@ export default {
 	font-size: 24rem;
 }
 
+.collection-filters {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+.search-filter {
+	width: 20rem;
+}
 .collection-cont {
 	display: flex;
 	position: relative;
@@ -218,10 +213,6 @@ export default {
 	display: flex;
 	gap: 2rem;
 	width: 70%;
-}
-
-.collection-filter {
-	width: 100%;
 }
 
 .collection-card-container {
@@ -261,6 +252,7 @@ export default {
 
 .collection-inner {
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	align-items: center;
 }

@@ -1,5 +1,5 @@
 <template>
-	<span class="fit"><slot></slot></span>
+	<span class="fitted"><slot></slot></span>
 </template>
 
 <script>
@@ -13,8 +13,8 @@ export default {
 			required: false,
 			default() {
 				return {
-					minSize: 20,
-					maxSize: 50,
+					minSize: 12,
+					maxSize: 30,
 					multiLine: true,
 				};
 			},
@@ -25,7 +25,7 @@ export default {
 			$_fitty: undefined,
 		};
 	},
-	destroyed() {
+	destroy() {
 		this.$_fitty.unsubscribe();
 	},
 	mounted() {
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.fit {
+.fitted {
 	display: inline-block;
 	white-space: nowrap;
 }

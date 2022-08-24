@@ -1,5 +1,5 @@
 <template>
-	<span class="fit"><slot></slot></span>
+	<span class="fitted"><slot></slot></span>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.fit {
+.fitted {
 	display: inline-block;
 	white-space: nowrap;
 }
