@@ -3,7 +3,7 @@
 		<q-card
 			class="more-info-card full-width full-height item-center"
 			:style="{
-				background: `linear-gradient(302deg, var(--${pokemonInfo.type[0]}Type) 38%, var(--light) 38%)`,
+				background: `linear-gradient(302deg, var(--${pokemonInfo.type1}Type) 38%, var(--light) 38%)`,
 			}"
 		>
 			<div>
@@ -33,73 +33,73 @@
 						<h5 class="q-pb-xs">Caught</h5>
 						<div class="icons flex justify-center q-gutter-xs">
 							<q-chip
-								v-if="pokemonInfo.caught[0].normalCaught"
+								v-if="pokemonInfo.catch.normalCaught"
 								size="md"
 								icon="icon-poke-pokeball"
 								>Normal</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinyCaught"
+								v-if="pokemonInfo.catch.shinyCaught"
 								size="md"
 								icon="icon-poke-shiny"
 								>Shiny</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].alphaCaught"
+								v-if="pokemonInfo.catch.alphaCaught"
 								size="md"
 								icon="icon-poke-alpha"
 								>Alpha</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinyAlphaCaught"
+								v-if="pokemonInfo.catch.shinyAlphaCaught"
 								size="md"
 								icon="icon-poke-alpha-shiny"
 								>Shiny Alpha</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].pokerusCaught"
+								v-if="pokemonInfo.catch.pokerusCaught"
 								size="md"
 								icon="icon-poke-pokerus"
 								>Pokerus</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinyPokerusCaught"
+								v-if="pokemonInfo.catch.shinyPokerusCaught"
 								size="md"
 								icon="icon-poke-pokerus-shiny"
 								>Shiny Pokerus</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].markedCaught"
+								v-if="pokemonInfo.catch.markedCaught"
 								size="md"
 								icon="icon-poke-marked"
 								>Marked</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinyMarkedCaught"
+								v-if="pokemonInfo.catch.shinyMarkedCaught"
 								size="md"
 								icon="icon-poke-marked-shiny"
 								>Shiny Marked</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].sixIvCaught"
+								v-if="pokemonInfo.catch.sixIvCaught"
 								size="md"
 								icon="icon-poke-six"
 								>Six IV</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinySixIvCaught"
+								v-if="pokemonInfo.catch.shinySixIvCaught"
 								size="md"
 								icon="icon-poke-six-shiny"
 								>Shiny Six IV</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].zeroIvCaught"
+								v-if="pokemonInfo.catch.zeroIvCaught"
 								size="md"
 								icon="icon-poke-zero"
 								>Zero IV</q-chip
 							>
 							<q-chip
-								v-if="pokemonInfo.caught[0].shinyZeroIvCaught"
+								v-if="pokemonInfo.catch.shinyZeroIvCaught"
 								size="md"
 								icon="icon-poke-zero-shiny"
 								>Shiny Zero IV</q-chip
@@ -111,73 +111,73 @@
 						<h5 class="q-pb-xs">Uncaught</h5>
 						<div class="icons flex justify-center q-gutter-xs">
 							<q-chip
-								v-if="!pokemonInfo.caught[0].normalCaught"
+								v-if="!pokemonInfo.catch.normalCaught"
 								size="md"
 								icon="icon-poke-pokeball"
 								>Normal</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinyCaught"
+								v-if="!pokemonInfo.catch.shinyCaught"
 								size="md"
 								icon="icon-poke-shiny"
 								>Shiny</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].alphaCaught"
+								v-if="!pokemonInfo.catch.alphaCaught"
 								size="md"
 								icon="icon-poke-alpha"
 								>Alpha</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinyAlphaCaught"
+								v-if="!pokemonInfo.catch.shinyAlphaCaught"
 								size="md"
 								icon="icon-poke-alpha-shiny"
 								>Shiny Alpha</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].pokerusCaught"
+								v-if="!pokemonInfo.catch.pokerusCaught"
 								size="md"
 								icon="icon-poke-pokerus"
 								>Pokerus</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinyPokerusCaught"
+								v-if="!pokemonInfo.catch.shinyPokerusCaught"
 								size="md"
 								icon="icon-poke-pokerus-shiny"
 								>Shiny Pokerus</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].markedCaught"
+								v-if="!pokemonInfo.catch.markedCaught"
 								size="md"
 								icon="icon-poke-marked"
 								>Marked</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinyMarkedCaught"
+								v-if="!pokemonInfo.catch.shinyMarkedCaught"
 								size="md"
 								icon="icon-poke-marked-shiny"
 								>Shiny Marked</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].sixIvCaught"
+								v-if="!pokemonInfo.catch.sixIvCaught"
 								size="md"
 								icon="icon-poke-six"
 								>Six IV</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinySixIvCaught"
+								v-if="!pokemonInfo.catch.shinySixIvCaught"
 								size="md"
 								icon="icon-poke-six-shiny"
 								>Shiny Six IV</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].zeroIvCaught"
+								v-if="!pokemonInfo.catch.zeroIvCaught"
 								size="md"
 								icon="icon-poke-zero"
 								>Zero IV</q-chip
 							>
 							<q-chip
-								v-if="!pokemonInfo.caught[0].shinyZeroIvCaught"
+								v-if="!pokemonInfo.catch.shinyZeroIvCaught"
 								size="md"
 								icon="icon-poke-zero-shiny"
 								>Shiny Zero IV</q-chip
@@ -208,6 +208,7 @@ export default {
 		pkClasses: { type: String },
 		close: { type: Function },
 	},
+	data() {},
 };
 </script>
 

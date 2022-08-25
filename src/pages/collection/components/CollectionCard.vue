@@ -1,56 +1,37 @@
 <template>
 	<q-dialog v-model="details">
-		<more-info
-			:pokemonInfo="pokemonInfo"
-			:pokemonId="pokemonId"
-			:selectedImage="selectedImage"
-			:pkClasses="pkClasses"
-			:close="close"
-		></more-info>
+		<more-info :pokemonInfo="pokemon" :pokemonId="pokemon.dexNo" :selectedImage="selectedImage" :pkClasses="pkClasses" :close="close"></more-info>
 	</q-dialog>
 
 	<div class="card-cont" @mouseenter="flipToBack" @mouseleave="flipToFront">
-		<q-card
-			class="card card-front"
-			:class="[`bg-${pokemonInfo.type1}Type`, { flipped: flipped }]"
-		>
-			<div
-				class="background-type-icon flex justify-center items-center full-height absolute-center"
-			>
-				<q-icon
-					:name="`icon-type-2-${pokemonInfo.type1}`"
-					color="white"
-					class="type-icon"
-					size="250px"
-				></q-icon>
+		<q-card class="card card-front" :class="[`bg-${pokemon.type[0]}Type`, { flipped: flipped }]">
+			<div class="background-type-icon flex justify-center items-center full-height absolute-center">
+				<q-icon :name="`icon-type-2-${pokemon.type[0]}`" color="white" class="type-icon" size="250px"></q-icon>
 			</div>
 			<div class="card-front-number absolute-top-right q-pr-sm">
-				<h6>{{ pokemonInfo.dexNo }}</h6>
+				<h6>{{ pokemon.dexNo }}</h6>
 			</div>
 			<div class="card-front-name">
 				<fit-text class="name">
-					{{ pokemonInfo.name }}
+					{{ pokemon.name }}
 				</fit-text>
 			</div>
 			<div class="flex items-end full-height">
 				<q-img
 					class="card-image"
 					:src="selectedImage"
-					:alt="`${pokemonInfo.name}-Image`"
+					:alt="`${pokemon.name}-Image`"
 					:class="[{ 'disabled-image': deactivated }, pkClasses]"
 					style="min-width: 250px"
 				></q-img>
 			</div>
 		</q-card>
 
-		<q-card
-			class="card card-back absolute-top-left"
-			:class="[`bg-${pokemonInfo.type1}Type`, { flipped: !flipped }]"
-		>
+		<q-card class="card card-back absolute-top-left" :class="[`bg-${pokemon.type[0]}Type`, { flipped: !flipped }]">
 			<div class="card-back-info-cont column items-center q-px-xs absolute-center bg-light">
 				<div class="card-back-name col flex items-center justify-center">
 					<fit-text-alt class="name">
-						{{ pokemonInfo.name }}
+						{{ pokemon.name }}
 					</fit-text-alt>
 				</div>
 				<div class="card-back-info col-8 full-width column">
@@ -58,132 +39,36 @@
 					<div class="q-ma-xs col column items-center justify-center">
 						<span class="card-back-subtitle text-subtitle2 q-pb-xs">Caught</span>
 						<div class="icons flex justify-center q-gutter-xs">
-							<q-icon
-								v-if="pokemonInfo.catch.normalCaught"
-								size="xs"
-								name="icon-poke-pokeball"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinyCaught"
-								size="xs"
-								name="icon-poke-shiny"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.alphaCaught"
-								size="xs"
-								name="icon-poke-alpha"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinyAlphaCaught"
-								size="xs"
-								name="icon-poke-alpha-shiny"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.pokerusCaught"
-								size="xs"
-								name="icon-poke-pokerus"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinyPokerusCaught"
-								size="xs"
-								name="icon-poke-pokerus-shiny"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.markedCaught"
-								size="xs"
-								name="icon-poke-marked"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinyMarkedCaught"
-								size="xs"
-								name="icon-poke-marked-shiny"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.sixIvCaught"
-								size="xs"
-								name="icon-poke-six"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinySixIvCaught"
-								size="xs"
-								name="icon-poke-six-shiny"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.zeroIvCaught"
-								size="xs"
-								name="icon-poke-zero"
-							/>
-							<q-icon
-								v-if="pokemonInfo.catch.shinyZeroIvCaught"
-								size="xs"
-								name="icon-poke-zero-shiny"
-							/>
+							<q-icon v-if="pokemon.caught[0].normalCaught" size="xs" name="icon-poke-pokeball" />
+							<q-icon v-if="pokemon.caught[0].shinyCaught" size="xs" name="icon-poke-shiny" />
+							<q-icon v-if="pokemon.caught[0].alphaCaught" size="xs" name="icon-poke-alpha" />
+							<q-icon v-if="pokemon.caught[0].shinyAlphaCaught" size="xs" name="icon-poke-alpha-shiny" />
+							<q-icon v-if="pokemon.caught[0].pokerusCaught" size="xs" name="icon-poke-pokerus" />
+							<q-icon v-if="pokemon.caught[0].shinyPokerusCaught" size="xs" name="icon-poke-pokerus-shiny" />
+							<q-icon v-if="pokemon.caught[0].markedCaught" size="xs" name="icon-poke-marked" />
+							<q-icon v-if="pokemon.caught[0].shinyMarkedCaught" size="xs" name="icon-poke-marked-shiny" />
+							<q-icon v-if="pokemon.caught[0].sixIvCaught" size="xs" name="icon-poke-six" />
+							<q-icon v-if="pokemon.caught[0].shinySixIvCaught" size="xs" name="icon-poke-six-shiny" />
+							<q-icon v-if="pokemon.caught[0].zeroIvCaught" size="xs" name="icon-poke-zero" />
+							<q-icon v-if="pokemon.caught[0].shinyZeroIvCaught" size="xs" name="icon-poke-zero-shiny" />
 						</div>
 					</div>
 					<q-separator inset />
 					<div class="q-ma-xs col column items-center justify-center q-pb-xs">
 						<span class="card-back-subtitle text-subtitle2">Uncaught</span>
 						<div class="icons flex justify-center q-gutter-xs">
-							<q-icon
-								v-if="!pokemonInfo.catch.normalCaught"
-								size="xs"
-								name="icon-poke-pokeball"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinyCaught"
-								size="xs"
-								name="icon-poke-shiny"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.alphaCaught"
-								size="xs"
-								name="icon-poke-alpha"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinyAlphaCaught"
-								size="xs"
-								name="icon-poke-alpha-shiny"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.pokerusCaught"
-								size="xs"
-								name="icon-poke-pokerus"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinyPokerusCaught"
-								size="xs"
-								name="icon-poke-pokerus-shiny"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.markedCaught"
-								size="xs"
-								name="icon-poke-marked"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinyMarkedCaught"
-								size="xs"
-								name="icon-poke-marked-shiny"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.sixIvCaught"
-								size="xs"
-								name="icon-poke-six"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinySixIvCaught"
-								size="xs"
-								name="icon-poke-six-shiny"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.zeroIvCaught"
-								size="xs"
-								name="icon-poke-zero"
-							/>
-							<q-icon
-								v-if="!pokemonInfo.catch.shinyZeroIvCaught"
-								size="xs"
-								name="icon-poke-zero-shiny"
-							/>
+							<q-icon v-if="!pokemon.caught[0].normalCaught" size="xs" name="icon-poke-pokeball" />
+							<q-icon v-if="!pokemon.caught[0].shinyCaught" size="xs" name="icon-poke-shiny" />
+							<q-icon v-if="!pokemon.caught[0].alphaCaught" size="xs" name="icon-poke-alpha" />
+							<q-icon v-if="!pokemon.caught[0].shinyAlphaCaught" size="xs" name="icon-poke-alpha-shiny" />
+							<q-icon v-if="!pokemon.caught[0].pokerusCaught" size="xs" name="icon-poke-pokerus" />
+							<q-icon v-if="!pokemon.caught[0].shinyPokerusCaught" size="xs" name="icon-poke-pokerus-shiny" />
+							<q-icon v-if="!pokemon.caught[0].markedCaught" size="xs" name="icon-poke-marked" />
+							<q-icon v-if="!pokemon.caught[0].shinyMarkedCaught" size="xs" name="icon-poke-marked-shiny" />
+							<q-icon v-if="!pokemon.caught[0].sixIvCaught" size="xs" name="icon-poke-six" />
+							<q-icon v-if="!pokemon.caught[0].shinySixIvCaught" size="xs" name="icon-poke-six-shiny" />
+							<q-icon v-if="!pokemon.caught[0].zeroIvCaught" size="xs" name="icon-poke-zero" />
+							<q-icon v-if="!pokemon.caught[0].shinyZeroIvCaught" size="xs" name="icon-poke-zero-shiny" />
 						</div>
 					</div>
 					<q-separator inset />
@@ -193,7 +78,7 @@
 					<router-link
 						:to="{
 							name: 'tracking',
-							params: { pkName: pokemonInfo.name.toLowerCase() },
+							params: { pkName: pokemon.name.toLowerCase() },
 						}"
 						class="track-button-cont"
 					>
@@ -201,14 +86,7 @@
 							<q-tooltip class="text-body1">Track</q-tooltip>
 						</q-btn>
 					</router-link>
-					<q-btn
-						round
-						class="q-ma-xs"
-						size="sm"
-						color="primary"
-						icon="fas fa-info"
-						@click="details = true"
-					>
+					<q-btn round class="q-ma-xs" size="sm" color="primary" icon="fas fa-info" @click="details = true">
 						<q-tooltip class="text-body1">More Info</q-tooltip>
 					</q-btn>
 					<q-btn round class="q-ma-xs" size="sm" color="primary" icon="fas fa-pen">
@@ -240,27 +118,26 @@ export default {
 	},
 	computed: {
 		...mapGetters('tracker', ['pkType1']),
-		pokemonInfo() {
-			console.log(this.pokemon[1]);
-			return this.pokemon[1];
-		},
-		pokemonId() {
-			return this.pokemon[0];
-		},
+		// pokemonInfo() {
+		// 	return this.pokemon[1];
+		// },
+		// pokemonId() {
+		// 	return this.pokemon[0];
+		// },
 		selectedImage() {
-			return `https://ik.imagekit.io/kw2qoeib2/Home-Normal/${this.pokemon[0]}.png`;
+			return `https://ik.imagekit.io/kw2qoeib2/Home-Normal/${this.pokemon.apiNo}.png`;
 		},
 		deactivated() {
 			return (
-				!this.pokemonInfo.normalCaught &&
-				!this.pokemonInfo.alphaCaught &&
-				!this.pokemonInfo.shinyCaught &&
-				!this.pokemonInfo.favoriteCaught
+				!this.pokemon.caught[0].normalCaught &&
+				!this.pokemon.caught[0].alphaCaught &&
+				!this.pokemon.caught[0].shinyCaught &&
+				!this.pokemon.caught[0].favoriteCaught
 			);
 		},
 
 		pkClasses() {
-			return this.pokemonInfo.name
+			return this.pokemon.name
 				.toLowerCase()
 				.replaceAll(' ', '-')
 				.replaceAll('.', '')
