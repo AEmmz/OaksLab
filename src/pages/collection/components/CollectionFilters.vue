@@ -1,76 +1,76 @@
 <template>
-	<div class="full-width flex justify-center q-gutter-x-md">
-		<q-select
-			class="filter"
-			dark
-			outlined
-			label="Sort"
-			v-model="sortQuery"
-			:options="sortFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-		<q-select
-			class="filter"
-			dark
-			outlined
-			label="Caught"
-			v-model="caughtQuery"
-			:options="caughtFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-		<q-select
-			class="filter"
-			dark
-			outlined
-			label="Need"
-			v-model="needQuery"
-			:options="needFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-		<q-select
-			class="filter"
-			dark
-			outlined
-			size="xl"
-			label="Generation"
-			v-model="generationQuery"
-			:options="generationFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-		<q-select
-			class="filter type"
-			dark
-			outlined
-			multiple
-			max-values="2"
-			use-chips
-			label="Type"
-			v-model="typeQuery"
-			:options="typeFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-		<q-select
-			class="filter"
-			dark
-			outlined
-			label="Game"
-			v-model="gameQuery"
-			:options="gameFilter"
-			transition-show="jump-up"
-			transition-hide="jump-up"
-			@update:model-value="sendSearch"
-		></q-select>
-	</div>
+  <div class="full-width flex justify-center q-gutter-x-md">
+    <q-select
+      class="filter"
+      dark
+      outlined
+      label="Sort"
+      v-model="sortQuery"
+      :options="sortFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+    <q-select
+      class="filter"
+      dark
+      outlined
+      label="Caught"
+      v-model="caughtQuery"
+      :options="caughtFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+    <q-select
+      class="filter"
+      dark
+      outlined
+      label="Need"
+      v-model="needQuery"
+      :options="needFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+    <q-select
+      class="filter"
+      dark
+      outlined
+      size="xl"
+      label="Generation"
+      v-model="generationQuery"
+      :options="generationFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+    <q-select
+      class="filter type"
+      dark
+      outlined
+      multiple
+      max-values="2"
+      use-chips
+      label="Type"
+      v-model="typeQuery"
+      :options="typeFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+    <q-select
+      class="filter"
+      dark
+      outlined
+      label="Game"
+      v-model="gameQuery"
+      :options="gameFilter"
+      transition-show="jump-up"
+      transition-hide="jump-up"
+      @update:model-value="sendSearch"
+    ></q-select>
+  </div>
 </template>
 
 <script>
@@ -115,13 +115,13 @@ export default {
 
 <style scoped>
 .filter {
-	width: 10%;
+  width: 10%;
 }
 
 .filter >>> .q-field__control {
-	min-height: 70px;
+  min-height: 70px;
 }
 .type {
-	width: 15%;
+  width: 15%;
 }
 </style>
