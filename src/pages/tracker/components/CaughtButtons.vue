@@ -1,209 +1,216 @@
+<!--suppress ALL -->
+
 <template>
-	<q-card class="bg-dark toggle-cont flex justify-around">
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="normal"
-				@update:model-value="setToggler('normal')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-pokeball"
-			/>
-			<p class="text-body2 text-light">Normal</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shiny"
-				@update:model-value="setToggler('shiny')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				:icon="shinyAvailable ? 'icon-poke-shiny' : 'icon-misc-ban'"
-				:disable="!shinyAvailable"
-			/>
-			<p class="text-body2 text-light">Shiny</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="alpha"
-				@update:model-value="setToggler('alpha')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				:icon="alphaAvailable ? 'icon-poke-alpha' : 'icon-misc-ban'"
-				:disable="!alphaAvailable"
-			/>
-			<p class="text-body2 text-light">Alpha</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shinyAlpha"
-				@update:model-value="setToggler('shinyAlpha')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				:icon="shinyAlphaAvailable ? 'icon-poke-alpha-shiny' : 'icon-misc-ban'"
-				:disable="!shinyAlphaAvailable"
-			/>
-			<p class="text-body2 text-light">Shiny Alpha</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="marked"
-				@update:model-value="setToggler('marked')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				:icon="markedAvailable ? 'icon-poke-marked' : 'icon-misc-ban'"
-				:disable="!markedAvailable"
-			/>
-			<p class="text-body2 text-light">Marked</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shinyMarked"
-				@update:model-value="setToggler('shinyMarked')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				:icon="shinyMarkedAvailable ? 'icon-poke-marked-shiny' : 'icon-misc-ban'"
-				:disable="!shinyMarkedAvailable"
-			/>
-			<p class="text-body2 text-light">Shiny Marked</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="pokerus"
-				@update:model-value="setToggler('pokerus')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-pokerus"
-			/>
-			<p class="text-body2 text-light">Pokerus</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shinyPokerus"
-				@update:model-value="setToggler('shinyPokerus')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-pokerus-shiny"
-			/>
-			<p class="text-body2 text-light">Shiny Pokerus</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="zeroIv"
-				@update:model-value="setToggler('zeroIv')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-zero"
-			/>
-			<p class="text-body2 text-light">Zero IV</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shinyZeroIv"
-				@update:model-value="setToggler('shinyZeroIv')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-zero-shiny"
-			/>
-			<p class="text-body2 text-light">Shiny Zero IV</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="sixIv"
-				@update:model-value="setToggler('sixIv')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-six"
-			/>
-			<p class="text-body2 text-light">Six IV</p>
-		</div>
-		<div class="toggle q-my-md flex column items-center">
-			<q-toggle
-				v-model="shinySixIv"
-				@update:model-value="setToggler('shinySixIv')"
-				:color="pkToggleColor"
-				:size="toggleSize"
-				icon="icon-poke-six-shiny"
-			/>
-			<p class="text-body2 text-light">Shiny Six IV</p>
-		</div>
-	</q-card>
+  <q-card class="bg-dark toggle-cont flex justify-around">
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="normal"
+        :model-value="normal"
+        @update:model-value="setToggler('normal')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-pokeball"/>
+      <p class="text-body2 text-light">Normal</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shiny"
+        :model-value="shiny"
+        @update:model-value="setToggler('shiny')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        :icon="shinyAvailable ? 'icon-poke-shiny' : 'icon-misc-ban'"
+        :disable="!shinyAvailable"/>
+      <p class="text-body2 text-light">Shiny</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="alpha"
+        :model-value="alpha"
+        @update:model-value="setToggler('alpha')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        :icon="alphaAvailable ? 'icon-poke-alpha' : 'icon-misc-ban'"
+        :disable="!alphaAvailable"/>
+      <p class="text-body2 text-light">Alpha</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shinyAlpha"
+        :model-value="shinyAlpha"
+        @update:model-value="setToggler('shinyAlpha')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        :icon="shinyAlphaAvailable ? 'icon-poke-alpha-shiny' : 'icon-misc-ban'"
+        :disable="!shinyAlphaAvailable"/>
+      <p class="text-body2 text-light">Shiny Alpha</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="marked"
+        :model-value="marked"
+        @update:model-value="setToggler('marked')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        :icon="markedAvailable ? 'icon-poke-marked' : 'icon-misc-ban'"
+        :disable="!markedAvailable"/>
+      <p class="text-body2 text-light">Marked</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shinyMarked"
+        :model-value="shinyMarked"
+        @update:model-value="setToggler('shinyMarked')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        :icon="shinyMarkedAvailable ? 'icon-poke-marked-shiny' : 'icon-misc-ban'"
+        :disable="!shinyMarkedAvailable"/>
+      <p class="text-body2 text-light">Shiny Marked</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="pokerus"
+        :model-value="pokerus"
+        @update:model-value="setToggler('pokerus')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-pokerus"/>
+      <p class="text-body2 text-light">Pokerus</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shinyPokerus"
+        :model-value="shinyPokerus"
+        @update:model-value="setToggler('shinyPokerus')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-pokerus-shiny"/>
+      <p class="text-body2 text-light">Shiny Pokerus</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="zeroIv"
+        :model-value="zeroIv"
+        @update:model-value="setToggler('zeroIv')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-zero"/>
+      <p class="text-body2 text-light">Zero IV</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shinyZeroIv"
+        :model-value="shinyZeroIv"
+        @update:model-value="setToggler('shinyZeroIv')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-zero-shiny"/>
+      <p class="text-body2 text-light">Shiny Zero IV</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="sixIv"
+        :model-value="sixIv"
+        @update:model-value="setToggler('sixIv')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-six"/>
+      <p class="text-body2 text-light">Six IV</p>
+    </div>
+    <div class="toggle q-my-md flex column items-center">
+      <q-toggle
+        v-model="shinySixIv"
+        :model-value="shinySixIv"
+        @update:model-value="setToggler('shinySixIv')"
+        :color="pkToggleColor"
+        :size="toggleSize"
+        icon="icon-poke-six-shiny"/>
+      <p class="text-body2 text-light">Shiny Six IV</p>
+    </div>
+  </q-card>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
+
 export default {
-	data() {
-		return {
-			toggleSize: '80px',
-		};
-	},
-	computed: {
-		...mapGetters('tracker/caught', [
-			'normal',
-			'shiny',
-			'alpha',
-			'shinyAlpha',
-			'marked',
-			'shinyMarked',
-			'pokerus',
-			'shinyPokerus',
-			'zeroIv',
-			'shinyZeroIv',
-			'sixIv',
-			'shinySixIv',
-			'shinyAvailable',
-			'alphaAvailable',
-			'shinyAlphaAvailable',
-			'markedAvailable',
-			'shinyMarkedAvailable',
-		]),
-		...mapGetters('tracker', ['pkId', 'pkType1']),
-		pkToggleColor() {
-			return `${this.pkType1}Type`;
-		},
-		pkIsActive() {
-			return this.pkId !== '';
-		},
-	},
-	methods: {
-		...mapActions('tracker/caught', ['toggler']),
-		...mapActions('tracker/caught', ['toggler']),
-		setToggler(type) {
-			if (this.pkIsActive) {
-				this.toggler(type);
-			}
-		},
-	},
+  data() {
+    return {
+      toggleSize: "80px"
+    };
+  },
+  computed: {
+    ...mapGetters("tracker/caught", [
+      "normal",
+      "shiny",
+      "alpha",
+      "shinyAlpha",
+      "marked",
+      "shinyMarked",
+      "pokerus",
+      "shinyPokerus",
+      "zeroIv",
+      "shinyZeroIv",
+      "sixIv",
+      "shinySixIv",
+      "shinyAvailable",
+      "alphaAvailable",
+      "shinyAlphaAvailable",
+      "markedAvailable",
+      "shinyMarkedAvailable"
+    ]),
+    ...mapGetters("tracker", ["pkId", "pkType1"]),
+    pkToggleColor() {
+      return `${this.pkType1}Type`;
+    },
+    pkIsActive() {
+      return this.pkId !== "";
+    }
+  },
+  methods: {
+    ...mapActions("tracker/caught", ["toggler"]),
+    ...mapActions("tracker/caught", ["toggler"]),
+    setToggler(type) {
+      if (this.pkIsActive) {
+        this.toggler(type);
+      }
+    }
+  }
 };
 </script>
 
 <style scoped>
 .toggle {
-	width: 112px;
-	text-align: center;
+  width: 112px;
+  text-align: center;
 }
 
 .toggle >>> .q-toggle__inner--falsy .q-toggle__thumb:after {
-	background: rgb(126, 126, 126);
+  background: rgb(126, 126, 126);
 }
+
 .toggle >>> .q-toggle__inner--truthy .q-toggle__track {
-	box-shadow: 0px 0px 15px 1px currentColor;
+  box-shadow: 0 0 15px 1px currentColor;
 }
 
 .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb:after {
-	background: rgb(63, 63, 63);
+  background: rgb(63, 63, 63);
 }
+
 .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb i {
-	color: #fff;
-	opacity: 0.54;
+  color: #fff;
+  opacity: 0.54;
 }
+
 .toggle >>> .disabled .q-toggle__inner .q-toggle__track {
-	color: #000;
+  color: #000;
 }
+
 .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb {
-	left: 0.45em;
+  left: 0.45em;
 }
 
 .toggle >>> .q-toggle__inner--indet .q-toggle__thumb:after {
-	background: rgb(126, 126, 126);
+  background: rgb(126, 126, 126);
 }
 </style>

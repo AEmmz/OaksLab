@@ -1,10 +1,10 @@
-import { store } from 'quasar/wrappers';
-import { createStore } from 'vuex';
-import authorization from '../pages/authorization/store/index.js';
-import activePokemon from '../pages/tracker/store/tracker/index.js';
-import collection from '../pages/collection/store/collection/index.js';
-import statistics from '../pages/statistics/store/index.js';
-import navigation from '../components/navigation/store/index.js';
+import { store } from "quasar/wrappers";
+import { createStore } from "vuex";
+import authorization from "../pages/authorization/store/index.js";
+import activePokemon from "../pages/tracker/store/tracker/index.js";
+import collection from "pages/collection/store";
+import statistics from "../pages/statistics/store/index.js";
+import navigation from "../components/navigation/store/index.js";
 
 // import example from './module-example'
 
@@ -17,22 +17,22 @@ import navigation from '../components/navigation/store/index.js';
  * with the Store instance.
  */
 
-export default store(function (/* { ssrContext } */) {
-	const store = createStore({
-		modules: {
-			authorization: authorization,
-			tracker: activePokemon,
-			collection: collection,
-			statistics: statistics,
-			navigation: navigation,
-		},
+export default store(function(/* { ssrContext } */) {
+  const store = createStore({
+    modules: {
+      authorization: authorization,
+      tracker: activePokemon,
+      collection: collection,
+      statistics: statistics,
+      navigation: navigation
+    },
 
-		// enable strict mode (adds overhead!)
-		// for dev mode and --debug builds only
-		strict: process.env.DEBUGGING,
-	});
+    // enable strict mode (adds overhead!)
+    // for dev mode and --debug builds only
+    strict: process.env.DEBUGGING
+  });
 
-	return store;
+  return store;
 });
 
 export { store };

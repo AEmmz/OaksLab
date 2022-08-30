@@ -1,127 +1,191 @@
 <template>
-  <div class="full-width flex justify-center q-gutter-x-md">
-    <q-select
-      class="filter"
-      dark
-      outlined
-      label="Sort"
-      v-model="sortQuery"
-      :options="sortFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
-    <q-select
-      class="filter"
-      dark
-      outlined
-      label="Caught"
-      v-model="caughtQuery"
-      :options="caughtFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
-    <q-select
-      class="filter"
-      dark
-      outlined
-      label="Need"
-      v-model="needQuery"
-      :options="needFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
-    <q-select
-      class="filter"
-      dark
-      outlined
-      size="xl"
-      label="Generation"
-      v-model="generationQuery"
-      :options="generationFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
-    <q-select
-      class="filter type"
-      dark
-      outlined
-      multiple
-      max-values="2"
-      use-chips
-      label="Type"
-      v-model="typeQuery"
-      :options="typeFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
-    <q-select
-      class="filter"
-      dark
-      outlined
-      label="Game"
-      v-model="gameQuery"
-      :options="gameFilter"
-      transition-show="jump-up"
-      transition-hide="jump-up"
-      @update:model-value="sendSearch"
-    ></q-select>
+  <div class="flex justify-center  q-gutter-y-sm">
+    <div class="full-width flex justify-center q-gutter-md">
+      <q-input
+        class="filter search"
+        v-model="searchQuery"
+        :model-value="searchQuery"
+        dark
+        outlined
+        clearable
+        label="Search..."
+        @update:model-value="sendSearch">
+        <template v-slot:prepend>
+          <q-icon
+            name="fas fa-magnifying-glass"
+            size="xs"/>
+        </template>
+      </q-input>
+      <q-select
+        class="filter sort"
+        dark
+        outlined
+        label="Sort"
+        v-model="sortQuery"
+        :model-value="sortQuery"
+        :options="sortFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+      <q-select
+        class="filter"
+        dark
+        outlined
+        label="Caught"
+        v-model="caughtQuery"
+        :model-value="caughtQuery"
+        :options="caughtFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+      <q-select
+        class="filter"
+        dark
+        outlined
+        label="Need"
+        v-model="needQuery"
+        :model-value="needQuery"
+        :options="needFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+
+      <q-btn
+        icon="fas fa-rotate"
+        label="Reset"
+        color="primary"
+        text-color="light"
+        @click="resetFilters"/>
+    </div>
+    <div class="full-width flex justify-center">
+      <q-btn
+        label="More Options"
+        color="primary"
+        text-color="light"
+        @click="moreOptionsVisible = !moreOptionsVisible"/>
+      <q-slide-transition>
+        <div
+          v-show="moreOptionsVisible"
+          class="full-width flex justify-center q-mt-sm q-gutter-x-md">
+          <q-select
+            class="filter generation"
+            dark
+            outlined
+            size="xl"
+            label="Generation"
+            v-model="generationQuery"
+            :model-value="generationQuery"
+            :options="generationFilter"
+            transition-show="jump-up"
+            transition-hide="jump-up"
+            @update:model-value="sendSearch"></q-select>
+          <q-select
+            class="filter"
+            dark
+            outlined
+            label="Type 1"
+            v-model="typeQuery1"
+            :model-value="typeQuery1"
+            :options="typeFilter"
+            transition-show="jump-up"
+            transition-hide="jump-up"
+            @update:model-value="sendSearch"></q-select>
+          <q-select
+            class="filter"
+            dark
+            outlined
+            label="Type 2"
+            v-model="typeQuery2"
+            :model-value="typeQuery2"
+            :options="typeFilter"
+            transition-show="jump-up"
+            transition-hide="jump-up"
+            @update:model-value="sendSearch"></q-select>
+          <q-select
+            class="filter"
+            dark
+            outlined
+            label="Shiny View"
+            v-model="shinyView"
+            :model-value="shinyView"
+            :options="shinyViewOptions"
+            transition-show="jump-up"
+            transition-hide="jump-up"
+            @update:model-value="getShinyView(shinyView)"></q-select>
+        </div>
+      </q-slide-transition>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-	props: { getSearch: { type: Function } },
-	data() {
-		return {
-			sortQuery: 'Dex: Asc',
-			caughtQuery: 'My Caught',
-			needQuery: 'None',
-			generationQuery: 'All',
-			typeQuery: ['All'],
-			gameQuery: 'All',
+import { mapGetters } from "vuex";
 
-			sortFilter: ['Dex: Asc', 'Dex: Desc', 'Name: A-Z', 'Name: Z-A'],
-			// prettier-ignore
-			caughtFilter: ['Show All','My Caught','Normal','Shiny','Alpha','Shiny Alpha', 'Pokerus', 'Shiny Pokerus', 'Marked', 'Shiny Marked', '0 IV', 'Shiny 0 IV', '6 IV', 'Shiny 6 IV','Complete'],
-			// prettier-ignore
-			needFilter: ['None', 'All', 'Normal','Shiny','Alpha','Shiny Alpha', 'Pokerus', 'Shiny Pokerus', 'Marked', 'Shiny Marked', '0 IV', 'Shiny 0 IV', '6 IV', 'Shiny 6 IV'],
-			// prettier-ignore
-			generationFilter: ['All','Gen 1','Gen 2','Gen 3','Gen 4','Gen 5','Gen 6','Gen 7','Gen 8'],
-			// prettier-ignore
-			typeFilter: ['All','Bug','Dark','Dragon','Electric','Fairy','Fighting','Fire','Flying','Grass','Ghost','Ground','Ice','Normal','Poison','Psychic','Steel','Rock','Water'],
-			// prettier-ignore
-			gameFilter: ['All','Red','Green','Blue','Yellow','Gold','Silver','Crystal','Ruby','Sapphire','Fire Red','Leaf Green','Emerald','Colosseum','XD','Diamond','Pearl','Platinum','Heart Gold','Soul Silver','Black','White','Black 2','White 2','X','Y','Omega Ruby','Alpha Sapphire','Sun','Moon','Ultra Sun','Ultra Moon',"Let's Go, Pikachu!","Let's Go, Eevee!",'Sword','Shield','Brilliant Diamond','Shining Pearl','Legends: Arceus'],
-		};
-	},
-	methods: {
-		sendSearch() {
-			this.getSearch({
-				sortQuery: this.sortQuery,
-				caughtQuery: this.caughtQuery,
-				needQuery: this.needQuery,
-				generationQuery: this.generationQuery,
-				typeQuery: this.typeQuery,
-				gameQuery: this.gameQuery,
-			});
-		},
-	},
+export default {
+  props: { getSearch: { type: Function }, getShinyView: { type: Function } },
+  data() {
+    return {
+      moreOptionsVisible: false,
+      searchQuery: "",
+      sortQuery: "Dex: Asc",
+      caughtQuery: "My Caught",
+      needQuery: "None",
+      generationQuery: "All",
+      typeQuery1: "All",
+      typeQuery2: "All",
+      shinyView: "All Normal",
+      sortFilter: ["Dex: Asc", "Dex: Desc", "Name: A-Z", "Name: Z-A"],
+      caughtFilter: ["Show All", "My Caught", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV", "Complete"],
+      needFilter: ["None", "All", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV"],
+      generationFilter: ["All", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "Gen 7", "Gen 8"],
+      typeFilter: ["All", "Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying", "Grass", "Ghost", "Ground", "Ice", "Normal", "Poison", "Psychic", "Steel", "Rock", "Water"],
+      shinyViewOptions: ["All Normal", "All Shiny", "Shiny Caught"]
+    };
+  },
+  computed: {
+    ...mapGetters("collection", ["collectionSettings"])
+  },
+  watch: {
+    collectionSettings(curVal, prevVal) {
+      if (curVal !== prevVal) {
+        this.shinyView = this.collectionSettings.shinyView;
+        this.getShinyView(this.shinyView);
+      }
+    }
+  },
+  methods: {
+    sendSearch() {
+      this.getSearch({
+        searchQuery: this.searchQuery,
+        sortQuery: this.sortQuery,
+        caughtQuery: this.caughtQuery,
+        needQuery: this.needQuery,
+        generationQuery: this.generationQuery,
+        typeQuery1: this.typeQuery1,
+        typeQuery2: this.typeQuery2
+      });
+    },
+    resetFilters() {
+      this.searchQuery = "";
+      this.sortQuery = "Dex: Asc";
+      this.caughtQuery = "My Caught";
+      this.needQuery = "None";
+      this.generationQuery = "All";
+      this.typeQuery1 = "All";
+      this.typeQuery2 = "All";
+      this.sendSearch();
+    }
+  }
 };
 </script>
 
 <style scoped>
 .filter {
   width: 10%;
+
 }
 
-.filter >>> .q-field__control {
-  min-height: 70px;
-}
-.type {
+.search {
   width: 15%;
 }
 </style>
