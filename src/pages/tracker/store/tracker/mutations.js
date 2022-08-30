@@ -11,9 +11,9 @@ export default {
 
   async changeActivePokemon(state, payload) {
     const pokemonData = payload;
-    const pkId = pokemonData.id;
+    const pkId = pokemonData.apiNo;
     //Detail Pulls
-    state.pkId = pkId;
+    state.pkId = pokemonData.apiNo;
     state.pkIdVar = pokemonData.dexNo;
     state.pkName = pokemonData.setName;
     state.pkType1 = pokemonData.setType[0];

@@ -40,34 +40,22 @@ export default {
       const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/catch`));
       let catchData = data.val();
 
-      if (catchData === null) {
-        catchData = {
-          normalCaught: false,
-          shinyCaught: false,
-          alphaCaught: false,
-          shinyAlphaCaught: false,
-          markedCaught: false,
-          shinyMarkedCaught: false,
-          pokerusCaught: false,
-          shinyPokerusCaught: false,
-          zeroIvCaught: false,
-          shinyZeroIvCaught: false,
-          sixIvCaught: false,
-          shinySixCaught: false,
-          favoriteCaught: false
-        };
-
-        //Create Pokemon Instance if No Data Exists
-        const setName = payload.setName;
-        const dexNo = payload.dexNo;
-        const newDbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/`);
+      //Create Pokemon Instance If They Do Not Exist In The DB (new Pokemon)
+      if (!catchData) {
+        const newDbRef = await ref(getDatabase(), `users/${uid}/pokedex/`);
         await update(newDbRef, {
-          catch: catchData,
-          name: setName,
-          dexNo: dexNo
+          [pkId]: {
+            name: payload.setName,
+            type1: payload.setType[0],
+            type2: payload.setType[1] || null,
+            dexNo: payload.dexNo,
+            catch: {
+              normalCaught: false
+            }
+          }
         });
       }
-      commit("caughtCheck", catchData);
+      if (catchData) commit("caughtCheck", catchData);
       dispatch("lockCheck");
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);

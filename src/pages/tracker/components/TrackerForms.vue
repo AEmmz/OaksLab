@@ -59,10 +59,10 @@ export default {
 
     async changePokemon(form) {
       const inputPokemon = {
-        api: form.apiNo,
-        dex: form.dexNo,
-        name: form.name,
-        types: form.types
+        apiNo: form.apiNo,
+        dexNo: form.dexNo,
+        setName: form.name,
+        setType: form.types
       };
       await this.changeActivePokemon(inputPokemon);
       const data = this.hunt.split("Count")[0];

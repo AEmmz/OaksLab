@@ -5,7 +5,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="normal"
-        :model-value="normal"
+        :model-value="normal || false"
         @update:model-value="setToggler('normal')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -15,7 +15,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shiny"
-        :model-value="shiny"
+        :model-value="shiny || false"
         @update:model-value="setToggler('shiny')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -26,7 +26,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="alpha"
-        :model-value="alpha"
+        :model-value="alpha || false"
         @update:model-value="setToggler('alpha')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -37,7 +37,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shinyAlpha"
-        :model-value="shinyAlpha"
+        :model-value="shinyAlpha || false"
         @update:model-value="setToggler('shinyAlpha')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -48,7 +48,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="marked"
-        :model-value="marked"
+        :model-value="marked || false"
         @update:model-value="setToggler('marked')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -59,7 +59,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shinyMarked"
-        :model-value="shinyMarked"
+        :model-value="shinyMarked || false"
         @update:model-value="setToggler('shinyMarked')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -70,7 +70,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="pokerus"
-        :model-value="pokerus"
+        :model-value="pokerus || false"
         @update:model-value="setToggler('pokerus')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -80,7 +80,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shinyPokerus"
-        :model-value="shinyPokerus"
+        :model-value="shinyPokerus || false"
         @update:model-value="setToggler('shinyPokerus')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -90,7 +90,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="zeroIv"
-        :model-value="zeroIv"
+        :model-value="zeroIv || false"
         @update:model-value="setToggler('zeroIv')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -100,7 +100,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shinyZeroIv"
-        :model-value="shinyZeroIv"
+        :model-value="shinyZeroIv || false"
         @update:model-value="setToggler('shinyZeroIv')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -110,7 +110,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="sixIv"
-        :model-value="sixIv"
+        :model-value="sixIv || false"
         @update:model-value="setToggler('sixIv')"
         :color="pkToggleColor"
         :size="toggleSize"
@@ -120,7 +120,7 @@
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         v-model="shinySixIv"
-        :model-value="shinySixIv"
+        :model-value="shinySixIv || false"
         @update:model-value="setToggler('shinySixIv')"
         :color="pkToggleColor"
         :size="toggleSize"

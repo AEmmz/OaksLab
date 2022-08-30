@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-container flex row justify-center q-ma-md q-gutter-x-lg">
-      <div class="left q-gutter-y-md">
+      <div class="left q-gutter-y-md ">
         <q-card class="bg-light images-cont">
           <pokemon-images></pokemon-images>
         </q-card>
@@ -24,6 +24,9 @@
         <q-card class="bg-dark counter-cont">
           <counter-card></counter-card>
         </q-card>
+        <q-card class="bg-dark timer-cont">
+          <timer-card></timer-card>
+        </q-card>
         <q-card class="bg-dark form-cont">
           <tracker-forms></tracker-forms>
         </q-card>
@@ -42,6 +45,7 @@ const TypeBar = defineAsyncComponent(() => import("./components/TypeBar.vue"));
 const TrackerSearchBar = defineAsyncComponent(() => import("./components/TrackerSearchBar.vue"));
 const CounterCard = defineAsyncComponent(() => import("./components/CounterCard.vue"));
 const TrackerForms = defineAsyncComponent(() => import("./components/TrackerForms.vue"));
+const TimerCard = defineAsyncComponent(() => import("./components/TimerCard.vue"));
 
 export default {
   components: {
@@ -50,7 +54,8 @@ export default {
     CounterCard,
     TrackerSearchBar,
     TypeBar,
-    TrackerForms
+    TrackerForms,
+    TimerCard
   },
   computed: {
     ...mapGetters("tracker/forms", ["forms"]),
@@ -60,11 +65,13 @@ export default {
   },
   methods: {
     ...mapMutations("tracker", ["resetTracker"]),
+    ...mapMutations("tracker/counter", ["resetCounts"]),
     ...mapMutations("tracker/forms", ["resetForms"])
   },
   unmounted() {
     this.resetTracker();
     this.resetForms();
+    this.resetCounts();
   }
 };
 </script>
@@ -74,6 +81,7 @@ export default {
 .left {
   width: 47rem;
   overflow: hidden;
+  position: relative;
 }
 
 .right {
@@ -86,7 +94,8 @@ export default {
 .type-cont,
 .search-cont,
 .counter-cont,
-.form-cont {
+.form-cont, .timer-cont {
   border-radius: 0.7rem;
 }
+
 </style>

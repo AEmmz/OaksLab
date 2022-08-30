@@ -152,10 +152,10 @@ export default {
 
       this.$router.replace(redirect);
       const inputPokemon = {
-        api: pkmn.apiNo,
-        dex: pkmn.dexNo,
-        name: pkmn.name,
-        types: pkmn.types
+        apiNo: pkmn.apiNo,
+        dexNo: pkmn.dexNo,
+        setName: pkmn.name,
+        setType: pkmn.types
       };
 
       await this.changeActivePokemon(inputPokemon);

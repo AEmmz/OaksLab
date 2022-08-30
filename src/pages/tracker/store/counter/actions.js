@@ -7,85 +7,105 @@ export default {
       const pkId = context.rootGetters["tracker/pkId"];
       const dbRef = ref(getDatabase());
       const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/count`));
-      let counter = data.val();
+      let userData = data.val();
       if (payload === "normal") {
-        counter = counter?.normalCount ? counter.normalCount : 0;
-        context.commit("updateCount", { hunt: "normalCount", normalCount: counter });
+        let timer = userData?.normalTimer ? userData.normalTimer : 0;
+        let counter = userData?.normalCount ? userData.normalCount : 0;
+        context.commit("updateCount", { hunt: "normalCount", normalCount: counter, normalTimer: timer });
       }
       if (payload === "shiny") {
-        counter = counter?.shinyCount ? counter.shinyCount : 0;
-        context.commit("updateCount", { hunt: "shinyCount", shinyCount: counter });
+        let timer = userData?.shinyTimer ? userData.shinyTimer : 0;
+        let counter = userData?.shinyCount ? userData.shinyCount : 0;
+        context.commit("updateCount", { hunt: "shinyCount", shinyCount: counter, shinyTimer: timer });
       }
       if (payload === "alpha") {
-        counter = counter?.alphaCount ? counter.alphaCount : 0;
-        context.commit("updateCount", { hunt: "alphaCount", alphaCount: counter });
+        let timer = userData?.alphaTimer ? userData.alphaTimer : 0;
+        let counter = userData?.alphaCount ? userData.alphaCount : 0;
+        context.commit("updateCount", { hunt: "alphaCount", alphaCount: counter, alphaTimer: timer });
       }
       if (payload === "shiny alpha") {
-        counter = counter?.shinyAlphaCount ? counter.shinyAlphaCount : 0;
+        let timer = userData?.shinyAlphaTimer ? userData.shinyAlphaTimer : 0;
+        let counter = userData?.shinyAlphaCount ? userData.shinyAlphaCount : 0;
         context.commit("updateCount", {
-          hunt: "shinyAlphaCount",
-          shinyAlphaCount: counter
+          hunt: "shinyAlphaCount", shinyAlphaCount: counter, shinyAlphaTimer: timer
         });
       }
       if (payload === "marked") {
-        counter = counter?.markedCount ? counter.markedCount : 0;
+        let timer = userData?.markedTimer ? userData.markedTimer : 0;
+        let counter = userData?.markedCount ? userData.markedCount : 0;
         context.commit("updateCount", {
           hunt: "markedCount",
-          markedCount: counter
+          markedCount: counter,
+          markedTimer: timer
         });
       }
       if (payload === "shiny marked") {
-        counter = counter?.shinyMarkedCount ? counter.shinyMarkedCount : 0;
+        let timer = userData?.shinyMarkedTimer ? userData.shinyMarkedTimer : 0;
+        let counter = userData?.shinyMarkedCount ? userData.shinyMarkedCount : 0;
         context.commit("updateCount", {
           hunt: "shinyMarkedCount",
-          shinyMarkedCount: counter
+          shinyMarkedCount: counter,
+          shinyMarkedTimer: timer
         });
       }
       if (payload === "pokerus") {
-        counter = counter?.pokerusCount ? counter.pokerusCount : 0;
+        let timer = userData?.pokerusTimer ? userData.pokerusTimer : 0;
+        let counter = userData?.pokerusCount ? userData.pokerusCount : 0;
         context.commit("updateCount", {
           hunt: "pokerusCount",
-          pokerusCount: counter
+          pokerusCount: counter,
+          pokerusTimer: timer
         });
       }
       if (payload === "shiny pokerus") {
-        counter = counter?.shinyPokerusCount ? counter.shinyPokerusCount : 0;
+        let timer = userData?.shinyPokerusTimer ? userData.shinyPokerusTimer : 0;
+        let counter = userData?.shinyPokerusCount ? userData.shinyPokerusCount : 0;
         context.commit("updateCount", {
           hunt: "shinyPokerusCount",
-          shinyPokerusCount: counter
+          shinyPokerusCount: counter,
+          shinyPokerusTimer: timer
         });
       }
       if (payload === "0 iv") {
-        counter = counter?.zeroIvCount ? counter.zeroIvCount : 0;
+        let timer = userData?.zeroIvTimer ? userData.zeroIvTimer : 0;
+        let counter = userData?.zeroIvCount ? userData.zeroIvCount : 0;
         context.commit("updateCount", {
           hunt: "zeroIvCount",
-          zeroIvCount: counter
+          zeroIvCount: counter,
+          zeroIvTimer: timer
         });
       }
       if (payload === "shiny 0 iv") {
-        counter = counter?.shinyZeroIvCount ? counter.shinyZeroIvCount : 0;
+        let timer = userData?.shinyZeroIvTimer ? userData.shinyZeroIvTimer : 0;
+        let counter = userData?.shinyZeroIvCount ? userData.shinyZeroIvCount : 0;
         context.commit("updateCount", {
           hunt: "shinyZeroIvCount",
-          shinyZeroIvCount: counter
+          shinyZeroIvCount: counter,
+          shinyZeroIvTimer: timer
         });
       }
       if (payload === "6 iv") {
-        counter = counter?.sixIvCount ? counter.sixIvCount : 0;
+        let timer = userData?.sixIvTimer ? userData.sixIvTimer : 0;
+        let counter = userData?.sixIvCount ? userData.sixIvCount : 0;
         context.commit("updateCount", {
           hunt: "sixIvCount",
-          sixIvCount: counter
+          sixIvCount: counter,
+          sixIvTimer: timer
         });
       }
       if (payload === "shiny 6 iv") {
-        counter = counter?.shinySixIvCount ? counter.shinySixIvCount : 0;
+        let timer = userData?.shinySixIvTimer ? userData.shinySixIvTimer : 0;
+        let counter = userData?.shinySixIvCount ? userData.shinySixIvCount : 0;
         context.commit("updateCount", {
           hunt: "shinySixIvCount",
-          shinySixIvCount: counter
+          shinySixIvCount: counter,
+          shinySixIvTimer: timer
         });
       }
       if (payload === "favorite") {
-        counter = counter?.favoriteCount ? counter.favoriteCount : 0;
-        context.commit("updateCount", { hunt: "favoriteCount", favoriteCount: counter });
+        let timer = userData?.favoriteTimer ? userData.favoriteTimer : 0;
+        let counter = userData?.favoriteCount ? userData.favoriteCount : 0;
+        context.commit("updateCount", { hunt: "favoriteCount", favoriteCount: counter, favoriteTimer: timer });
       }
     } catch (error) {
       console.log(error.message);
@@ -99,53 +119,60 @@ export default {
       const count = getters.mainCount;
       const hunt = getters.hunt;
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
-      if (hunt === "normalCount") {
-        await update(dbRef, { normalCount: count });
-      }
-      if (hunt === "shinyCount") {
-        await update(dbRef, { shinyCount: count });
-      }
-      if (hunt === "alphaCount") {
-        await update(dbRef, { alphaCount: count });
-      }
-      if (hunt === "shinyAlphaCount") {
-        await update(dbRef, { shinyAlphaCount: count });
-      }
-      if (hunt === "markedCount") {
-        await update(dbRef, { markedCount: count });
-      }
-      if (hunt === "shinyMarkedCount") {
-        await update(dbRef, { shinyMarkedCount: count });
-      }
-      if (hunt === "pokerusCount") {
-        await update(dbRef, { pokerusCount: count });
-      }
-      if (hunt === "shinyPokerusCount") {
-        await update(dbRef, { shinyPokerusCount: count });
-      }
-      if (hunt === "zeroIvCount") {
-        await update(dbRef, { zeroIvCount: count });
-      }
-      if (hunt === "shinyZeroIvCount") {
-        await update(dbRef, { shinyZeroIvCount: count });
-      }
-      if (hunt === "sixIvCount") {
-        await update(dbRef, { sixIvCount: count });
-      }
-      if (hunt === "shinySixIvCount") {
-        await update(dbRef, { shinySixIvCount: count });
-      }
-      if (hunt === "favoriteCount") {
-        await update(dbRef, { favoriteCount: count });
-      }
+      let savedData;
+      if (hunt === "normalCount") savedData = { normalCount: count };
+      if (hunt === "shinyCount") savedData = { shinyCount: count };
+      if (hunt === "alphaCount") savedData = { alphaCount: count };
+      if (hunt === "shinyAlphaCount") savedData = { shinyAlphaCount: count };
+      if (hunt === "markedCount") savedData = { markedCount: count };
+      if (hunt === "shinyMarkedCount") savedData = { shinyMarkedCount: count };
+      if (hunt === "pokerusCount") savedData = { pokerusCount: count };
+      if (hunt === "shinyPokerusCount") savedData = { shinyPokerusCount: count };
+      if (hunt === "zeroIvCount") savedData = { zeroIvCount: count };
+      if (hunt === "shinyZeroIvCount") savedData = { shinyZeroIvCount: count };
+      if (hunt === "sixIvCount") savedData = { sixIvCount: count };
+      if (hunt === "shinySixIvCount") savedData = { shinySixIvCount: count };
+      if (hunt === "favoriteCount") savedData = { favoriteCount: count };
+      await update(dbRef, savedData);
     } catch (error) {
       console.error("Failed to update count in database. Please try again later", error);
+    }
+  },
+
+  async updateTimer({ getters, rootGetters }) {
+    try {
+      const uid = rootGetters["authorization/uid"];
+      const pkId = rootGetters["tracker/pkId"];
+      const timer = getters.mainTimer;
+      const hunt = getters.hunt;
+      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
+      let savedData;
+      if (hunt === "normalCount") savedData = { normalTimer: timer };
+      if (hunt === "shinyCount") savedData = { shinyTimer: timer };
+      if (hunt === "alphaCount") savedData = { alphaTimer: timer };
+      if (hunt === "shinyAlphaCount") savedData = { shinyAlphaTimer: timer };
+      if (hunt === "markedCount") savedData = { markedTimer: timer };
+      if (hunt === "shinyMarkedCount") savedData = { shinyMarkedTimer: timer };
+      if (hunt === "pokerusCount") savedData = { pokerusTimer: timer };
+      if (hunt === "shinyPokerusCount") savedData = { shinyPokerusTimer: timer };
+      if (hunt === "zeroIvCount") savedData = { zeroIvTimer: timer };
+      if (hunt === "shinyZeroIvCount") savedData = { shinyZeroIvTimer: timer };
+      if (hunt === "sixIvCount") savedData = { sixIvTimer: timer };
+      if (hunt === "shinySixIvCount") savedData = { shinySixIvTimer: timer };
+      if (hunt === "favoriteCount") savedData = { favoriteTimer: timer };
+      await update(dbRef, savedData);
+    } catch (error) {
+      console.error("Failed to update timer in database. Please try again later", error);
     }
   },
 
   //Main Counter
   changeIncrement(context, payload) {
     context.commit("changeIncrement", payload);
+  },
+
+  changeTimer(context, payload) {
+    context.commit("changeTimer", payload);
   },
 
   async countUp(context) {
