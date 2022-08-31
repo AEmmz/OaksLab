@@ -219,8 +219,6 @@ export default {
       setName: payload.setName,
       setType: payload.setType
     };
-    console.log("payload", payload);
-    console.log("pokemonInfo", pokemonInfo);
     context.commit("changeActivePokemon", pokemonInfo);
     if (context.rootGetters["authorization/isLoggedIn"]) {
       await context.dispatch("caught/caughtCheck", pokemonInfo);

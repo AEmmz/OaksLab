@@ -66,12 +66,14 @@ export default {
   methods: {
     ...mapMutations("tracker", ["resetTracker"]),
     ...mapMutations("tracker/counter", ["resetCounts"]),
-    ...mapMutations("tracker/forms", ["resetForms"])
+    ...mapMutations("tracker/forms", ["resetForms"]),
+    ...mapMutations("tracker/caught", ["resetToggles"])
   },
   unmounted() {
     this.resetTracker();
     this.resetForms();
     this.resetCounts();
+    this.resetToggles();
   }
 };
 </script>

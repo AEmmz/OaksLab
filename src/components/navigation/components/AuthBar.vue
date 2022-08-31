@@ -10,13 +10,13 @@
         label="Login"
         color="primary"
         to="/login"></q-btn>
-      <q-btn
-        size="lg"
-        stretch
-        unelevated
-        label="Register"
-        color="secondary"
-        to="/register"></q-btn>
+      <!--      <q-btn-->
+      <!--        size="lg"-->
+      <!--        stretch-->
+      <!--        unelevated-->
+      <!--        label="Register"-->
+      <!--        color="secondary"-->
+      <!--        to="/register"></q-btn>-->
     </div>
     <div
       v-else

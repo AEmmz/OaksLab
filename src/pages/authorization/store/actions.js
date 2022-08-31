@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  deleteUser,
   EmailAuthProvider,
   getAuth,
   reauthenticateWithCredential,
@@ -8,8 +9,8 @@ import {
   updateEmail,
   updatePassword
 } from "firebase/auth";
-import { child, get, getDatabase, ref, update } from "firebase/database";
-import { loginClientAuth, registerClientAuth, serverError } from "../../../util/auth/formAuth";
+import { child, get, getDatabase, ref, remove, update } from "firebase/database";
+import { loginClientAuth, registerClientAuth, serverError } from "src/util/auth/formAuth";
 
 const PokeList = () => import("../../../assets/json/pokemonList.json");
 
@@ -27,10 +28,10 @@ export default {
   async autoAuth(context, payload) {
     context.commit("autoAuth", payload);
     const dbRef = await ref(getDatabase());
-    const data = await get(child(dbRef, `users/${payload.uid}/userInfo`));
-    if (data.size === 1) {
-      const userInfo = Object.entries(data.val());
-      context.commit("setUsername", { username: userInfo[0][1] });
+    const data = await get(child(dbRef, `users/${payload.uid}/userInfo/username`));
+    if (data) {
+      const userInfo = data.val();
+      context.commit("setUsername", { username: userInfo });
     }
   },
 
@@ -122,7 +123,7 @@ export default {
   },
 
   async updatePasswordDb(context, payload) {
-    const auth = getAuth();
+    const auth = await getAuth();
     const user = auth.currentUser;
     const newPassword = payload.newPass;
     const currentPassword = payload.currentPass;
@@ -153,9 +154,66 @@ export default {
     }
     try {
       await updateEmail(user, newEmail);
-      return { message: "Successfully Updated Email!" };
     } catch (e) {
       return { error: e, message: "An error occurred, please check your email and password and try again." };
     }
+    context.commit("setEmail", { email: newEmail });
+    return { message: "Successfully Updated Email!" };
+
+  },
+
+  async updateUsernameDb(context, payload) {
+    const usernames = await context.dispatch("getUsernamesList");
+    let userList = [];
+    usernames.map((user) => userList.push(user[0].toLowerCase()));
+    if (userList.includes(payload.toLowerCase())) {
+      return { error: "Username is already in use. Please try again." };
+    }
+    try {
+      const uid = context.rootGetters["authorization/uid"];
+      const oldUsername = context.rootGetters["authorization/username"];
+      const db = await getDatabase();
+      const dbRefUserList = ref(db, "usernames");
+      const dbRefUserInfo = ref(db, `users/${uid}/userInfo`);
+      const dbRefDeleteUser = ref(db, `usernames/${oldUsername}`);
+      await update(dbRefUserList, { [payload]: uid });
+      await update(dbRefUserInfo, { username: payload });
+      await remove(dbRefDeleteUser);
+    } catch (e) {
+      return { error: "An error occurred, please try again." };
+    }
+    context.commit("setUsername", { username: payload });
+    return { message: "Username Successfully Updated!" };
+
+  },
+
+  async deleteAccountDb(context, payload) {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const currentPassword = payload;
+    try {
+      const credential = await EmailAuthProvider.credential(user.email, currentPassword);
+      await reauthenticateWithCredential(user, credential);
+    } catch (e) {
+      return { error: e, message: "An error occurred, please check your password and try again." };
+    }
+    try {
+      const uid = context.rootGetters["authorization/uid"];
+      const username = context.rootGetters["authorization/username"];
+      const db = await getDatabase();
+      const dbRefDeleteUserList = ref(db, `usernames/${username}`);
+      const dbRefDeleteUserInfo = ref(db, `users/${uid}`);
+      await remove(dbRefDeleteUserList);
+      await remove(dbRefDeleteUserInfo);
+    } catch (e) {
+      return { error: e, message: "An error occurred, please check your password and try again." };
+    }
+    try {
+      await deleteUser(user);
+    } catch (e) {
+      return { error: e, message: "An error occurred, please check your password and try again." };
+    }
+    context.commit("logout");
+    return { message: "Account Successfully Deleted!" };
   }
 };

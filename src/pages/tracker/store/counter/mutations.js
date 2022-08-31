@@ -99,18 +99,9 @@ export default {
 
   //Reset
   resetCounter(state) {
-    if (state.mainCount > 0) {
-      state.reset = !state.reset;
-    }
-  },
-  resetConfirm(state) {
     state.mainCount = 0;
-    state.incrementCount = 1;
-    state.reset = !state.reset;
   },
-  resetCancel(state) {
-    state.reset = !state.reset;
-  },
+
   resetCounts(state) {
     state.mainCount = 0;
     state.mainTimer = 0;

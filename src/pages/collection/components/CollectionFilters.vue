@@ -8,7 +8,7 @@
         dark
         outlined
         clearable
-        label="Search..."
+        label="Search By Name"
         @update:model-value="sendSearch">
         <template v-slot:prepend>
           <q-icon

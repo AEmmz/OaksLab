@@ -10,8 +10,7 @@ export default {
       mainTimer: 0,
       hunt: "",
       incrementCount: 1,
-      interval: 0,
-      reset: false
+      interval: 0
     };
   },
   mutations,

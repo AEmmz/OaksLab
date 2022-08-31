@@ -202,15 +202,8 @@ export default {
   },
 
   //Reset
-  resetCounter(context) {
+  async resetCounter(context) {
     context.commit("resetCounter");
-  },
-
-  async resetConfirm(context) {
-    context.commit("resetConfirm");
     await context.dispatch("updateCounter");
-  },
-  resetCancel(context) {
-    context.commit("resetCancel");
   }
 };

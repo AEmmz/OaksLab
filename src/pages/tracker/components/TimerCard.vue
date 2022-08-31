@@ -2,7 +2,7 @@
   <q-card class="bg-dark q-pa-md column items-center">
     <div class="timer-cont flex-column justify-around full-width q-gutter-y-md">
       <h1
-        class=" flex justify-center items-center text-light">{{ timeInSeconds }}</h1>
+        class=" flex justify-center items-center text-light">{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
       <div class=" flex items-center justify-center q-gutter-x-md">
         <q-btn
           size="lg"
@@ -21,10 +21,34 @@
           icon="fas fa-arrow-rotate-right"
           class="button bg-light text-dark"
           label="Reset"
-          @click="reset"/>
+          @click="mainTimer > 0 ? timerDialog=true : timerDialog=false"/>
       </div>
     </div>
   </q-card>
+
+  <q-dialog
+    v-model="timerDialog">
+    <q-card>
+      <q-card-section class="column justify-center text-center">
+        <h4>Are You Sure?</h4>
+        <span class="text-subtitle1">Do you really want to reset your timer?</span>
+      </q-card-section>
+      <q-card-section class="row justify-around">
+        <q-btn
+          class="dialog-button"
+          size="xl"
+          label="cancel"
+          color="negative"
+          @click="timerDialog=false"></q-btn>
+        <q-btn
+          class="dialog-button"
+          size="xl"
+          label="Confirm"
+          color="positive"
+          @click="reset"></q-btn>
+      </q-card-section>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
@@ -37,7 +61,8 @@ export default {
     return {
       timer: null,
       timerRunning: false,
-      savedTimer: 0
+      savedTimer: 0,
+      timerDialog: false
     };
   },
   computed: {
@@ -53,13 +78,24 @@ export default {
     saved() {
       return this.mainTimer === this.savedTimer;
     },
-    timeInSeconds() {
-      const date = new Date(null);
-      date.setSeconds(this.mainTimer / 1000);
-      const dateUtc = date.toUTCString();
-      const dateStart = dateUtc.indexOf(":") - 2;
-      const dateEnd = dateStart + 8;
-      return dateUtc.substring(dateStart, dateEnd);
+
+    hours() {
+      return Math.floor(this.mainTimer / (1000 * 60 * 60)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+    },
+    minutes() {
+      return Math.floor(this.mainTimer % (1000 * 60 * 60) / (1000 * 60)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+    },
+    seconds() {
+      return Math.floor(this.mainTimer % (1000 * 60) / (1000)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
     }
   },
   methods: {
@@ -91,8 +127,11 @@ export default {
     },
     reset() {
       clearInterval(this.timer);
+      this.timerRunning = false;
+      this.timerDialog = false;
       if (this.mainTimer > 0) {
         this.mainTimer = 0;
+        this.savedTimer = 0;
         this.updateTimer();
       }
     }

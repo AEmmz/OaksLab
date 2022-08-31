@@ -11,36 +11,60 @@
           <h6>User Details</h6>
           <div class="text-subtitle1 q-gutter-y-sm">
             <p>Username:<br>{{ username }}</p>
-            <p>Email:<br>{{ userEmail }}</p>
+            <p>Email:<br>{{ email }}</p>
           </div>
 
         </q-card-section>
         <q-card-section class="q-gutter-y-sm">
           <h6>Change Username</h6>
-          <div class="row q-gutter-x-lg">
-            <q-input
-              class="input"
-              v-model="newUsername"
-              type="text"
-              label="New Username"
-              clearable
-              rounded
-              outlined>
-              <template v-slot:prepend>
-                <q-icon name="fa-solid fa-user"/>
-              </template>
-            </q-input>
-            <q-btn
-              class="submitButton"
-              padding="md"
-              label="Update"
-              type="submit"
-              icon="fas fa-pen-to-square"
-              rounded
-              size="md"
-              color="secondary"
-              unelevated></q-btn>
+          <div
+            v-if="usernameError"
+            class="flex items-center q-gutter-x-sm">
+            <q-icon
+              size="sm"
+              name="fas fa-circle-exclamation"
+              color="negative"/>
+            <span class="text-subtitle1 text-negative">{{ usernameError }}</span>
           </div>
+          <div
+            v-if="usernameSuccess"
+            class="flex items-center q-gutter-x-sm">
+            <q-icon
+              size="sm"
+              name="fas fa-circle-check"
+              color="positive"/>
+            <span class="text-subtitle1 text-positive">{{ usernameSuccess }}</span>
+          </div>
+          <q-form
+            @submit.prevent="usernameCheck"
+            class="row q-gutter-x-lg">
+            <div class="password-cont q-gutter-y-md">
+              <q-input
+                class="password-input"
+                v-model="newUsername"
+                type="text"
+                label="New Username"
+                clearable
+                rounded
+                outlined>
+                <template v-slot:prepend>
+                  <q-icon name="fa-solid fa-user"/>
+                </template>
+              </q-input>
+            </div>
+            <div class="row items-center submitButton">
+              <q-btn
+                class="passwordButton"
+                padding="md"
+                label="Update"
+                type="submit"
+                icon="fas fa-pen-to-square"
+                rounded
+                size="md"
+                color="secondary"
+                unelevated></q-btn>
+            </div>
+          </q-form>
         </q-card-section>
         <q-card-section class="q-gutter-y-sm">
           <h6>Change E-Mail</h6>
@@ -184,6 +208,7 @@
         <q-card-section class="q-gutter-y-sm">
           <h6>Delete Account</h6>
           <q-btn
+            @click="deleteDialog = true"
             class="delete-button"
             padding="md"
             label="Delete Account"
@@ -196,6 +221,101 @@
         </q-card-section>
       </q-card>
     </q-card>
+
+    <q-dialog
+      v-model="usernameDialog"
+      persistent>
+      <q-card>
+        <q-card-section class="row justify-center text-center">
+          <h4>Are You Sure?</h4>
+          <span class="text-subtitle1">Changing your username means that it will become available for anybody else to use. You may not be able to use it again if it is claimed by another user.</span>
+        </q-card-section>
+        <q-card-section class="row justify-around">
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="cancel"
+            color="negative"
+            @click="usernameDialog=false"></q-btn>
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="Confirm"
+            color="positive"
+            @click="updateUsername"></q-btn>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog
+      v-model="deleteDialog"
+      persistent>
+      <q-card>
+        <q-card-section class="row justify-center text-center">
+          <h4>Are You Sure?</h4>
+          <span class="text-subtitle1">Once your account is deleted, you will be unable to recover any of your previously saved information.</span>
+        </q-card-section>
+        <q-card-section class="row justify-around">
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="cancel"
+            color="negative"
+            @click="deleteDialog=false"></q-btn>
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="Confirm"
+            color="positive"
+            @click="deleteDialogPassword=true"></q-btn>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog
+      v-model="deleteDialogPassword"
+      persistent>
+      <q-card>
+        <q-card-section class="row justify-center text-center q-gutter-y-md">
+          <h4>We'll Miss You!</h4>
+          <span class="text-subtitle1">Please enter your password below to confirm deletion of your account</span>
+          <div
+            v-if="deletePasswordError"
+            class="flex items-center q-gutter-x-sm">
+            <q-icon
+              size="sm"
+              name="fas fa-circle-exclamation"
+              color="negative"/>
+            <span class="text-subtitle1 text-negative">{{ deletePasswordError }}</span>
+          </div>
+          <q-input
+            class="password-input"
+            v-model="deletePassword"
+            type="password"
+            label="Password"
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-key"/>
+            </template>
+          </q-input>
+        </q-card-section>
+        <q-card-section class="row justify-around">
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="cancel"
+            color="negative"
+            @click="[deleteDialog=false, deleteDialogPassword=false]"></q-btn>
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="Confirm"
+            color="positive"
+            @click="deleteAccount"></q-btn>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -212,23 +332,46 @@ export default {
       currentPassword: "",
       newPassword: "",
       newPasswordConfirm: "",
+      deletePassword: "",
+
+      usernameError: "",
+      usernameSuccess: "",
       passwordError: "",
       passwordSuccess: "",
       emailError: "",
-      emailSuccess: ""
+      emailSuccess: "",
+      deletePasswordError: "",
 
+      usernameDialog: false,
+      deleteDialog: false,
+      deleteDialogPassword: false
     };
   },
   computed: {
-    ...mapGetters("authorization", ["currentUser", "username"]),
-    userEmail() {
-      return this.currentUser.email;
-    }
+    ...mapGetters("authorization", ["currentUser", "username", "email"])
   },
   methods: {
     ...mapActions("authorization", ["updatePasswordDb", "updateEmailDb", "updateUsernameDb", "deleteAccountDb"]),
-    updateUsername() {
+    async usernameCheck() {
+      if (!this.newUsername) {
+        this.usernameError = "Please enter a new username";
+        return;
+      }
+      if (this.newUsername === this.username) {
+        this.usernameError = "This is already your username!";
+      }
+      this.usernameDialog = true;
+    },
 
+    async updateUsername() {
+      this.usernameDialog = false;
+      const update = await this.updateUsernameDb(this.newUsername);
+      if (update?.error) {
+        this.usernameError = update.error;
+        return;
+      }
+      this.usernameError = "";
+      this.usernameSuccess = update.message;
     },
 
     async updateEmail() {
@@ -278,7 +421,17 @@ export default {
     },
 
     async deleteAccount() {
-      const deleteAccount = await this.deleteAccountDb();
+      if (!this.deletePassword) {
+        this.deletePasswordError = "Please enter your password.";
+        return;
+      }
+      const update = await this.deleteAccountDb(this.deletePassword);
+      if (update?.error) {
+        this.deletePasswordError = update.message;
+        return;
+      }
+      this.deletePasswordError = "";
+      this.$router.replace("/");
     }
   }
 };
@@ -300,6 +453,10 @@ export default {
 
 .passwordButton, .password-input, .my-card-inner {
   width: 100%;
+}
+
+.dialog-button {
+  border-radius: 0.7rem;
 }
 
 </style>
