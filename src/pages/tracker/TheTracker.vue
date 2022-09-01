@@ -1,104 +1,104 @@
 <template>
+  <div>
+    <!-- Mobile -->
+    <div class="lt-md mobile-cont">
+      <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">
+        <pokemon-images class="container col-12"></pokemon-images>
+        <type-bar class="container col-12"></type-bar>
+        <counter-card class="container col-12"></counter-card>
+        <!--      <timer-card class="container col-12"></timer-card>-->
+      </div>
+      <q-dialog
+        v-model="searchDialog"
+        class="lt-md">
+        <tracker-search-bar :closeDialog="closeDialog"></tracker-search-bar>
+      </q-dialog>
+      <q-dialog
+        v-model="formDialog"
+        class="lt-md">
+        <tracker-forms :closeDialog="closeDialog"></tracker-forms>
+      </q-dialog>
+      <q-dialog
+        v-model="catchDialog"
+        class="lt-md">
+        <caught-buttons :closeDialog="closeDialog"></caught-buttons>
+      </q-dialog>
 
-  <!-- Mobile -->
-  <div class="lt-md mobile-cont">
-    <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">
-      <pokemon-images class="container col-12"></pokemon-images>
-      <type-bar class="container col-12"></type-bar>
-      <counter-card class="container col-12"></counter-card>
-      <!--      <timer-card class="container col-12"></timer-card>-->
+      <q-page-sticky
+        position="bottom-right"
+        :offset="[18, 18]"
+        :class="{'z-top': moreFab}">
+        <q-fab
+          @click="catchDialog=true"
+          v-model="catchDialog"
+          vertical-actions-align="right"
+          color="primary"
+          icon="icon-poke-pokeball"
+          padding="18px"
+          direction="up"></q-fab>
+      </q-page-sticky>
+      <q-page-sticky
+        position="bottom-left"
+        :offset="[18, 18]"
+        :class="{'z-top': searchFab}">
+        <q-fab
+          v-model="searchFab"
+          vertical-actions-align="left"
+          color="primary"
+          icon="fas fa-magnifying-glass"
+          padding="18px"
+          direction="up">
+          <q-fab-action
+            label="Change Forms"
+            color="primary"
+            padding="md"
+            @click="formDialog=true"
+            icon="fas fa-paw"></q-fab-action>
+          <q-fab-action
+            label="New Search"
+            color="primary"
+            padding="md"
+            @click="searchDialog=true"
+            icon="fas fa-magnifying-glass"></q-fab-action>
+        </q-fab>
+      </q-page-sticky>
+      <div
+        v-if="moreFab || searchFab"
+        class="fullscreen bg-dark disabled"
+        @click="[moreFab=false, searchFab=false]"></div>
     </div>
 
-    <q-dialog
-      v-model="searchDialog"
-      class="lt-md">
-      <tracker-search-bar :closeDialog="closeDialog"></tracker-search-bar>
-    </q-dialog>
-    <q-dialog
-      v-model="formDialog"
-      class="lt-md">
-      <tracker-forms :closeDialog="closeDialog"></tracker-forms>
-    </q-dialog>
-    <q-dialog
-      v-model="catchDialog"
-      class="lt-md">
-      <caught-buttons :closeDialog="closeDialog"></caught-buttons>
-    </q-dialog>
-
-    <q-page-sticky
-      position="bottom-right"
-      :offset="[18, 18]"
-      :class="{'z-top': moreFab}">
-      <q-fab
-        @click="catchDialog=true"
-        v-model="catchDialog"
-        vertical-actions-align="right"
-        color="primary"
-        icon="icon-poke-pokeball"
-        padding="18px"
-        direction="up"></q-fab>
-    </q-page-sticky>
-    <q-page-sticky
-      position="bottom-left"
-      :offset="[18, 18]"
-      :class="{'z-top': searchFab}">
-      <q-fab
-        v-model="searchFab"
-        vertical-actions-align="left"
-        color="primary"
-        icon="fas fa-magnifying-glass"
-        padding="18px"
-        direction="up">
-        <q-fab-action
-          label="Change Forms"
-          color="primary"
-          padding="md"
-          @click="formDialog=true"
-          icon="fas fa-paw"></q-fab-action>
-        <q-fab-action
-          label="New Search"
-          color="primary"
-          padding="md"
-          @click="searchDialog=true"
-          icon="fas fa-magnifying-glass"></q-fab-action>
-      </q-fab>
-    </q-page-sticky>
-    <div
-      v-if="moreFab || searchFab"
-      class="fullscreen bg-dark disabled"
-      @click="[moreFab=false, searchFab=false]"></div>
-  </div>
-
-  <!-- Desktop -->
-  <div class="gt-sm">
-    <div class="page-container row justify-center q-ma-md q-gutter-x-lg gt-sm">
-      <div class="left q-gutter-y-md ">
-        <q-card class="bg-light container">
-          <pokemon-images></pokemon-images>
-        </q-card>
-        <q-card class="bg-light container md">
-          <caught-buttons></caught-buttons>
-        </q-card>
-        <q-card class="bg-dark container">
-          <type-bar></type-bar>
-        </q-card>
-      </div>
-      <q-separator
-        vertical
-        inset/>
-      <div class="right q-gutter-y-md">
-        <q-card class="bg-dark container">
-          <tracker-search-bar></tracker-search-bar>
-        </q-card>
-        <q-card class="bg-dark container">
-          <counter-card></counter-card>
-        </q-card>
-        <q-card class="bg-dark container">
-          <timer-card></timer-card>
-        </q-card>
-        <q-card class="bg-dark container">
-          <tracker-forms></tracker-forms>
-        </q-card>
+    <!-- Desktop -->
+    <div class="gt-sm">
+      <div class="page-container row justify-center q-ma-md q-gutter-x-lg gt-sm">
+        <div class="left q-gutter-y-md ">
+          <q-card class="bg-light container">
+            <pokemon-images></pokemon-images>
+          </q-card>
+          <q-card class="bg-light container md">
+            <caught-buttons></caught-buttons>
+          </q-card>
+          <q-card class="bg-dark container">
+            <type-bar></type-bar>
+          </q-card>
+        </div>
+        <q-separator
+          vertical
+          inset/>
+        <div class="right q-gutter-y-md">
+          <q-card class="bg-dark container">
+            <tracker-search-bar></tracker-search-bar>
+          </q-card>
+          <q-card class="bg-dark container">
+            <counter-card></counter-card>
+          </q-card>
+          <q-card class="bg-dark container">
+            <timer-card></timer-card>
+          </q-card>
+          <q-card class="bg-dark container">
+            <tracker-forms></tracker-forms>
+          </q-card>
+        </div>
       </div>
     </div>
   </div>

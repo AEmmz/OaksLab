@@ -33,7 +33,6 @@
       label="Start Hunt"
       color="primary"></q-btn>
   </q-card>
-
 </template>
 
 <script>
