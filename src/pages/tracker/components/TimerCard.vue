@@ -140,8 +140,26 @@ export default {
 </script>
 
 <style scoped>
-.button {
-  width: 150px;
+/* For extremely small screen devices (480px and below) */
+@media only screen and (max-width: 480px) {
 }
 
+/* Small screen devices (481px and above) */
+@media only screen and (min-width: 481px) {
+}
+
+/* Medium screen devices (769px and above) */
+@media only screen and (min-width: 769px) {
+}
+
+/* Big screen devices (1025px and above) */
+@media only screen and (min-width: 1025px) {
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .button {
+    width: 150px;
+  }
+}
 </style>

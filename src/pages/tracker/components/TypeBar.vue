@@ -60,19 +60,38 @@ export default {
 </script>
 
 <style scoped>
-.type-cont {
-  width: 40%;
+
+/* For extremely small screen devices (480px and below) */
+@media only screen and (max-width: 480px) {
 }
 
-.type-1,
-.type-2 {
-  border-radius: 1.5rem;
-  transition: 400ms all;
+/* Small screen devices (481px and above) */
+@media only screen and (min-width: 481px) {
 }
 
-.type-1:hover,
-.type-2:hover {
-  transform: scale(1.05);
+/* Medium screen devices (769px and above) */
+@media only screen and (min-width: 769px) {
 }
 
+/* Big screen devices (1025px and above) */
+@media only screen and (min-width: 1025px) {
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .type-cont {
+    width: 40%;
+  }
+
+  .type-1,
+  .type-2 {
+    border-radius: 1.5rem;
+    transition: 400ms all;
+  }
+
+  .type-1:hover,
+  .type-2:hover {
+    transform: scale(1.05);
+  }
+}
 </style>

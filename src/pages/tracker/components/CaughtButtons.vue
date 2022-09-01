@@ -1,7 +1,7 @@
 <!--suppress ALL -->
 
 <template>
-  <q-card class="bg-dark toggle-cont flex justify-around">
+  <q-card class="bg-dark toggle-cont flex justify-around q-pa-md">
     <div class="toggle q-my-md flex column items-center">
       <q-toggle
         :model-value="normal || false"
@@ -167,37 +167,53 @@ export default {
 </script>
 
 <style scoped>
-.toggle {
-  width: 112px;
-  text-align: center;
+
+/* For extremely small screen devices (480px and below) */
+@media only screen and (max-width: 480px) {
 }
 
-.toggle >>> .q-toggle__inner--falsy .q-toggle__thumb:after {
-  background: rgb(126, 126, 126);
+/* Small screen devices (481px and above) */
+@media only screen and (min-width: 481px) {
 }
 
-.toggle >>> .q-toggle__inner--truthy .q-toggle__track {
-  box-shadow: 0 0 15px 1px currentColor;
+/* Medium screen devices (769px and above) */
+@media only screen and (min-width: 769px) {
 }
 
-.toggle >>> .disabled .q-toggle__inner .q-toggle__thumb:after {
-  background: rgb(63, 63, 63);
+/* Big screen devices (1025px and above) */
+@media only screen and (min-width: 1025px) {
 }
 
-.toggle >>> .disabled .q-toggle__inner .q-toggle__thumb i {
-  color: #fff;
-  opacity: 0.54;
-}
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .toggle {
+    text-align: center;
+  }
 
-.toggle >>> .disabled .q-toggle__inner .q-toggle__track {
-  color: #000;
-}
+  .toggle >>> .q-toggle__inner--truthy .q-toggle__track {
+    box-shadow: 0 0 15px 1px currentColor;
+  }
 
-.toggle >>> .disabled .q-toggle__inner .q-toggle__thumb {
-  left: 0.45em;
-}
+  .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb:after {
+    background: rgb(63, 63, 63);
+  }
 
-.toggle >>> .q-toggle__inner--indet .q-toggle__thumb:after {
-  background: rgb(126, 126, 126);
+  .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb i {
+    color: #fff;
+    opacity: 0.54;
+  }
+
+  .toggle >>> .disabled .q-toggle__inner .q-toggle__track {
+    color: #000;
+  }
+
+  .toggle >>> .disabled .q-toggle__inner .q-toggle__thumb {
+    left: 0.45em;
+  }
+
+  .toggle >>> .q-toggle__inner--indet .q-toggle__thumb:after,
+  .toggle >>> .q-toggle__inner--falsy .q-toggle__thumb:after {
+    background: rgb(126, 126, 126);
+  }
 }
 </style>

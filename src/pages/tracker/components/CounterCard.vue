@@ -50,7 +50,7 @@
         :min="1"
         :max="100"
         reverse></q-slider>
-      <h5 class="text-light">Increment</h5>
+      <h5 class="text-light slider-text flex items-end">Increment</h5>
     </q-card-section>
   </q-card>
 
@@ -127,53 +127,80 @@ export default {
 </script>
 
 <style scoped>
-.main-cont {
-  width: 89%;
-  height: 100%;
+
+/* For extremely small screen devices (480px and below) */
+@media only screen and (max-width: 480px) {
 }
 
-.name-cont {
-  text-align: center;
+/* Small screen devices (481px and above) */
+@media only screen and (min-width: 481px) {
 }
 
-.inc-cont {
-  width: 11%;
-  height: 25rem;
+/* Medium screen devices (769px and above) */
+@media only screen and (min-width: 769px) {
 }
 
-.inc-cont h5 {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+/* Big screen devices (1025px and above) */
+@media only screen and (min-width: 1025px) {
 }
 
-.counter-cont {
-  width: 95%;
-  gap: 1rem;
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .main-cont {
+    width: 85%;
+    height: 100%;
+  }
+
+  .name-cont {
+    text-align: center;
+  }
+
+  .inc-cont {
+    width: 15%;
+    height: 25rem;
+  }
+
+  .inc-cont h5 {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .counter-cont {
+    width: 95%;
+    gap: 1rem;
+  }
+
+  .counter-main {
+    height: 15rem;
+    border-radius: 0.7rem;
+  }
+
+  .secondary-cont {
+    height: 6rem;
+    gap: 1rem;
+  }
+
+  .secondary-btn {
+    height: 100%;
+  }
+
+  .btn {
+    border-radius: 0.7rem;
+  }
+
+  .slider {
+    width: 50%;
+    height: 100%;
+    justify-content: right;
+  }
+
+  .slider-text {
+    width: 50%;
+  }
+
+  .slider >>> .q-slider__text {
+    font-size: 1.2rem;
+  }
 }
 
-.counter-main {
-  height: 15rem;
-  border-radius: 0.7rem;
-}
-
-.secondary-cont {
-  height: 6rem;
-  gap: 1rem;
-}
-
-.secondary-btn {
-  height: 100%;
-}
-
-.btn {
-  border-radius: 0.7rem;
-}
-
-.slider {
-  height: 100%;
-}
-
-.slider >>> .q-slider__text {
-  font-size: 1.2rem;
-}
 </style>

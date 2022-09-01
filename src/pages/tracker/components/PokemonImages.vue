@@ -57,19 +57,39 @@ export default {
 </script>
 
 <style scoped>
-.img-cont {
-  width: 90%;
-  height: 90%;
+/* For extremely small screen devices (480px and below) */
+@media only screen and (max-width: 480px) {
 }
 
-.normal,
-.shiny {
-  height: 16rem;
-  width: 22rem;
-  border-radius: 0.7rem;
+/* Small screen devices (481px and above) */
+@media only screen and (min-width: 481px) {
 }
 
-.image-reveal {
-  font-size: 1.3rem;
+/* Medium screen devices (769px and above) */
+@media only screen and (min-width: 769px) {
+}
+
+/* Big screen devices (1025px and above) */
+@media only screen and (min-width: 1025px) {
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .img-cont {
+    width: 90%;
+    height: 90%;
+  }
+
+  .normal,
+  .shiny {
+    height: 16rem;
+    width: 46%;
+    max-width: 22rem;
+    border-radius: 0.7rem;
+  }
+
+  .image-reveal {
+    font-size: 1.3rem;
+  }
 }
 </style>

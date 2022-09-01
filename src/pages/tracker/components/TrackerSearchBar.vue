@@ -167,9 +167,18 @@ export default {
 };
 </script>
 
-<style scoped>
-.selection {
-  width: 45%;
-  font-size: 1.1rem;
+<style
+  scoped
+  lang="scss">
+
+body.screen--xs, body.screen--sm {
+  
+}
+
+body.screen--md, body.screen--lg, body.screen--xl, {
+  .selection {
+    width: 45%;
+    font-size: 1.1rem;
+  }
 }
 </style>
