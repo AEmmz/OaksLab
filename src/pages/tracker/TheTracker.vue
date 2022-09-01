@@ -21,6 +21,7 @@
         vertical-actions-align="right"
         color="primary"
         icon="icon-poke-pokeball"
+        padding="lg"
         direction="up"></q-fab>
     </q-page-sticky>
     <q-page-sticky
@@ -31,6 +32,7 @@
         vertical-actions-align="left"
         color="primary"
         icon="fas fa-magnifying-glass"
+        padding="lg"
         direction="up">
         <q-fab-action
           label="Change Forms"
