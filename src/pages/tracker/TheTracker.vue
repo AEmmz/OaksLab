@@ -2,79 +2,72 @@
 
   <!-- Mobile -->
   <div class="lt-md mobile-cont">
-
     <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">
-      <tracker-search-bar class="container col-12"></tracker-search-bar>
       <pokemon-images class="container col-12"></pokemon-images>
       <type-bar class="container col-12"></type-bar>
       <counter-card class="container col-12"></counter-card>
       <!--      <timer-card class="container col-12"></timer-card>-->
-
-      <!--      <tracker-forms class="container col-12"></tracker-forms>-->
-      <caught-buttons class="container col-12"></caught-buttons>
     </div>
+
+    <q-dialog
+      v-model="searchDialog"
+      class="lt-md">
+      <tracker-search-bar :closeDialog="closeDialog"></tracker-search-bar>
+    </q-dialog>
+    <q-dialog
+      v-model="formDialog"
+      class="lt-md">
+      <tracker-forms :closeDialog="closeDialog"></tracker-forms>
+    </q-dialog>
+    <q-dialog
+      v-model="catchDialog"
+      class="lt-md">
+      <caught-buttons :closeDialog="closeDialog"></caught-buttons>
+    </q-dialog>
+
     <q-page-sticky
       position="bottom-right"
-      :offset="[18, 18]">
+      :offset="[18, 18]"
+      :class="{'z-top': moreFab}">
       <q-fab
-        v-model="moreFab"
+        @click="catchDialog=true"
+        v-model="catchDialog"
         vertical-actions-align="right"
         color="primary"
         icon="icon-poke-pokeball"
-        padding="lg"
+        padding="18px"
         direction="up"></q-fab>
     </q-page-sticky>
     <q-page-sticky
       position="bottom-left"
-      :offset="[18, 18]">
+      :offset="[18, 18]"
+      :class="{'z-top': searchFab}">
       <q-fab
         v-model="searchFab"
         vertical-actions-align="left"
         color="primary"
         icon="fas fa-magnifying-glass"
-        padding="lg"
+        padding="18px"
         direction="up">
         <q-fab-action
           label="Change Forms"
           color="primary"
+          padding="md"
+          @click="formDialog=true"
           icon="fas fa-paw"></q-fab-action>
         <q-fab-action
           label="New Search"
           color="primary"
+          padding="md"
+          @click="searchDialog=true"
           icon="fas fa-magnifying-glass"></q-fab-action>
       </q-fab>
     </q-page-sticky>
+    <div
+      v-if="moreFab || searchFab"
+      class="fullscreen bg-dark disabled"
+      @click="[moreFab=false, searchFab=false]"></div>
   </div>
-
-  <!--  &lt;!&ndash; Tablet &ndash;&gt;-->
-  <!--  <div class="sm">-->
-  <!--    <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">-->
-  <!--      <q-card class="bg-light container">-->
-  <!--        <pokemon-images></pokemon-images>-->
-  <!--      </q-card>-->
-  <!--      <q-card class="bg-light container md">-->
-  <!--        <caught-buttons></caught-buttons>-->
-  <!--      </q-card>-->
-  <!--      <q-card class="bg-dark container">-->
-  <!--        <type-bar></type-bar>-->
-  <!--      </q-card>-->
-  <!--      <q-separator-->
-  <!--        vertical-->
-  <!--        inset/>-->
-  <!--      <q-card class="bg-dark container">-->
-  <!--        <tracker-search-bar></tracker-search-bar>-->
-  <!--      </q-card>-->
-  <!--      <q-card class="bg-dark container">-->
-  <!--        <counter-card></counter-card>-->
-  <!--      </q-card>-->
-  <!--      <q-card class="bg-dark container">-->
-  <!--        <timer-card></timer-card>-->
-  <!--      </q-card>-->
-  <!--      <q-card class="bg-dark container">-->
-  <!--        <tracker-forms></tracker-forms>-->
-  <!--      </q-card>-->
-  <!--    </div>-->
-  <!--  </div>-->
 
   <!-- Desktop -->
   <div class="gt-sm">
@@ -136,7 +129,10 @@ export default {
   data() {
     return {
       moreFab: false,
-      searchFab: false
+      searchFab: false,
+      searchDialog: false,
+      formDialog: false,
+      catchDialog: true
     };
   },
   computed: {
@@ -149,7 +145,14 @@ export default {
     ...mapMutations("tracker", ["resetTracker"]),
     ...mapMutations("tracker/counter", ["resetCounts"]),
     ...mapMutations("tracker/forms", ["resetForms"]),
-    ...mapMutations("tracker/caught", ["resetToggles"])
+    ...mapMutations("tracker/caught", ["resetToggles"]),
+    closeDialog() {
+      this.moreFab = false;
+      this.searchFab = false;
+      this.searchDialog = false;
+      this.formDialog = false;
+      this.catchDialog = false;
+    }
   },
   unmounted() {
     this.resetTracker();
@@ -163,14 +166,6 @@ export default {
 <style
   scoped
   lang="scss">
-
-//.mobile-cont {
-//  max-width: 100%;
-//}
-//
-//.page-container {
-//  max-width: 100%;
-//}
 
 body.screen--xs, body.screen--sm {
 

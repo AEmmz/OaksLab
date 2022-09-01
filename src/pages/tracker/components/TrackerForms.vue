@@ -1,10 +1,25 @@
 <template>
   <q-card class="bg-dark flex justify-evenly items-center text-h6 q-pa-md">
-    <div
-      class="name-cont flex items-center justify-center full-width text-h5 text-light q-pb-sm">
-      Forms
+    <h5
+      class="name-cont flex items-center justify-center full-width text-light q-pb-sm gt-sm">
+      Forms </h5>
+    <h5 class="name-cont flex items-center justify-center full-width text-light q-pb-sm lt-md">Select A Form</h5>
+    <!--MOBILE -->
+    <div class="mobile-form-tabs row justify-center lt-md">
+      <div
+        class="q-pa-md column items-center"
+        v-for="(form, index) in forms"
+        :key="index">
+        <q-img
+          width="120px"
+          :src="form.image"
+          :alt="form.name"
+          @click="mobileChangePokemon(form)"></q-img>
+      </div>
     </div>
-    <div class="form-tabs">
+
+    <!--DESKTOP -->
+    <div class="form-tabs gt-sm">
       <q-tabs
         class="bg-dark text-light"
         outside-arrows
@@ -36,6 +51,9 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  props: {
+    closeDialog: { type: Function }
+  },
   data() {
     return {
       scrollAmount: 0
@@ -55,6 +73,11 @@ export default {
       let route = "/tracker/" + form.name.toLowerCase().replaceAll(" ", "-");
       if (route === "/tracker/unown-?") route = "/tracker/unown-question";
       return route;
+    },
+
+    async mobileChangePokemon(form) {
+      await this.changePokemon(form);
+      this.closeDialog();
     },
 
     async changePokemon(form) {

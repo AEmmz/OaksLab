@@ -116,12 +116,29 @@
       <p class="text-body2 text-light">Shiny Six IV</p>
     </div>
   </q-card>
+
+  <q-page-sticky
+    class="lt-md"
+    position="bottom"
+    :offset="[18, 18]"
+    :class="{'z-top': moreFab}">
+    <q-fab
+      @click="closeDialog"
+      vertical-actions-align="right"
+      color="primary"
+      icon="fas fa-xmark"
+      padding="sm"
+      direction="up"></q-fab>
+  </q-page-sticky>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  props: {
+    closeDialog: { type: Function }
+  },
   data() {
     return {
       toggleSize: "80px"

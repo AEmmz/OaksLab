@@ -1,5 +1,6 @@
 <template>
-  <q-card class="flex justify-evenly q-py-md">
+  <q-card class="flex justify-evenly q-py-md search-cont">
+    <h5 class="lt-md text-center">Select A Pokemon</h5>
     <q-select
       class="selection"
       outlined
@@ -8,7 +9,7 @@
       :model-value="pokemon"
       :options="pokemonList"
       :option-label="(pkmn) => menuLabel(pkmn)"
-      @update:model-value="searchPokemon()"
+      @update:model-value="desktopCheckPk()"
       options-dark
       :options-selected-class="`bg-${pkType1}Type text-light text-h6`"
       use-input
@@ -16,7 +17,6 @@
       input-debounce="0"
       @filter="pokemonFilter"
       popup-content-class="text-h6"></q-select>
-
     <q-select
       class="selection"
       outlined
@@ -24,10 +24,16 @@
       v-model="hunt"
       :model-value="hunt"
       :options="huntList"
-      @update:model-value="searchHunt()"
+      @update:model-value="desktopCheckHunt()"
       options-dark
       :options-selected-class="`bg-${pkType1}Type text-light`"></q-select>
+    <q-btn
+      class="lt-md"
+      @click="mobileSearch()"
+      label="Start Hunt"
+      color="primary"></q-btn>
   </q-card>
+
 </template>
 
 <script>
@@ -35,6 +41,9 @@ import { mapActions, mapGetters } from "vuex";
 import pokeJSON from "../../../assets/json/pokemonList.json";
 
 export default {
+  props: {
+    closeDialog: { type: Function }
+  },
   mounted() {
     let pokemonName = this.$route.params.pkName;
     //Unown ? Safeguard
@@ -90,11 +99,24 @@ export default {
   },
   computed: {
     ...mapGetters("tracker", ["pkType1"])
+
   },
   methods: {
     ...mapActions("tracker", ["changeActivePokemon"]),
     ...mapActions("tracker/counter", ["changeCount"]),
     ...mapActions("tracker/forms", ["fetchForms"]),
+
+    desktopCheckPk() {
+      if (this.$q.screen.gt.sm) this.searchPokemon();
+    },
+    desktopCheckHunt() {
+      if (this.$q.screen.gt.sm) this.searchHunt();
+    },
+    async mobileSearch() {
+      await this.searchPokemon();
+      await this.searchHunt();
+      this.closeDialog();
+    },
 
     fetchPokemonList() {
       const data = [...pokeJSON.pokemon];
@@ -172,10 +194,21 @@ export default {
   lang="scss">
 
 body.screen--xs, body.screen--sm {
-  
+  .search-cont {
+    gap: 20px;
+  }
+
+  .selection {
+    width: 80%;
+    font-size: 1.1rem;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
+  .search-header {
+    display: none;
+  }
+
   .selection {
     width: 45%;
     font-size: 1.1rem;
