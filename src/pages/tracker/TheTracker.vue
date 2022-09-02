@@ -4,9 +4,8 @@
     <div class="lt-md mobile-cont">
       <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">
         <pokemon-images class="container col-12"></pokemon-images>
-        <type-bar class="container col-12"></type-bar>
         <counter-card class="container col-12"></counter-card>
-        <!--      <timer-card class="container col-12"></timer-card>-->
+        <!--        <timer-card class="container col-12"></timer-card>-->
       </div>
       <q-dialog
         v-model="searchDialog"
@@ -132,7 +131,7 @@ export default {
       searchFab: false,
       searchDialog: false,
       formDialog: false,
-      catchDialog: true
+      catchDialog: false
     };
   },
   computed: {
