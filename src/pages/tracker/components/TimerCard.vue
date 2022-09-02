@@ -1,23 +1,28 @@
 <template>
-  <q-card class="bg-dark q-pa-md column items-center">
+  <q-card
+    class="bg-dark q-pa-md column items-center"
+    :flat="!desktopCheck()">
     <div class="timer-cont flex-column justify-around full-width q-gutter-y-md">
-      <h1
-        class=" flex justify-center items-center text-light">{{ hours }}:{{ minutes }}:{{ seconds }}</h1>
-      <div class=" flex items-center justify-center q-gutter-x-md">
+      <span
+        class=" flex justify-center items-center text-light"
+        :class="desktopCheck() ? 'text-h1' : 'text-h2'">{{ hours }}:{{ minutes }}:{{ seconds }}</span>
+      <div
+        class=" flex items-center justify-center"
+        :class="desktopCheck() ? 'q-gutter-x-md' : 'q-gutter-x-xs'">
         <q-btn
-          size="lg"
+          :size="desktopCheck() ? 'lg' : 'md'"
           :icon="!timerRunning ? 'fas fa-play' : 'fas fa-pause'"
           class="button bg-light text-dark"
           :label="!timerRunning? 'Start' : 'Pause'"
           @click="toggleStart"/>
         <q-btn
-          size="lg"
+          :size="desktopCheck() ? 'lg' : 'md'"
           :icon="!saved ? 'fas fa-floppy-disk' : 'fas fa-circle-check'"
           class="button bg-light text-dark"
           :label="!saved ? 'Save' : 'Saved'"
           @click="stop"></q-btn>
         <q-btn
-          size="lg"
+          :size="desktopCheck() ? 'lg' : 'md'"
           icon="fas fa-arrow-rotate-right"
           class="button bg-light text-dark"
           label="Reset"
@@ -65,6 +70,9 @@ export default {
       timerDialog: false
     };
   },
+  unmounted() {
+    this.stop();
+  },
   computed: {
     ...mapGetters("tracker", ["pkType1"]),
     mainTimer: {
@@ -100,6 +108,10 @@ export default {
   },
   methods: {
     ...mapActions("tracker/counter", ["updateTimer"]),
+
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
     toggleStart() {
       if (!this.timerRunning) {
         this.start();
@@ -139,27 +151,18 @@ export default {
 };
 </script>
 
-<style scoped>
-/* For extremely small screen devices (480px and below) */
-@media only screen and (max-width: 480px) {
+<style
+  scoped
+  lang="scss">
+
+body.screen--xs, body.screen--sm {
+
 }
 
-/* Small screen devices (481px and above) */
-@media only screen and (min-width: 481px) {
-}
-
-/* Medium screen devices (769px and above) */
-@media only screen and (min-width: 769px) {
-}
-
-/* Big screen devices (1025px and above) */
-@media only screen and (min-width: 1025px) {
-}
-
-/* Extra big screen devices (1200px and above) */
-@media only screen and (min-width: 1200px) {
+body.screen--md, body.screen--lg, body.screen--xl {
   .button {
     width: 150px;
   }
 }
+
 </style>

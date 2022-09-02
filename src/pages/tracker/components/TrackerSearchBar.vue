@@ -45,6 +45,9 @@ export default {
   },
   mounted() {
     let pokemonName = this.$route.params.pkName;
+    if (!pokemonName) {
+      this.$emit("new");
+    }
     //Unown ? Safeguard
     if (pokemonName) {
       if (pokemonName === "unown-question") pokemonName = "unown-?";
@@ -104,7 +107,9 @@ export default {
     ...mapActions("tracker", ["changeActivePokemon"]),
     ...mapActions("tracker/counter", ["changeCount"]),
     ...mapActions("tracker/forms", ["fetchForms"]),
-
+    startNew() {
+      this.freshStart();
+    },
     desktopCheckPk() {
       if (this.$q.screen.gt.sm) this.searchPokemon();
     },

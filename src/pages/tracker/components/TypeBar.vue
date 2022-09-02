@@ -59,26 +59,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style
+  scoped
+  lang="scss">
 
-/* For extremely small screen devices (480px and below) */
-@media only screen and (max-width: 480px) {
+body.screen--xs, body.screen--sm {
+
 }
 
-/* Small screen devices (481px and above) */
-@media only screen and (min-width: 481px) {
-}
-
-/* Medium screen devices (769px and above) */
-@media only screen and (min-width: 769px) {
-}
-
-/* Big screen devices (1025px and above) */
-@media only screen and (min-width: 1025px) {
-}
-
-/* Extra big screen devices (1200px and above) */
-@media only screen and (min-width: 1200px) {
+body.screen--md, body.screen--lg, body.screen--xl {
   .type-cont {
     width: 40%;
   }
@@ -93,5 +82,6 @@ export default {
   .type-2:hover {
     transform: scale(1.05);
   }
+
 }
 </style>

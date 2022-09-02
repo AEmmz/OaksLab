@@ -103,6 +103,7 @@ body.screen--xs, body.screen--sm {
 
   .mobile-image-reveal {
     font-size: 1rem;
+    margin: 0;
   }
 
 }

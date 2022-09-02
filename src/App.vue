@@ -1,18 +1,19 @@
 <template>
-  <div class="site-container ">
-    <q-layout>
-      <the-navigation-bar></the-navigation-bar>
-      <main>
-        <router-view v-slot="slotProps">
-          <transition
-            name="router"
-            mode="out-in">
-            <component :is="slotProps.Component"></component>
-          </transition>
-        </router-view>
-      </main>
-    </q-layout>
-  </div>
+  <q-layout view="hHh lpR fFf">
+    <the-navigation-bar></the-navigation-bar>
+    <!--      <main>-->
+    <q-page-container>
+      <router-view
+        v-slot="slotProps">
+        <transition
+          name="router"
+          mode="out-in">
+          <component :is="slotProps.Component"></component>
+        </transition>
+      </router-view>
+    </q-page-container>
+    <!--      </main>-->
+  </q-layout>
 </template>
 
 <script>
@@ -56,17 +57,18 @@ html {
   /* font-size: 62.5%; */
   background-color: var(--med-bg);
   font-family: Archivo, sans-serif;
+  overflow-x: hidden;
 }
 
-main {
-  display: grid;
-  grid-template-columns: 1fr;
+.main {
+  /*display: grid;*/
+  /*grid-template-columns: 1fr;*/
   position: relative;
   top: 80px;
-  color: var(--bg-grey);
-  justify-content: center;
-  background-color: var(--bg-offwhite);
-  font-size: 1.6rem;
+  /*color: var(--bg-grey);*/
+  /*justify-content: center;*/
+  /*background-color: var(--bg-offwhite);*/
+  /*font-size: 1.6rem;*/
   /*overflow: hidden;*/
 }
 

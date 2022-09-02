@@ -1,5 +1,6 @@
 <template>
-  <div class="full-height">
+  <q-page
+    class="">
     <!-- Mobile -->
     <div class="lt-md mobile-cont bg-dark">
       <div
@@ -11,12 +12,19 @@
           v-if="!desktopCheck()"
           :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
         <counter-card class="container col-12"></counter-card>
-        <!--        <timer-card class="container col-12"></timer-card>-->
+        <q-separator
+          inset
+          class="separator col-12"
+          v-if="!desktopCheck()"
+          :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+        <timer-card class="container col-12"></timer-card>
       </div>
+
       <q-dialog
         v-model="searchDialog"
         class="lt-md">
-        <tracker-search-bar :closeDialog="closeDialog"></tracker-search-bar>
+        <tracker-search-bar
+          :closeDialog="closeDialog"></tracker-search-bar>
       </q-dialog>
       <q-dialog
         v-model="formDialog"
@@ -32,11 +40,11 @@
       <q-page-sticky
         position="bottom-right"
         :offset="[18, 18]"
+        class="floating-button"
         :class="{'z-top': moreFab}">
         <q-fab
           @click="catchDialog=true"
           v-model="catchDialog"
-          vertical-actions-align="right"
           :color="pkType1 ? `${pkType1}Type` : 'primary'"
           icon="icon-poke-pokeball"
           padding="18px"
@@ -45,6 +53,7 @@
       <q-page-sticky
         position="bottom-left"
         :offset="[18, 18]"
+        class="floating-button"
         :class="{'z-top': searchFab}">
         <q-fab
           v-model="searchFab"
@@ -92,7 +101,7 @@
           inset/>
         <div class="right q-gutter-y-md">
           <q-card class="bg-dark container">
-            <tracker-search-bar></tracker-search-bar>
+            <tracker-search-bar @new="freshStart"></tracker-search-bar>
           </q-card>
           <q-card class="bg-dark container">
             <counter-card></counter-card>
@@ -106,7 +115,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </q-page>
 </template>
 
 <script>
@@ -142,7 +151,7 @@ export default {
   },
   computed: {
     ...mapGetters("tracker/forms", ["forms"]),
-    ...mapGetters("tracker", ["pkType1"]),
+    ...mapGetters("tracker", ["pkType1", "pkType2"]),
     isForms() {
       return this.forms.length > 1;
     }
@@ -152,12 +161,17 @@ export default {
     ...mapMutations("tracker/counter", ["resetCounts"]),
     ...mapMutations("tracker/forms", ["resetForms"]),
     ...mapMutations("tracker/caught", ["resetToggles"]),
+
     closeDialog() {
       this.moreFab = false;
       this.searchFab = false;
       this.searchDialog = false;
       this.formDialog = false;
       this.catchDialog = false;
+    },
+    freshStart() {
+      console.log("d");
+      this.searchDialog = true;
     },
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
@@ -180,6 +194,13 @@ body.screen--xs, body.screen--sm {
   .separator {
     height: 1px;
   }
+
+  .floating-button {
+    z-index: 2;
+    transform: translate(0, 0);
+  }
+
+
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {

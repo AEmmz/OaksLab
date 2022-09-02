@@ -1,68 +1,70 @@
 <template>
-  <div>
-    <q-header>
-      <!--Mobile Menu -->
-      <q-toolbar class="bg-dark row justify-between fixed toolbar st-md text-light shadow-2">
-        <q-btn
-          @click="drawerLeft = true"
-          class="q-ma-sm"
-          flat
-          round
-          icon="fas fa-bars"/>
-        <q-toolbar-title>Oak's Lab</q-toolbar-title>
-      </q-toolbar>
+  <q-header
+    :reveal="!desktopCheck()"
+    elevated
+    class="toolbar-cont">
+    <!--Mobile Menu -->
+    <q-toolbar class="bg-dark row justify-between fixed toolbar lt-md text-light shadow-2">
+      <q-btn
+        @click="drawerLeft = true"
+        class="q-ma-sm"
+        flat
+        round
+        icon="fas fa-bars"/>
+      <q-toolbar-title>Oak's Lab</q-toolbar-title>
+    </q-toolbar>
 
-      <q-drawer
-        v-model="drawerLeft"
-        :width="250"
-        :breakpoint="500"
-        elevated
-        show-if-above
-        class="bg-dark text-white">
-        <q-scroll-area class="fit column">
-          <h5 class="text-center q-pa-md q-my-lg">
-            Oak's Lab </h5>
+    <!-- Desktop Menu -->
+    <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
+      <div class="auth-bar">
+        <auth-bar></auth-bar>
+      </div>
+      <div class="name-bar row justify-center">
+        <router-link
+          to="/home"
+          class="home">
+          <h4>Oak's Lab</h4>
+        </router-link>
+      </div>
+      <div class="menu-bar">
+        <menu-bar></menu-bar>
+      </div>
+    </q-toolbar>
+
+    <q-drawer
+      v-if="!desktopCheck()"
+      v-model="drawerLeft"
+      :width="250"
+      :breakpoint="1439"
+      overlay
+      elevated
+      show-if-above
+      class="bg-dark text-white lt-md">
+      <q-scroll-area class="fit">
+        <h5 class="text-center q-pa-md q-my-lg">
+          Oak's Lab </h5>
+        <q-separator
+          dark
+          inset></q-separator>
+        <div class="menu">
+          <div
+            class="q-my-lg q-py-md mobile-menu"
+            v-if="isLoggedIn">
+            <menu-bar></menu-bar>
+          </div>
           <q-separator
             dark
             inset></q-separator>
-          <div class="menu full-height">
-            <div
-              class="q-my-lg q-py-md mobile-menu"
-              v-if="isLoggedIn">
-              <menu-bar></menu-bar>
-            </div>
-            <q-separator
-              dark
-              inset></q-separator>
-            <div class="q-my-lg q-py-md">
-              <auth-bar></auth-bar>
-            </div>
-            <q-separator
-              dark
-              inset></q-separator>
+          <div class="q-my-lg q-py-md">
+            <auth-bar></auth-bar>
           </div>
-        </q-scroll-area>
-      </q-drawer>
-
-      <!-- Desktop Menu -->
-      <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
-        <div class="auth-bar">
-          <auth-bar></auth-bar>
+          <q-separator
+            dark
+            inset></q-separator>
         </div>
-        <div class="name-bar row justify-center">
-          <router-link
-            to="/home"
-            class="home">
-            <h4>Oak's Lab</h4>
-          </router-link>
-        </div>
-        <div class="menu-bar">
-          <menu-bar></menu-bar>
-        </div>
-      </q-toolbar>
-    </q-header>
-
-  </div>
+      </q-scroll-area>
+    </q-drawer>
+  </q-header>
 </template>
 
 <script>
@@ -106,17 +108,15 @@ export default {
     },
     closeSliders() {
       this.closeSliders();
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
     }
   }
 };
 </script>
 
 <style scoped>
-
-.menu {
-  heigh: 10rem;
-}
-
 .auth-bar,
 .name-bar,
 .menu-bar {
@@ -138,21 +138,8 @@ export default {
   height: 5rem;
 }
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+.toolbar-cont {
+  height: 5rem;
 }
 
-.v-enter-active {
-  transition: all 0.5s ease-out;
-}
-
-.v-leave-active {
-  transition: all 0.5s ease-in;
-}
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
-}
 </style>
