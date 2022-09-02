@@ -1,7 +1,12 @@
 <template>
-  <div class="flex justify-evenly q-pa-md q-gutter-x-md text-light">
-    <q-card class="normal bg-dark q-pa-md flex justify-center items-center">
-      <h4 class="absolute-top q-ma-md">Normal</h4>
+  <div
+    class="flex justify-evenly text-light images-cont"
+    :class="{'q-pa-md q-gutter-x-md bg-light': desktopCheck(), 'bg-dark': !desktopCheck()}">
+    <q-card
+      class="normal bg-dark q-pa-md flex justify-center items-center"
+      :flat="!desktopCheck()"
+      :square="!desktopCheck()">
+      <div class="image-label absolute-top q-ma-md">Normal</div>
       <div class="img-cont">
         <q-img
           :src="pkImageNormal"
@@ -9,14 +14,27 @@
           fit="contain"></q-img>
       </div>
     </q-card>
+    <q-separator
+      v-if="!desktopCheck()"
+      dark
+      :color="pkType1 ? `${pkType1}Type` : 'primary'"
+      vertical
+      inset></q-separator>
     <q-card
       class="shiny bg-dark q-pa-md flex justify-center items-center"
+      :flat="!desktopCheck()"
+      :square="!desktopCheck()"
       @click="toggleShiny">
-      <h4 class="absolute-top q-ma-md">Shiny</h4>
+      <div class="image-label absolute-top q-ma-md">Shiny</div>
       <transition mode="out-in">
-        <p
-          class="image-reveal"
-          v-if="!shinyIsActive && pkIsActive">Click To Reveal</p>
+        <div v-if="!shinyIsActive && pkIsActive">
+          <p
+            class="image-reveal"
+            v-if="desktopCheck()">Click To Reveal</p>
+          <p
+            class="mobile-image-reveal"
+            v-if="!desktopCheck()">Tap To Reveal</p>
+        </div>
         <div
           v-else
           class="img-cont">
@@ -41,7 +59,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("tracker", ["pkImageNormal", "pkImageShiny", "pkId"]),
+    ...mapGetters("tracker", ["pkImageNormal", "pkImageShiny", "pkId", "pkType1"]),
     pkIsActive() {
       return this.pkId !== "";
     }
@@ -51,30 +69,45 @@ export default {
       if (this.pkIsActive) {
         this.shinyIsActive = !this.shinyIsActive;
       }
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
     }
   }
 };
 </script>
 
-<style scoped>
-/* For extremely small screen devices (480px and below) */
-@media only screen and (max-width: 480px) {
+<style
+  scoped
+  lang="scss">
+
+body.screen--xs, body.screen--sm {
+  .images-cont {
+    height: 10rem;
+  }
+
+  .img-cont {
+    width: 100%;
+    height: 100%;
+  }
+
+  .normal,
+  .shiny {
+    height: 100%;
+    width: 49%;
+  }
+
+  .image-label, {
+    font-size: 1.2rem;
+  }
+
+  .mobile-image-reveal {
+    font-size: 1rem;
+  }
+
 }
 
-/* Small screen devices (481px and above) */
-@media only screen and (min-width: 481px) {
-}
-
-/* Medium screen devices (769px and above) */
-@media only screen and (min-width: 769px) {
-}
-
-/* Big screen devices (1025px and above) */
-@media only screen and (min-width: 1025px) {
-}
-
-/* Extra big screen devices (1200px and above) */
-@media only screen and (min-width: 1200px) {
+body.screen--md, body.screen--lg, body.screen--xl, {
   .img-cont {
     width: 90%;
     height: 90%;
@@ -89,7 +122,11 @@ export default {
   }
 
   .image-reveal {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+
+  .image-label, .image-reveal {
+    font-size: 1.2rem;
   }
 }
 </style>

@@ -1,36 +1,63 @@
 <template>
   <div>
     <q-card class="bg-dark flex justify-evenly items-center text-h6">
-      <q-card-section class="main-cont flex column items-center justify-evenly q-pa-none q-pb-lg">
+      <q-card-section
+        class="main-cont flex column items-center justify-evenly q-pa-none q-pb-lg"
+        :class="{'full-width': !desktopCheck()}">
         <div
           class="name-cont flex items-center justify-center full-width text-h3 text-light q-pa-lg">
           {{ pkName }}
         </div>
-        <div class="counter-cont flex justify-center row">
+        <div
+          class="counter-cont flex justify-center row"
+          :class="{'full-width': !desktopCheck()}">
           <q-btn
-            :label="mainCount"
-            push
+            :square="!desktopCheck()"
+            :push="desktopCheck()"
+            :unelevated="!desktopCheck()"
             class="counter-main text-h1 full-width text-dark"
-            :class="`bg-${pkType1 || 'default'}Type`"
+            :color="pkType1 ? `${pkType1}Type` : 'primary'"
             @click="countUp"
             @mousedown="holdCountUp"
-            @mouseup="clearCountHold"></q-btn>
+            @mouseup="clearCountHold">
+            <div class="text-light">{{ mainCount }}</div>
+          </q-btn>
           <div class="secondary-cont full-width justify-center row">
             <div class="col">
               <q-btn
-                label="Subtract"
-                push
-                class="btn bg-light secondary-btn full-width text-h6 text-dark"
+                :square="!desktopCheck()"
+                :push="desktopCheck()"
+                :unelevated="!desktopCheck()"
+                :outline="!desktopCheck()"
+                :color="!desktopCheck() ? pkTypeColor() : 'light'"
+                class="btn bg-light secondary-btn full-width text-h6"
+                :class="desktopCheck() ? 'text-dark' : `text-light`"
                 @click="countDown"
                 @mousedown="holdCountDown"
-                @mouseup="clearCountHold"></q-btn>
+                @mouseup="clearCountHold">
+                <!--                <div class="text-light">Subtract</div>-->
+                <q-icon
+                  name="fas fa-minus"
+                  :color="desktopCheck() ? 'dark' : 'light'"
+                  class="text-light"></q-icon>
+              </q-btn>
             </div>
             <div class="col">
               <q-btn
                 @click="counterDialog=true"
-                label="Reset"
-                push
-                class="btn bg-light secondary-btn full-width text-h6 text-dark"></q-btn>
+                :square="!desktopCheck()"
+                :push="desktopCheck()"
+                :unelevated="!desktopCheck()"
+                :outline="!desktopCheck()"
+                :color="!desktopCheck() ? pkTypeColor() : 'light'"
+                class="btn bg-light secondary-btn full-width text-h6"
+                :class="desktopCheck() ? 'text-dark' : `text-light`">
+                <!--                <div class="text-light">Reset</div>-->
+                <q-icon
+                  name="fas fa-rotate-left"
+                  :color="desktopCheck() ? 'dark' : 'light'"
+                  class="text-light"></q-icon>
+              </q-btn>
             </div>
           </div>
         </div>
@@ -43,14 +70,14 @@
           :thumb-color="pkTypeColor()"
           :color="pkTypeColor2()"
           label-text-color="dark"
-          vertical
+          :vertical="desktopCheck()"
           label
           switch-label-side
           track-size="10px"
           thumb-size="30px"
           :min="1"
           :max="100"
-          reverse></q-slider>
+          :reverse="desktopCheck()"></q-slider>
         <h5 class="text-light slider-text flex items-end">Increment</h5>
       </q-card-section>
     </q-card>
@@ -112,6 +139,11 @@ export default {
       "clearCountHold",
       "resetCounter"
     ]),
+
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
+
     pkTypeColor() {
       return `${this.pkType1}Type`;
     },
@@ -128,26 +160,44 @@ export default {
 };
 </script>
 
-<style scoped>
+<style
+  scoped
+  lang="scss">
 
-/* For extremely small screen devices (480px and below) */
-@media only screen and (max-width: 480px) {
+body.screen--xs, body.screen--sm {
+  .secondary-btn {
+    height: 100%;
+  }
+
+  .secondary-cont {
+    height: 6rem;
+  }
+
+  .secondary-btn {
+    height: 100%;
+  }
+
+  .inc-cont {
+    width: 80%;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .slider {
+    order: 2;
+  }
+
+  .slider-text {
+    order: 1;
+  }
+
+  .name-cont {
+    text-align: center;
+    min-height: 6.2rem;
+  }
 }
 
-/* Small screen devices (481px and above) */
-@media only screen and (min-width: 481px) {
-}
-
-/* Medium screen devices (769px and above) */
-@media only screen and (min-width: 769px) {
-}
-
-/* Big screen devices (1025px and above) */
-@media only screen and (min-width: 1025px) {
-}
-
-/* Extra big screen devices (1200px and above) */
-@media only screen and (min-width: 1200px) {
+body.screen--md, body.screen--lg, body.screen--xl, {
   .main-cont {
     width: 85%;
     height: 100%;
@@ -155,6 +205,7 @@ export default {
 
   .name-cont {
     text-align: center;
+    min-height: 6.2rem;
   }
 
   .inc-cont {
@@ -200,7 +251,7 @@ export default {
     width: 50%;
   }
 
-  .slider >>> .q-slider__text {
+  .slider > > > .q-slider__text {
     font-size: 1.2rem;
   }
 }

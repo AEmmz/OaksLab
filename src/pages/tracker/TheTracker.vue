@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="full-height">
     <!-- Mobile -->
-    <div class="lt-md mobile-cont">
-      <div class="page-container row justify-center q-ma-md q-gutter-x-lg ">
+    <div class="lt-md mobile-cont bg-dark">
+      <div
+        class="page-container row justify-center q-gutter-x-lg"
+        :class="{'q-my-md': desktopCheck()}">
         <pokemon-images class="container col-12"></pokemon-images>
+        <q-separator
+          class="separator col-12"
+          v-if="!desktopCheck()"
+          :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
         <counter-card class="container col-12"></counter-card>
         <!--        <timer-card class="container col-12"></timer-card>-->
       </div>
@@ -31,7 +37,7 @@
           @click="catchDialog=true"
           v-model="catchDialog"
           vertical-actions-align="right"
-          color="primary"
+          :color="pkType1 ? `${pkType1}Type` : 'primary'"
           icon="icon-poke-pokeball"
           padding="18px"
           direction="up"></q-fab>
@@ -43,19 +49,19 @@
         <q-fab
           v-model="searchFab"
           vertical-actions-align="left"
-          color="primary"
+          :color="pkType1 ? `${pkType1}Type` : 'primary'"
           icon="fas fa-magnifying-glass"
           padding="18px"
           direction="up">
           <q-fab-action
             label="Change Forms"
-            color="primary"
+            :color="pkType1 ? `${pkType1}Type` : 'primary'"
             padding="md"
             @click="formDialog=true"
             icon="fas fa-paw"></q-fab-action>
           <q-fab-action
             label="New Search"
-            color="primary"
+            :color="pkType1 ? `${pkType1}Type` : 'primary'"
             padding="md"
             @click="searchDialog=true"
             icon="fas fa-magnifying-glass"></q-fab-action>
@@ -136,6 +142,7 @@ export default {
   },
   computed: {
     ...mapGetters("tracker/forms", ["forms"]),
+    ...mapGetters("tracker", ["pkType1"]),
     isForms() {
       return this.forms.length > 1;
     }
@@ -151,6 +158,9 @@ export default {
       this.searchDialog = false;
       this.formDialog = false;
       this.catchDialog = false;
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
     }
   },
   unmounted() {
@@ -167,7 +177,9 @@ export default {
   lang="scss">
 
 body.screen--xs, body.screen--sm {
-
+  .separator {
+    height: 1px;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {

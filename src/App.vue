@@ -1,5 +1,5 @@
 <template>
-  <div class="site-container">
+  <div class="site-container ">
     <q-layout>
       <the-navigation-bar></the-navigation-bar>
       <main>

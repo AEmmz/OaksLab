@@ -74,7 +74,7 @@ export default {
   components: { AuthBar, MenuBar },
   data() {
     return {
-      drawerLeft: true
+      drawerLeft: false
     };
   },
   computed: {
