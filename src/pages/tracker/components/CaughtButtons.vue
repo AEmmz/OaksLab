@@ -174,8 +174,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions("tracker/caught", ["toggler"]),
+    ...mapActions("tracker/caught", ["toggler", "addToCollection"]),
     setToggler(type) {
+      // this.addToCollection();
       if (this.pkIsActive) {
         this.toggler(type);
       }

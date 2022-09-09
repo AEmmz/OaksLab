@@ -11,22 +11,40 @@
         :class="desktopCheck() ? 'q-gutter-x-md' : 'q-gutter-x-xs'">
         <q-btn
           :size="desktopCheck() ? 'lg' : 'md'"
-          :icon="!timerRunning ? 'fas fa-play' : 'fas fa-pause'"
           class="button bg-light text-dark"
-          :label="!timerRunning? 'Start' : 'Pause'"
-          @click="toggleStart"/>
+          @click="toggleStart">
+          <div class="q-gutter-x-sm row">
+            <q-icon
+              :name="!timerRunning ? 'fas fa-play' : 'fas fa-pause'"></q-icon>
+            <div v-if="desktopCheck()">
+              {{ !timerRunning ? "Start" : "Pause" }}
+            </div>
+          </div>
+        </q-btn>
         <q-btn
           :size="desktopCheck() ? 'lg' : 'md'"
-          :icon="!saved ? 'fas fa-floppy-disk' : 'fas fa-circle-check'"
-          class="button bg-light text-dark"
-          :label="!saved ? 'Save' : 'Saved'"
-          @click="stop"></q-btn>
+          class="button bg-light text-dark flex justify-center"
+          @click="stop">
+          <div class="q-gutter-x-sm row">
+            <q-icon
+              :name="!saved ? 'fas fa-floppy-disk' : 'fas fa-circle-check'"></q-icon>
+            <div v-if="desktopCheck()">
+              {{ !saved ? "Save" : "Saved" }}
+            </div>
+          </div>
+        </q-btn>
         <q-btn
           :size="desktopCheck() ? 'lg' : 'md'"
-          icon="fas fa-arrow-rotate-right"
           class="button bg-light text-dark"
-          label="Reset"
-          @click="mainTimer > 0 ? timerDialog=true : timerDialog=false"/>
+          @click="mainTimer > 0 ? timerDialog=true : timerDialog=false">
+          <div class="q-gutter-x-sm row">
+            <q-icon
+              name="fas fa-arrow-rotate-right"></q-icon>
+            <div v-if="desktopCheck()">
+              Reset
+            </div>
+          </div>
+        </q-btn>
       </div>
     </div>
   </q-card>

@@ -1,9 +1,17 @@
 <template>
-  <div class="flex row justify-center q-ma-md">
-    <q-card class="collection-cont bg-dark flex column items-center q-pa-md">
-      <h2 class="text-light q-ma-lg">Your Collection</h2>
+  <div
+    class="flex row justify-center"
+    :class="{'full-width full-height':!desktopCheck(), 'q-ma-md':desktopCheck()}">
+    <q-card
+      class="collection-cont bg-dark flex column items-center justify-center"
+      :class="{'full-width': !desktopCheck(), 'q-pa-md': desktopCheck()}"
+      :square="!desktopCheck()">
+      <span
+        class="text-light q-ma-lg text-center"
+        :class="desktopCheck() ? 'text-h2' : 'text-h4'">Your Collection</span>
       <div class="full-width">
         <collection-filters
+          v-if="desktopCheck()"
           :getSearch="getSearch"
           :getShinyView="changeShinyView"></collection-filters>
       </div>
@@ -126,6 +134,9 @@ export default {
 
   methods: {
     ...mapActions("collection", ["retrieveList", "updateShinyView"]),
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
     getSearch(input) {
       this.filter.searchQuery = input.searchQuery;
       this.filter.sortQuery = input.sortQuery;
@@ -279,14 +290,28 @@ export default {
 };
 </script>
 
-<style scoped>
-.collection-cont {
-  width: 80%;
-  min-height: 50rem;
-  border-radius: 0.7rem;
+<style
+  scoped
+  lang="scss">
+
+body.screen--xs, body.screen--sm {
+  .collection-cont {
+    width: 100%;
+    min-height: 50rem;
+    border-radius: 0.7rem;
+  }
 }
 
-.per-page {
-  width: 10%;
+body.screen--md, body.screen--lg, body.screen--xl, {
+
+  .collection-cont {
+    width: 80%;
+    min-height: 50rem;
+    border-radius: 0.7rem;
+  }
+
+  .per-page {
+    width: 10%;
+  }
 }
 </style>

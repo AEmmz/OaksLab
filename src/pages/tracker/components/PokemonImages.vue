@@ -18,8 +18,7 @@
       v-if="!desktopCheck()"
       dark
       :color="pkType1 ? `${pkType1}Type` : 'primary'"
-      vertical
-      inset></q-separator>
+      vertical></q-separator>
     <q-card
       class="shiny bg-dark q-pa-md flex justify-center items-center"
       :flat="!desktopCheck()"

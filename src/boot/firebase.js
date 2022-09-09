@@ -1,6 +1,7 @@
 import { boot } from "quasar/wrappers";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyAquwvDRvTgvwq1ka09nhoTRILea8sUhsA",
@@ -12,11 +13,15 @@ const config = {
   appId: "1:783817676267:web:2a0af5c46bd0427a9775ae"
 };
 
+const app = initializeApp(config);
+const db = getFirestore(app);
+
+export { db };
+
 export default boot(async ({ app, store }) => {
   const authStatus = () => {
     return new Promise((resolve, reject) => {
       try {
-        initializeApp(config);
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
           if (user) {

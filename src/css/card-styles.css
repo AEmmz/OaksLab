@@ -1,3541 +1,4770 @@
 .ivysaur {
-	transform: scalex(-1) translatex(-2rem);
+  transform: scalex(-1) translatex(-2rem);
 }
+
 .venusaur {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+  transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
+
 .mega-venusaur {
-	transform: scale(1.3) translatey(-2rem) translatex(3rem);
+  transform: scale(1.3) translatey(-2rem) translatex(3rem);
 }
+
 .gigantamax-venusaur {
-	transform: scale(1.5) translatey(-2rem) translatex(3rem);
+  transform: scale(1.5) translatey(-2rem) translatex(3rem);
 }
+
 .charmander {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .charmeleon {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .charizard {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+  transform: scale(1.3) translatey(-1rem) translatex(1rem);
 }
+
 .mega-charizard-x {
-	transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-4rem);
+  transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-4rem);
 }
+
 .mega-charizard-y {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+  transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
+
 .gigantamax-charizard {
-	transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translatey(-1rem) translatex(-3rem);
 }
+
 .squirtle {
 }
+
 .wartortle {
 }
+
 .blastoise {
-	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
+  transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
 }
+
 .mega-blastoise {
-	transform: scalex(1.3) scaley(1.3) translatey(-2rem) translatex(-0rem);
+  transform: scalex(1.3) scaley(1.3) translatey(-2rem) translatex(-0rem);
 }
+
 .gigantamax-blastoise {
-	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-2rem);
+  transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-2rem);
 }
+
 .caterpie {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .metapod {
-	transform: scale(1.1) translatex(1rem) translatey(-1rem);
+  transform: scale(1.1) translatex(1rem) translatey(-1rem);
 }
+
 .butterfree {
-	transform: translatey(-1rem);
+  transform: translatey(-1rem);
 }
+
 .gigantamax-butterfree {
-	transform: translatey(-3rem) translatex(-1rem) scalex(-1.5) scaley(1.5);
+  transform: translatey(-3rem) translatex(-1rem) scalex(-1.5) scaley(1.5);
 }
+
 .weedle {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .kakuna {
 }
+
 .beedrill {
-	transform: scalex(1.1) scaley(1.1) translatey(1rem) translatex(-1rem);
+  transform: scalex(1.1) scaley(1.1) translatey(1rem) translatex(-1rem);
 }
+
 .mega-beedrill {
-	transform: scalex(1.1) scaley(1.1) translatey(-2rem) translatex(-1rem);
+  transform: scalex(1.1) scaley(1.1) translatey(-2rem) translatex(-1rem);
 }
+
 .pidgey {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .pidgeotto {
-	transform: scale(1.2) translatey(-2rem) translatex(2rem);
+  transform: scale(1.2) translatey(-2rem) translatex(2rem);
 }
+
 .pidgeot {
-	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(-3rem);
+  transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(-3rem);
 }
+
 .mega-pidgeot {
-	transform: scale(1.4) translatey(-3rem) translatex(4rem);
+  transform: scale(1.4) translatey(-3rem) translatex(4rem);
 }
+
 .rattata {
 }
+
 .alolan-rattata {
-	transform: scale(1.1) translatey(-1rem) translatex(2rem);
+  transform: scale(1.1) translatey(-1rem) translatex(2rem);
 }
+
 .raticate {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .alolan-raticate {
-	transform: scale(1.2) translatey(-2rem) translatex(2rem);
+  transform: scale(1.2) translatey(-2rem) translatex(2rem);
 }
+
 .spearow {
 }
+
 .fearow {
-	transform: scale(1.2) translatey(-2rem) translatex(1rem);
+  transform: scale(1.2) translatey(-2rem) translatex(1rem);
 }
+
 .ekans {
-	transform: translatex(2rem) translatey(1rem);
+  transform: translatex(2rem) translatey(1rem);
 }
+
 .arbok {
-	transform: scale(1.1) translatey(-1rem);
+  transform: scale(1.1) translatey(-1rem);
 }
+
 .pikachu {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .gigantamax-pikachu {
-	transform: scale(1.4) translatey(-2rem);
+  transform: scale(1.4) translatey(-2rem);
 }
+
 .raichu {
-	transform: scale(1.2) translatey(-1rem) translatex(4rem);
+  transform: scale(1.2) translatey(-1rem) translatex(4rem);
 }
+
 .alolan-raichu {
-	transform: scale(1.1) translatey(-2rem) translatex(-2rem);
+  transform: scale(1.1) translatey(-2rem) translatex(-2rem);
 }
+
 .sandshrew {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .alolan-sandshrew {
-	transform: scalex(-1) translatex(-2rem);
+  transform: scalex(-1) translatex(-2rem);
 }
+
 .sandslash {
-	transform: scalex(-1) translatex(-1rem);
+  transform: scalex(-1) translatex(-1rem);
 }
+
 .alolan-sandslash {
-	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
+  transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translatex(-1rem);
 }
+
 .nidoran-female {
-	transform: scale(0.8) translatey(3rem) translatex(1rem);
+  transform: scale(0.8) translatey(3rem) translatex(1rem);
 }
+
 .nidorina {
 }
+
 .nidoqueen {
-	transform: scale(1.1) translatey(-1rem) translatex(-1rem);
+  transform: scale(1.1) translatey(-1rem) translatex(-1rem);
 }
+
 .nidoran-male {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .nidorino {
 }
+
 .nidoking {
-	transform: scale(1.2) translatey(-1rem) translatex(1rem);
+  transform: scale(1.2) translatey(-1rem) translatex(1rem);
 }
+
 .clefairy {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .clefable {
 }
+
 .vulpix {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .alolan-vulpix {
-	transform: scale(0.9) translatey(1rem) translatex(1rem);
+  transform: scale(0.9) translatey(1rem) translatex(1rem);
 }
+
 .ninetales {
-	transform: scale(1.1) translatex(-1rem);
+  transform: scale(1.1) translatex(-1rem);
 }
+
 .alolan-ninetales {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+  transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
+
 .jigglypuff {
-	transform: scale(0.8) translatey(2rem) translatex(1rem);
+  transform: scale(0.8) translatey(2rem) translatex(1rem);
 }
+
 .wigglytuff {
-	transform: scalex(-1) translatex(-2rem);
+  transform: scalex(-1) translatex(-2rem);
 }
+
 .zubat {
-	transform: scale(0.8) translatey(-1rem) translatex(-2rem);
+  transform: scale(0.8) translatey(-1rem) translatex(-2rem);
 }
+
 .golbat {
-	transform: translatey(-2rem) translatex(2rem);
+  transform: translatey(-2rem) translatex(2rem);
 }
+
 .oddish {
-	transform: scale(0.8) translatey(2rem) translatex(2rem);
+  transform: scale(0.8) translatey(2rem) translatex(2rem);
 }
+
 .gloom {
 }
+
 .vileplume {
 }
+
 .paras {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .parasect {
 }
+
 .venonat {
-	transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-1rem);
+  transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-1rem);
 }
+
 .venomoth {
-	transform: scale(1.4) translatey(-2rem) translatex(1rem);
+  transform: scale(1.4) translatey(-2rem) translatex(1rem);
 }
+
 .diglett {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .alolan-diglett {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .dugtrio {
-	transform: translatex(-2rem);
+  transform: translatex(-2rem);
 }
+
 .alolan-dugtrio {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 .meowth {
 }
+
 .alolan-meowth {
-	transform: scalex(-1) translatey(-1rem);
+  transform: scalex(-1) translatey(-1rem);
 }
+
 .galarian-meowth {
 }
+
 .gigantamax-meowth {
-	transform: scale(1.3) translatey(-1rem) translatex(-1rem);
+  transform: scale(1.3) translatey(-1rem) translatex(-1rem);
 }
+
 .persian {
-	transform: scale(1.1) translatey(-1rem) translatex(-2rem);
+  transform: scale(1.1) translatey(-1rem) translatex(-2rem);
 }
+
 .alolan-persian {
-	transform: translatey(-1rem) translatex(2rem);
+  transform: translatey(-1rem) translatex(2rem);
 }
+
 .psyduck {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .golduck {
 }
+
 .mankey {
 }
+
 .primeape {
 }
+
 .growlithe {
-	transform: scale(0.9) translatey(1rem) translatex(-1rem);
+  transform: scale(0.9) translatey(1rem) translatex(-1rem);
 }
+
 .hisuian-growlithe {
-	transform: scale(0.9) translatex(2rem);
+  transform: scale(0.9) translatex(2rem);
 }
+
 .arcanine {
-	transform: scale(1.1) translatey(-1rem) translatex(3rem);
+  transform: scale(1.1) translatey(-1rem) translatex(3rem);
 }
+
 .hisuian-arcanine {
-	transform: scale(1.3) translatey(-3rem) translatex(3rem);
+  transform: scale(1.3) translatey(-3rem) translatex(3rem);
 }
+
 .poliwag {
-	transform: scale(0.8) translatey(2rem) translatex(2rem);
+  transform: scale(0.8) translatey(2rem) translatex(2rem);
 }
+
 .poliwhirl {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .poliwrath {
-	transform: scale(1.3) translatey(-2rem) translatex(-1rem);
+  transform: scale(1.3) translatey(-2rem) translatex(-1rem);
 }
+
 .abra {
-	transform: translatey(4rem) translatex(-1rem);
+  transform: translatey(4rem) translatex(-1rem);
 }
+
 .kadabra {
-	transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(0rem);
+  transform: scalex(-1.2) scaley(1.2) translatey(-2rem) translatex(0rem);
 }
+
 .alakazam {
-	transform: scale(1.1) translatey(-2rem) translatex(-1rem);
+  transform: scale(1.1) translatey(-2rem) translatex(-1rem);
 }
+
 .mega-alakazam {
-	transform: scale(1.2) translatey(-2rem) translatex(0rem);
+  transform: scale(1.2) translatey(-2rem) translatex(0rem);
 }
+
 .machop {
-	transform: scale(0.9) translatex(-1rem);
+  transform: scale(0.9) translatex(-1rem);
 }
+
 .machoke {
 }
+
 .machamp {
-	transform: scalex(-1.2) scaley(1.2) translatey(-1rem) translatex(1rem);
+  transform: scalex(-1.2) scaley(1.2) translatey(-1rem) translatex(1rem);
 }
+
 .gigantamax-machamp {
-	transform: scale(1.2) translatey(-1rem);
+  transform: scale(1.2) translatey(-1rem);
 }
+
 .bellsprout {
-	transform: scale(0.8) translatey(2rem) translatex(2rem);
+  transform: scale(0.8) translatey(2rem) translatex(2rem);
 }
+
 .weepinbell {
-	transform: scale(0.9) translatey(4rem);
+  transform: scale(0.9) translatey(4rem);
 }
+
 .victreebel {
-	transform: translatey(1rem) translatex(1rem);
+  transform: translatey(1rem) translatex(1rem);
 }
+
 .tentacool {
-	transform: scale(0.8);
+  transform: scale(0.8);
 }
+
 .tentacruel {
-	transform: translatey(1rem);
+  transform: translatey(1rem);
 }
+
 .geodude {
 }
+
 .alolan-geodude {
-	transform: scale(0.8);
+  transform: scale(0.8);
 }
+
 .graveler {
-	transform: scale(1.4) translateY(-4rem);
+  transform: scale(1.4) translateY(-4rem);
 }
+
 .alolan-graveler {
-	transform: scale(1.4) translateY(-1rem) translateX(1rem);
+  transform: scale(1.4) translateY(-1rem) translateX(1rem);
 }
+
 .golem {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 .alolan-golem {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .ponyta {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .galarian-ponyta {
-	transform: translatex(3rem);
+  transform: translatex(3rem);
 }
+
 .rapidash {
-	transform: scale(1.2) translateY(-1rem) translateX(-2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(-2rem);
 }
+
 .galarian-rapidash {
-	transform: scalex(-1) translateX(2rem);
+  transform: scalex(-1) translateX(2rem);
 }
+
 .slowpoke {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .galarian-slowpoke {
-	transform: scale(1.1) translatey(-2rem) translatex(2rem);
+  transform: scale(1.1) translatey(-2rem) translatex(2rem);
 }
+
 .slowbro {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .mega-slowbro {
 }
+
 .galarian-slowbro {
-	transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translateX(1rem);
+  transform: scalex(-1.1) scaley(1.1) translatey(-1rem) translateX(1rem);
 }
+
 .magnemite {
 }
+
 .magneton {
 }
+
 .farfetch’d {
 }
+
 .galarian-farfetch’d {
-	transform: scale(1.6) translateY(-3rem) translateX(2rem);
+  transform: scale(1.6) translateY(-3rem) translateX(2rem);
 }
+
 .doduo {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .dodrio {
 }
+
 .seel {
 }
+
 .dewgong {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .grimer {
 }
+
 .alolan-grimer {
 }
+
 .muk {
-	transform: scalex(-1.6) scaley(1.6) translateY(-3rem) translateX(0rem);
+  transform: scalex(-1.6) scaley(1.6) translateY(-3rem) translateX(0rem);
 }
+
 .alolan-muk {
-	transform: scale(1.6) translateY(-3rem) translateX(1rem);
+  transform: scale(1.6) translateY(-3rem) translateX(1rem);
 }
+
 .shellder {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .cloyster {
 }
+
 .gastly {
-	transform: scale(0.8) translateX(1rem);
+  transform: scale(0.8) translateX(1rem);
 }
+
 .haunter {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .gengar {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .mega-gengar {
 }
+
 .gigantamax-gengar {
-	transform: scalex(-1.3) scaley(1.3) translateX(-1rem);
+  transform: scalex(-1.3) scaley(1.3) translateX(-1rem);
 }
 
 .onix {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .drowzee {
-	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(1rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(1rem);
 }
+
 .hypno {
 }
+
 .krabby {
 }
+
 .kingler {
-	transform: scale(1.2) translatey(-3rem);
+  transform: scale(1.2) translatey(-3rem);
 }
+
 .gigantamax-kingler {
-	transform: scale(1.2) translatey(-2rem) translatex(2rem);
+  transform: scale(1.2) translatey(-2rem) translatex(2rem);
 }
+
 .voltorb {
-	transform: scalex(-0.8) scaley(0.8) translatey(2rem);
+  transform: scalex(-0.8) scaley(0.8) translatey(2rem);
 }
+
 .hisuian-voltorb {
-	transform: scalex(-0.9) scaley(0.9) translatey(1rem);
+  transform: scalex(-0.9) scaley(0.9) translatey(1rem);
 }
+
 .electrode {
-	transform: scale(0.9) translatey(1rem);
+  transform: scale(0.9) translatey(1rem);
 }
+
 .hisuian-electrode {
-	transform: scalex(-0.9) scaley(0.9) translatey(1rem);
+  transform: scalex(-0.9) scaley(0.9) translatey(1rem);
 }
+
 .exeggcute {
-	transform: scale(0.8) translatey(2rem) translatex(-1rem);
+  transform: scale(0.8) translatey(2rem) translatex(-1rem);
 }
+
 .exeggutor {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .alolan-exeggutor {
-	transform: scale(1.3) translatey(-1.5rem);
+  transform: scale(1.3) translatey(-1.5rem);
 }
+
 .cubone {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .marowak {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .alolan-marowak {
-	transform: scale(1.3) translatey(-2rem) translatex(2rem);
+  transform: scale(1.3) translatey(-2rem) translatex(2rem);
 }
+
 .hitmonlee {
-	transform: scalex(-1) translatey(0rem) translatex(2rem);
+  transform: scalex(-1) translatey(0rem) translatex(2rem);
 }
+
 .hitmonchan {
-	transform: translatey(0rem) translatex(-1rem);
+  transform: translatey(0rem) translatex(-1rem);
 }
+
 .lickitung {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .koffing {
 }
+
 .weezing {
 }
+
 .galarian-weezing {
-	transform: scale(1.3) translatey(-4rem) translatex(3rem);
+  transform: scale(1.3) translatey(-4rem) translatex(3rem);
 }
+
 .rhyhorn {
-	transform: scale(0.8) translatey(2rem) translatex(3rem);
+  transform: scale(0.8) translatey(2rem) translatex(3rem);
 }
+
 .rhydon {
-	transform: scale(1.1) translatey(-1rem) translatex(3rem);
+  transform: scale(1.1) translatey(-1rem) translatex(3rem);
 }
+
 .chansey {
 }
+
 .tangela {
-	transform: scalex(-0.8) scaley(0.8) translatey(-1rem) translatey(6rem);
+  transform: scalex(-0.8) scaley(0.8) translatey(-1rem) translatey(6rem);
 }
+
 .kangaskhan {
 }
+
 .mega-kangaskhan {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .horsea {
-	transform: scale(0.7) translateY(2rem);
+  transform: scale(0.7) translateY(2rem);
 }
+
 .seadra {
 }
+
 .goldeen {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .seaking {
-	transform: translateY(2rem) translateX(3rem);
+  transform: translateY(2rem) translateX(3rem);
 }
+
 .staryu {
-	transform: scale(0.8) translateY(3rem);
+  transform: scale(0.8) translateY(3rem);
 }
+
 .starmie {
-	transform: translateY(1rem);
+  transform: translateY(1rem);
 }
+
 .mr.-mime {
 }
+
 .galarian-mr.-mime {
 }
+
 .scyther {
-	transform: translatex(-1rem);
+  transform: translatex(-1rem);
 }
+
 .jynx {
 }
+
 .electabuzz {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .magmar {
-	transform: translatex(-1rem);
+  transform: translatex(-1rem);
 }
+
 .pinsir {
-	transform: translatey(1rem) translatex(-2rem);
+  transform: translatey(1rem) translatex(-2rem);
 }
+
 .mega-pinsir {
-	transform: scale(1.3) translatey(-2rem) translatex(1rem);
+  transform: scale(1.3) translatey(-2rem) translatex(1rem);
 }
+
 .tauros {
-	transform: scale(1.2) translatey(-1.5rem) translatex(3rem);
+  transform: scale(1.2) translatey(-1.5rem) translatex(3rem);
 }
+
 .magikarp {
-	transform: scale(0.8) translatey(1rem) translatex(3rem);
+  transform: scale(0.8) translatey(1rem) translatex(3rem);
 }
+
 .gyarados {
-	transform: scale(1.1) translatey(1rem) translatex(3rem);
+  transform: scale(1.1) translatey(1rem) translatex(3rem);
 }
+
 .mega-gyarados {
-	transform: scale(1.2) translatey(-2rem) translatex(3rem);
+  transform: scale(1.2) translatey(-2rem) translatex(3rem);
 }
+
 .lapras {
-	transform: scale(1.2) translatey(-2rem);
+  transform: scale(1.2) translatey(-2rem);
 }
+
 .gigantamax-lapras {
-	transform: scale(1.4) translatey(-2rem) translatex(2rem);
+  transform: scale(1.4) translatey(-2rem) translatex(2rem);
 }
+
 .ditto {
 }
+
 .eevee {
 }
+
 .gigantamax-eevee {
-	transform: scalex(-1.2) scaley(1.2) translatey(-1.5rem) translatex(0rem);
+  transform: scalex(-1.2) scaley(1.2) translatey(-1.5rem) translatex(0rem);
 }
 
 .vaporeon {
 }
 
 .jolteon {
-	transform: translatey(0rem) translatex(3rem);
+  transform: translatey(0rem) translatex(3rem);
 }
 
 .flareon {
-	transform: translatey(0rem) translatex(3rem);
+  transform: translatey(0rem) translatex(3rem);
 }
+
 .porygon {
-	transform: scale(0.8) translatey(1rem) translatex(2rem);
+  transform: scale(0.8) translatey(1rem) translatex(2rem);
 }
+
 .omanyte {
-	transform: scalex(-0.8) scaley(0.8) translatey(2rem);
+  transform: scalex(-0.8) scaley(0.8) translatey(2rem);
 }
+
 .omastar {
-	transform: translatey(-1rem);
+  transform: translatey(-1rem);
 }
+
 .kabuto {
-	transform: scale(0.8) translatey(2rem);
+  transform: scale(0.8) translatey(2rem);
 }
+
 .kabutops {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
+
 .aerodactyl {
-	transform: scale(1.4) translatey(-1rem) translatex(2rem);
+  transform: scale(1.4) translatey(-1rem) translatex(2rem);
 }
+
 .mega-aerodactyl {
-	transform: scale(1.6) translatey(-2rem) translatex(2rem);
+  transform: scale(1.6) translatey(-2rem) translatex(2rem);
 }
+
 .snorlax {
-	transform: scale(1.4) translatey(-3rem) translatex(1rem);
+  transform: scale(1.4) translatey(-3rem) translatex(1rem);
 }
+
 .gigantamax-snorlax {
-	transform: scalex(-1.5) scaley(1.5) translatey(-3.5rem) translatex(-3.5rem);
+  transform: scalex(-1.5) scaley(1.5) translatey(-3.5rem) translatex(-3.5rem);
 }
+
 .articuno {
-	transform: scale(1.1) translatey(-3rem) translatex(3rem);
+  transform: scale(1.1) translatey(-3rem) translatex(3rem);
 }
+
 .galarian-articuno {
-	transform: scale(1.1) translatey(-2rem) translatex(1rem);
+  transform: scale(1.1) translatey(-2rem) translatex(1rem);
 }
+
 .zapdos {
-	transform: scale(1.2) translatey(-3rem) translatex(1rem);
+  transform: scale(1.2) translatey(-3rem) translatex(1rem);
 }
+
 .galarian-zapdos {
-	transform: scalex(-0.9) scaley(0.9) translatey(2rem) translatex(-1rem);
+  transform: scalex(-0.9) scaley(0.9) translatey(2rem) translatex(-1rem);
 }
+
 .moltres {
-	transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translatey(-2rem) translatex(-3rem);
 }
+
 .galarian-moltres {
-	transform: translatey(-2rem) translatex(2rem);
+  transform: translatey(-2rem) translatex(2rem);
 }
+
 .dratini {
-	transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-5rem);
+  transform: scalex(-0.8) scaley(0.8) translatey(2rem) translatex(-5rem);
 }
+
 .dragonair {
-	transform: scale(1.1) translatey(-2rem);
+  transform: scale(1.1) translatey(-2rem);
 }
+
 .dragonite {
-	transform: scale(1.1) translatey(-1rem) translatex(2rem);
+  transform: scale(1.1) translatey(-1rem) translatex(2rem);
 }
+
 .mewtwo {
-	transform: scalex(-1.2) scaley(1.2) translatey(-2.5rem) translatex(-1rem);
+  transform: scalex(-1.2) scaley(1.2) translatey(-1rem) translatex(-1rem);
 }
+
 .mega-mewtwo-x {
-	transform: scalex(-1.1) scaley(1.1) translatey(-1rem);
+  transform: scalex(-1.1) scaley(1.1) translatey(-1rem);
 }
+
 .mega-mewtwo-y {
-	transform: scale(1.1) translatey(-1rem);
+  transform: scale(1.1) translatey(-1rem);
 }
+
 .mew {
-	transform: scale(0.8) translatey(-1rem);
+  transform: scale(0.8) translatey(-1rem);
 }
+
 .chikorita {
-	transform: scale(1) translatex(2rem);
+  transform: scale(1) translatex(2rem);
 }
+
 .bayleef {
-	transform: scale(1.1) translatey(-0.5rem) translatex(1rem);
+  transform: scale(1.1) translatey(-0.5rem) translatex(1rem);
 }
+
 .meganium {
-	transform: scale(1.3) translatey(-2rem);
+  transform: scale(1.3) translatey(-2rem);
 }
+
 .cyndaquil {
-	transform: scalex(-1) translatey(0rem);
+  transform: scalex(-1) translatey(0rem);
 }
+
 .quilava {
-	transform: scale(1.1) translatey(-1rem);
+  transform: scale(1.1) translatey(-1rem);
 }
+
 .typhlosion {
-	transform: scale(1.3) translatey(-1rem) translatex(1rem);
+  transform: scale(1.3) translatey(-1rem) translatex(1rem);
 }
+
 .hisuian-typhlosion {
-	transform: scalex(-1.5) scaley(1.5) translatey(-2rem) translatex(-3rem);
+  transform: scalex(-1.5) scaley(1.5) translatey(-2rem) translatex(-3rem);
 }
+
 .totodile {
 }
+
 .croconaw {
-	transform: scale(1.1) translatey(-1rem) translatex(3rem);
+  transform: scale(1.1) translatey(-1rem) translatex(3rem);
 }
+
 .feraligatr {
-	transform: scale(1.3) translatey(0rem) translatex(1rem);
+  transform: scale(1.3) translatey(0rem) translatex(1rem);
 }
+
 .sentret {
 }
+
 .furret {
-	transform: translateX(-2rem);
+  transform: translateX(-2rem);
 }
+
 .hoothoot {
-	transform: scale(0.8) translatey(3rem);
+  transform: scale(0.8) translatey(3rem);
 }
+
 .noctowl {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .ledyba {
-	transform: scale(0.8);
+  transform: scale(0.8);
 }
+
 .ledian {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .spinarak {
-	transform: scale(0.8) translateY(2rem);
+  transform: scale(0.8) translateY(2rem);
 }
+
 .ariados {
 }
+
 .crobat {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translatex(-2rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translatex(-2rem);
 }
+
 .chinchou {
-	transform: translateY(2rem);
+  transform: translateY(2rem);
 }
+
 .lanturn {
-	transform: scale(1.2) translateX(2rem);
+  transform: scale(1.2) translateX(2rem);
 }
+
 .pichu {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .cleffa {
-	transform: scalex(-0.8) scaley(0.8) translateY(2rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(2rem);
 }
+
 .igglybuff {
-	transform: scale(0.8) translateY(2rem);
+  transform: scale(0.8) translateY(2rem);
 }
+
 .togepi {
-	transform: scale(0.8) translateY(3rem);
+  transform: scale(0.8) translateY(3rem);
 }
+
 .togetic {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .natu {
-	transform: scale(0.8) translateY(3rem);
+  transform: scale(0.8) translateY(3rem);
 }
+
 .xatu {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .mareep {
-	transform: scale(0.8) translateY(3rem);
+  transform: scale(0.8) translateY(3rem);
 }
+
 .flaaffy {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .ampharos {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .mega-ampharos {
-	transform: scale(1.2) translateY(-1rem) translateX(4rem);
+  transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
+
 .bellossom {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .marill {
-	transform: scalex(-1) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1) translateY(-2rem) translateX(-2rem);
 }
+
 .azumarill {
-	transform: translateY(0rem) translateX(1rem);
+  transform: translateY(0rem) translateX(1rem);
 }
+
 .sudowoodo {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .politoed {
 }
+
 .hoppip {
 }
+
 .skiploom {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .jumpluff {
-	transform: translateY(-2rem) translateX(1rem);
+  transform: translateY(-2rem) translateX(1rem);
 }
+
 .aipom {
-	transform: translateX(-2rem);
+  transform: translateX(-2rem);
 }
+
 .sunkern {
-	transform: scale(0.8) translateY(4rem) translateX(1rem);
+  transform: scale(0.8) translateY(4rem) translateX(1rem);
 }
+
 .sunflora {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .yanma {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+  transform: scale(1.1) translateY(-2rem) translateX(2rem);
 }
+
 .wooper {
-	transform: scalex(-0.8) scaley(0.8) translateY(4rem) translateX(-1rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(4rem) translateX(-1rem);
 }
+
 .quagsire {
 }
+
 .espeon {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .umbreon {
-	transform: scalex(-1) translateX(-3rem);
+  transform: scalex(-1) translateX(-3rem);
 }
+
 .murkrow {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .slowking {
-	transform: translateY(-0.5rem) translateX(2rem);
+  transform: translateY(-0.5rem) translateX(2rem);
 }
+
 .galarian-slowking {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .misdreavus {
-	transform: scalex(-0.8) scaley(0.8) translateX(-2rem);
+  transform: scalex(-0.8) scaley(0.8) translateX(-2rem);
 }
+
 .unown-a {
 }
+
 .unown-b {
 }
+
 .unown-c {
 }
+
 .unown-d {
 }
+
 .unown-e {
 }
+
 .unown-f {
 }
+
 .unown-g {
 }
+
 .unown-h {
 }
+
 .unown-i {
 }
+
 .unown-j {
 }
+
 .unown-k {
 }
+
 .unown-l {
 }
+
 .unown-m {
 }
+
 .unown-n {
 }
+
 .unown-o {
 }
+
 .unown-p {
 }
+
 .unown-q {
 }
+
 .unown-r {
 }
+
 .unown-s {
 }
+
 .unown-t {
 }
+
 .unown-u {
 }
+
 .unown-v {
 }
+
 .unown-w {
 }
+
 .unown-x {
 }
+
 .unown-y {
 }
+
 .unown-z {
 }
+
 .unown- {
 }
+
 .unown- {
 }
+
 .wobbuffet {
 }
+
 .girafarig {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .pineco {
-	transform: scale(0.8) translateY(-1rem) translateX(0rem);
+  transform: scale(0.8) translateY(-1rem) translateX(0rem);
 }
+
 .forretress {
 }
+
 .dunsparce {
-	transform: scale(0.8) translateY(-1rem) translateX(1rem);
+  transform: scale(0.8) translateY(-1rem) translateX(1rem);
 }
+
 .gligar {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .steelix {
-	transform: scale(1.1) translateY(0.5rem) translateX(1rem);
+  transform: scale(1.1) translateY(0.5rem) translateX(1rem);
 }
+
 .mega-steelix {
-	transform: scale(1.5) translateX(3rem);
+  transform: scale(1.5) translateX(3rem);
 }
+
 .snubbull {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .granbull {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .qwilfish {
-	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
 }
+
 .hisuian-qwilfish {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .scizor {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .mega-scizor {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .shuckle {
-	transform: scalex(-1) translateY(1rem) translateX(-1rem);
+  transform: scalex(-1) translateY(1rem) translateX(-1rem);
 }
+
 .heracross {
 }
+
 .mega-heracross {
-	transform: scale(1.1) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-1rem);
 }
+
 .sneasel {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .hisuian-sneasel {
-	transform: scale(0.8) translateY(2rem) translateX(-1rem);
+  transform: scale(0.8) translateY(2rem) translateX(-1rem);
 }
+
 .teddiursa {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .ursaring {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .slugma {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .magcargo {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .swinub {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .piloswine {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .corsola {
-	transform: scalex(-1) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1) translateY(0rem) translateX(-2rem);
 }
+
 .galarian-corsola {
-	transform: scalex(-1) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1) translateY(0rem) translateX(-2rem);
 }
+
 .remoraid {
-	transform: scale(0.6) translateY(2rem) translateX(1rem);
+  transform: scale(0.6) translateY(2rem) translateX(1rem);
 }
+
 .octillery {
 }
+
 .delibird {
 }
+
 .mantine {
-	transform: scale(1.2) translateX(1rem);
+  transform: scale(1.2) translateX(1rem);
 }
+
 .skarmory {
-	transform: scale(1.1) translateY(0rem) translateX(3rem);
+  transform: scale(1.1) translateY(0rem) translateX(3rem);
 }
+
 .houndour {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .houndoom {
 }
+
 .mega-houndoom {
-	transform: scale(1.1) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-1rem);
 }
+
 .kingdra {
 }
+
 .phanpy {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .donphan {
-	transform: scale(1.4) translateY(-2rem) translateX(1rem);
+  transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
+
 .porygon2 {
-	transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(2rem) translateX(-2rem);
 }
+
 .stantler {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .smeargle {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .tyrogue {
-	transform: translateY(-1rem) translateX(1rem);
+  transform: translateY(-1rem) translateX(1rem);
 }
+
 .hitmontop {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .smoochum {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .elekid {
-	transform: scale(1.3) translateY(-2rem) translateX(0rem);
+  transform: scale(1.3) translateY(-2rem) translateX(0rem);
 }
+
 .magby {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .miltank {
-	transform: scalex(-1) translateY(2rem) translateX(1rem);
+  transform: scalex(-1) translateY(2rem) translateX(1rem);
 }
+
 .blissey {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .raikou {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .entei {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .suicune {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .larvitar {
 }
+
 .pupitar {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .tyranitar {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+  transform: scale(1.2) translateY(-2rem) translateX(3rem);
 }
+
 .mega-tyranitar {
-	transform: scale(1.3) translateY(-3rem) translateX(3rem);
+  transform: scale(1.3) translateY(-3rem) translateX(3rem);
 }
+
 .lugia {
-	transform: scale(1.4) translateY(-3rem) translateX(2rem);
+  transform: scale(1.4) translateY(-3rem) translateX(2rem);
 }
+
 .ho-oh {
-	transform: scalex(-1.4) scaley(1.4) translateY(-3rem) translateX(-2rem);
+  transform: scalex(-1.4) scaley(1.4) translateY(-3rem) translateX(-2rem);
 }
+
 .celebi {
-	transform: scale(0.8) translateY(-3rem) translateX(2rem);
+  transform: scale(0.8) translateY(-3rem) translateX(2rem);
 }
+
 .treecko {
 }
+
 .grovyle {
-	transform: scale(1.1) translateX(2rem);
+  transform: scale(1.1) translateX(2rem);
 }
+
 .sceptile {
-	transform: scale(1.2) translateY(0rem) translateX(2rem);
+  transform: scale(1.2) translateY(0rem) translateX(2rem);
 }
+
 .mega-sceptile {
-	transform: scale(1.6) translateY(-2.5rem) translateX(-4rem);
+  transform: scale(1.6) translateY(-2.5rem) translateX(-4rem);
 }
+
 .torchic {
 }
+
 .combusken {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .blaziken {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-1rem);
 }
+
 .mega-blaziken {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .mudkip {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .marshtomp {
-	transform: scalex(-1.2) scaley(1.2) translateY(1rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(1rem);
 }
+
 .swampert {
-	transform: scale(1.6) translateY(-2.5rem) translateX(2rem);
+  transform: scale(1.6) translateY(-2.5rem) translateX(2rem);
 }
+
 .mega-swampert {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .poochyena {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .mightyena {
-	transform: translateY(1rem) translateX(3rem);
+  transform: translateY(1rem) translateX(3rem);
 }
+
 .zigzagoon {
-	transform: translateY(0rem) translateX(3rem);
+  transform: translateY(0rem) translateX(3rem);
 }
+
 .galarian-zigzagoon {
-	transform: scale(0.8) translateY(-1rem) translateX(2rem);
+  transform: scale(0.8) translateY(-1rem) translateX(2rem);
 }
+
 .linoone {
-	transform: scale(1.8) translateY(-6rem) translateX(4rem);
+  transform: scale(1.8) translateY(-6rem) translateX(4rem);
 }
+
 .galarian-linoone {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-4rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-4rem);
 }
+
 .wurmple {
-	transform: scale(0.8) translateY(2rem) translateX(-1rem);
+  transform: scale(0.8) translateY(2rem) translateX(-1rem);
 }
+
 .silcoon {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .beautifly {
-	transform: scale(1.1) translateY(-2rem) translateX(4rem);
+  transform: scale(1.1) translateY(-2rem) translateX(4rem);
 }
+
 .cascoon {
-	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-2rem);
+  transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-2rem);
 }
+
 .dustox {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
 }
+
 .lotad {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .lombre {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .ludicolo {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .seedot {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .nuzleaf {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .shiftry {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .taillow {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .swellow {
-	transform: scale(1.2) translateY(-1rem) translateX(4rem);
+  transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
+
 .wingull {
-	transform: translatex(2rem);
+  transform: translatex(2rem);
 }
+
 .pelipper {
-	transform: translatex(1rem);
+  transform: translatex(1rem);
 }
+
 .ralts {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .kirlia {
 }
+
 .gardevoir {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-4rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-4rem);
 }
+
 .mega-gardevoir {
-	transform: scale(1.2) translateY(-1rem) translateX(3rem);
+  transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
+
 .surskit {
 }
+
 .masquerain {
-	transform: scale(1.2) translateY(-4rem) translateX(2rem);
+  transform: scale(1.2) translateY(-4rem) translateX(2rem);
 }
+
 .shroomish {
 }
+
 .breloom {
-	transform: scale(1.1) translateX(3rem);
+  transform: scale(1.1) translateX(3rem);
 }
+
 .slakoth {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .vigoroth {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .slaking {
-	transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1.4) scaley(1.4) translateY(-2rem) translateX(-2rem);
 }
+
 .nincada {
 }
+
 .ninjask {
-	transform: scale(1.1) translateX(3rem);
+  transform: scale(1.1) translateX(3rem);
 }
+
 .shedinja {
-	transform: translateX(3rem) translatey(-1rem);
+  transform: translateX(3rem) translatey(-1rem);
 }
+
 .whismur {
-	transform: scaleX(-0.9) scaleY(0.9) translateY(1rem) translatex(1rem);
+  transform: scaleX(-0.9) scaleY(0.9) translateY(1rem) translatex(1rem);
 }
+
 .loudred {
 }
+
 .exploud {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .makuhita {
 }
+
 .hariyama {
-	transform: scale(1.1) translatex(3rem);
+  transform: scale(1.1) translatex(3rem);
 }
+
 .azurill {
-	transform: scale(0.8) translatey(2rem) translatex(2rem);
+  transform: scale(0.8) translatey(2rem) translatex(2rem);
 }
+
 .nosepass {
-	transform: scalex(-1) translateY(-1rem) translatex(1rem);
+  transform: scalex(-1) translateY(-1rem) translatex(1rem);
 }
+
 .skitty {
 }
+
 .delcatty {
 }
+
 .sableye {
 }
+
 .mega-sableye {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .mawile {
-	transform: translateX(-2rem);
+  transform: translateX(-2rem);
 }
+
 .mega-mawile {
-	transform: scalex(-1) translateX(3rem);
+  transform: scalex(-1) translateX(3rem);
 }
+
 .aron {
-	transform: scale(0.8) translatey(3rem) translatex(2rem);
+  transform: scale(0.8) translatey(3rem) translatex(2rem);
 }
+
 .lairon {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .aggron {
-	transform: scale(1.1) translateY(0rem) translateX(2rem);
+  transform: scale(1.1) translateY(0rem) translateX(2rem);
 }
+
 .mega-aggron {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
+
 .meditite {
-	transform: scale(0.8) translateY(4rem) translateX(2rem);
+  transform: scale(0.8) translateY(4rem) translateX(2rem);
 }
+
 .medicham {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .mega-medicham {
-	transform: scale(1.1) translateY(-1rem) translatex(1rem);
+  transform: scale(1.1) translateY(-1rem) translatex(1rem);
 }
+
 .electrike {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .manectric {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .mega-manectric {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .plusle {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .minun {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .volbeat {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .illumise {
 }
+
 .roselia {
 }
+
 .gulpin {
 }
+
 .swalot {
-	transform: scaleX(-1) translateX(-2rem);
+  transform: scaleX(-1) translateX(-2rem);
 }
+
 .carvanha {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .sharpedo {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .mega-sharpedo {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .wailmer {
-	transform: scale(1.4) translateX(3rem);
+  transform: scale(1.4) translateX(3rem);
 }
+
 .wailord {
-	transform: scale(2.4) translateX(4rem);
+  transform: scale(2.4) translateX(4rem);
 }
+
 .numel {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .camerupt {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .mega-camerupt {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .torkoal {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .spoink {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .grumpig {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .spinda {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .trapinch {
-	transform: scale(0.9) translateY(2rem) translateX(1rem);
+  transform: scale(0.9) translateY(2rem) translateX(1rem);
 }
+
 .vibrava {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+  transform: scale(1.3) translateY(-3rem) translateX(2rem);
 }
+
 .flygon {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+  transform: scale(1.3) translateY(-3rem) translateX(1rem);
 }
+
 .cacnea {
 }
+
 .cacturne {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .swablu {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .altaria {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .mega-altaria {
-	transform: scale(1.5) translateY(1rem) translateX(1rem);
+  transform: scale(1.5) translateY(1rem) translateX(1rem);
 }
+
 .zangoose {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+  transform: scale(1.2) translateY(-2rem) translateX(3rem);
 }
+
 .seviper {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .lunatone {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .solrock {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .barboach {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .whiscash {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .corphish {
 }
+
 .crawdaunt {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .baltoy {
-	transform: scale(0.9) translateY(3rem) translateX(1rem);
+  transform: scale(0.9) translateY(3rem) translateX(1rem);
 }
+
 .claydol {
-	transform: translateY(-1rem) translateX(-1rem);
+  transform: translateY(-1rem) translateX(-1rem);
 }
+
 .lileep {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .cradily {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .anorith {
 }
+
 .armaldo {
-	transform: scale(1.3) translateY(-1rem) translateX(4rem);
+  transform: scale(1.3) translateY(-1rem) translateX(4rem);
 }
+
 .feebas {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .milotic {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .castform {
 }
+
 .castform-sunny {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .castform-rainy {
 }
+
 .castform-snowy {
 }
+
 .kecleon {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .shuppet {
-	transform: scale(0.8) translateY(-2rem) translateX(1rem);
+  transform: scale(0.8) translateY(-2rem) translateX(1rem);
 }
+
 .banette {
 }
+
 .mega-banette {
-	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+  transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
+
 .duskull {
-	transform: scale(0.8) translateY(-2rem) translateX(1rem);
+  transform: scale(0.8) translateY(-2rem) translateX(1rem);
 }
+
 .dusclops {
-	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+  transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
+
 .tropius {
-	transform: scale(1.1) translateY(-1rem) translateX(-3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-3rem);
 }
+
 .chimecho {
 }
+
 .absol {
-	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(-1rem);
 }
+
 .mega-absol {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .wynaut {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .snorunt {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .glalie {
-	transform: translateY(-2rem) translateX(2rem);
+  transform: translateY(-2rem) translateX(2rem);
 }
+
 .mega-glalie {
-	transform: scalex(-1) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1) translateY(-2rem) translateX(-1rem);
 }
+
 .spheal {
-	transform: scale(0.9) translateY(1rem) translateX(4rem);
+  transform: scale(0.9) translateY(1rem) translateX(4rem);
 }
+
 .sealeo {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-4rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-4rem);
 }
+
 .walrein {
-	transform: scale(1.3) translateY(0rem) translateX(4rem);
+  transform: scale(1.3) translateY(0rem) translateX(4rem);
 }
+
 .clamperl {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .huntail {
-	transform: scale(1.1) translateY(-2rem) translateX(4rem);
+  transform: scale(1.1) translateY(-2rem) translateX(4rem);
 }
+
 .gorebyss {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+  transform: scale(1.1) translateY(-2rem) translateX(2rem);
 }
+
 .relicanth {
-	transform: scale(1.1) translateY(-2rem) translateX(3rem);
+  transform: scale(1.1) translateY(-2rem) translateX(3rem);
 }
+
 .luvdisc {
-	transform: scale(0.8) translateY(-2rem);
+  transform: scale(0.8) translateY(-2rem);
 }
 
 .bagon {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .shelgon {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .salamence {
-	transform: scale(1.4) translateY(-1rem) translateX(4rem);
+  transform: scale(1.4) translateY(-1rem) translateX(4rem);
 }
+
 .mega-salamence {
-	transform: scale(1.9) translateY(-2rem) translateX(2rem);
+  transform: scale(1.9) translateY(-2rem) translateX(2rem);
 }
+
 .beldum {
-	transform: scale(0.9) translateY(-2rem) translateX(4rem);
+  transform: scale(0.9) translateY(-2rem) translateX(4rem);
 }
+
 .metang {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .metagross {
-	transform: scale(1.5) translateY(-2rem) translateX(0rem);
+  transform: scale(1.5) translateY(-2rem) translateX(0rem);
 }
+
 .mega-metagross {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .regirock {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .regice {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .registeel {
-	transform: scale(1.4) translateY(-4rem) translateX(1rem);
+  transform: scale(1.4) translateY(-4rem) translateX(1rem);
 }
+
 .latias {
-	transform: translateY(-2rem) translateX(4rem);
+  transform: translateY(-2rem) translateX(4rem);
 }
+
 .mega-latias {
-	transform: scalex(-1.2) scaley(1.2) translateY(-3rem) translateX(0rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-3rem) translateX(0rem);
 }
+
 .latios {
-	transform: scale(1.3) translateY(-4rem) translateX(3rem);
+  transform: scale(1.3) translateY(-4rem) translateX(3rem);
 }
+
 .mega-latios {
-	transform: scale(1.5) translateY(-2rem) translateX(4rem);
+  transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
+
 .kyogre {
-	transform: scale(1.7) translateY(-1rem) translateX(3rem);
+  transform: scale(1.7) translateY(-1rem) translateX(3rem);
 }
+
 .kyogre-primal {
-	transform: scale(1.8) translateY(-2rem) translateX(2rem);
+  transform: scale(1.8) translateY(-2rem) translateX(2rem);
 }
+
 .groudon {
-	transform: scalex(-1.5) scaley(1.5) translateY(-1rem) translateX(-4rem);
+  transform: scalex(-1.5) scaley(1.5) translateY(-1rem) translateX(-4rem);
 }
+
 .groudon-primal {
-	transform: scalex(-1.8) scaley(1.8) translateY(-3rem) translateX(-4rem);
+  transform: scalex(-1.8) scaley(1.8) translateY(-3rem) translateX(-4rem);
 }
+
 .rayquaza {
-	transform: scale(1.4) translateY(-2rem) translateX(4rem);
+  transform: scale(1.4) translateY(-2rem) translateX(4rem);
 }
+
 .mega-rayquaza {
-	transform: scale(1.8) translateY(-2rem) translateX(5rem);
+  transform: scale(1.8) translateY(-2rem) translateX(5rem);
 }
+
 .jirachi {
 }
+
 .deoxys-normal {
-	transform: scale(1.3) translateY(0rem) translateX(2rem);
+  transform: scale(1.3) translateY(0rem) translateX(2rem);
 }
+
 .deoxys-attack {
-	transform: scale(1.3) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-1rem) translateX(-1rem);
 }
+
 .deoxys-defense {
-	transform: scalex(-1.3) scaley(1.3) translateY(-1rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-1rem);
 }
+
 .deoxys-speed {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .turtwig {
 }
+
 .grotle {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .torterra {
-	transform: scale(1.5) translateY(-2rem) translateX(4rem);
+  transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
+
 .chimchar {
 }
+
 .monferno {
-	transform: scale(1.1) translateY(-4rem) translateX(3rem);
+  transform: scale(1.1) translateY(-4rem) translateX(3rem);
 }
+
 .infernape {
-	transform: scale(1.4) translateY(-1rem) translateX(2rem);
+  transform: scale(1.4) translateY(-1rem) translateX(2rem);
 }
+
 .piplup {
-	transform: scalex(-0.8) scaley(0.8) translateY(3rem);
+  transform: scalex(-0.8) scaley(0.8) translateY(3rem);
 }
+
 .prinplup {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .empoleon {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .starly {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .staravia {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .staraptor {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .bidoof {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .bibarel {
-	transform: scale(1.1) translateY(-1rem) translateX(-2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-2rem);
 }
+
 .kricketot {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .kricketune {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .shinx {
-	transform: scalex(-1) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1) translateY(0rem) translateX(-2rem);
 }
+
 .luxio {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .luxray {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .budew {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .roserade {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .cranidos {
-	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-1rem);
+  transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-1rem);
 }
+
 .rampardos {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
 }
+
 .shieldon {
-	transform: scale(0.8) translateY(3rem) translateX(3rem);
+  transform: scale(0.8) translateY(3rem) translateX(3rem);
 }
+
 .bastiodon {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .burmy-plant-cloak {
 }
+
 .burmy-sandy-cloak {
 }
+
 .burmy-trash-cloak {
 }
+
 .wormadam-plant-cloak {
-	transform: scale(1.3) translateY(-3rem) translateX(0rem);
+  transform: scale(1.3) translateY(-3rem) translateX(0rem);
 }
+
 .wormadam-sandy-cloak {
-	transform: scalex(-1.3) scaley(1.3) translateY(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-3rem);
 }
+
 .wormadam-trash-cloak {
-	transform: scale(1.3) translateY(-3rem) translateX(1rem);
+  transform: scale(1.3) translateY(-3rem) translateX(1rem);
 }
+
 .mothim {
-	transform: scale(1.4) translateY(-2rem) translateX(1rem);
+  transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
+
 .combee {
-	transform: translateY(-3rem) translateX(2rem);
+  transform: translateY(-3rem) translateX(2rem);
 }
+
 .vespiquen {
-	transform: scale(1.1) translateY(-3rem) translateX(-1rem);
+  transform: scale(1.1) translateY(-3rem) translateX(-1rem);
 }
+
 .pachirisu {
-	transform: scale(0.9) translateY(1rem) translateX(4rem);
+  transform: scale(0.9) translateY(1rem) translateX(4rem);
 }
+
 .buizel {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .floatzel {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .cherubi {
-	transform: scale(0.8) translateY(2rem) translateX(0rem);
+  transform: scale(0.8) translateY(2rem) translateX(0rem);
 }
+
 .cherrim {
 }
+
 .shellos-west-sea {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .shellos-east-sea {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .gastrodon-west-sea {
-	transform: scale(1.1) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-1rem);
 }
+
 .gastrodon-east-sea {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .ambipom {
-	transform: scale(1.4) translateY(-2rem);
+  transform: scale(1.4) translateY(-2rem);
 }
+
 .drifloon {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .drifblim {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .buneary {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .lopunny {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .mega-lopunny {
-	transform: scale(1.2) translateY(-1rem) translateX(3rem);
+  transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
+
 .mismagius {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .honchkrow {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .glameow {
-	transform: scale(0.9) translateY(1rem) translateX(3rem);
+  transform: scale(0.9) translateY(1rem) translateX(3rem);
 }
+
 .purugly {
 }
+
 .chingling {
-	transform: scale(0.8) translateY(-6rem) translateX(3rem);
+  transform: scale(0.8) translateY(-6rem) translateX(3rem);
 }
+
 .stunky {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .skuntank {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .bronzor {
-	transform: scale(0.8) translateY(-4rem) translateX(1rem);
+  transform: scale(0.8) translateY(-4rem) translateX(1rem);
 }
+
 .bronzong {
-	transform: scale(1.6) translateY(-2rem) translateX(1rem);
+  transform: scale(1.6) translateY(-2rem) translateX(1rem);
 }
+
 .bonsly {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .mime-jr {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .happiny {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .chatot {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .spiritomb {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .gible {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .gabite {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .garchomp {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .mega-garchomp {
-	transform: scale(1.7) translateY(-3rem) translateX(2rem);
+  transform: scale(1.7) translateY(-3rem) translateX(2rem);
 }
+
 .munchlax {
 }
+
 .riolu {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .lucario {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .mega-lucario {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(1rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .hippopotas {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .hippowdon {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .skorupi {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .drapion {
-	transform: scale(1.7) translateY(-3rem) translateX(1rem);
+  transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
 
 .croagunk {
-	transform: scale(0.8) translateY(2rem) translateX(2rem);
+  transform: scale(0.8) translateY(2rem) translateX(2rem);
 }
+
 .toxicroak {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .carnivine {
-	transform: scale(1.1) translateY(-2rem) translateX(0rem);
+  transform: scale(1.1) translateY(-2rem) translateX(0rem);
 }
+
 .finneon {
-	transform: scale(0.8) translateY(-4rem) translateX(2rem);
+  transform: scale(0.8) translateY(-4rem) translateX(2rem);
 }
+
 .lumineon {
-	transform: translateY(-4rem) translateX(3rem);
+  transform: translateY(-4rem) translateX(3rem);
 }
+
 .mantyke {
-	transform: scale(0.9) translateY(-4rem) translateX(3rem);
+  transform: scale(0.9) translateY(-4rem) translateX(3rem);
 }
+
 .snover {
 }
+
 .abomasnow {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .mega-abomasnow {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .weavile {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .magnezone {
-	transform: scale(1.1) translateY(-3rem) translateX(0rem);
+  transform: scale(1.1) translateY(-3rem) translateX(0rem);
 }
+
 .lickilicky {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .rhyperior {
-	transform: scale(1.6) translateY(-2rem) translateX(2rem);
+  transform: scale(1.6) translateY(-2rem) translateX(2rem);
 }
+
 .tangrowth {
-	transform: scale(1.7) translateY(-3rem) translateX(1rem);
+  transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
+
 .electivire {
-	transform: scale(1.5) translateY(-2rem) translateX(2rem);
+  transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
+
 .magmortar {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .togekiss {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
+
 .yanmega {
-	transform: scale(1.2) translateY(-7rem) translateX(2rem);
+  transform: scale(1.2) translateY(-7rem) translateX(2rem);
 }
+
 .leafeon {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .glaceon {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-3rem);
 }
+
 .gliscor {
-	transform: scale(1.2) translateY(-1rem) translateX(0rem);
+  transform: scale(1.2) translateY(-1rem) translateX(0rem);
 }
+
 .mamoswine {
-	transform: scale(1.3) translateY(-1rem);
+  transform: scale(1.3) translateY(-1rem);
 }
+
 .porygon-z {
 }
+
 .gallade {
-	transform: scale(1.2) translateY(-2rem);
+  transform: scale(1.2) translateY(-2rem);
 }
+
 .mega-gallade {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .probopass {
-	transform: scale(1.1) translateY(-4rem) translateX(1rem);
+  transform: scale(1.1) translateY(-4rem) translateX(1rem);
 }
+
 .dusknoir {
-	transform: scalex(-1.3) scaley(1.3) translateY(-4rem) translateX(1rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-4rem) translateX(1rem);
 }
+
 .froslass {
-	transform: scale(1.1) translateY(-3rem) translateX(0rem);
+  transform: scale(1.1) translateY(-3rem) translateX(0rem);
 }
+
 .rotom {
-	transform: scalex(-1) translateX(1rem);
+  transform: scalex(-1) translateX(1rem);
 }
+
 .rotom-heat {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .rotom-wash {
-	transform: scale(1.1) translateY(-5rem) translateX(1rem);
+  transform: scale(1.1) translateY(-5rem) translateX(1rem);
 }
+
 .rotom-frost {
-	transform: scalex(-1.2) scaley(1.2) translateY(-6rem) translateX(-1rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-6rem) translateX(-1rem);
 }
+
 .rotom-fan {
 }
+
 .rotom-mow {
-	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
+  transform: scalex(-1) translateY(-1rem) translateX(-1rem);
 }
+
 .uxie {
-	transform: scale(0.9) translateY(-4rem) translateX(2rem);
+  transform: scale(0.9) translateY(-4rem) translateX(2rem);
 }
+
 .mesprit {
-	transform: translateY(-4rem);
+  transform: translateY(-4rem);
 }
+
 .azelf {
-	transform: scalex(-1) translateY(-4rem) translateX(-1rem);
+  transform: scalex(-1) translateY(-4rem) translateX(-1rem);
 }
+
 .dialga {
-	transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-3rem);
 }
+
 .dialga-origin {
-	transform: scale(1.5) translateY(-1rem) translateX(2rem);
+  transform: scale(1.5) translateY(-1rem) translateX(2rem);
 }
+
 .palkia {
-	transform: scale(1.5) translateY(-1rem) translateX(4rem);
+  transform: scale(1.5) translateY(-1rem) translateX(4rem);
 }
+
 .palkia-origin {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-2rem);
 }
+
 .heatran {
-	transform: scale(1.5) translateY(-1rem) translateX(2rem);
+  transform: scale(1.5) translateY(-1rem) translateX(2rem);
 }
+
 .regigigas {
-	transform: scale(1.7) translateY(-3rem) translateX(1rem);
+  transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
+
 .giratina-altered {
-	transform: scale(1.6) translateY(-2rem) translateX(1rem);
+  transform: scale(1.6) translateY(-2rem) translateX(1rem);
 }
+
 .giratina-origin {
-	transform: scale(1.5) translateY(-3rem) translateX(4rem);
+  transform: scale(1.5) translateY(-3rem) translateX(4rem);
 }
+
 .cresselia {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-2rem);
 }
+
 .phione {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .manaphy {
-	transform: scale(1.2) translateX(2rem);
+  transform: scale(1.2) translateX(2rem);
 }
+
 .darkrai {
-	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+  transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
+
 .shaymin-land {
-	transform: scale(0.8) translateY(2rem) translateX(3rem);
+  transform: scale(0.8) translateY(2rem) translateX(3rem);
 }
+
 .shaymin-sky {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .arceus {
-	transform: scale(1.5) translateY(-2rem) translateX(2rem);
+  transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
+
 .victini {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .snivy {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .servine {
-	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
 }
+
 .serperior {
-	transform: scale(1.3) translateY(0rem) translateX(2rem);
+  transform: scale(1.3) translateY(0rem) translateX(2rem);
 }
+
 .tepig {
-	transform: scalex(-1) translateY(-1rem) translateX(-1rem);
+  transform: scalex(-1) translateY(-1rem) translateX(-1rem);
 }
+
 .pignite {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .emboar {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .oshawott {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .dewott {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .samurott {
-	transform: scale(1.4) translateY(-1rem) translateX(3rem);
+  transform: scale(1.4) translateY(-1rem) translateX(3rem);
 }
+
 .hisuian-samurott {
-	transform: scale(1.4) translateY(-2rem) translateX(2rem);
+  transform: scale(1.4) translateY(-2rem) translateX(2rem);
 }
+
 .patrat {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .watchog {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .lillipup {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .herdier {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .stoutland {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .purrloin {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .liepard {
-	transform: scale(1.1) translateY(0rem) translateX(4rem);
+  transform: scale(1.1) translateY(0rem) translateX(4rem);
 }
+
 .pansage {
 }
+
 .simisage {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .pansear {
 }
+
 .simisear {
 }
+
 .panpour {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .simipour {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .munna {
-	transform: scale(0.8) translateY(-4rem) translateX(3rem);
+  transform: scale(0.8) translateY(-4rem) translateX(3rem);
 }
+
 .musharna {
-	transform: scale(1.3) translateY(-5rem) translateX(0rem);
+  transform: scale(1.3) translateY(-5rem) translateX(0rem);
 }
+
 .pidove {
-	transform: scale(0.8) translateY(3rem);
+  transform: scale(0.8) translateY(3rem);
 }
+
 .tranquill {
 }
+
 .unfezant {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .blitzle {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .zebstrika {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .roggenrola {
-	transform: scale(0.9) translateY(2rem) translateX(1rem);
+  transform: scale(0.9) translateY(2rem) translateX(1rem);
 }
+
 .boldore {
 }
+
 .gigalith {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .woobat {
 }
+
 .swoobat {
-	transform: translateY(-4rem) translateX(1rem);
+  transform: translateY(-4rem) translateX(1rem);
 }
+
 .drilbur {
 }
+
 .excadrill {
-	transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-2rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-1rem) translateX(-2rem);
 }
+
 .audino {
 }
+
 .mega-audino {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .timburr {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .gurdurr {
 }
+
 .conkeldurr {
-	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(-1rem);
 }
+
 .tympole {
-	transform: scale(0.8) translateY(-1rem) translateX(1rem);
+  transform: scale(0.8) translateY(-1rem) translateX(1rem);
 }
+
 .palpitoad {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .seismitoad {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .throh {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-1rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(-1rem);
 }
+
 .sawk {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .sewaddle {
-	transform: scale(0.8) translateY(3rem) translateX(0rem);
+  transform: scale(0.8) translateY(3rem) translateX(0rem);
 }
+
 .swadloon {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .leavanny {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .venipede {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .whirlipede {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .scolipede {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .cottonee {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .whimsicott {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .petilil {
 }
+
 .lilligant {
 }
+
 .hisuian-lilligant {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .basculin-red-stripe {
 }
+
 .basculin-blue-stripe {
-	transform: scale(1.2) translateY(0rem) translateX(4rem);
+  transform: scale(1.2) translateY(0rem) translateX(4rem);
 }
+
 .basculin-white-stripe {
-	transform: translateY(-2rem) translateX(3rem);
+  transform: translateY(-2rem) translateX(3rem);
 }
+
 .sandile {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .krokorok {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .krookodile {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .darumaka {
-	transform: scale(0.9) translateY(2rem) translateX(1rem);
+  transform: scale(0.9) translateY(2rem) translateX(1rem);
 }
+
 .galarian-darumaka {
-	transform: scale(0.9) translateY(3rem);
+  transform: scale(0.9) translateY(3rem);
 }
+
 .darmanitan {
-	transform: scale(1.2) translateY(0rem);
+  transform: scale(1.2) translateY(0rem);
 }
+
 .galarian-darmanitan {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(1rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .darmanitan-zen {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .galarian-darmanitan-zen {
-	transform: scale(1.2) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(-1rem);
 }
+
 .maractus {
 }
+
 .dwebble {
-	transform: scale(0.8) translateY(4rem) translateX(1rem);
+  transform: scale(0.8) translateY(4rem) translateX(1rem);
 }
+
 .crustle {
-	transform: scale(1.2) translateY(-2rem) translateX(2rem);
+  transform: scale(1.2) translateY(-2rem) translateX(2rem);
 }
+
 .scraggy {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .scrafty {
-	transform: scale(1.1) translateY(-1rem) translateX(2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(2rem);
 }
+
 .sigilyph {
-	transform: scale(1.2) translateY(-4rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-4rem) translateX(-1rem);
 }
+
 .yamask {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .galarian-yamask {
 }
+
 .cofagrigus {
-	transform: scale(1.4) translateY(-3rem) translateX(-2rem);
+  transform: scale(1.4) translateY(-3rem) translateX(-2rem);
 }
+
 .tirtouga {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .carracosta {
-	transform: scale(1.1) translateY(0rem) translateX(1rem);
+  transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
+
 .archen {
-	transform: translateY(1rem) translateX(2rem);
+  transform: translateY(1rem) translateX(2rem);
 }
+
 .archeops {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .trubbish {
-	transform: translateY(2rem) translateX(2rem);
+  transform: translateY(2rem) translateX(2rem);
 }
+
 .garbodor {
-	transform: scale(1.3) translateY(-1rem) translateX(0rem);
+  transform: scale(1.3) translateY(-1rem) translateX(0rem);
 }
+
 .gigantamax-garbodor {
-	transform: scale(1.6) translateY(-2rem) translateX(1rem);
+  transform: scale(1.6) translateY(-2rem) translateX(1rem);
 }
+
 .zorua {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .hisuian-zorua {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .zoroark {
-	transform: scale(1.2) translateY(0rem) translateX(3rem);
+  transform: scale(1.2) translateY(0rem) translateX(3rem);
 }
+
 .hisuian-zoroark {
-	transform: scale(1.5) translateY(-2rem) translateX(0rem);
+  transform: scale(1.5) translateY(-2rem) translateX(0rem);
 }
+
 .minccino {
-	transform: translatey(0rem) translateX(2rem);
+  transform: translatey(0rem) translateX(2rem);
 }
+
 .cinccino {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .gothita {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .gothorita {
-	transform: scalex(-1) translateY(0rem) translateX(-1rem);
+  transform: scalex(-1) translateY(0rem) translateX(-1rem);
 }
+
 .gothitelle {
-	transform: scale(1.1) translateY(0rem) translateX(1rem);
+  transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
+
 .solosis {
-	transform: scale(0.6) translateY(-1rem) translateX(1rem);
+  transform: scale(0.6) translateY(-1rem) translateX(1rem);
 }
+
 .duosion {
-	transform: scale(0.6) translateY(-1rem) translateX(1rem);
+  transform: scale(0.6) translateY(-1rem) translateX(1rem);
 }
+
 .reuniclus {
-	transform: scale(1.5) translateY(-1rem) translateX(1rem);
+  transform: scale(1.5) translateY(-1rem) translateX(1rem);
 }
+
 .ducklett {
-	transform: scale(0.9) translateY(1rem) translateX(-1rem);
+  transform: scale(0.9) translateY(1rem) translateX(-1rem);
 }
+
 .swanna {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .vanillite {
-	transform: scale(0.8) translateY(-1rem) translateX(1rem);
+  transform: scale(0.8) translateY(-1rem) translateX(1rem);
 }
+
 .vanillish {
 }
+
 .vanilluxe {
 }
+
 .deerling-spring {
 }
+
 .deerling-summer {
 }
+
 .deerling-autumn {
 }
+
 .deerling-winter {
 }
+
 .sawsbuck-spring {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .sawsbuck-summer {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .sawsbuck-autumn {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .sawsbuck-winter {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .emolga {
-	transform: translateY(-3rem) translateX(3rem);
+  transform: translateY(-3rem) translateX(3rem);
 }
+
 .karrablast {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .escavalier {
-	transform: scale(1.1) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.1) translateY(-2rem) translateX(-1rem);
 }
+
 .foongus {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .amoonguss {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .frillish-male {
 }
+
 .frillish-female {
 }
+
 .jellicent-male {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .jellicent-female {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .alomomola {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .joltik {
-	transform: scale(0.8) translateY(2rem) translateX(-1rem);
+  transform: scale(0.8) translateY(2rem) translateX(-1rem);
 }
+
 .galvantula {
-	transform: scale(1.1) translateY(0rem) translateX(1rem);
+  transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
+
 .ferroseed {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .ferrothorn {
-	transform: scale(1.3) translateY(-3rem);
+  transform: scale(1.3) translateY(-3rem);
 }
+
 .klink {
 }
+
 .klang {
 }
+
 .klinklang {
-	transform: scale(1.3) translateY(0rem) translateX(1rem);
+  transform: scale(1.3) translateY(0rem) translateX(1rem);
 }
+
 .tynamo {
-	transform: scale(0.7) translateY(-1rem) translateX(4rem);
+  transform: scale(0.7) translateY(-1rem) translateX(4rem);
 }
+
 .eelektrik {
-	transform: translateY(-2rem) translateX(2rem);
+  transform: translateY(-2rem) translateX(2rem);
 }
+
 .eelektross {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+  transform: scale(1.3) translateY(-3rem) translateX(2rem);
 }
+
 .elgyem {
-	transform: scalex(-1) translateY(-1rem) translateX(-2rem);
+  transform: scalex(-1) translateY(-1rem) translateX(-2rem);
 }
+
 .beheeyem {
-	transform: scale(1.1) translateY(-3rem) translateX(1rem);
+  transform: scale(1.1) translateY(-3rem) translateX(1rem);
 }
+
 .litwick {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .lampent {
 }
+
 .chandelure {
-	transform: scale(1.2) translateY(-6rem) translateX(1rem);
+  transform: scale(1.2) translateY(-6rem) translateX(1rem);
 }
+
 .axew {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .fraxure {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .haxorus {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .cubchoo {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .beartic {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .cryogonal {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .shelmet {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .accelgor {
-	transform: scalex(-1.1) scaley(1.1) translateY(-4rem) translateX(-5rem);
+  transform: scalex(-1.1) scaley(1.1) translateY(-4rem) translateX(-5rem);
 }
+
 .stunfisk {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .galarian-stunfisk {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .mienfoo {
-	transform: scale(0.9) translateY(1rem) translateX(-1rem);
+  transform: scale(0.9) translateY(1rem) translateX(-1rem);
 }
+
 .mienshao {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .druddigon {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .golett {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .golurk {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .pawniard {
-	transform: translateX(-3rem);
+  transform: translateX(-3rem);
 }
+
 .bisharp {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 .bouffalant {
-	transform: scale(1.3) translateY(-2rem);
+  transform: scale(1.3) translateY(-2rem);
 }
+
 .rufflet {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .braviary {
-	transform: scale(1.2) translateY(-3rem) translateX(3rem);
+  transform: scale(1.2) translateY(-3rem) translateX(3rem);
 }
+
 .hisuian-braviary {
-	transform: scale(1.2) translateY(-3rem) translateX(2rem);
+  transform: scale(1.2) translateY(-3rem) translateX(2rem);
 }
+
 .vullaby {
 }
+
 .mandibuzz {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .heatmor {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .durant {
 }
+
 .deino {
 }
+
 .zweilous {
 }
+
 .hydreigon {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .larvesta {
-	transform: scale(0.8) translateY(2rem) translateX(2rem);
+  transform: scale(0.8) translateY(2rem) translateX(2rem);
 }
+
 .volcarona {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .cobalion {
-	transform: scale(1.3) translateY(-2rem) translateX(2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(2rem);
 }
+
 .terrakion {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .virizion {
-	transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-2rem) translateX(-3rem);
 }
+
 .tornadus {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .tornadus-therian {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .thundurus {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .thundurus-therian {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .reshiram {
-	transform: scalex(-1.3) scaley(1.3) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1.3) scaley(1.3) translateY(-1rem) translateX(-3rem);
 }
+
 .zekrom {
-	transform: scale(1.7) translateY(-1rem) translateX(2rem);
+  transform: scale(1.7) translateY(-1rem) translateX(2rem);
 }
 
 .landorus {
-	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-2rem);
 }
+
 .landorus-therian {
-	transform: scale(1.3) translateY(-3rem) translateX(2rem);
+  transform: scale(1.3) translateY(-3rem) translateX(2rem);
 }
+
 .kyurem {
-	transform: scale(1.5) translateY(-3rem) translateX(4rem);
+  transform: scale(1.5) translateY(-3rem) translateX(4rem);
 }
+
 .kyurem-black {
-	transform: scalex(-1.5) scaleY(1.5) translateY(-2rem) translateX(-4rem);
+  transform: scalex(-1.5) scaleY(1.5) translateY(-2rem) translateX(-4rem);
 }
+
 .kyurem-white {
-	transform: scale(1.5) translateY(-2rem) translateX(4rem);
+  transform: scale(1.5) translateY(-2rem) translateX(4rem);
 }
+
 .keldeo-ordinary {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .keldeo-resolute {
-	transform: scalex(-0.9) scaleY(0.9) translateY(1rem);
+  transform: scalex(-0.9) scaleY(0.9) translateY(1rem);
 }
+
 .meloetta-aria {
 }
+
 .meloetta-pirouette {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(1rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .genesect {
-	transform: scale(1.1) translateX(2rem);
+  transform: scale(1.1) translateX(2rem);
 }
+
 .chespin {
 }
+
 .quilladin {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .chesnaught {
-	transform: scale(1.5) translateY(-2rem);
+  transform: scale(1.5) translateY(-2rem);
 }
+
 .fennekin {
 }
+
 .braixen {
 }
+
 .delphox {
-	transform: scale(1.5) translateY(-2rem) translateX(2rem);
+  transform: scale(1.5) translateY(-2rem) translateX(2rem);
 }
+
 .froakie {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
 
 .frogadier {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .greninja {
-	transform: scale(1.5) translateY(-2rem);
+  transform: scale(1.5) translateY(-2rem);
 }
+
 .bunnelby {
 }
+
 .diggersby {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .fletchling {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .fletchinder {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .talonflame {
-	transform: scale(1.7) translateY(-3rem) translateX(3rem);
+  transform: scale(1.7) translateY(-3rem) translateX(3rem);
 }
+
 .scatterbug {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .spewpa {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .vivillon-archipelago {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-continental {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-elegant {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-fancy {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-garden {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-high-plains {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-icy-snow {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-jungle {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-marine {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-meadow {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-mordern {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-monsoon {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-ocean {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-poke-ball {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-polar {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-river {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-sandstorm {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-savanna {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-sun {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .vivillon-tundra {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .litleo {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .pyroar {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-3rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-3rem);
 }
+
 .flabebe-red-flower {
-	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(-1rem);
 }
+
 .flabebe-yellow-flower {
-	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(-1rem);
 }
+
 .flabebe-orange-flower {
-	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(-1rem);
 }
+
 .flabebe-blue-flower {
-	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(-1rem);
 }
+
 .flabebe-white-flower {
-	transform: scale(0.8) translateY(-3rem) translateX(-1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(-1rem);
 }
+
 .floette-red-flower {
-	transform: translateY(-3rem) translateX(-2rem);
+  transform: translateY(-3rem) translateX(-2rem);
 }
+
 .floette-yellow-flower {
-	transform: translateY(-3rem) translateX(-2rem);
+  transform: translateY(-3rem) translateX(-2rem);
 }
+
 .floette-orange-flower {
-	transform: translateY(-3rem) translateX(-2rem);
+  transform: translateY(-3rem) translateX(-2rem);
 }
+
 .floette-blue-flower {
-	transform: translateY(-3rem) translateX(-2rem);
+  transform: translateY(-3rem) translateX(-2rem);
 }
+
 .floette-white-flower {
-	transform: translateY(-3rem) translateX(-2rem);
+  transform: translateY(-3rem) translateX(-2rem);
 }
+
 .florges-red-flower {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .florges-yellow-flower {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .florges-orange-flower {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .florges-blue-flower {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .florges-white-flower {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .skiddo {
-	transform: scale(0.9) translateY(1rem) translateX(4rem);
+  transform: scale(0.9) translateY(1rem) translateX(4rem);
 }
+
 .gogoat {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .pancham {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .pangoro {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .furfrou-natural {
 }
+
 .furfrou-heart-trim {
 }
+
 .furfrou-star-trim {
 }
+
 .furfrou-diamond-trim {
 }
+
 .furfrou-debutante-trim {
 }
+
 .furfrou-matron-trim {
 }
+
 .furfrou-dandy-trim {
 }
+
 .furfrou-la-reine-trim {
 }
+
 .furfrou-kabuki-trim {
 }
+
 .furfrou-pharaoh-trim {
 }
+
 .espurr {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .meowstic-male {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .meowstic-female {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .honedge {
-	transform: scale(0.9) translateY(-3rem) translateX(2rem);
+  transform: scale(0.9) translateY(-3rem) translateX(2rem);
 }
+
 .doublade {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .aegislash {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .aegislash-blade {
-	transform: scale(1.2) translateY(-3rem);
+  transform: scale(1.2) translateY(-3rem);
 }
+
 .spritzee {
-	transform: scale(0.8) translateY(-3rem) translateX(1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(1rem);
 }
+
 .aromatisse {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .swirlix {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .slurpuff {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .inkay {
-	transform: scalex(-0.8) scaleY(0.8) translateY(-3rem);
+  transform: scalex(-0.8) scaleY(0.8) translateY(-3rem);
 }
+
 .malamar {
-	transform: scale(1.3) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-1rem) translateX(-1rem);
 }
+
 .binacle {
 }
+
 .barbaracle {
-	transform: scale(1.4) translateY(-2rem);
+  transform: scale(1.4) translateY(-2rem);
 }
+
 .skrelp {
-	transform: scale(0.8) translateY(-3rem) translateX(1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(1rem);
 }
+
 .dragalge {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
+
 .clauncher {
-	transform: translateY(-1rem) translateX(1rem);
+  transform: translateY(-1rem) translateX(1rem);
 }
+
 .clawitzer {
-	transform: scale(1.8) translateY(-1rem) translateX(1rem);
+  transform: scale(1.8) translateY(-1rem) translateX(1rem);
 }
+
 .helioptile {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .heliolisk {
-	transform: scale(1.2) translateY(-2rem) translateX(3rem);
+  transform: scale(1.2) translateY(-2rem) translateX(3rem);
 }
+
 .tyrunt {
-	transform: scalex(-0.8) scaleY(0.8) translateY(2rem) translateX(1rem);
+  transform: scalex(-0.8) scaleY(0.8) translateY(2rem) translateX(1rem);
 }
+
 .tyrantrum {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .amaura {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .aurorus {
-	transform: scale(1.3) translateY(-2rem) translateX(5rem);
+  transform: scale(1.3) translateY(-2rem) translateX(5rem);
 }
+
 .sylveon {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .hawlucha {
-	transform: scale(1.1) translateY(-3rem) translateX(3rem);
+  transform: scale(1.1) translateY(-3rem) translateX(3rem);
 }
+
 .dedenne {
 }
+
 .carbink {
-	transform: scale(0.8) translateY(-3rem) translateX(1rem);
+  transform: scale(0.8) translateY(-3rem) translateX(1rem);
 }
+
 .goomy {
-	transform: scale(0.8) translateY(2rem) translateX(2rem);
+  transform: scale(0.8) translateY(2rem) translateX(2rem);
 }
+
 .sliggoo {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-1rem);
 }
+
 .hisuian-sliggoo {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .goodra {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .hisuian-goodra {
-	transform: scale(1.5) translateY(-3rem) translateX(2rem);
+  transform: scale(1.5) translateY(-3rem) translateX(2rem);
 }
+
 .klefki {
-	transform: translateX(-3rem);
+  transform: translateX(-3rem);
 }
+
 .phantump {
-	transform: scalex(-1) translateY(-3rem) translateX(-1rem);
+  transform: scalex(-1) translateY(-3rem) translateX(-1rem);
 }
+
 .trevenant {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .pumpkaboo {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .gourgeist {
-	transform: scale(1.1) translateY(-3rem) translateX(2rem);
+  transform: scale(1.1) translateY(-3rem) translateX(2rem);
 }
+
 .bergmite {
-	transform: scale(0.8) translateY(2rem) translateX(1rem);
+  transform: scale(0.8) translateY(2rem) translateX(1rem);
 }
+
 .avalugg {
-	transform: scale(1.2) translateY(1rem) translateX(4rem);
+  transform: scale(1.2) translateY(1rem) translateX(4rem);
 }
+
 .hisuian-avalugg {
-	transform: scale(1.3) translateY(-2rem) translateX(3rem);
+  transform: scale(1.3) translateY(-2rem) translateX(3rem);
 }
+
 .noibat {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .noivern {
-	transform: scale(1.5) translateY(-1rem) translateX(3rem);
+  transform: scale(1.5) translateY(-1rem) translateX(3rem);
 }
+
 .xerneas {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.6) scaleY(1.6) translateY(-2rem) translateX(-1rem);
 }
+
 .yveltal {
-	transform: scale(1.4) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.4) translateY(-2rem) translateX(-1rem);
 }
+
 .zygarde-10 {
-	transform: translateY(2rem) translateX(2rem);
+  transform: translateY(2rem) translateX(2rem);
 }
+
 .zygarde-50 {
-	transform: scale(1.2) translateY(-1rem) translateX(4rem);
+  transform: scale(1.2) translateY(-1rem) translateX(4rem);
 }
+
 .zygarde-complete {
-	transform: scale(1.6) translateY(-2rem) translateX(3rem);
+  transform: scale(1.6) translateY(-2rem) translateX(3rem);
 }
+
 .diancie {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
 
 .mega-diancie {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .hoopa {
-	transform: translateY(-5rem) translateX(-1rem);
+  transform: translateY(-5rem) translateX(-1rem);
 }
+
 .hoopa-unbound {
-	transform: scale(1.5) translateY(-2rem) translateX(1rem);
+  transform: scale(1.5) translateY(-2rem) translateX(1rem);
 }
+
 .volcanion {
-	transform: scale(1.6) translateY(-1rem) translateX(2rem);
+  transform: scale(1.6) translateY(-1rem) translateX(2rem);
 }
+
 .rowlet {
-	transform: scale(0.8) translateY(3rem) translateX(1rem);
+  transform: scale(0.8) translateY(3rem) translateX(1rem);
 }
+
 .dartrix {
-	transform: scalex(-1) translateX(3rem);
+  transform: scalex(-1) translateX(3rem);
 }
+
 .decidueye {
-	transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(-2rem);
 }
+
 .hisuian-decidueye {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .litten {
 }
+
 .torracat {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .incineroar {
-	transform: scale(1.5) translateY(-3rem) translateX(1rem);
+  transform: scale(1.5) translateY(-3rem) translateX(1rem);
 }
+
 .popplio {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .brionne {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-5rem) translateX(-3rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-5rem) translateX(-3rem);
 }
+
 .primarina {
-	transform: scale(1.4) translateY(0rem) translateX(2rem);
+  transform: scale(1.4) translateY(0rem) translateX(2rem);
 }
+
 .pikipek {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .trumbeak {
 }
+
 .toucannon {
 }
+
 .yungoos {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .gumshoos {
-	transform: scalex(-1) translateX(-3rem);
+  transform: scalex(-1) translateX(-3rem);
 }
+
 .grubbin {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .charjabug {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .vikavolt {
-	transform: scale(1.2) translateY(-3rem) translateX(1rem);
+  transform: scale(1.2) translateY(-3rem) translateX(1rem);
 }
+
 .crabrawler {
-	transform: translateX(-3rem);
+  transform: translateX(-3rem);
 }
+
 .crabominable {
-	transform: scale(1.5) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.5) translateY(-2rem) translateX(-1rem);
 }
+
 .oricorio-baile {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .oricorio-pom-pom {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .oricorio-pau {
-	transform: scale(1.1) translateY(-1rem) translateX(-2rem);
+  transform: scale(1.1) translateY(-1rem) translateX(-2rem);
 }
+
 .oricorio-sensu {
-	transform: scale(1.2) translateY(-1rem) translateX(2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(2rem);
 }
+
 .cutiefly {
-	transform: scale(0.7) translateY(-3rem) translateX(3rem);
+  transform: scale(0.7) translateY(-3rem) translateX(3rem);
 }
+
 .ribombee {
-	transform: translateY(-3rem) translateX(3rem);
+  transform: translateY(-3rem) translateX(3rem);
 }
+
 .rockruff {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .lycanroc-midday {
-	transform: scale(1.2) translateY(-1rem) translateX(3rem);
+  transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
+
 .lycanroc-midnight {
-	transform: scalex(-1.1) scaleY(1.1) translateY(0rem) translateX(-1rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(0rem) translateX(-1rem);
 }
+
 .lycanroc-dusk {
-	transform: scale(1.3) translateY(-2rem) translateX(-2rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-2rem);
 }
+
 .wishiwashi {
-	transform: scale(0.8) translateY(-3rem) translateX(3rem);
+  transform: scale(0.8) translateY(-3rem) translateX(3rem);
 }
+
 .wishiwashi-school {
-	transform: scale(1.6) translateY(-1rem) translateX(4rem);
+  transform: scale(1.6) translateY(-1rem) translateX(4rem);
 }
+
 .mareanie {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .toxapex {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .mudbray {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .mudsdale {
-	transform: scalex(-1) translateX(-4rem);
+  transform: scalex(-1) translateX(-4rem);
 }
+
 .dewpider {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .araquanid {
-	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
 }
+
 .fomantis {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .lurantis {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .morelull {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .shiinotic {
 }
+
 .salandit {
-	transform: translateY(-1rem) translateX(-1rem);
+  transform: translateY(-1rem) translateX(-1rem);
 }
+
 .salazzle {
-	transform: scalex(-1) translateY(1rem) translateX(-2rem);
+  transform: scalex(-1) translateY(1rem) translateX(-2rem);
 }
+
 .stufful {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .bewear {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .bounsweet {
-	transform: scale(0.8) translateY(5rem);
+  transform: scale(0.8) translateY(5rem);
 }
+
 .steenee {
 }
+
 .tsareena {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .comfey {
-	transform: scale(0.9) translateY(-3rem) translateX(1rem);
+  transform: scale(0.9) translateY(-3rem) translateX(1rem);
 }
+
 .oranguru {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
+
 .passimian {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .wimpod {
-	transform: scalex(-1) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1) translateY(-1rem) translateX(-3rem);
 }
+
 .golisopod {
-	transform: scale(1.3) translateX(1rem);
+  transform: scale(1.3) translateX(1rem);
 }
+
 .sandygast {
 }
+
 .palossand {
-	transform: scale(1.3) translateY(-2rem);
+  transform: scale(1.3) translateY(-2rem);
 }
+
 .pyukumuku {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .type-null {
-	transform: scalex(-1) translateY(1rem) translateX(-2rem);
+  transform: scalex(-1) translateY(1rem) translateX(-2rem);
 }
+
 .silvally {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .minior-red {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-orange {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-yellow {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-green {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-blue {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-indigo {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .minior-violet {
-	transform: translateY(-3rem);
+  transform: translateY(-3rem);
 }
+
 .komala {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .turtonator {
-	transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(1rem) translateX(-2rem);
 }
+
 .togedemaru {
-	transform: scale(0.9) translateY(1rem);
+  transform: scale(0.9) translateY(1rem);
 }
+
 .mimikyu {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .bruxish {
-	transform: scale(1.1) translateY(-2rem) translateX(2rem);
+  transform: scale(1.1) translateY(-2rem) translateX(2rem);
 }
+
 .drampa {
-	transform: scale(1.3) translateY(2rem) translateX(3rem);
+  transform: scale(1.3) translateY(2rem) translateX(3rem);
 }
+
 .dhelmise {
-	transform: translateY(-2rem);
+  transform: translateY(-2rem);
 }
+
 .jangmo-o {
-	transform: scale(0.8) translateY(3rem) translateX(2rem);
+  transform: scale(0.8) translateY(3rem) translateX(2rem);
 }
+
 .hakamo-o {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .kommo-o {
-	transform: scale(1.4) translateY(-2rem) translateX(3rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3rem);
 }
+
 .tapu-koko {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-2rem) translateX(1rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(-2rem) translateX(1rem);
 }
+
 .tapu-lele {
-	transform: translateY(-2rem);
+  transform: translateY(-2rem);
 }
+
 .tapu-bulu {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .tapu-fini {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-3rem) translateX(1rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(-3rem) translateX(1rem);
 }
+
 .cosmog {
-	transform: scalex(-0.8) scaleY(0.8) translateY(-2rem);
+  transform: scalex(-0.8) scaleY(0.8) translateY(-2rem);
 }
+
 .cosmoem {
-	transform: translateY(-2rem) translateX(1rem);
+  transform: translateY(-2rem) translateX(1rem);
 }
+
 .solgaleo {
-	transform: scalex(-1.2) scaleY(1.2) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(0rem) translateX(-2rem);
 }
+
 .lunala {
-	transform: scale(1.3) translateY(-4rem) translateX(-2rem);
+  transform: scale(1.3) translateY(-4rem) translateX(-2rem);
 }
+
 .nihilego {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .buzzwole {
-	transform: scale(1.3) translateY(-3rem);
+  transform: scale(1.3) translateY(-3rem);
 }
+
 .pheromosa {
-	transform: scale(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .xurkitree {
-	transform: scale(1.3) translateY(-2rem) translateX(1rem);
+  transform: scale(1.3) translateY(-2rem) translateX(1rem);
 }
+
 .celesteela {
-	transform: scalex(-1.7) scaleY(1.7) translateY(-3rem);
+  transform: scalex(-1.7) scaleY(1.7) translateY(-3rem);
 }
+
 .kartana {
-	transform: scalex(-1.6) scaleY(1.6) translateY(-4rem) translateX(1rem);
+  transform: scalex(-1.6) scaleY(1.6) translateY(-4rem) translateX(1rem);
 }
+
 .guzzlord {
-	transform: scale(1.7) translateY(-3rem) translateX(1rem);
+  transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
+
 .necrozma {
-	transform: scale(1.6) translateY(-3rem);
+  transform: scale(1.6) translateY(-3rem);
 }
+
 .necrozma-dusk-mane {
-	transform: scale(1.4) translateY(-2rem) translateX(3.8rem);
+  transform: scale(1.4) translateY(-2rem) translateX(3.8rem);
 }
+
 .necrozma-dawn-wings {
-	transform: scalex(-1.7) scaleY(1.7) translateY(-2rem) translateX(2rem);
+  transform: scalex(-1.7) scaleY(1.7) translateY(-2rem) translateX(2rem);
 }
+
 .necrozma-ultra {
-	transform: scale(1.5) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.5) translateY(-1rem) translateX(-1rem);
 }
+
 .magearna {
-	transform: translateY(1rem);
+  transform: translateY(1rem);
 }
+
 .magearna-original {
-	transform: translateY(1rem);
+  transform: translateY(1rem);
 }
+
 .marshadow {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .poipole {
 }
+
 .naganadel {
-	transform: scale(1.4) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.4) translateY(-2rem) translateX(-1rem);
 }
+
 .stakataka {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .blacephalon {
 }
+
 .zeraora {
-	transform: scale(1.1) translateY(-2rem) translateX(3rem);
+  transform: scale(1.1) translateY(-2rem) translateX(3rem);
 }
+
 .meltan {
-	transform: scale(0.8) translateY(2rem);
+  transform: scale(0.8) translateY(2rem);
 }
+
 .melmetal {
-	transform: scale(1.5) translateY(-2rem);
+  transform: scale(1.5) translateY(-2rem);
 }
+
 .gigantamax-melmetal {
-	transform: scale(1.6) translateY(-2rem) translateX(3rem);
+  transform: scale(1.6) translateY(-2rem) translateX(3rem);
 }
+
 .grookey {
-	transform: scale(0.9) translateY(1rem) translateX(-1rem);
+  transform: scale(0.9) translateY(1rem) translateX(-1rem);
 }
+
 .thwackey {
 }
+
 .rillaboom {
 }
+
 .gigantamax-rillaboom {
-	transform: scale(1.7) translateY(-3rem) translateX(1rem);
+  transform: scale(1.7) translateY(-3rem) translateX(1rem);
 }
+
 .scorbunny {
-	transform: scale(1.1) translateY(-2rem);
+  transform: scale(1.1) translateY(-2rem);
 }
+
 .raboot {
-	transform: scalex(-1) translateY(0rem) translateX(-3rem);
+  transform: scalex(-1) translateY(0rem) translateX(-3rem);
 }
+
 .cinderace {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem);
 }
+
 .gigantamax-cinderace {
-	transform: scale(1.3) translateY(-1rem) translateX(2rem);
+  transform: scale(1.3) translateY(-1rem) translateX(2rem);
 }
+
 .sobble {
 }
+
 .drizzile {
 }
+
 .inteleon {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .gigantamax-inteleon {
-	transform: scaley(1.3) scalex(-1.3) translateY(-1rem) translateX(0rem);
+  transform: scaley(1.3) scalex(-1.3) translateY(-1rem) translateX(0rem);
 }
+
 .skwovet {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .greedent {
-	transform: scalex(-1) translateX(-4rem);
+  transform: scalex(-1) translateX(-4rem);
 }
+
 .rookidee {
-	transform: scalex(-0.9) scaleY(0.9) translateY(1rem) translateX(-3rem);
+  transform: scalex(-0.9) scaleY(0.9) translateY(1rem) translateX(-3rem);
 }
+
 .corvisquire {
-	transform: translateX(4rem);
+  transform: translateX(2rem);
 }
+
 .corviknight {
-	transform: scalex(-1) translateX(-3rem);
+  transform: scalex(-1) translateX(-3rem);
 }
+
 .gigantamax-corviknight {
-	transform: scale(2) translateY(-2rem) translateX(2rem);
+  transform: scale(2) translateY(-2rem) translateX(2rem);
 }
+
 .blipbug {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
+
 .dottler {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .orbeetle {
 }
+
 .gigantamax-orbeetle {
-	transform: scale(1.5) translateY(-2rem) translateX(3rem);
+  transform: scale(1.5) translateY(-2rem) translateX(3rem);
 }
+
 .nickit {
-	transform: translateX(-3rem);
+  transform: translateX(-3rem);
 }
+
 .thievul {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .gossifleur {
-	transform: scale(0.9) translateX(2rem) translateY(1rem);
+  transform: scale(0.9) translateX(2rem) translateY(1rem);
 }
+
 .eldegoss {
 }
+
 .wooloo {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .dubwool {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .chewtle {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .drednaw {
-	transform: scale(1.4) translateY(-2rem) translateX(4rem);
+  transform: scale(1.4) translateY(-2rem) translateX(4rem);
 }
+
 .gigantamax-drednaw {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .yamper {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .boltund {
-	transform: scale(1.2) translateY(2rem) translateX(4rem);
+  transform: scale(1.2) translateY(2rem) translateX(4rem);
 }
+
 .rolycoly {
-	transform: scale(0.8) translateY(-2rem) translateX(2rem);
+  transform: scale(0.8) translateY(-2rem) translateX(2rem);
 }
+
 .carkol {
-	transform: scalex(-1) translateX(-2rem);
+  transform: scalex(-1) translateX(-2rem);
 }
+
 .coalossal {
-	transform: scale(1.2) translateY(0rem) translateX(2rem);
+  transform: scale(1.2) translateY(0rem) translateX(2rem);
 }
+
 .gigantamax-coalossal {
-	transform: scale(1.5) translateY(-1rem) translateX(1rem);
+  transform: scale(1.5) translateY(-1rem) translateX(1rem);
 }
+
 .applin {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .flapple {
-	transform: translateY(-2rem) translateX(3rem);
+  transform: translateY(-2rem) translateX(3rem);
 }
+
 .gigantamax-flapple {
-	transform: scale(1.4) translateY(-1rem);
+  transform: scale(1.4) translateY(-1rem);
 }
+
 .appletun {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .gigantamax-appletun {
-	transform: scale(1.4) translateY(-1rem);
+  transform: scale(1.4) translateY(-1rem);
 }
+
 .silicobra {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .sandaconda {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-3rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-2rem) translateX(-3rem);
 }
+
 .gigantamax-sandaconda {
-	transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(0rem);
+  transform: scalex(-1.4) scaleY(1.4) translateY(-2rem) translateX(0rem);
 }
+
 .cramorant {
-	transform: scalex(-1) translateX(-1rem);
+  transform: scalex(-1) translateX(-1rem);
 }
+
 .arrokuda {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .barraskewda {
-	transform: scale(1.2) translateX(2rem);
+  transform: scale(1.2) translateX(2rem);
 }
+
 .toxel {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .toxtricity-amped {
-	transform: scale(1.2) translateY(-1rem);
+  transform: scale(1.2) translateY(-1rem);
 }
+
 .gigantamax-toxtricity-amped {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .toxtricity-low-key {
-	transform: scale(1.2) translateY(-1rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(-1rem);
 }
+
 .gigantamax-toxtricity-low-key {
-	transform: scale(1.3) translateY(-1rem) translateX(3rem);
+  transform: scale(1.3) translateY(-1rem) translateX(3rem);
 }
+
 .sizzlipede {
-	transform: scalex(-1) translateX(-3rem);
+  transform: scalex(-1) translateX(-3rem);
 }
+
 .centiskorch {
-	transform: scale(1.1) translateY(-1rem) translateX(3rem);
+  transform: scale(1.1) translateY(-1rem) translateX(3rem);
 }
+
 .gigantamax-centiskorch {
-	transform: scale(1.5) translateY(-2rem) translateX(-3rem);
+  transform: scale(1.5) translateY(-2rem) translateX(-3rem);
 }
+
 .clobbopus {
 }
 
 .grapploct {
 }
+
 .sinistea-phony {
-	transform: scalex(-1) translateY(-2rem) translateX(-2rem);
+  transform: scalex(-1) translateY(-2rem) translateX(-2rem);
 }
+
 .sinistea-antique {
-	transform: translateY(-2rem) translateX(2rem);
+  transform: translateY(-2rem) translateX(2rem);
 }
+
 .polteageist-phony {
-	transform: scale(1.2) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(-1rem);
 }
+
 .polteageist-antique {
-	transform: scale(0.9) translateY(-2rem) translateX(2rem);
+  transform: scale(0.9) translateY(-2rem) translateX(2rem);
 }
+
 .hatenna {
 }
+
 .hattrem {
-	transform: scale(1.1) translateY(0rem) translateX(0rem);
+  transform: scale(1.1) translateY(0rem) translateX(0rem);
 }
+
 .hatterene {
-	transform: scale(1.2) translateY(-1rem) translateX(-2rem);
+  transform: scale(1.2) translateY(-1rem) translateX(-2rem);
 }
+
 .gigantamax-hatterene {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(-1rem);
 }
+
 .impidimp {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .morgrem {
 }
+
 .grimmsnarl {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .gigantamax-grimmsnarl {
-	transform: scale(1.3) translateY(-1rem) translateX(1rem);
+  transform: scale(1.3) translateY(-1rem) translateX(1rem);
 }
+
 .obstagoon {
-	transform: scalex(-1.2) scaley(1.2) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(0rem) translateX(-2rem);
 }
+
 .perrserker {
-	transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-3rem);
+  transform: scalex(-0.9) scaley(0.9) translateY(1rem) translateX(-3rem);
 }
+
 .cursola {
-	transform: scalex(-1);
+  transform: scalex(-1);
 }
+
 .sirfetch’d {
-	transform: scale(1.5) translateY(-2rem);
+  transform: scale(1.5) translateY(-2rem);
 }
+
 .mr-rime {
-	transform: scalex(-1) translateX(1rem);
+  transform: scalex(-1) translateX(1rem);
 }
+
 .runerigus {
-	transform: scale(1.3) translateY(-5rem);
+  transform: scale(1.3) translateY(-5rem);
 }
+
 .milcery {
 }
+
 .alcremie-strawberry-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-strawberry-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-berry-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-love-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-star-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-clover-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-flower-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-vanilla-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-ruby-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-matcha-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-mint-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-lemon-cream {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-salted-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-ruby-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-caramel-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .alcremie-ribbon-rainbow-swirl {
-	transform: translateX(-1rem);
+  transform: translateX(-1rem);
 }
+
 .gigantamax-alcremie {
-	transform: scale(1.4) translateY(-2rem) translateX(0rem);
+  transform: scale(1.4) translateY(-2rem) translateX(0rem);
 }
+
 .falinks {
-	transform: scale(0.9) translateY(1rem) translateX(2rem);
+  transform: scale(0.9) translateY(1rem) translateX(2rem);
 }
+
 .pincurchin {
 }
+
 .snom {
-	transform: scalex(-0.9) scaleY(0.9) translateX(-1rem);
+  transform: scalex(-0.9) scaleY(0.9) translateX(-1rem);
 }
+
 .frosmoth {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-1rem) translateX(-2rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-1rem) translateX(-2rem);
 }
+
 .stonjourner {
-	transform: scale(1.2) translateY(-1rem) translateX(1rem);
+  transform: scale(1.2) translateY(-1rem) translateX(1rem);
 }
+
 .eiscue {
-	transform: translateX(1rem);
+  transform: translateX(1rem);
 }
 
 .indeedee {
 }
+
 .morpeko {
 }
+
 .cufant {
-	transform: scalex(-1) translateX(0rem);
+  transform: scalex(-1) translateX(0rem);
 }
+
 .copperajah {
 }
+
 .gigantamax-copperajah {
-	transform: scale(1.4) translateY(-1rem) translateX(-3rem);
+  transform: scale(1.4) translateY(-1rem) translateX(-3rem);
 }
+
 .dracozolt {
-	transform: scale(1.4) translateY(-2rem) translateX(5rem);
+  transform: scale(1.4) translateY(-2rem) translateX(5rem);
 }
+
 .arctozolt {
 }
+
 .dracovish {
 }
+
 .arctovish {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .duraludon {
-	transform: scale(1.1) translateY(0rem) translateX(1rem);
+  transform: scale(1.1) translateY(0rem) translateX(1rem);
 }
+
 .gigantamax-duraludon {
-	transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-2rem);
+  transform: scalex(-1.4) scaley(1.4) translateY(-1rem) translateX(-2rem);
 }
+
 .dreepy {
-	transform: translateX(3rem);
+  transform: translateX(3rem);
 }
+
 .drakloak {
 }
+
 .dragapult {
 }
+
 .zacian {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-4rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(-4rem);
 }
+
 .zacian-crowned-sword {
-	transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
+  transform: scalex(-1.1) scaley(1.1) translateY(-1rem) translateX(-3rem);
 }
+
 .zamazenta {
-	transform: translateX(4rem);
+  transform: translateX(4rem);
 }
+
 .zamazenta-crowned-shield {
-	transform: translateX(2rem);
+  transform: translateX(2rem);
 }
+
 .eternatus {
-	transform: scale(1.4) translateY(-3rem) translateX(4rem);
+  transform: scale(1.4) translateY(-3rem) translateX(4rem);
 }
+
 .kubfu {
-	transform: scale(0.9) translateY(1rem) translateX(1rem);
+  transform: scale(0.9) translateY(1rem) translateX(1rem);
 }
+
 .urshifu-single-strike {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .gigantamax-urshifu-single-strike {
-	transform: scale(1.4) translateY(-2rem) translateX(1rem);
+  transform: scale(1.4) translateY(-2rem) translateX(1rem);
 }
+
 .urshifu-rapid-strike {
-	transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(0rem);
+  transform: scalex(-1.1) scaleY(1.1) translateY(-1rem) translateX(0rem);
 }
+
 .gigantamax-urshifu-rapid-strike {
-	transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(0rem);
+  transform: scalex(-1.3) scaleY(1.3) translateY(-2rem) translateX(0rem);
 }
+
 .zarude {
-	transform: scalex(-1.1) translateY(0rem) translateX(-2rem);
+  transform: scalex(-1.1) translateY(0rem) translateX(-2rem);
 }
+
 .regieleki {
-	transform: scale(1.4) translateY(-3rem) translateX(3rem);
+  transform: scale(1.4) translateY(-3rem) translateX(3rem);
 }
+
 .regidrago {
-	transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(2rem);
+  transform: scalex(-1.2) scaleY(1.2) translateY(-3rem) translateX(2rem);
 }
+
 .glastrier {
-	transform: scale(1.2) translateY(-1rem) translateX(3rem);
+  transform: scale(1.2) translateY(-1rem) translateX(3rem);
 }
+
 .spectrier {
-	transform: scale(1.3) translateY(-1rem) translateX(4rem);
+  transform: scale(1.3) translateY(-1rem) translateX(4rem);
 }
+
 .calyrex {
 }
+
 .calyrex-ice-rider {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .calyrex-shadow-rider {
-	transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.1) translateY(-1rem);
 }
+
 .wyrdeer {
-	transform: scale(1.1) translateY(-1rem) translateX(1rem);
+  transform: scale(1.1) translateY(-1rem) translateX(1rem);
 }
+
 .kleavor {
 }
+
 .ursaluna {
-	transform: scale(1.2) translateY(-2rem);
+  transform: scale(1.2) translateY(-2rem);
 }
+
 .basculegion-male {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .basculegion-female {
-	transform: scale(1.3) translateY(-2rem) translateX(4rem);
+  transform: scale(1.3) translateY(-2rem) translateX(4rem);
 }
+
 .sneasler {
-	transform: scale(1.2) translateY(-2rem) translateX(-1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(-1rem);
 }
+
 .overquil {
-	transform: scale(1.2) translateY(-2rem) translateX(1rem);
+  transform: scale(1.2) translateY(-2rem) translateX(1rem);
 }
+
 .enamorus {
-	transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-1rem);
+  transform: scalex(-1.2) scaley(1.2) translateY(-2rem) translateX(-1rem);
 }
+
 .enamorus-therian {
 }

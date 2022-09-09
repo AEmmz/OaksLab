@@ -6,6 +6,15 @@
       <div
         class="page-container row justify-center q-gutter-x-lg"
         :class="{'q-my-md': desktopCheck()}">
+        <div
+          class="flex justify-center text-h4 text-light q-my-lg text-center"
+          v-if="!desktopCheck()">
+          {{ pkName }}
+        </div>
+        <q-separator
+          class="separator col-12"
+          v-if="!desktopCheck()"
+          :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
         <pokemon-images class="container col-12"></pokemon-images>
         <q-separator
           class="separator col-12"
@@ -89,7 +98,7 @@
           <q-card class="bg-light container">
             <pokemon-images></pokemon-images>
           </q-card>
-          <q-card class="bg-light container md">
+          <q-card class="bg-light container gt-sm">
             <caught-buttons></caught-buttons>
           </q-card>
           <q-card class="bg-dark container">
@@ -151,7 +160,7 @@ export default {
   },
   computed: {
     ...mapGetters("tracker/forms", ["forms"]),
-    ...mapGetters("tracker", ["pkType1", "pkType2"]),
+    ...mapGetters("tracker", ["pkType1", "pkType2", "pkName"]),
     isForms() {
       return this.forms.length > 1;
     }

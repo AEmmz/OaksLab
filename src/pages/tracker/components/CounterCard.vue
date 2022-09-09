@@ -5,7 +5,7 @@
         class="main-cont flex column items-center justify-evenly q-pa-none q-pb-lg"
         :class="{'full-width': !desktopCheck()}">
         <div
-          class="name-cont flex items-center justify-center full-width text-h3 text-light q-pa-lg">
+          class="name-cont flex items-center justify-center full-width text-h3 text-light q-pa-lg gt-sm">
           {{ pkName }}
         </div>
         <div

@@ -1,7 +1,65 @@
 import { child, get, getDatabase, ref, update } from "firebase/database";
 import { catchLock } from "src/util/tracker/catchLock";
+import { db } from "src/boot/firebase";
+import { collection, getDocs, addDoc, setDoc, doc, writeBatch } from "firebase/firestore";
+import pokemonList from "src/assets/json/pokemonList.json";
+import gameAvailability from "src/assets/json/gameAvailability.json";
 
 export default {
+  // async addToCollection(context, payload) {
+  //   const pokemon = pokemonList.pokemon;
+  //   console.log(pokemon);
+  //   const games = gameAvailability;
+  //   console.log(games);
+  //   const padZero = (num) => {
+  //     return String(num).padStart(4, "0");
+  //   };
+  //   try {
+  //     let batch = writeBatch(db);
+  //     // const updateDb = async () => await batch.commit();
+  //
+  //     pokemon.forEach((p) => {
+  //       if (batch._mutations.length >= 500) {
+  //         // updateDb();
+  //         batch = writeBatch(db);
+  //       }
+  //       const docNum = padZero(p.apiNo);
+  //       const pkmn = doc(db, "pokemon", `${docNum}`);
+  //       batch.set(pkmn, {
+  //         name: p.name,
+  //         apiNo: p.apiNo,
+  //         dexNo: p.dexNo
+  //       });
+  //
+  //       games.forEach((g) => {
+  //         if (batch._mutations.length >= 500) {
+  //           // updateDb();
+  //           batch = writeBatch(db);
+  //         }
+  //         const gameVersions = g.games;
+  //         if (p.dexNo === g.dexno) {
+  //           for (const version in gameVersions) {
+  //             if (batch._mutations.length >= 500) {
+  //               // updateDb();
+  //               batch = writeBatch(db);
+  //             }
+  //             const game = doc(db, `pokemon/${docNum}/games`, version);
+  //             batch.set(game, {
+  //               [version]: !!g.games[version]
+  //             });
+  //           }
+  //         }
+  //       });
+  //     });
+  //
+  //     // await batch.commit();
+  //
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // },
+
+
   async toggler({ commit, state, rootGetters }, payload) {
     try {
       const type = payload;

@@ -9,10 +9,10 @@
       :close="close"
       :notCaught="deactivated"></more-info>
   </q-dialog>
-
   <div
     class="card-cont"
     @mouseenter="flipToBack"
+    @click="flipToBack"
     @mouseleave="flipToFront">
     <q-card
       class="card card-front"
@@ -37,133 +37,141 @@
           class="card-image"
           :src="selectedImage"
           :alt="`${pokemon.name}-Image`"
-          :class="[{ 'disabled-image': deactivated }, pkClasses]"
-          style="min-width: 250px"></q-img>
+          :class="[{ 'disabled-image': deactivated }, pkClasses]"></q-img>
       </div>
     </q-card>
 
     <q-card
       class="card card-back absolute-top-left"
-      :class="[`bg-${pokemon.type[0]}Type`, { flipped: !flipped, notCaught: deactivated }]">
-      <div class="card-back-info-cont column items-center q-px-xs absolute-center bg-light">
+      :class="[`bg-${pokemon.type[0]}Type`, { flipped: !flipped, notCaught: deactivated }]"
+      @click="flipToFront">
+      <div
+        class="card-back-info-cont column items-center q-px-xs absolute-center bg-light"
+        :class="{'full-width full-height q-pb-md q-pt-sm' : !desktopCheck()}">
         <div class="card-back-name col flex items-center justify-center">
           <fit-text-alt class="name">
             {{ pokemon.name }}
           </fit-text-alt>
         </div>
-        <div class="card-back-info col-8 full-width column">
+        <div
+          class="card-back-info full-width"
+          :class="{'column  col-8': desktopCheck(), 'row col-6' : !desktopCheck()}">
           <q-separator inset/>
-          <div class="q-ma-xs col column items-center justify-center">
+          <div
+            class="q-ma-xs col column items-center icons-cont"
+            :class="{'justify-center': desktopCheck(), '' : !desktopCheck()}">
             <span class="card-back-subtitle text-subtitle2 q-pb-xs">Caught</span>
             <div class="icons flex justify-center q-gutter-xs">
               <q-icon
                 v-if="pokemon.caught[0].normalCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokeball"/>
               <q-icon
                 v-if="pokemon.caught[0].shinyCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-shiny"/>
               <q-icon
                 v-if="pokemon.caught[0].alphaCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha"/>
               <q-icon
                 v-if="pokemon.caught[0].shinyAlphaCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha-shiny"/>
               <q-icon
                 v-if="pokemon.caught[0].pokerusCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus"/>
               <q-icon
                 v-if="pokemon.caught[0].shinyPokerusCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus-shiny"/>
               <q-icon
                 v-if="pokemon.caught[0].markedCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked"/>
               <q-icon
                 v-if="pokemon.caught[0].shinyMarkedCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked-shiny"/>
               <q-icon
                 v-if="pokemon.caught[0].sixIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-six"/>
               <q-icon
                 v-if="pokemon.caught[0].shinySixIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-six-shiny"/>
               <q-icon
                 v-if="pokemon.caught[0].zeroIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-zero"/>
               <q-icon
                 v-if="pokemon.caught[0].shinyZeroIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-zero-shiny"/>
             </div>
           </div>
           <q-separator inset/>
-          <div class="q-ma-xs col column items-center justify-center q-pb-xs">
+          <div
+            class="q-ma-xs col column items-center icons-cont"
+            :class="{' justify-center q-pb-xs': desktopCheck(), '' : !desktopCheck()}">
             <span class="card-back-subtitle text-subtitle2">Uncaught</span>
             <div class="icons flex justify-center q-gutter-xs">
               <q-icon
                 v-if="!pokemon.caught[0].normalCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokeball"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinyCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-shiny"/>
               <q-icon
                 v-if="!pokemon.caught[0].alphaCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinyAlphaCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha-shiny"/>
               <q-icon
                 v-if="!pokemon.caught[0].pokerusCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinyPokerusCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus-shiny"/>
               <q-icon
                 v-if="!pokemon.caught[0].markedCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinyMarkedCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked-shiny"/>
               <q-icon
                 v-if="!pokemon.caught[0].sixIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-six"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinySixIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-six-shiny"/>
               <q-icon
                 v-if="!pokemon.caught[0].zeroIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-zero"/>
               <q-icon
                 v-if="!pokemon.caught[0].shinyZeroIvCaught"
-                size="xs"
+                :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-zero-shiny"/>
             </div>
           </div>
           <q-separator inset/>
         </div>
 
-        <div class="card-back-buttons column items-center justify-center col-2 full-width">
+        <div class="card-back-buttons column items-center justify-center col-3 full-width">
           <router-link
             :to="{
 							name: 'tracking',
@@ -171,27 +179,30 @@
 						}"
             class="track-button-cont">
             <q-btn
-              round
+              :round="desktopCheck()"
               class="q-ma-xs"
-              size="sm"
+              :padding="desktopCheck() ? '' : 'sm lg'"
+              :size="desktopCheck() ? 'sm' : 'md'"
               color="primary"
               icon="fas fa-paw">
               <q-tooltip class="text-body1">Track</q-tooltip>
             </q-btn>
           </router-link>
           <q-btn
-            round
+            :round="desktopCheck()"
             class="q-ma-xs"
-            size="sm"
+            :padding="desktopCheck() ? '' : 'sm lg'"
+            :size="desktopCheck() ? 'sm' : 'md'"
             color="primary"
             icon="fas fa-info"
             @click="details = true">
             <q-tooltip class="text-body1">More Info</q-tooltip>
           </q-btn>
           <q-btn
-            round
+            :round="desktopCheck()"
             class="q-ma-xs"
-            size="sm"
+            :padding="desktopCheck() ? '' : 'sm lg'"
+            :size="desktopCheck() ? 'sm' : 'md'"
             color="primary"
             icon="fas fa-pen">
             <q-tooltip class="text-body1">Quick Edit</q-tooltip>
@@ -258,75 +269,157 @@ export default {
     },
     close() {
       this.details = false;
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
     }
   }
 };
 </script>
 
 <!--suppress CssUnusedSymbol, CssUnusedSymbol -->
-<style scoped>
+<style
+  scoped
+  lang="scss">
 @import url(../../../css/card-styles.css);
 
-.card-cont {
-  position: relative;
+
+body.screen--xs, {
+  .card-cont {
+    position: relative;
+    width: 100%;
+
+  }
+
+  .card {
+    height: 15rem;
+    width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  .card-image {
+    left: 11rem;
+    top: 0rem;
+    width: 200px
+  }
+
+  .flipped {
+    transform: rotatex(180deg);
+  }
+
+  .type-icon {
+    opacity: 0.15;
+  }
+
+  .card-front-name {
+    display: block;
+    position: absolute;
+    text-align: left;
+    left: 1rem;
+    height: 8rem;
+    width: 50%;
+    opacity: 50%;
+  }
+
+  .card-back-name {
+    text-align: center;
+    height: 5rem;
+    width: 10rem;
+    opacity: 70%;
+  }
+
+  .card-back-info-cont {
+    height: 19.5rem;
+    width: 11.5rem;
+  }
+
+  .card-front-number {
+    opacity: 50%;
+  }
+
+  .card-back-subtitle,
+  .icons {
+    opacity: 70%;
+  }
+
+  .notCaught {
+    filter: grayscale(1) brightness(0.7);
+  }
+
+  .disabled-image {
+    filter: brightness(0.3);
+  }
 }
 
-.card {
-  height: 20rem;
-  width: 12rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  transition: all 400ms ease-in-out;
-  backface-visibility: hidden;
-}
+body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
+  .card-cont {
+    position: relative;
+  }
 
-.flipped {
-  transform: rotatey(180deg);
-}
+  .card {
+    height: 20rem;
+    width: 12rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
+    backface-visibility: hidden;
+  }
 
-.type-icon {
-  opacity: 0.15;
-}
+  .card-image {
+    min-width: 250px;
+  }
 
-.card-front-name {
-  display: block;
-  position: absolute;
-  text-align: left;
-  top: 3rem;
-  left: -0.5rem;
-  height: 8rem;
-  width: 15rem;
-  transform: rotate(-90deg) translate(-107%, 0);
-  transform-origin: 0 0;
-  opacity: 50%;
-}
+  .flipped {
+    transform: rotatey(180deg);
+  }
 
-.card-back-name {
-  text-align: center;
-  height: 5rem;
-  width: 10rem;
-  opacity: 70%;
-}
+  .type-icon {
+    opacity: 0.15;
+  }
 
-.card-back-info-cont {
-  height: 19.5rem;
-  width: 11.5rem;
-}
+  .card-front-name {
+    display: block;
+    position: absolute;
+    text-align: left;
+    top: 3rem;
+    left: -0.5rem;
+    height: 8rem;
+    width: 15rem;
+    transform: rotate(-90deg) translate(-107%, 0);
+    transform-origin: 0 0;
+    opacity: 50%;
+  }
 
-.card-front-number {
-  opacity: 50%;
-}
+  .card-back-name {
+    text-align: center;
+    height: 5rem;
+    width: 10rem;
+    opacity: 70%;
+  }
 
-.card-back-subtitle,
-.icons {
-  opacity: 70%;
-}
+  .card-back-info-cont {
+    height: 19.5rem;
+    width: 11.5rem;
+  }
 
-.notCaught {
-  filter: grayscale(1) brightness(0.7);
-}
+  .card-front-number {
+    opacity: 50%;
+  }
 
-.disabled-image {
-  filter: brightness(0.3);
+  .card-back-subtitle,
+  .icons {
+    opacity: 70%;
+  }
+
+  .notCaught {
+    filter: grayscale(1) brightness(0.7);
+  }
+
+  .disabled-image {
+    filter: brightness(0.3);
+  }
 }
 </style>
