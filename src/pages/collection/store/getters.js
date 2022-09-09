@@ -4,5 +4,8 @@ export default {
   },
   collectionSettings(state) {
     return state.collectionSettings;
+  },
+  persistedFilters(state) {
+    return state.filters;
   }
 };

@@ -179,7 +179,6 @@ export default {
       this.catchDialog = false;
     },
     freshStart() {
-      console.log("d");
       this.searchDialog = true;
     },
     desktopCheck() {

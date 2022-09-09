@@ -290,7 +290,6 @@ body.screen--xs, {
   .card-cont {
     position: relative;
     width: 100%;
-
   }
 
   .card {

@@ -194,21 +194,21 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   props: { getSearch: { type: Function }, getShinyView: { type: Function }, closeDialog: { type: Function } },
   data() {
     return {
       moreOptionsVisible: false,
-      searchQuery: "",
-      sortQuery: "Dex: Asc",
-      caughtQuery: "My Caught",
-      needQuery: "None",
-      generationQuery: "All",
-      typeQuery1: "All",
-      typeQuery2: "All",
-      shinyView: "All Normal",
+      searchQuery: null,
+      sortQuery: null,
+      caughtQuery: null,
+      needQuery: null,
+      generationQuery: null,
+      typeQuery1: null,
+      typeQuery2: null,
+      shinyView: null,
       sortFilter: ["Dex: Asc", "Dex: Desc", "Name: A-Z", "Name: Z-A"],
       caughtFilter: ["Show All", "My Caught", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV", "Complete"],
       needFilter: ["None", "All", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV"],
@@ -218,7 +218,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("collection", ["collectionSettings"])
+    ...mapGetters("collection", ["collectionSettings", "persistedFilters"])
   },
   watch: {
     collectionSettings(curVal, prevVal) {
@@ -228,7 +228,31 @@ export default {
       }
     }
   },
+  mounted() {
+    this.searchQuery = this.persistedFilters.searchQuery;
+    this.sortQuery = this.persistedFilters.sortQuery;
+    this.caughtQuery = this.persistedFilters.caughtQuery;
+    this.needQuery = this.persistedFilters.needQuery;
+    this.generationQuery = this.persistedFilters.generationQuery;
+    this.typeQuery1 = this.persistedFilters.typeQuery1;
+    this.typeQuery2 = this.persistedFilters.typeQuery2;
+    this.shinyView = this.persistedFilters.shinyView;
+  },
+
+  unmounted() {
+    this.persistFilters({
+      searchQuery: this.searchQuery,
+      sortQuery: this.sortQuery,
+      caughtQuery: this.caughtQuery,
+      needQuery: this.needQuery,
+      generationQuery: this.generationQuery,
+      typeQuery1: this.typeQuery1,
+      typeQuery2: this.typeQuery2,
+      shinyView: this.shinyView
+    });
+  },
   methods: {
+    ...mapActions("collection", ["persistFilters"]),
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
     },

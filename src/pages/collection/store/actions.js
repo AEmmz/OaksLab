@@ -21,5 +21,11 @@ export default {
     } catch (e) {
       console.error("Failed to update user settings");
     }
+  },
+  persistFilters(context, payload) {
+    context.commit("persistFilters", payload);
+  },
+  resetFilters(context) {
+    context.commit("resetFilters");
   }
 };

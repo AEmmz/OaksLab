@@ -21,6 +21,7 @@
         inset
         dark></q-separator>
       <q-table
+        class="full-width"
         grid
         :columns="columns"
         :rows="rows"
@@ -36,64 +37,74 @@
             :shinyView="shinyView"></collection-card>
         </template>
       </q-table>
-      <div class="flex items-center justify-center full-width">
+      <div
+        class="flex items-center justify-center full-width q-my-md"
+        :class="desktopCheck() ? '' : 'column'">
         <q-pagination
+          v-intersection="onIntersection"
           class="q-ma-md"
           v-model="pagination.page"
           :model-value="pagination.page"
           :max="maxPages"
-          :max-pages="7"
-          boundary-links
-          boundary-numbers
+          :max-pages="desktopCheck() ? 7 : 7"
           direction-links
           size="20px"
           text-color="white"
           color="white"
           active-color="primary"/>
-        <q-separator
-          vertical
-          dark
-          inset></q-separator>
-        <q-select
-          class="per-page q-ma-md"
-          dark
-          outlined
-          v-model="pagination.rowsPerPage"
-          :model-value="pagination.rowsPerPage"
-          :options="pagination.perPageOptions"
-          label="Per Page"></q-select>
+        <div
+          class="row justify-center items-center full-width">
+          <q-select
+            class="per-page q-ma-md"
+            dark
+            outlined
+            v-model="pagination.page"
+            :model-value="pagination.page"
+            :options="mobilePages"
+            label="Select Page"></q-select>
+          <q-select
+            class="per-page q-ma-md"
+            dark
+            outlined
+            v-model="pagination.rowsPerPage"
+            :model-value="pagination.rowsPerPage"
+            :options="pagination.perPageOptions"
+            label="Per Page"></q-select>
+        </div>
       </div>
     </q-card>
 
-    <q-dialog
-      v-model="filterDialog"
-      class="lt-md">
-      <q-card class="bg-dark filter-cont flex justify-around items-center q-px-md q-py-lg">
-        <collection-filters
-          :closeDialog="closeDialog"
-          :getSearch="getSearch"
-          :getShinyView="changeShinyView"></collection-filters>
-      </q-card>
-    </q-dialog>
-
-    <q-page-sticky
-      position="bottom-right"
-      :offset="[18, 18]"
-      class="floating-button"
-      :class="{'z-top': filterFab}">
-      <q-fab
-        @click="filterDialog=true"
+    <div class="lt-md mobile">
+      <q-dialog
         v-model="filterDialog"
-        color="primary"
-        icon="fas fa-filter"
-        padding="18px"
-        direction="up"></q-fab>
-    </q-page-sticky>
+        class="lt-md">
+        <q-card class="bg-dark filter-cont flex justify-around items-center q-px-md q-py-lg">
+          <collection-filters
+            :closeDialog="closeDialog"
+            :getSearch="getSearch"
+            :getShinyView="changeShinyView"></collection-filters>
+        </q-card>
+      </q-dialog>
 
-    <div
-      v-if="moreFab || searchFab"
-      class="fullscreen bg-dark disabled"
-      @click="[moreFab=false, searchFab=false]"></div>
+      <q-page-sticky
+        position="bottom-right"
+        :offset="[18, 18]"
+        class="floating-button"
+        :class="[{'z-top': filterFab},{'hide-button':endPage}]">
+        <q-fab
+          @click="filterDialog=true"
+          v-model="filterDialog"
+          color="primary"
+          icon="fas fa-filter"
+          padding="18px"
+          direction="up"></q-fab>
+      </q-page-sticky>
+
+      <div
+        v-if="filterFab"
+        class="fullscreen bg-dark disabled"
+        @click="filterFab=false"></div>
+    </div>
   </div>
 </template>
 
@@ -127,7 +138,7 @@ export default {
   },
 
   unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
+    this.resetFilters();
   },
 
   data() {
@@ -158,7 +169,8 @@ export default {
         perPageOptions: [20, 50, 100, 200]
       },
       filterFab: false,
-      filterDialog: false
+      filterDialog: false,
+      endPage: false
     };
   },
 
@@ -166,11 +178,21 @@ export default {
     ...mapGetters("collection", ["userList"]),
     maxPages() {
       return Math.ceil(this.pagination.dataLength / this.pagination.rowsPerPage);
+    },
+    mobilePages() {
+      let pages = [];
+      for (let i = 1; i <= this.maxPages; i++) {
+        pages.push(i);
+      }
+      return pages;
     }
   },
 
   methods: {
-    ...mapActions("collection", ["retrieveList", "updateShinyView"]),
+    ...mapActions("collection", ["retrieveList", "updateShinyView", "resetFilters"]),
+    onIntersection(entry) {
+      this.endPage = entry.isIntersecting;
+    },
     closeDialog() {
       this.filterDialog = false;
     },
@@ -339,10 +361,22 @@ export default {
   width: 80%;
 }
 
+.floating-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.hide-button {
+  transform: translateX(100px) !important;
+}
+
 body.screen--xs {
   .q-dialog__inner--minimized > div {
     max-width: 100%;
     max-height: 85%;
+  }
+
+  .per-page {
+    width: 40%;
   }
 }
 
@@ -350,6 +384,10 @@ body.screen--sm {
   .q-dialog__inner--minimized > div {
     max-width: 80%;
     max-height: 85%;
+  }
+
+  .per-page {
+    width: 20%;
   }
 }
 
@@ -364,6 +402,8 @@ body.screen--xs, body.screen--sm {
     width: 100%;
     max-height: 100%;
   }
+
+
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
@@ -375,7 +415,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .per-page {
-    width: 10%;
+    width: 15%;
   }
 }
 </style>
