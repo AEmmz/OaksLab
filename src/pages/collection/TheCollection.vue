@@ -15,6 +15,11 @@
           :getSearch="getSearch"
           :getShinyView="changeShinyView"></collection-filters>
       </div>
+      <q-separator
+        class="header-seperator"
+        :class="desktopCheck() ? 'q-mt-md' : 'q-mb-md'"
+        inset
+        dark></q-separator>
       <q-table
         grid
         :columns="columns"
@@ -24,7 +29,7 @@
         hide-pagination
         v-model:pagination="pagination"
         card-container-class="flex justify-center q-gutter-sm"
-        class="q-pt-md">
+        :class="desktopCheck() ? 'q-pt-md' : ''">
         <template v-slot:item="props">
           <collection-card
             :pokemon="props.row"
@@ -59,6 +64,36 @@
           label="Per Page"></q-select>
       </div>
     </q-card>
+
+    <q-dialog
+      v-model="filterDialog"
+      class="lt-md">
+      <q-card class="bg-dark filter-cont flex justify-around items-center q-px-md q-py-lg">
+        <collection-filters
+          :closeDialog="closeDialog"
+          :getSearch="getSearch"
+          :getShinyView="changeShinyView"></collection-filters>
+      </q-card>
+    </q-dialog>
+
+    <q-page-sticky
+      position="bottom-right"
+      :offset="[18, 18]"
+      class="floating-button"
+      :class="{'z-top': filterFab}">
+      <q-fab
+        @click="filterDialog=true"
+        v-model="filterDialog"
+        color="primary"
+        icon="fas fa-filter"
+        padding="18px"
+        direction="up"></q-fab>
+    </q-page-sticky>
+
+    <div
+      v-if="moreFab || searchFab"
+      class="fullscreen bg-dark disabled"
+      @click="[moreFab=false, searchFab=false]"></div>
   </div>
 </template>
 
@@ -121,7 +156,9 @@ export default {
         dataLength: 0,
         rowsPerPage: 20,
         perPageOptions: [20, 50, 100, 200]
-      }
+      },
+      filterFab: false,
+      filterDialog: false
     };
   },
 
@@ -134,6 +171,9 @@ export default {
 
   methods: {
     ...mapActions("collection", ["retrieveList", "updateShinyView"]),
+    closeDialog() {
+      this.filterDialog = false;
+    },
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
     },
@@ -294,11 +334,35 @@ export default {
   scoped
   lang="scss">
 
+.header-seperator {
+  height: 2px;
+  width: 80%;
+}
+
+body.screen--xs {
+  .q-dialog__inner--minimized > div {
+    max-width: 100%;
+    max-height: 85%;
+  }
+}
+
+body.screen--sm {
+  .q-dialog__inner--minimized > div {
+    max-width: 80%;
+    max-height: 85%;
+  }
+}
+
 body.screen--xs, body.screen--sm {
   .collection-cont {
     width: 100%;
-    min-height: 50rem;
+    //min-height: 50rem;
     border-radius: 0.7rem;
+  }
+
+  .filter-cont {
+    width: 100%;
+    max-height: 100%;
   }
 }
 

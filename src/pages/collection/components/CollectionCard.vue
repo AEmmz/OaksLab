@@ -171,7 +171,9 @@
           <q-separator inset/>
         </div>
 
-        <div class="card-back-buttons column items-center justify-center col-3 full-width">
+        <div
+          class="card-back-buttons items-center  col-3 full-width"
+          :class="desktopCheck() ? 'row justify-around' : 'column justify-center' ">
           <router-link
             :to="{
 							name: 'tracking',
@@ -181,7 +183,7 @@
             <q-btn
               :round="desktopCheck()"
               class="q-ma-xs"
-              :padding="desktopCheck() ? '' : 'sm lg'"
+              :padding="desktopCheck() ? 'sm' : 'sm lg'"
               :size="desktopCheck() ? 'sm' : 'md'"
               color="primary"
               icon="fas fa-paw">
@@ -191,7 +193,7 @@
           <q-btn
             :round="desktopCheck()"
             class="q-ma-xs"
-            :padding="desktopCheck() ? '' : 'sm lg'"
+            :padding="desktopCheck() ? 'sm' : 'sm lg'"
             :size="desktopCheck() ? 'sm' : 'md'"
             color="primary"
             icon="fas fa-info"
@@ -201,7 +203,7 @@
           <q-btn
             :round="desktopCheck()"
             class="q-ma-xs"
-            :padding="desktopCheck() ? '' : 'sm lg'"
+            :padding="desktopCheck() ? 'sm' : 'sm lg'"
             :size="desktopCheck() ? 'sm' : 'md'"
             color="primary"
             icon="fas fa-pen">
@@ -271,7 +273,7 @@ export default {
       this.details = false;
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.xs ? true : false;
     }
   }
 };

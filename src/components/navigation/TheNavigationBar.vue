@@ -116,7 +116,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style
+  scoped
+  lang="scss">
+
 .auth-bar,
 .name-bar,
 .menu-bar {
@@ -133,13 +136,26 @@ export default {
   color: white;
 }
 
-.toolbar {
-  border-bottom: 0.2rem solid white;
-  height: 5rem;
+
+body.screen--xs, body.screen--sm {
+  .toolbar-cont {
+    height: 4rem;
+  }
+
+  .toolbar {
+    border-bottom: 0.2rem solid white;
+    height: 4rem;
+  }
 }
 
-.toolbar-cont {
-  height: 5rem;
-}
+body.screen--md, body.screen--lg, body.screen--xl, {
+  .toolbar-cont {
+    height: 5rem;
+  }
 
+  .toolbar {
+    border-bottom: 0.2rem solid white;
+    height: 5rem;
+  }
+}
 </style>

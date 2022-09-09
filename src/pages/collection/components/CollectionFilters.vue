@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-center  q-gutter-y-sm">
-    <div class="full-width flex justify-center q-gutter-md">
+    <div
+      class="full-width justify-center row q-gutter-md items-center"
+      :class="desktopCheck() ? '' : 'wrap'">
       <q-input
         class="filter search"
         v-model="searchQuery"
@@ -50,14 +52,87 @@
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
 
+      <!-- Mobile -->
+      <q-select
+        v-if="!desktopCheck()"
+        class="filter generation"
+        dark
+        outlined
+        size="xl"
+        label="Generation"
+        v-model="generationQuery"
+        :model-value="generationQuery"
+        :options="generationFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+      <q-select
+        v-if="!desktopCheck()"
+        class="filter"
+        dark
+        outlined
+        label="Type 1"
+        v-model="typeQuery1"
+        :model-value="typeQuery1"
+        :options="typeFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+      <q-select
+        v-if="!desktopCheck()"
+        class="filter"
+        dark
+        outlined
+        label="Type 2"
+        v-model="typeQuery2"
+        :model-value="typeQuery2"
+        :options="typeFilter"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="sendSearch"></q-select>
+      <q-select
+        v-if="!desktopCheck()"
+        class="filter"
+        dark
+        outlined
+        label="Shiny View"
+        v-model="shinyView"
+        :model-value="shinyView"
+        :options="shinyViewOptions"
+        transition-show="jump-up"
+        transition-hide="jump-up"
+        @update:model-value="getShinyView(shinyView)"></q-select>
+
+      <div
+        class="buttons-container q-gutter-x-md"
+        v-if="!desktopCheck()">
+        <q-btn
+          icon="fas fa-rotate"
+          label="Reset"
+          class="reset-button"
+          color="primary"
+          text-color="light"
+          @click="resetFilters"/>
+        <q-btn
+          v-if="!desktopCheck()"
+          icon="fas fa-xmark"
+          label="Close"
+          class="close-button"
+          color="primary"
+          text-color="light"
+          @click="closeDialog"/>
+      </div>
+    </div>
+    <div
+      class="full-width flex justify-center q-pt-sm q-gutter-x-md"
+      v-if="desktopCheck()">
       <q-btn
         icon="fas fa-rotate"
         label="Reset"
+        class="reset-button"
         color="primary"
         text-color="light"
         @click="resetFilters"/>
-    </div>
-    <div class="full-width flex justify-center">
       <q-btn
         label="More Options"
         color="primary"
@@ -66,7 +141,7 @@
       <q-slide-transition>
         <div
           v-show="moreOptionsVisible"
-          class="full-width flex justify-center q-mt-sm q-gutter-x-md">
+          class="full-width flex justify-center q-mt-md q-gutter-x-md">
           <q-select
             class="filter generation"
             dark
@@ -122,7 +197,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  props: { getSearch: { type: Function }, getShinyView: { type: Function } },
+  props: { getSearch: { type: Function }, getShinyView: { type: Function }, closeDialog: { type: Function } },
   data() {
     return {
       moreOptionsVisible: false,
@@ -154,6 +229,9 @@ export default {
     }
   },
   methods: {
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
     sendSearch() {
       this.getSearch({
         searchQuery: this.searchQuery,
@@ -179,13 +257,52 @@ export default {
 };
 </script>
 
-<style scoped>
-.filter {
-  width: 10%;
+<style
+  scoped
+  lang="scss">
 
+body.screen--xs {
+  .filter {
+    width: 40%;
+
+  }
+
+  .search {
+    width: 80%;
+  }
+
+  .reset-button, .close-button {
+    height: 3rem;
+  }
 }
 
-.search {
-  width: 15%;
+body.screen--sm {
+  .filter {
+    width: 25%;
+
+  }
+
+  .search {
+    width: 80%;
+  }
+
+  .reset-button, .close-button {
+    height: 3rem;
+  }
+}
+
+body.screen--md, body.screen--lg, body.screen--xl, {
+  .filter {
+    width: 16%;
+
+  }
+
+  .search {
+    width: 25%;
+  }
+
+  .reset-button, .close-button {
+    height: 3rem;
+  }
 }
 </style>
