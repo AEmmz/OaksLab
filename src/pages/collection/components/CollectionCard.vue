@@ -7,7 +7,8 @@
       :selectedImage="selectedImage"
       :pkClasses="pkClasses"
       :close="close"
-      :notCaught="deactivated"></more-info>
+      :notCaught="deactivated"
+      :toggleDetails="toggleDetails"></more-info>
   </q-dialog>
   <div
     class="card-cont"
@@ -218,7 +219,7 @@
 <script>
 import FitText from "../../../components/ui/FitText/FitText.vue";
 import FitTextAlt from "../../../components/ui/FitText/FitText-Alt.vue";
-import MoreInfo from "./CollectionMoreInfo.vue";
+import MoreInfo from "./MoreInfo/MoreInfoDialog.vue";
 
 export default {
   components: { FitText, FitTextAlt, MoreInfo },
@@ -228,11 +229,12 @@ export default {
   data() {
     return {
       flipped: false,
-      details: false,
+      details: true,
       edit: false
     };
   },
   computed: {
+
     selectedImage() {
       if (this.shinyView === "All Shiny") {
         return `https://ik.imagekit.io/kw2qoeib2/Home-Shiny/${this.pokemon.apiNo}.png`;
@@ -259,6 +261,9 @@ export default {
     }
   },
   methods: {
+    toggleDetails() {
+      this.details = false;
+    },
     flipToFront() {
       setTimeout(() => {
         this.flipped = false;
@@ -311,10 +316,6 @@ body.screen--xs, {
     transform: rotatex(180deg);
   }
 
-  .type-icon {
-    opacity: 0.15;
-  }
-
   .card-front-name {
     display: block;
     position: absolute;
@@ -352,6 +353,10 @@ body.screen--xs, {
 
   .disabled-image {
     filter: brightness(0.3);
+  }
+
+  a:-webkit-any-link {
+    text-decoration: none;
   }
 }
 

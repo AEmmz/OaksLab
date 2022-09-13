@@ -394,7 +394,6 @@ body.screen--sm {
 body.screen--xs, body.screen--sm {
   .collection-cont {
     width: 100%;
-    //min-height: 50rem;
     border-radius: 0.7rem;
   }
 
