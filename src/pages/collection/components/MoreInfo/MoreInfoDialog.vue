@@ -7,7 +7,6 @@
     :class="desktopCheck() ? 'row items-center justify-center' : 'column justify-center'">
     <more-info-image
       :pokemonInfo="pokemonInfo"
-      :notCaught="notCaught"
       :selectedImage="selectedImage"></more-info-image>
     <more-info-header
       :pokemonInfo="pokemonInfo"
@@ -102,10 +101,10 @@ export default {
       this.tabs = tab;
     },
     desktopCheck() {
-      return this.$q.screen.gt.xs ? true : false;
+      return this.$q.screen.gt.xs;
     },
     tabletCheck() {
-      return this.$q.screen.sm ? true : false;
+      return this.$q.screen.sm;
     }
 
   }
