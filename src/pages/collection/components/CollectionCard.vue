@@ -229,7 +229,7 @@ export default {
   data() {
     return {
       flipped: false,
-      details: true,
+      details: false,
       edit: false
     };
   },
