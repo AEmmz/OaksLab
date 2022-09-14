@@ -1,9 +1,9 @@
 import { child, get, getDatabase, ref, update } from "firebase/database";
 import { catchLock } from "src/util/tracker/catchLock";
-import { db } from "src/boot/firebase";
-import { collection, getDocs, addDoc, setDoc, doc, writeBatch } from "firebase/firestore";
-import pokemonList from "src/assets/json/pokemonList.json";
-import gameAvailability from "src/assets/json/gameAvailability.json";
+// import { db } from "src/boot/firebase";
+// import { collection, getDocs, addDoc, setDoc, doc, writeBatch } from "firebase/firestore";
+// import pokemonList from "src/assets/json/pokemonList.json";
+// import gameAvailability from "src/assets/json/gameAvailability.json";
 
 export default {
   // async addToCollection(context, payload) {

@@ -64,8 +64,7 @@ export default {
     } catch (error) {
       console.log(error.message);
       const servError = error.message.split(" ")[2];
-      const errorHandler = await serverError(servError);
-      return errorHandler;
+      return serverError(servError);
     }
   },
 
@@ -111,8 +110,7 @@ export default {
     } catch (error) {
       console.log(error.message);
       const servError = error.message.split(" ")[2];
-      const errorHandler = await serverError(servError);
-      return errorHandler;
+      return serverError(servError);
     }
   },
 
@@ -190,9 +188,8 @@ export default {
   async deleteAccountDb(context, payload) {
     const auth = getAuth();
     const user = auth.currentUser;
-    const currentPassword = payload;
     try {
-      const credential = await EmailAuthProvider.credential(user.email, currentPassword);
+      const credential = await EmailAuthProvider.credential(user.email, payload);
       await reauthenticateWithCredential(user, credential);
     } catch (e) {
       return { error: e, message: "An error occurred, please check your password and try again." };

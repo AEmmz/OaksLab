@@ -1,4 +1,5 @@
 import { child, get, getDatabase, ref, update } from "firebase/database";
+import { catchLock } from "src/util/tracker/catchLock";
 
 export default {
   async retrieveList(context) {
@@ -27,5 +28,16 @@ export default {
   },
   resetFilters(context) {
     context.commit("resetFilters");
+  },
+
+  lockCheck(context, payload) {
+    const locked = catchLock(payload);
+    return {
+      shinyAvailable: locked.shiny,
+      alphaAvailable: locked.alpha,
+      shinyAlphaAvailable: locked.shinyAlpha,
+      markedAvailable: locked.marked,
+      shinyMarkedAvailable: locked.shinyMarked
+    };
   }
 };

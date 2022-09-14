@@ -3,6 +3,7 @@
     :reveal="!desktopCheck()"
     elevated
     class="toolbar-cont">
+
     <!--Mobile Menu -->
     <q-toolbar class="bg-dark row justify-between fixed toolbar lt-md text-light shadow-2">
       <q-btn
@@ -68,7 +69,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import AuthBar from "./components/AuthBar.vue";
 import MenuBar from "./components/MenuBar.vue";
 
@@ -80,37 +81,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("authorization", ["isLoggedIn"]),
-    ...mapGetters("navigation", ["menuOverlay", "mobileMenu"]),
-    filterShow() {
-      return this.$route.name === "collection" || this.$route.name === "statistics";
-    }
+    ...mapGetters("authorization", ["isLoggedIn"])
   },
   methods: {
-    ...mapActions("navigation", [
-      "toggleNav",
-      "toggleCollectionFilter",
-      "toggleStatisticsFilter",
-      "closeSliders"
-    ]),
-    toggleNav() {
-      if (window.innerWidth < 480) {
-        this.toggleNav();
-      }
-    },
-    toggleFilter() {
-      if (this.$route.name === "collection") {
-        this.toggleCollectionFilter();
-      }
-      if (this.$route.name === "statistics") {
-        this.toggleStatisticsFilter();
-      }
-    },
-    closeSliders() {
-      this.closeSliders();
-    },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     }
   }
 };

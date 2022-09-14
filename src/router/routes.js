@@ -23,7 +23,6 @@ const routes = [
     path: "/home",
     component: Home
   },
-  ,
   {
     path: "/register",
     component: Register,

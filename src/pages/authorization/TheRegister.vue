@@ -132,8 +132,7 @@ export default {
   methods: {
     ...mapActions("authorization", ["getUsernamesList", "clientAuthSignup", "signup"]),
     async pullDb() {
-      const fetch = await this.getUsernamesList();
-      this.userList = fetch;
+      this.userList = await this.getUsernamesList();
     },
 
     async submitForm() {

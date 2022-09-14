@@ -31,7 +31,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="pokemonInfo.caught[0].shinyCaught">
+                v-if="pokemonInfo.caught[0].shinyCaught && statusLock.shinyAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -41,7 +41,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="pokemonInfo.caught[0].alphaCaught">
+                v-if="pokemonInfo.caught[0].alphaCaught && statusLock.alphaAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -51,7 +51,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="pokemonInfo.caught[0].shinyAlphaCaught">
+                v-if="pokemonInfo.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -81,7 +81,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="pokemonInfo.caught[0].markedCaught">
+                v-if="pokemonInfo.caught[0].markedCaught && statusLock.markedAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -91,7 +91,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="pokemonInfo.caught[0].shinyMarkedCaught">
+                v-if="pokemonInfo.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -156,7 +156,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="!pokemonInfo.caught[0].shinyCaught">
+                v-if="!pokemonInfo.caught[0].shinyCaught && statusLock.shinyAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -166,7 +166,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="!pokemonInfo.caught[0].alphaCaught">
+                v-if="!pokemonInfo.caught[0].alphaCaught && statusLock.alphaAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -176,7 +176,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="!pokemonInfo.caught[0].shinyAlphaCaught">
+                v-if="!pokemonInfo.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -206,7 +206,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="!pokemonInfo.caught[0].markedCaught">
+                v-if="!pokemonInfo.caught[0].markedCaught && statusLock.markedAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -216,7 +216,7 @@
               </div>
               <div
                 class="col-3 column items-center text-center"
-                v-if="!pokemonInfo.caught[0].shinyMarkedCaught">
+                v-if="!pokemonInfo.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable">
                 <q-icon
                   class="q-pt-md q-pb-xs"
                   color="dark"
@@ -273,15 +273,35 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "MoreInfoTabContent",
-  props: { pokemonInfo: { type: Object }, tabs: { type: String } },
+  async mounted() {
+    this.statusLock = await this.lockCheck(this.pokemonInfo.apiNo);
+  },
+  props: {
+    pokemonInfo: { type: Object },
+    tabs: { type: String }
+  },
+  data() {
+    return {
+      statusLock: {
+        shinyAvailable: true,
+        alphaAvailable: true,
+        shinyAlphaAvailable: true,
+        markedAvailable: true,
+        shinyMarkedAvailable: true
+      }
+    };
+  },
   computed: {
     selectedTab() {
       return this.tabs;
     }
   },
   methods: {
+    ...mapActions("collection", ["lockCheck"]),
     desktopCheck() {
       return this.$q.screen.gt.xs;
     },

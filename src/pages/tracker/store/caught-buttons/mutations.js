@@ -31,21 +31,6 @@ export default {
     state.favorite = payload.favoriteCaught;
   },
 
-  resetTracker(state) {
-    state.normal = false;
-    state.shiny = false;
-    state.alpha = false;
-    state.shinyAlpha = false;
-    state.marked = false;
-    state.shinyMarked = false;
-    state.pokerus = false;
-    state.shinyPokerus = false;
-    state.zeroIv = false;
-    state.shinyZeroIv = false;
-    state.sixIv = false;
-    state.shinySixIv = false;
-    state.favorite = false;
-  },
 
   catchLock(state, payload) {
     state.shinyAvailable = payload.shiny;
@@ -55,24 +40,10 @@ export default {
     // state.shinyMarkedAvailable = payload.shinyMarked;
   },
 
+  resetTracker(state) {
+    state.normal = state.shiny = state.alpha = state.shinyAlpha = state.marked = state.shinyMarked = state.pokerus = state.shinyPokerus = state.zeroIv = state.shinyZeroIv = state.sixIv = state.shinySixIv = state.favorite = false;
+  },
   resetToggles(state) {
-    state.normal = false;
-    state.shiny = false;
-    state.alpha = false;
-    state.shinyAlpha = false;
-    state.marked = false;
-    state.shinyMarked = false;
-    state.pokerus = false;
-    state.shinyPokerus = false;
-    state.zeroIv = false;
-    state.shinyZeroIv = false;
-    state.sixIv = false;
-    state.shinySixIv = false;
-    state.favorite = false;
-    state.shinyAvailable = false;
-    state.alphaAvailable = false;
-    state.shinyAlphaAvailable = false;
-    state.markedAvailable = false;
-    state.shinyMarkedAvailable = false;
+    state.normal = state.shiny = state.alpha = state.shinyAlpha = state.marked = state.shinyMarked = state.pokerus = state.shinyPokerus = state.zeroIv = state.shinyZeroIv = state.sixIv = state.shinySixIv = state.favorite = state.shinyAvailable = state.alphaAvailable = state.shinyAlphaAvailable = state.markedAvailable = state.shinyMarkedAvailable = false;
   }
 };

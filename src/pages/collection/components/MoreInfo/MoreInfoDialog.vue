@@ -62,6 +62,7 @@
         <div class="information-panels flex justify-center">
           <more-info-tab-content
             :pokemonInfo="pokemonInfo"
+            :statusLock="statusLock"
             :tabs="tabs"></more-info-tab-content>
         </div>
       </div>
@@ -85,6 +86,7 @@ export default {
   props: {
     pokemonInfo: { type: Object },
     pokemonId: { type: String },
+    statusLock: { type: Object },
     selectedImage: { type: String },
     pkClasses: { type: String },
     close: { type: Function },
@@ -93,7 +95,7 @@ export default {
   },
   data() {
     return {
-      tabs: "stats"
+      tabs: "uncaught"
     };
   },
   methods: {

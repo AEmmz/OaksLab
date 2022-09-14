@@ -111,11 +111,11 @@
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-import { catchLock } from "src/util/tracker/catchLock";
+// import { catchLock } from "src/util/tracker/catchLock";
 
 const CollectionFilters = defineAsyncComponent(() => import("./components/CollectionFilters.vue"));
 const CollectionCard = defineAsyncComponent(() => import("./components/CollectionCard.vue"));
-
+const catchLock = defineAsyncComponent(() => import("src/util/tracker/catchLock"));
 
 export default {
   components: {

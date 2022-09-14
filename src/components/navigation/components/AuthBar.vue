@@ -91,7 +91,7 @@ export default {
       this.$router.replace("/home");
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     }
   },
   computed: {

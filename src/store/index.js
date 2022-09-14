@@ -4,7 +4,6 @@ import authorization from "../pages/authorization/store/index.js";
 import activePokemon from "../pages/tracker/store/tracker/index.js";
 import collection from "pages/collection/store";
 import statistics from "../pages/statistics/store/index.js";
-import navigation from "../components/navigation/store/index.js";
 
 // import example from './module-example'
 
@@ -18,21 +17,17 @@ import navigation from "../components/navigation/store/index.js";
  */
 
 export default store(function(/* { ssrContext } */) {
-  const store = createStore({
+  return createStore({
     modules: {
       authorization: authorization,
       tracker: activePokemon,
       collection: collection,
-      statistics: statistics,
-      navigation: navigation
+      statistics: statistics
     },
-
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING
   });
-
-  return store;
 });
 
 export { store };

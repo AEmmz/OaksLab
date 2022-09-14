@@ -34,7 +34,6 @@ export default boot(async ({ app, store }) => {
             resolve(user);
           }
           if (!user) {
-            console.log("logged out");
             resolve(false);
           }
         });

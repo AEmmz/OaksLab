@@ -68,15 +68,15 @@
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokeball"/>
               <q-icon
-                v-if="pokemon.caught[0].shinyCaught"
+                v-if="pokemon.caught[0].shinyCaught && statusLock.shinyAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-shiny"/>
               <q-icon
-                v-if="pokemon.caught[0].alphaCaught"
+                v-if="pokemon.caught[0].alphaCaught && statusLock.alphaAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha"/>
               <q-icon
-                v-if="pokemon.caught[0].shinyAlphaCaught"
+                v-if="pokemon.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha-shiny"/>
               <q-icon
@@ -88,11 +88,11 @@
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus-shiny"/>
               <q-icon
-                v-if="pokemon.caught[0].markedCaught"
+                v-if="pokemon.caught[0].markedCaught && statusLock.markedAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked"/>
               <q-icon
-                v-if="pokemon.caught[0].shinyMarkedCaught"
+                v-if="pokemon.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked-shiny"/>
               <q-icon
@@ -124,15 +124,15 @@
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokeball"/>
               <q-icon
-                v-if="!pokemon.caught[0].shinyCaught"
+                v-if="!pokemon.caught[0].shinyCaught && statusLock.shinyAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-shiny"/>
               <q-icon
-                v-if="!pokemon.caught[0].alphaCaught"
+                v-if="!pokemon.caught[0].alphaCaught && statusLock.alphaAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha"/>
               <q-icon
-                v-if="!pokemon.caught[0].shinyAlphaCaught"
+                v-if="!pokemon.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-alpha-shiny"/>
               <q-icon
@@ -144,11 +144,11 @@
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-pokerus-shiny"/>
               <q-icon
-                v-if="!pokemon.caught[0].markedCaught"
+                v-if="!pokemon.caught[0].markedCaught && statusLock.markedAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked"/>
               <q-icon
-                v-if="!pokemon.caught[0].shinyMarkedCaught"
+                v-if="!pokemon.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable"
                 :size="desktopCheck() ? 'xs' : 'sm'"
                 name="icon-poke-marked-shiny"/>
               <q-icon
@@ -217,9 +217,12 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import FitText from "../../../components/ui/FitText/FitText.vue";
 import FitTextAlt from "../../../components/ui/FitText/FitText-Alt.vue";
-import MoreInfo from "./MoreInfo/MoreInfoDialog.vue";
+import { mapActions } from "vuex";
+
+const MoreInfo = defineAsyncComponent(() => import("./MoreInfo/MoreInfoDialog.vue"));
 
 export default {
   components: { FitText, FitTextAlt, MoreInfo },
@@ -230,11 +233,20 @@ export default {
     return {
       flipped: false,
       details: false,
-      edit: false
+      edit: false,
+      statusLock: {
+        shinyAvailable: true,
+        alphaAvailable: true,
+        shinyAlphaAvailable: true,
+        markedAvailable: true,
+        shinyMarkedAvailable: true
+      }
     };
   },
+  async mounted() {
+    this.statusLock = await this.lockCheck(this.pokemon.apiNo);
+  },
   computed: {
-
     selectedImage() {
       if (this.shinyView === "All Shiny") {
         return `https://ik.imagekit.io/kw2qoeib2/Home-Shiny/${this.pokemon.apiNo}.png`;
@@ -261,6 +273,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions("collection", ["lockCheck"]),
     toggleDetails() {
       this.details = false;
     },
