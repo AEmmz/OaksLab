@@ -1,87 +1,115 @@
 <template>
-  <div
-    class="row justify-center items-center home-container relative-position"
-    v-intersection="{handler: cardIntersect, cfg:{threshold: cardThreshold}}">
+  <q-page-container class="home-container relative-position">
     <div
-      class="row home-toolbar q-px-lg absolute-top-left full-width items-center"
-      :class="{'toolbar-top': !intersecting}">
-      <div class="col-6 text-h4 site-header">Oaks Lab</div>
-    </div>
-    <div
-      class="row main-container relative-position  full-width items-center justify-center">
+      class="row justify-center items-center home-container relative-position"
+      v-intersection="{handler: cardIntersect, cfg:{threshold: cardThreshold}}">
       <div
-        class="card1 relative-position"
-        :style="`left: ${cardPosition}%`">
-        <div class="full-width full-height  absolute-top-left card-overlay"></div>
-        <collection-card
-          class="cards"
-          :pokemon="card1"
-          shiny-view="All Normal"></collection-card>
-      </div>
-      <div class="card2 relative-position">
-        <div class="full-width full-height  absolute-top-left card-overlay"></div>
-        <collection-card
-          class="cards"
-          :pokemon="card2"
-          shiny-view="All Normal"></collection-card>
+        class="row home-toolbar q-px-lg absolute-top-left full-width items-center"
+        :class="{'toolbar-top': !intersecting}">
+        <div class="col-6 text-h4 site-header">Oaks Lab</div>
       </div>
       <div
-        class="card3 relative-position"
-        :style="`right: ${cardPosition}%`">
-        <div class="full-width full-height  absolute-top-left card-overlay"></div>
-        <collection-card
-          class="cards"
-          :pokemon="card3"
-          shiny-view="All Normal"></collection-card>
+        class="row main-container relative-position  full-width items-center justify-center">
+        <div
+          class="card1 relative-position"
+          :style="`left: ${cardPosition}%`">
+          <div class="full-width full-height  absolute-top-left card-overlay"></div>
+          <collection-card
+            class="cards"
+            :pokemon="card1"
+            shiny-view="All Normal"></collection-card>
+        </div>
+        <div class="card2 relative-position">
+          <div class="full-width full-height  absolute-top-left card-overlay"></div>
+          <collection-card
+            class="cards"
+            :pokemon="card2"
+            shiny-view="All Normal"></collection-card>
+        </div>
+        <div
+          class="card3 relative-position"
+          :style="`right: ${cardPosition}%`">
+          <div class="full-width full-height  absolute-top-left card-overlay"></div>
+          <collection-card
+            class="cards"
+            :pokemon="card3"
+            shiny-view="All Normal"></collection-card>
+        </div>
+      </div>
+      <div class="absolute-bottom-left hero-header text-dark  q-ma-xl text-h1">
+        <div>Gotta Track<br/>'Em All</div>
+      </div>
+      <div class="absolute-top-right hero-subheader text-dark  q-ma-xl text-h6 text-center justify-center">
+        <div
+          class="subheader"
+          v-intersection="buttonIntersect">Collect the way that you want to collect.
+        </div>
+        <div
+          class="row justify-center q-my-sm button-container"
+          :class="[{'top': !intersecting},{'logged-in': isLoggedIn }]">
+          <q-btn
+            v-if="!isLoggedIn"
+            size="md"
+            :unelevated="!intersecting"
+            padding="10px 32px"
+            class="button q-ma-xs"
+            to="/login"
+            color="primary">Login
+          </q-btn>
+          <q-btn
+            v-if="!isLoggedIn"
+            size="md"
+            :unelevated="!intersecting"
+            padding="10px 32px"
+            to="/register"
+            class="button q-ma-xs"
+            color="positive">
+            <div class="text-center">
+              Signup
+            </div>
+          </q-btn>
+          <q-btn
+            v-if="isLoggedIn"
+            size="md"
+            :unelevated="!intersecting"
+            padding="10px 32px"
+            to="/collection"
+            class="button q-ma-xs"
+            color="positive">
+            <div class="text-center">
+              To Collection
+            </div>
+          </q-btn>
+          <q-btn
+            v-if="isLoggedIn"
+            size="md"
+            :unelevated="!intersecting"
+            padding="10px 32px"
+            to="/tracker"
+            class="button q-ma-xs"
+            color="positive">
+            <div class="text-center">
+              To Tracker
+            </div>
+          </q-btn>
+        </div>
       </div>
     </div>
-    <div class="absolute-bottom-left hero-header text-dark  q-ma-xl text-h1">
-      <div>Gotta Track<br/>'Em All</div>
-    </div>
-    <div class="absolute-top-right hero-subheader text-dark  q-ma-xl text-h6 text-center">
-      <div
-        class="subheader"
-        v-intersection="buttonIntersect">Collect the way that you want to collect.
-      </div>
-      <div
-        class="row justify-center q-ma-sm button-container"
-        :class="{'top': !intersecting}">
-        <q-btn
-          size="md"
-          :unelevated="!intersecting"
-          padding="10px 32px"
-          class="button q-ma-xs"
-          to="/login"
-          color="primary">Login
-        </q-btn>
-        <q-btn
-          size="md"
-          :unelevated="!intersecting"
-          padding="10px 32px"
-          to="/register"
-          class="button q-ma-xs"
-          color="positive">
-          <div class="text-center">
-            Signup
-          </div>
-        </q-btn>
-      </div>
-    </div>
-  </div>
-  <div class="section-1 bg-dark"></div>
+    <div class="section-1 bg-dark"></div>
 
-  <div class="full-height full-width backdrop fixed"></div>
-  <div class="design1"></div>
-  <div class="design2 "></div>
-  <div class="design3 "></div>
-  <div class="design4 "></div>
-  <div class="design5"></div>
-  <div class="design6 "></div>
-
+    <div class="full-height full-width backdrop fixed"></div>
+    <div class="design1"></div>
+    <div class="design2 "></div>
+    <div class="design3 "></div>
+    <div class="design4 "></div>
+    <div class="design5"></div>
+    <div class="design6 "></div>
+  </q-page-container>
 </template>
 
 <script>
 import collectionCard from "../collection/components/CollectionCard.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: { collectionCard },
@@ -130,6 +158,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters("authorization", ["isLoggedIn"]),
     cardPosition() {
       const val = 20 - (this.cardIntersecting * 20);
       console.log(val);
@@ -314,7 +343,10 @@ export default {
   top: 0;
   right: 0;
   animation: slideright 0.5s 0.3s ease-in-out forwards
+}
 
+.button-container.top.logged-in {
+  animation: sliderightLogged 0.5s 0.3s ease-in-out forwards
 }
 
 @keyframes slideright {
@@ -322,7 +354,13 @@ export default {
     width: 255px;
     position: fixed
   }
+}
 
+@keyframes sliderightLogged {
+  to {
+    width: 360px;
+    position: fixed
+  }
 }
 
 .home-container {
