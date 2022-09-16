@@ -2,7 +2,9 @@
   <q-header
     :reveal="!desktopCheck()"
     elevated
-    class="toolbar-cont">
+    class="toolbar-cont"
+    :class="{'homepage-header' : homepageToolbar}"
+    v-intersection="onIntersection">
 
     <!--Mobile Menu -->
     <q-toolbar class="bg-dark row justify-between fixed toolbar lt-md text-light shadow-2">
@@ -16,7 +18,8 @@
     </q-toolbar>
 
     <!-- Desktop Menu -->
-    <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
+    <q-toolbar
+      class="bg-dark row justify-between fixed toolbar gt-sm">
       <div class="auth-bar">
         <auth-bar></auth-bar>
       </div>
@@ -31,6 +34,8 @@
         <menu-bar></menu-bar>
       </div>
     </q-toolbar>
+
+    <!-- Homepage Toolbar -->
 
     <q-drawer
       v-if="!desktopCheck()"
@@ -77,15 +82,26 @@ export default {
   components: { AuthBar, MenuBar },
   data() {
     return {
-      drawerLeft: false
+      drawerLeft: false,
+      headerIntersect: false
     };
   },
   computed: {
-    ...mapGetters("authorization", ["isLoggedIn"])
+    ...mapGetters("authorization", ["isLoggedIn"]),
+    homepageToolbar() {
+      if (this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home") {
+        return true;
+      }
+      return false;
+    }
   },
   methods: {
     desktopCheck() {
       return this.$q.screen.gt.sm;
+    },
+    onIntersection(entry) {
+      console.log(this.$router);
+      this.headerIntersect = entry.isIntersecting;
     }
   }
 };
@@ -131,6 +147,11 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   .toolbar {
     border-bottom: 0.2rem solid white;
     height: 5rem;
+  }
+
+  .homepage-header {
+    top: -9rem;
+    transition: 0.5s ease-in-out all;
   }
 }
 </style>

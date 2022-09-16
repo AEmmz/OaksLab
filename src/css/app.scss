@@ -1,4 +1,19 @@
 // app global css in SCSS form
+@font-face {
+  font-family: 'Futura';
+  src: url("./fonts/fut-demi.otf");
+}
+
+@font-face {
+  font-family: 'Futura-Bold';
+  src: url("./fonts/fut-bold.ttf");
+}
+
+@font-face {
+  font-family: 'Gellix';
+  src: url("./fonts/gel-reg.ttf");
+}
+
 
 $light: #f5f3f5;
 $defaultType: #5c5c5c;

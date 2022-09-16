@@ -4768,3 +4768,11 @@
 
 .enamorus-therian {
 }
+
+.fuecoco {
+  transform: translateX(1rem);
+}
+
+.quaxly {
+  transform: scaleX(-1) translateX(-1rem);
+}

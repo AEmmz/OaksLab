@@ -177,7 +177,7 @@
           :class="desktopCheck() ? 'row justify-around' : 'column justify-center' ">
           <router-link
             :to="{
-							name: 'tracking',
+							name: 'tracker',
 							params: { pkName: pokemon.name.toLowerCase() },
 						}"
             class="track-button-cont">
@@ -245,6 +245,7 @@ export default {
   },
   async mounted() {
     this.statusLock = await this.lockCheck(this.pokemon.apiNo);
+    console.log(this.pokemon);
   },
   computed: {
     selectedImage() {
@@ -410,6 +411,8 @@ body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
     transform: rotate(-90deg) translate(-107%, 0);
     transform-origin: 0 0;
     opacity: 50%;
+    font-family: Futura, sans-serif;
+
   }
 
   .card-back-name {

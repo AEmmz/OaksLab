@@ -95,7 +95,7 @@ export default {
   },
   data() {
     return {
-      tabs: "uncaught"
+      tabs: "stats"
     };
   },
   methods: {

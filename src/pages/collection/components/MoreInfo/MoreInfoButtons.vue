@@ -6,7 +6,7 @@
     class="full-width bg-primary row justify-center button-container">
     <router-link
       :to="{
-							name: 'tracking',
+							name: 'tracker',
 							params: { pkName: pokemonInfo.name.toLowerCase() },
 						}"
       class="track-button-cont full-height">

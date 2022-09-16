@@ -15,26 +15,30 @@ const routes = [
   {
     path: "/tracker",
     component: Tracker,
-    name: "tracking",
+    name: "tracker",
     meta: { requiresAuth: true },
     children: [{ path: ":pkName", component: Tracker }]
   },
   {
     path: "/home",
+    name: "home",
     component: Home
   },
   {
     path: "/register",
+    name: "register",
     component: Register,
     meta: { requiresNotAuth: true }
   },
   {
     path: "/login",
+    name: "login",
     component: Login,
     meta: { requiresNotAuth: true }
   },
   {
     path: "/admin",
+    name: "admin",
     component: Admin,
     meta: { requiresAuth: true }
   },
