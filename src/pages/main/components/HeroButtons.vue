@@ -66,69 +66,76 @@ export default {
   scoped
   lang="scss">
 
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+body.screen--xs, body.screen--sm {
 
-.button-container {
-  position: relative;
-  top: 0;
-  right: 0;
-  width: 100%;
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-  z-index: 5;
 }
 
-.button-container.top {
-  position: fixed;
-  width: 38%;
-  top: 0;
-  right: 0;
-  -webkit-animation: slideright 0.5s 0.3s ease-in-out forwards;
-  animation: slideright 0.5s 0.3s ease-in-out forwards;
-}
+body.screen--md, body.screen--lg, body.screen--xl, {
 
-.button-container.top.logged-in {
-  -webkit-animation: sliderightLogged 0.5s 0.3s ease-in-out forwards;
-  animation: sliderightLogged 0.5s 0.3s ease-in-out forwards;
-}
+  /*
+  * Prefixed by https://autoprefixer.github.io
+  * PostCSS: v8.4.14,
+  * Autoprefixer: v10.4.7
+  * Browsers: last 4 version
+  */
 
-@-webkit-keyframes slideright {
-  to {
-    width: 255px;
-    position: fixed;
+  .button-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    z-index: 5;
   }
-}
 
-@keyframes slideright {
-  to {
-    width: 255px;
+  .button-container.top {
     position: fixed;
+    width: 38%;
+    top: 0;
+    right: 0;
+    -webkit-animation: slideright 0.5s 0.3s ease-in-out forwards;
+    animation: slideright 0.5s 0.3s ease-in-out forwards;
   }
-}
 
-@-webkit-keyframes sliderightLogged {
-  to {
-    width: 360px;
-    position: fixed;
+  .button-container.top.logged-in {
+    -webkit-animation: sliderightLogged 0.5s 0.3s ease-in-out forwards;
+    animation: sliderightLogged 0.5s 0.3s ease-in-out forwards;
   }
-}
 
-@keyframes sliderightLogged {
-  to {
-    width: 360px;
-    position: fixed;
+  @-webkit-keyframes slideright {
+    to {
+      width: 255px;
+      position: fixed;
+    }
   }
-}
 
-.button {
-  border-radius: 0.5rem;
-  font-family: Futura-Bold, sans-serif;
+  @keyframes slideright {
+    to {
+      width: 255px;
+      position: fixed;
+    }
+  }
+
+  @-webkit-keyframes sliderightLogged {
+    to {
+      width: 360px;
+      position: fixed;
+    }
+  }
+
+  @keyframes sliderightLogged {
+    to {
+      width: 360px;
+      position: fixed;
+    }
+  }
+
+  .button {
+    border-radius: 0.5rem;
+    font-family: Futura-Bold, sans-serif;
+  }
 }
 
 </style>

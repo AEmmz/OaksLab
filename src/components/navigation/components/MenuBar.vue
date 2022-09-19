@@ -53,17 +53,60 @@
         Statistics
       </div>
     </q-route-tab>
+
+    <!--Desktop Admin Button-->
+    <q-btn
+      v-if="isLoggedIn && desktopCheck()"
+      class="q-ml-sm"
+      unelevated
+      flat
+      round
+      icon="far fa-user">
+      <q-menu
+        dark
+        :offset="[0,15]"
+        transition-show="jump-down"
+        transition-hide="jump-up">
+        <q-list class="admin-menu text-subtitle1">
+          <q-item
+            to="/admin"
+            exact
+            clickable
+            v-close-popup>
+            <q-item-section class="admin-menu-section">
+              <q-icon name="fas fa-gear"/>
+              <div>Settings</div>
+            </q-item-section>
+          </q-item>
+          <q-item
+            @click="commitLogout"
+            exact
+            clickable
+            v-close-popup>
+            <q-item-section class="admin-menu-section">
+              <q-icon name="fas fa-right-from-bracket"/>
+              <div>Logout</div>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-menu>
+    </q-btn>
   </q-tabs>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters("authorization", ["isLoggedIn"])
   },
   methods: {
+    ...mapActions("authorization", ["logout"]),
+    commitLogout() {
+      this.logout();
+      this.$router.replace("/home");
+    },
     desktopCheck() {
       return this.$q.screen.gt.sm;
     }
@@ -83,6 +126,22 @@ body.screen--xs, body.screen--sm {
 body.screen--md, body.screen--lg, body.screen--xl, {
   .menu-cont {
     height: 100%;
+  }
+
+  .admin-menu {
+    min-width: 150px;
+  }
+
+  .admin-menu-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px
+  }
+
+  .q-item.q-router-link--active, .q-item--active {
+    color: white
   }
 }
 

@@ -71,36 +71,42 @@ export default {
   scoped
   lang="scss">
 
-.main-container {
-  max-width: 100rem;
-  height: 70%;
+body.screen--xs, body.screen--sm {
+
 }
 
-.card-overlay {
-  z-index: 2;
-}
+body.screen--md, body.screen--lg, body.screen--xl, {
+  .main-container {
+    max-width: 100rem;
+    height: 70%;
+  }
 
-.card1, .card2, .card3 {
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: 0.5s ease all;
-}
+  .card-overlay {
+    z-index: 2;
+  }
 
-.card1 {
-  transform: rotate(15deg);
-  top: -10rem;
-  z-index: 4;
-}
+  .card1, .card2, .card3 {
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease all;
+  }
 
-.card2 {
-  transform: rotate(15deg);
-  z-index: 3;
-}
+  .card1 {
+    transform: rotate(15deg);
+    top: -10rem;
+    z-index: 4;
+  }
 
-.card3 {
-  transform: rotate(15deg);
-  top: 10rem;
-  z-index: 2;
+  .card2 {
+    transform: rotate(15deg);
+    z-index: 3;
+  }
+
+  .card3 {
+    transform: rotate(15deg);
+    top: 10rem;
+    z-index: 2;
+  }
 }
 
 </style>

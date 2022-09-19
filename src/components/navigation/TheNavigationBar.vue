@@ -14,29 +14,34 @@
         flat
         round
         icon="fas fa-bars"/>
-      <q-toolbar-title>Oak's Lab</q-toolbar-title>
+      <q-toolbar-title>
+        DexHunt
+      </q-toolbar-title>
     </q-toolbar>
 
     <!-- Desktop Menu -->
-    <q-toolbar
-      class="bg-dark row justify-between fixed toolbar gt-sm">
-      <div class="auth-bar">
-        <auth-bar></auth-bar>
-      </div>
-      <div class="name-bar row justify-center">
+    <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
+      <div class="col-4 site-header row items-center text-h4">
+        <q-icon
+          name="icon-poke-pokeball"
+          size="sm"
+          class="q-pt-xs q-pr-sm"/>
         <router-link
           to="/home"
-          class="home">
-          <h4>Oak's Lab</h4>
+          class="home-link text-light">DexHunt
         </router-link>
+        <q-icon
+          name="icon-poke-pokeball"
+          size="sm"
+          class="q-pt-xs q-pl-sm"/>
       </div>
-      <div class="menu-bar">
+      <div class="col-4"></div>
+      <div class="col-4 menu-bar">
         <menu-bar></menu-bar>
       </div>
     </q-toolbar>
 
-    <!-- Homepage Toolbar -->
-
+    <!-- Mobile Menu Drawer -->
     <q-drawer
       v-if="!desktopCheck()"
       v-model="drawerLeft"
@@ -47,8 +52,17 @@
       show-if-above
       class="bg-dark text-white lt-md">
       <q-scroll-area class="fit">
-        <h5 class="text-center q-pa-md q-my-lg">
-          Oak's Lab </h5>
+        <div class="row items-center justify-center">
+          <q-icon
+            name="icon-poke-pokeball"
+            size="xs"
+            class="q-pr-md"/>
+          <h5 class="text-center q-py-md q-my-lg">DexHunt</h5>
+          <q-icon
+            name="icon-poke-pokeball"
+            size="xs"
+            class="q-pl-md"/>
+        </div>
         <q-separator
           dark
           inset></q-separator>
@@ -111,11 +125,11 @@ export default {
   scoped
   lang="scss">
 
-.auth-bar,
-.name-bar,
-.menu-bar {
-  width: 25%;
-}
+//.auth-bar,
+//.name-bar,
+//.menu-bar {
+//  width: 25%;
+//}
 
 .auth-bar,
 .menu-bar {
@@ -134,24 +148,38 @@ body.screen--xs, body.screen--sm {
   }
 
   .toolbar {
-    border-bottom: 0.2rem solid white;
     height: 4rem;
+  }
+  
+  .homepage-header {
+    top: -9rem;
+    transition: 0.5s ease-in-out all;
   }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
   .toolbar-cont {
-    height: 5rem;
+    height: 4rem;
   }
 
   .toolbar {
-    border-bottom: 0.2rem solid white;
-    height: 5rem;
+    height: 4rem;
+    overflow: hidden;
+
+  }
+
+  .home-link {
+    text-decoration: none;
+  }
+
+  .site-header {
+    font-family: Gellix, sans-serif;
   }
 
   .homepage-header {
     top: -9rem;
     transition: 0.5s ease-in-out all;
   }
+
 }
 </style>

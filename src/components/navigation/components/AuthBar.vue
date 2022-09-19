@@ -46,6 +46,23 @@
         size="lg"
         stretch
         unelevated
+        color="secondary"
+        class="admin"
+        to="/admin">
+        <q-icon
+          class="lt-md"
+          size="sm"
+          left
+          name="fas fa-gear"
+          color="white"/>
+        <div class="text-center">
+          Settings
+        </div>
+      </q-btn>
+      <q-btn
+        size="lg"
+        stretch
+        unelevated
         color="primary"
         @click="commitLogout"
         class="logout">
@@ -57,23 +74,6 @@
           color="white"/>
         <div class="text-center">
           Logout
-        </div>
-      </q-btn>
-      <q-btn
-        size="lg"
-        stretch
-        unelevated
-        color="secondary"
-        class="admin"
-        to="/admin">
-        <q-icon
-          class="lt-md"
-          size="sm"
-          left
-          name="fas fa-toolbox"
-          color="white"/>
-        <div class="text-center">
-          Admin
         </div>
       </q-btn>
     </div>
