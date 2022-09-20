@@ -4,11 +4,14 @@
       class="home-container row relative-position justify-center items-center"
       v-intersection="{handler: cardIntersect, cfg:{threshold: cardThreshold}}">
       <div
+        class="mobile-spacer full-width"
+        v-if="!desktopCheck()"></div>
+      <div
         class="home-toolbar row full-width items-center  q-mb-xl"
-        :class="[{'toolbar-top': !intersecting}, desktopCheck() ? 'absolute-top-left q-px-lg' : 'justify-center q-px-sm']">
+        :class="[{'toolbar-top': !intersecting}, desktopCheck() ? 'absolute-top-left q-px-lg' : 'absolute-top justify-center q-px-sm']">
         <div
           class="site-header col-6 row items-center"
-          :class="desktopCheck() ? 'text-h4' : 'justify-center text-h3'">
+          :class="desktopCheck() ? 'text-h4' : 'justify-center'">
           <q-icon
             name="icon-poke-pokeball"
             size="sm"
@@ -57,7 +60,7 @@
     <feature-carousels
       :card-intersecting="cardIntersecting"/>
 
-    <div class="full-height full-width backdrop fixed"></div>
+    <div class="full-height full-width backdrop"></div>
     <div class="design1"></div>
     <div class="design2 "></div>
     <div class="design3 "></div>
@@ -110,22 +113,25 @@ export default {
 
 body.screen--xs, body.screen--sm {
   .home-main-container {
-    top: -3rem
+    top: -3rem;
   }
 
-  .home-container {
+  .mobile-spacer {
+    height: 120px
   }
 
   .home-toolbar {
     height: 4.5rem;
+    font-size: 3rem;
   }
 
   .toolbar-top {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 6;
     color: white;
+    font-size: 2rem;
     background: rgba(50, 50, 50, 0.85);
     -webkit-transition: 0.5s ease-in-out all;
     -o-transition: 0.5s ease-in-out all;
@@ -166,6 +172,7 @@ body.screen--xs, body.screen--sm {
   }
 
   .backdrop {
+    position: fixed;
     background: rgba(200, 200, 200, 0.7);
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -232,141 +239,6 @@ body.screen--xs, body.screen--sm {
     transform: rotate(-60deg);
   }
 }
-
-//body.screen--sm {
-//  .home-main-container {
-//    height: 100vh;
-//    top: -4rem
-//  }
-//
-//  .home-container {
-//    height: 100vh;
-//    top: -4rem
-//  }
-//
-//  .home-toolbar {
-//    height: 4.5rem;
-//  }
-//
-//  .toolbar-top {
-//    position: fixed;
-//    top: 0;
-//    left: 0;
-//    z-index: 5;
-//    color: white;
-//    background: rgba(50, 50, 50, 0.85);
-//    -webkit-transition: 0.5s ease-in-out all;
-//    -o-transition: 0.5s ease-in-out all;
-//    transition: 0.5s ease-in-out all;
-//  }
-//
-//  .site-header {
-//    font-family: Gellix, sans-serif;
-//  }
-//
-//  .hero-header {
-//    height: 15rem;
-//    display: -webkit-box;
-//    display: -ms-flexbox;
-//    display: flex;
-//    -webkit-box-pack: center;
-//    -ms-flex-pack: center;
-//    justify-content: center;
-//    -webkit-box-align: center;
-//    -ms-flex-align: center;
-//    align-items: center;
-//    width: 35%;
-//    max-width: 35rem;
-//    min-width: 30rem;
-//    font-family: Futura, sans-serif;
-//    -webkit-transition: ease 0.5s all;
-//    -o-transition: ease 0.5s all;
-//    transition: ease 0.5s all;
-//    opacity: 1;
-//  }
-//
-//  .hero-header.vanish {
-//    opacity: 0
-//  }
-//
-//  .hero-subheader {
-//    width: 22%;
-//    margin-top: 10rem;
-//    margin-right: 10rem;
-//  }
-//
-//  .subheader {
-//    font-family: Gellix, sans-serif;
-//  }
-//
-//  .backdrop {
-//    background: rgba(200, 200, 200, 0.7);
-//    border-radius: 16px;
-//    -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-//    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-//    backdrop-filter: blur(60px);
-//    -webkit-backdrop-filter: blur(9.2px);
-//    z-index: -1;
-//    top: 0;
-//  }
-//
-//  .design1, .design2, .design3, .design4, .design5, .design6 {
-//    opacity: 1;
-//    position: fixed;
-//    border-radius: 5rem;
-//    height: 10rem;
-//    width: 40rem;
-//    z-index: -2;
-//  }
-//
-//  .design1, .design2, .design3 {
-//    background: darkviolet;
-//  }
-//
-//  .design4, .design5, .design6 {
-//    background: red;
-//  }
-//
-//  .design1 {
-//    top: 25rem;
-//    left: -20%;
-//    -webkit-transform: rotate(-35deg);
-//    -ms-transform: rotate(-35deg);
-//    transform: rotate(-35deg);
-//  }
-//
-//  .design2 {
-//    top: -18rem;
-//    left: 45%;
-//    -webkit-transform: rotate(-60deg);
-//    -ms-transform: rotate(-60deg);
-//    transform: rotate(-60deg);
-//  }
-//
-//  .design3 {
-//    bottom: -6rem;
-//    left: 80%;
-//    -webkit-transform: rotate(20deg);
-//    -ms-transform: rotate(20deg);
-//    transform: rotate(20deg);
-//  }
-//
-//  .design4 {
-//    top: 25rem;
-//    left: -8%;
-//    -webkit-transform: rotate(-35deg);
-//    -ms-transform: rotate(-35deg);
-//    transform: rotate(-35deg);
-//  }
-//
-//  .design5 {
-//    top: -5rem;
-//    left: 50%;
-//    -webkit-transform: rotate(-60deg);
-//    -ms-transform: rotate(-60deg);
-//    transform: rotate(-60deg);
-//  }
-//}
 
 body.screen--md {
   .hero-header {
@@ -437,6 +309,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .backdrop {
+    position: fixed;
     background: rgba(200, 200, 200, 0.7);
     border-radius: 16px;
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
