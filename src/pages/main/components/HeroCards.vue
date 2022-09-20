@@ -75,6 +75,7 @@ body.screen--xs, body.screen--sm {
 
 }
 
+
 body.screen--md, body.screen--lg, body.screen--xl, {
   .main-container {
     max-width: 100rem;

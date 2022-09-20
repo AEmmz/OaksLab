@@ -1,23 +1,23 @@
 <template>
   <div
-    class="row justify-center q-my-sm button-container"
-    :class="[{'top': !intersecting},{'logged-in': isLoggedIn }]">
+    class="row justify-center button-container"
+    :class="[{'logged-in': isLoggedIn }, intersecting? 'q-my-sm' :'top']">
     <q-btn
       v-if="!isLoggedIn"
-      size="md"
+      :size="!intersecting ? 'md' : 'lg'"
       :unelevated="!intersecting"
-      padding="10px 32px"
-      class="button q-ma-xs"
+      :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
+      class="button q-mx-xs q-my-md"
       to="/login"
       color="primary">Login
     </q-btn>
     <q-btn
       v-if="!isLoggedIn"
-      size="md"
+      :size="!intersecting ? 'md' : 'lg'"
       :unelevated="!intersecting"
-      padding="10px 32px"
+      :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
       to="/register"
-      class="button q-ma-xs"
+      class="button q-mx-xs q-my-md"
       color="positive">
       <div class="text-center">
         Signup
@@ -25,11 +25,11 @@
     </q-btn>
     <q-btn
       v-if="isLoggedIn"
-      size="md"
+      :size="!intersecting ? 'md' : 'lg'"
       :unelevated="!intersecting"
-      padding="10px 32px"
+      :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
       to="/tracker"
-      class="button q-ma-xs"
+      class="button q-mx-xs q-my-md"
       color="positive">
       <div class="text-center">
         Tracker
@@ -37,11 +37,11 @@
     </q-btn>
     <q-btn
       v-if="isLoggedIn"
-      size="md"
+      :size="!intersecting ? 'md' : 'lg'"
       :unelevated="!intersecting"
-      padding="10px 32px"
+      :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
       to="/collection"
-      class="button q-ma-xs"
+      class="button q-mx-xs q-my-md"
       color="positive">
       <div class="text-center">
         Collection
@@ -58,6 +58,11 @@ export default {
   props: { "intersecting": { type: Boolean } },
   computed: {
     ...mapGetters("authorization", ["isLoggedIn"])
+  },
+  methods: {
+    desktopCheck() {
+      return this.$q.screen.gt.sm;
+    }
   }
 };
 </script>
@@ -67,17 +72,19 @@ export default {
   lang="scss">
 
 body.screen--xs, body.screen--sm {
+  .button {
+    border-radius: 0.5rem;
+    font-family: Futura-Bold, sans-serif;
+  }
 
+  .button-container {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
-
-  /*
-  * Prefixed by https://autoprefixer.github.io
-  * PostCSS: v8.4.14,
-  * Autoprefixer: v10.4.7
-  * Browsers: last 4 version
-  */
 
   .button-container {
     position: relative;
@@ -93,6 +100,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   .button-container.top {
     position: fixed;
     width: 38%;
+    height: 4.5rem;
     top: 0;
     right: 0;
     -webkit-animation: slideright 0.5s 0.3s ease-in-out forwards;
@@ -106,28 +114,28 @@ body.screen--md, body.screen--lg, body.screen--xl, {
 
   @-webkit-keyframes slideright {
     to {
-      width: 255px;
+      width: 265px;
       position: fixed;
     }
   }
 
   @keyframes slideright {
     to {
-      width: 255px;
+      width: 265px;
       position: fixed;
     }
   }
 
   @-webkit-keyframes sliderightLogged {
     to {
-      width: 360px;
+      width: 310px;
       position: fixed;
     }
   }
 
   @keyframes sliderightLogged {
     to {
-      width: 360px;
+      width: 310px;
       position: fixed;
     }
   }
