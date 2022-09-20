@@ -60,7 +60,7 @@
     <feature-carousels
       :card-intersecting="cardIntersecting"/>
 
-    <div class="full-height full-width backdrop"></div>
+    <div class="full-width backdrop"></div>
     <div class="design1"></div>
     <div class="design2 "></div>
     <div class="design3 "></div>
@@ -173,6 +173,7 @@ body.screen--xs, body.screen--sm {
 
   .backdrop {
     position: fixed;
+    height: 150vh;
     background: rgba(200, 200, 200, 0.7);
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -310,6 +311,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
 
   .backdrop {
     position: fixed;
+    height: 150vh;
     background: rgba(200, 200, 200, 0.7);
     border-radius: 16px;
     -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
