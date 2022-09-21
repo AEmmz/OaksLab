@@ -5,7 +5,7 @@
     flat>
     <div
       v-if="!tabletCheck()"
-      class="text-center q-py-sm"
+      class="text-center q-py-sm name-cont"
       :class="desktopCheck() ? 'text-h3': 'text-h4'">{{ pokemonInfo.name }}
     </div>
     <div class="full-width q-pt-xs">
@@ -14,7 +14,7 @@
         v-model="tab"
         model-value="tab"
         @update:model-value="$emit('changeTabs', tab)"
-        class="text-primary col-9">
+        class="text-primary col-9 info-tabs">
         <q-tab
           name="stats"
           icon="fas fa-chart-simple"
@@ -88,6 +88,10 @@ export default {
 <style
   scoped
   lang="scss">
+
+.name-cont, .info-tabs {
+  font-family: Futura, sans-serif
+}
 
 body.screen--xs, {
   .header-container {

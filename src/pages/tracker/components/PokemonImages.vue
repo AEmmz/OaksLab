@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex justify-evenly text-light images-cont"
-    :class="{'q-pa-md q-gutter-x-md bg-light': desktopCheck(), 'bg-dark': !desktopCheck()}">
+    class="flex text-light images-cont"
+    :class="desktopCheck() ? 'q-pa-md justify-between bg-light' : 'bg-dark justify-evenly'">
     <q-card
-      class="normal bg-dark q-pa-md flex justify-center items-center"
+      class="normal bg-dark q-pa-md flex justify-center items-center image-bg"
       :flat="!desktopCheck()"
       :square="!desktopCheck()">
       <div class="image-label absolute-top q-ma-md">Normal</div>
@@ -80,6 +80,10 @@ export default {
   scoped
   lang="scss">
 
+* {
+  font-family: Gellix, sans-serif;
+}
+
 body.screen--xs, body.screen--sm {
   .images-cont {
     height: 10rem;
@@ -104,7 +108,6 @@ body.screen--xs, body.screen--sm {
     font-size: 1rem;
     margin: 0;
   }
-
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
@@ -116,7 +119,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   .normal,
   .shiny {
     height: 16rem;
-    width: 46%;
+    width: 49%;
     max-width: 22rem;
     border-radius: 0.7rem;
   }

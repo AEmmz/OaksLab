@@ -197,6 +197,10 @@ export default {
   scoped
   lang="scss">
 
+* {
+  font-family: Gellix, sans-serif;
+}
+
 body.screen--xs, body.screen--sm {
   .search-cont {
     gap: 20px;
@@ -208,14 +212,25 @@ body.screen--xs, body.screen--sm {
   }
 }
 
+body.screen--md {
+  .selection {
+    width: 47%;
+    font-size: 0.95rem;
+  }
+}
+
+body.screen--lg, body.screen--xl {
+  .selection {
+    width: 45%;
+    font-size: 1.1rem;
+  }
+}
+
 body.screen--md, body.screen--lg, body.screen--xl, {
   .search-header {
     display: none;
   }
 
-  .selection {
-    width: 45%;
-    font-size: 1.1rem;
-  }
+
 }
 </style>

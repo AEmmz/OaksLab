@@ -53,6 +53,10 @@ export default {
   scoped
   lang="scss">
 
+.button-container {
+  font-family: Futura, sans-serif;
+}
+
 body.screen--xs {
   .button-container {
     height: 8%;

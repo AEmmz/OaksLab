@@ -1,6 +1,8 @@
 <!--suppress CssUnusedSymbol -->
 <template>
-  <q-dialog v-model="details">
+  <q-dialog
+    v-model="details"
+    class="z-max">
     <more-info
       :pokemonInfo="pokemon"
       :pokemonId="pokemon.dexNo"
@@ -61,7 +63,7 @@
           <div
             class="q-ma-xs col column items-center icons-cont"
             :class="{'justify-center': desktopCheck(), '' : !desktopCheck()}">
-            <span class="card-back-subtitle text-subtitle2 q-pb-xs">Caught</span>
+            <span class="card-back-subtitle q-pb-xs">Caught</span>
             <div class="icons flex justify-center q-gutter-xs">
               <q-icon
                 v-if="pokemon.caught[0].normalCaught"
@@ -117,7 +119,7 @@
           <div
             class="q-ma-xs col column items-center icons-cont"
             :class="{' justify-center q-pb-xs': desktopCheck(), '' : !desktopCheck()}">
-            <span class="card-back-subtitle text-subtitle2">Uncaught</span>
+            <span class="card-back-subtitle q-pb-xs">Uncaught</span>
             <div class="icons flex justify-center q-gutter-xs">
               <q-icon
                 v-if="!pokemon.caught[0].normalCaught"
@@ -305,7 +307,7 @@ export default {
 @import url(../../../css/card-styles.css);
 
 
-body.screen--xs, {
+body.screen--xs, body.screen--sm {
   .card-cont {
     position: relative;
     width: 100%;
@@ -338,6 +340,7 @@ body.screen--xs, {
     height: 8rem;
     width: 50%;
     opacity: 50%;
+    font-family: Futura, sans-serif;
   }
 
   .card-back-name {
@@ -345,6 +348,7 @@ body.screen--xs, {
     height: 5rem;
     width: 10rem;
     opacity: 70%;
+    font-family: Futura, sans-serif;
   }
 
   .card-back-info-cont {
@@ -354,11 +358,14 @@ body.screen--xs, {
 
   .card-front-number {
     opacity: 50%;
+    font-family: Futura, sans-serif;
   }
 
   .card-back-subtitle,
   .icons {
     opacity: 70%;
+    font-family: Futura, sans-serif;
+    font-size: 1.1rem;
   }
 
   .notCaught {
@@ -374,7 +381,7 @@ body.screen--xs, {
   }
 }
 
-body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
+body.screen--md, body.screen--lg, body.screen--xl {
   .card-cont {
     position: relative;
   }
@@ -412,7 +419,6 @@ body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
     transform-origin: 0 0;
     opacity: 50%;
     font-family: Futura, sans-serif;
-
   }
 
   .card-back-name {
@@ -420,6 +426,7 @@ body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
     height: 5rem;
     width: 10rem;
     opacity: 70%;
+    font-family: Futura, sans-serif;
   }
 
   .card-back-info-cont {
@@ -429,11 +436,14 @@ body.screen--md, body.screen--lg, body.screen--xl, body.screen--sm {
 
   .card-front-number {
     opacity: 50%;
+    font-family: Futura, sans-serif;
   }
 
   .card-back-subtitle,
   .icons {
     opacity: 70%;
+    font-family: Futura, sans-serif;
+    font-size: 1.1rem;
   }
 
   .notCaught {

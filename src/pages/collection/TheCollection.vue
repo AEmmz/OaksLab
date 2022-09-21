@@ -7,7 +7,7 @@
       :class="{'full-width': !desktopCheck(), 'q-pa-md': desktopCheck()}"
       :square="!desktopCheck()">
       <span
-        class="text-light q-ma-lg text-center"
+        class="text-light q-ma-lg text-center collection-title"
         :class="desktopCheck() ? 'text-h2' : 'text-h4'">Your Collection</span>
       <div class="full-width">
         <collection-filters
@@ -42,7 +42,7 @@
         :class="desktopCheck() ? '' : 'column'">
         <q-pagination
           v-intersection="onIntersection"
-          class="q-ma-md"
+          class="q-ma-md pagination"
           v-model="pagination.page"
           :model-value="pagination.page"
           :max="maxPages"
@@ -53,7 +53,7 @@
           color="white"
           active-color="primary"/>
         <div
-          class="row justify-center items-center full-width">
+          class="row justify-center items-center full-width pagination-select">
           <q-select
             class="per-page q-ma-md"
             dark
@@ -356,6 +356,10 @@ export default {
   scoped
   lang="scss">
 
+.collection-title {
+  font-family: Futura, sans-serif;
+}
+
 .header-seperator {
   height: 2px;
   width: 80%;
@@ -367,6 +371,14 @@ export default {
 
 .hide-button {
   transform: translateX(100px) !important;
+}
+
+.pagination {
+  font-family: Futura, sans-serif;
+}
+
+.pagination-select {
+  font-family: Gellix, sans-serif;
 }
 
 body.screen--xs {
@@ -401,14 +413,23 @@ body.screen--xs, body.screen--sm {
     width: 100%;
     max-height: 100%;
   }
+}
 
+body.screen--md, {
+  .collection-cont {
+    width: 95%;
+  }
+}
 
+body.screen--lg, body.screen--xl, {
+  .collection-cont {
+    width: 90%;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
 
   .collection-cont {
-    width: 80%;
     min-height: 50rem;
     border-radius: 0.7rem;
   }

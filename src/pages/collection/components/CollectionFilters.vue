@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center  q-gutter-y-sm">
     <div
-      class="full-width justify-center row q-gutter-md items-center"
+      class="full-width justify-center row q-gutter-md items-center filters"
       :class="desktopCheck() ? '' : 'wrap'">
       <q-input
         class="filter search"
@@ -124,16 +124,17 @@
       </div>
     </div>
     <div
-      class="full-width flex justify-center q-pt-sm q-gutter-x-md"
+      class="full-width flex justify-center q-pt-sm q-gutter-x-md "
       v-if="desktopCheck()">
       <q-btn
         icon="fas fa-rotate"
         label="Reset"
-        class="reset-button"
+        class="reset-button filter-button"
         color="primary"
         text-color="light"
         @click="resetFilters"/>
       <q-btn
+        class="filter-button"
         label="More Options"
         color="primary"
         text-color="light"
@@ -141,7 +142,7 @@
       <q-slide-transition>
         <div
           v-show="moreOptionsVisible"
-          class="full-width flex justify-center q-mt-md q-gutter-x-md">
+          class="full-width flex justify-center q-mt-md q-gutter-x-md filters">
           <q-select
             class="filter generation"
             dark
@@ -285,6 +286,10 @@ export default {
   scoped
   lang="scss">
 
+.filters {
+  font-family: Gellix, sans-serif;
+}
+
 body.screen--xs {
   .filter {
     width: 40%;
@@ -316,9 +321,12 @@ body.screen--sm {
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
+  .filter-button {
+    font-family: Futura, sans-serif;
+  }
+
   .filter {
     width: 16%;
-
   }
 
   .search {

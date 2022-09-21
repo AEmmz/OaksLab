@@ -178,6 +178,7 @@ body.screen--xs, body.screen--sm {
   }
 
   .inc-cont {
+    font-family: Gellix, sans-serif;
     width: 80%;
     gap: 0.5rem;
     margin-bottom: 1.3rem;
@@ -192,6 +193,7 @@ body.screen--xs, body.screen--sm {
   }
 
   .name-cont {
+    font-family: Futura, sans-serif;
     text-align: center;
     min-height: 6.2rem;
   }
@@ -204,6 +206,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .name-cont {
+    font-family: Futura, sans-serif;
     text-align: center;
     min-height: 6.2rem;
   }
@@ -214,6 +217,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .inc-cont h5 {
+    font-family: Gellix, sans-serif;
     writing-mode: vertical-rl;
     text-orientation: mixed;
   }
@@ -224,6 +228,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .counter-main {
+    font-family: Futura, sans-serif;
     height: 15rem;
     border-radius: 0.7rem;
   }

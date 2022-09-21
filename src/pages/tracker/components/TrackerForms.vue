@@ -1,15 +1,17 @@
 <template>
-  <q-card class="bg-dark flex justify-evenly items-center text-h6 q-pa-md">
+  <q-card class="bg-dark flex justify-evenly items-center text-h6 q-pa-md forms-container">
     <h5
-      class="name-cont flex items-center justify-center full-width text-light q-pb-sm gt-sm">
+      class="flex items-center justify-center full-width text-light q-pb-sm gt-sm">
       Forms </h5>
-    <h5 class="name-cont flex items-center justify-center full-width text-light q-pb-sm lt-md">Select A Form</h5>
+    <h5 class="flex items-center justify-center full-width text-light q-pb-sm lt-md">Select A Form</h5>
+
     <!--MOBILE -->
-    <div class="mobile-form-tabs row justify-center lt-md">
+    <div class="mobile-form-tabs row justify-between lt-md">
       <div
-        class="q-pa-md column items-center"
+        class="q-px-md q-py-lg column items-center mobile-form"
         v-for="(form, index) in forms"
         :key="index">
+        <span class="mobile-form-name text-light">{{ form.name }}</span>
         <q-img
           width="120px"
           :src="form.image"
@@ -101,27 +103,40 @@ export default {
 };
 </script>
 
-<style scoped>
-/* For extremely small screen devices (480px and below) */
-@media only screen and (max-width: 480px) {
+<style
+  scoped
+  lang="scss">
+
+h5 {
+  font-family: Futura, sans-serif;
 }
 
-/* Small screen devices (481px and above) */
-@media only screen and (min-width: 481px) {
+body.screen--xs, body.screen--sm {
+  .forms-container {
+    top: 2rem;
+    height: 85%;
+  }
+
+  .mobile-form {
+    width: 50%;
+  }
+
+  .mobile-form-name {
+    font-size: 1rem;
+    font-family: Gellix, sans-serif;
+    text-align: center;
+  }
+
+
 }
 
-/* Medium screen devices (769px and above) */
-@media only screen and (min-width: 769px) {
-}
+body.screen--md, body.screen--lg, body.screen--xl {
 
-/* Big screen devices (1025px and above) */
-@media only screen and (min-width: 1025px) {
-}
 
-/* Extra big screen devices (1200px and above) */
-@media only screen and (min-width: 1200px) {
   .form-tabs {
+    font-family: Gellix, sans-serif;
     max-width: 100%;
   }
 }
+
 </style>

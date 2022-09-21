@@ -16,7 +16,7 @@
         name="icon-poke-pokeball"
         color="white"/>
       <div
-        class="text-center"
+        class="text-center item-name"
         :class="{'text-h6': !desktopCheck()}">
         Tracker
       </div>
@@ -32,7 +32,7 @@
         name="fas fa-book"
         color="white"/>
       <div
-        class="text-center"
+        class="text-center item-name"
         :class="{'text-h6': !desktopCheck()}">
         Collection
       </div>
@@ -48,7 +48,7 @@
         name="fas fa-chart-simple"
         color="white"/>
       <div
-        class="text-center"
+        class="text-center item-name"
         :class="{'text-h6': !desktopCheck()}">
         Statistics
       </div>
@@ -117,6 +117,11 @@ export default {
 <style
   scoped
   lang="scss">
+
+.item-name, .admin-menu {
+  font-family: Futura, sans-serif;
+}
+
 body.screen--xs, body.screen--sm {
   .tab {
     height: 8rem;

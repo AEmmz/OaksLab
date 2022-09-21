@@ -1,75 +1,74 @@
 <template>
   <div>
     <div class="q-mt-xl column items-center">
-      <q-card class="my-card q-px-md column items-center bg-secondary">
-        <q-card
-          class="my-card-inner q-pa-sm column items-center"
-          square>
-          <q-card-section>
-            <div class="text-h2">Register</div>
-          </q-card-section>
-          <q-form
-            class="form column q-gutter-lg"
-            @submit.prevent="submitForm">
-            <q-input
-              class="input"
-              v-model="username"
-              type="text"
-              label="Username"
-              clearable
-              rounded
-              outlined>
-              <template v-slot:prepend>
-                <q-icon name="fa-solid fa-user"/>
-              </template>
-            </q-input>
-            <q-input
-              class="input"
-              v-model="email"
-              type="email"
-              label="E-Mail"
-              clearable
-              rounded
-              outlined>
-              <template v-slot:prepend>
-                <q-icon name="fa-solid fa-at"/>
-              </template>
-            </q-input>
-            <q-input
-              class="input"
-              v-model="password"
-              type="password"
-              label="Password"
-              clearable
-              rounded
-              outlined>
-              <template v-slot:prepend>
-                <q-icon name="fa-solid fa-key"/>
-              </template>
-            </q-input>
-            <q-input
-              class="input"
-              v-model="confirmPassword"
-              type="password"
-              label="Confirm Password"
-              clearable
-              rounded
-              outlined>
-              <template v-slot:prepend>
-                <q-icon name="fa-solid fa-key"/>
-              </template>
-            </q-input>
+      <q-card
+        class="my-card q-pa-sm column items-center"
+        square>
+        <q-card-section>
+          <div class="text-h2 form-header">Register</div>
+        </q-card-section>
+        <q-form
+          class="form column q-gutter-lg"
+          @submit.prevent="submitForm">
+          <q-input
+            class="input"
+            v-model="username"
+            type="text"
+            label="Username"
+            clearable
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-user"/>
+            </template>
+          </q-input>
+          <q-input
+            class="input"
+            v-model="email"
+            type="email"
+            label="E-Mail"
+            clearable
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-at"/>
+            </template>
+          </q-input>
+          <q-input
+            class="input"
+            v-model="password"
+            type="password"
+            label="Password"
+            clearable
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-key"/>
+            </template>
+          </q-input>
+          <q-input
+            class="input"
+            v-model="confirmPassword"
+            type="password"
+            label="Confirm Password"
+            clearable
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-key"/>
+            </template>
+          </q-input>
 
-            <q-btn
-              padding="md"
-              label="Register"
-              type="submit"
-              rounded
-              size="lg"
-              color="secondary"
-              unelevated></q-btn>
-          </q-form>
-        </q-card>
+          <q-btn
+            class="submit"
+            padding="md"
+            label="Register"
+            type="submit"
+            rounded
+            size="lg"
+            color="secondary"
+            unelevated></q-btn>
+        </q-form>
       </q-card>
     </div>
 
@@ -188,20 +187,37 @@ export default {
   scoped
   lang="scss">
 
-body.screen--xs, body.screen--sm {
+.form-header, .submit {
+  font-family: Futura, sans-serif;
+}
+
+.input {
+  font-family: Gellix, sans-serif;
+}
+
+
+body.screen--xs, {
   .my-card {
     width: 95%;
   }
 }
 
-body.screen--md, body.screen--lg, body.screen--xl, {
+body.screen--sm {
   .my-card {
-    width: 30%;
+    width: 80%;
   }
 }
 
-.my-card-inner {
-  width: 100%;
+body.screen--md, {
+  .my-card {
+    width: 60%;
+  }
+}
+
+body.screen--lg, body.screen--xl, {
+  .my-card {
+    width: 40%;
+  }
 }
 
 .form {

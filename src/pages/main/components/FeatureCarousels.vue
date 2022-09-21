@@ -92,7 +92,7 @@
           <q-icon
             class="q-pa-md"
             v-if="!desktopCheck()"
-            name="fas fa-clock"
+            name="fas fa-paw"
             size="sm"/>
           <h6>Track forms including Gigantamax, Mega and Regional. Terrastal & Gender forms coming soon!</h6>
         </q-carousel-slide>
@@ -184,7 +184,7 @@
           <q-icon
             class="q-pa-md"
             v-if="!desktopCheck()"
-            name="fas fa-book"
+            name="fas fa-eye"
             size="sm"/>
           <h6>Quickly view and edit your catches.</h6>
         </q-carousel-slide>
@@ -194,7 +194,7 @@
           <q-icon
             class="q-pa-md"
             v-if="!desktopCheck()"
-            name="fas fa-book"
+            name="fas fa-filter"
             size="sm"/>
           <h6>Filter and sort your collections in over a dozen different ways.</h6>
         </q-carousel-slide>
@@ -288,7 +288,7 @@
           <q-icon
             class="q-pa-md"
             v-if="!desktopCheck()"
-            name="fas fa-chart-simple"
+            name="fas fa-bars-progress"
             size="sm"/>
           <h6>Track the completion percentages of many well known collections with more collections coming soon!</h6>
         </q-carousel-slide>
@@ -298,7 +298,7 @@
           <q-icon
             class="q-pa-md"
             v-if="!desktopCheck()"
-            name="fas fa-chart-simple"
+            name="fas fa-ranking-star"
             size="sm"/>
           <h6>Which hunt was the most difficult? Easily see your shortest and longest hunts.</h6>
         </q-carousel-slide>

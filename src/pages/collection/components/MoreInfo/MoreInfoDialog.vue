@@ -118,6 +118,14 @@ export default {
   lang="scss">
 @import url(../../../../css/card-styles.css);
 
+.more-info-card-cont {
+  box-shadow: none;
+}
+
+.track-button {
+  font-family: Futura, sans-serif;
+}
+
 body.screen--xs, {
   .more-info-card-cont {
     position: relative;
@@ -158,6 +166,7 @@ body.screen--sm {
 
   .tablet-name {
     height: 15%;
+    font-family: Futura, sans-serif;
   }
 
   .tablet-view {

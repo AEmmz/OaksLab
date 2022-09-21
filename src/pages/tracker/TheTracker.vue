@@ -7,7 +7,7 @@
         class="page-container row justify-center q-gutter-x-lg"
         :class="{'q-my-md': desktopCheck()}">
         <div
-          class="flex justify-center text-h4 text-light q-my-lg text-center"
+          class="flex justify-center text-h4 text-light q-my-lg text-center name-cont"
           v-if="!desktopCheck()">
           {{ pkName }}
         </div>
@@ -93,7 +93,9 @@
 
     <!-- Desktop -->
     <div class="gt-sm">
-      <div class="page-container row justify-center q-ma-md q-gutter-x-lg gt-sm">
+      <div
+        class="page-container row justify-center q-ma-md gt-sm"
+        :class="mediumCheck() ? 'q-gutter-x-sm' : 'q-gutter-x-md'">
         <div class="left q-gutter-y-md ">
           <q-card class="bg-light container">
             <pokemon-images></pokemon-images>
@@ -183,6 +185,9 @@ export default {
     },
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
+    },
+    mediumCheck() {
+      return this.$q.screen.md ? true : false;
     }
   },
   unmounted() {
@@ -203,12 +208,26 @@ body.screen--xs, body.screen--sm {
     height: 1px;
   }
 
+  .name-cont {
+    font-family: Futura, sans-serif;
+  }
+
   .floating-button {
     z-index: 2;
     transform: translate(0, 0);
   }
+}
 
+body.screen--md, {
+  .right {
+    width: 55%;
+  }
+}
 
+body.screen--lg, body.screen--xl, {
+  .right {
+    width: 45%;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
@@ -219,9 +238,9 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   }
 
   .right {
-    width: 45%;
     max-width: 54rem;
     overflow: hidden;
+    transition: 0.5s ease all;
   }
 
   .container {

@@ -4,8 +4,7 @@
     :flat="!desktopCheck()">
     <div class="timer-cont flex-column justify-around full-width q-gutter-y-md">
       <span
-        class=" flex justify-center items-center text-light"
-        :class="desktopCheck() ? 'text-h1' : 'text-h2'">{{ hours }}:{{ minutes }}:{{ seconds }}</span>
+        class=" flex justify-center items-center text-light time">{{ hours }}:{{ minutes }}:{{ seconds }}</span>
       <div
         class=" flex items-center justify-center"
         :class="desktopCheck() ? 'q-gutter-x-md' : 'q-gutter-x-xs'">
@@ -130,6 +129,10 @@ export default {
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
     },
+    mediumCheck() {
+      return this.$q.screen.md ? true : false;
+    },
+
     toggleStart() {
       if (!this.timerRunning) {
         this.start();
@@ -173,11 +176,41 @@ export default {
   scoped
   lang="scss">
 
-body.screen--xs, body.screen--sm {
+.time {
+  font-family: Futura, sans-serif;
+}
 
+.button {
+  font-family: Futura, sans-serif;
+}
+
+body.screen--xs, body.screen--sm {
+  .time {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+  }
+}
+
+body.screen--md {
+  .time {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+body.screen--lg, body.screen--xl {
+  .time {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
 }
 
 body.screen--md, body.screen--lg, body.screen--xl {
+  .time {
+    font-weight: 300;
+    letter-spacing: -0.01562em;
+  }
+
   .button {
     width: 150px;
   }

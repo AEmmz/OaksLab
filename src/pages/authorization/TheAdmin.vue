@@ -1,225 +1,227 @@
 <template>
-  <div class="q-ma-xl column items-center">
-    <q-card class="my-card q-px-md column items-center bg-secondary">
-      <q-card
-        class="my-card-inner q-pa-lg column"
-        square>
-        <q-card-section class="self-center">
-          <div class="text-h2">Admin Settings</div>
-        </q-card-section>
-        <q-card-section class="q-gutter-y-md">
-          <h6>User Details</h6>
-          <div class="text-subtitle1 q-gutter-y-sm">
-            <p>Username:<br>{{ username }}</p>
-            <p>Email:<br>{{ email }}</p>
-          </div>
+  <div
+    class="column items-center"
+    :class="desktopCheck() ? 'q-ma-xl' : ''">
+    <q-card
+      class="my-card q-pa-lg column bg-dark"
+      :class="desktopCheck() ? '' : 'full-width'">
+      <q-card-section class="self-center">
+        <div class="text-h2 text-light form-header">Admin Settings</div>
+      </q-card-section>
+      <q-card-section class="q-gutter-y-md text-light">
+        <h6 class="form-header">User Details</h6>
+        <div class="text-subtitle1 q-gutter-y-sm details">
+          <p>Username:<br>{{ username }}</p>
+          <p>Email:<br>{{ email }}</p>
+        </div>
 
-        </q-card-section>
-        <q-card-section class="q-gutter-y-sm">
-          <h6>Change Username</h6>
-          <div
-            v-if="usernameError"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-exclamation"
-              color="negative"/>
-            <span class="text-subtitle1 text-negative">{{ usernameError }}</span>
+      </q-card-section>
+      <q-card-section class="q-gutter-y-sm text-light">
+        <h6 class="form-header">Change Username</h6>
+        <div
+          v-if="usernameError"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-exclamation"
+            color="negative"/>
+          <span class="text-subtitle1 text-negative">{{ usernameError }}</span>
+        </div>
+        <div
+          v-if="usernameSuccess"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-check"
+            color="positive"/>
+          <span class="text-subtitle1 text-positive">{{ usernameSuccess }}</span>
+        </div>
+        <q-form
+          @submit.prevent="usernameCheck"
+          class="row q-gutter-x-lg">
+          <div class="password-cont q-gutter-y-md">
+            <q-input
+              class="password-input input"
+              v-model="newUsername"
+              type="text"
+              label="New Username"
+              clearable
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-user"/>
+              </template>
+            </q-input>
           </div>
-          <div
-            v-if="usernameSuccess"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-check"
-              color="positive"/>
-            <span class="text-subtitle1 text-positive">{{ usernameSuccess }}</span>
+          <div class="row items-center submitButton">
+            <q-btn
+              class="passwordButton"
+              padding="md"
+              label="Update"
+              type="submit"
+              icon="fas fa-pen-to-square"
+              rounded
+              size="md"
+              color="secondary"
+              unelevated></q-btn>
           </div>
-          <q-form
-            @submit.prevent="usernameCheck"
-            class="row q-gutter-x-lg">
-            <div class="password-cont q-gutter-y-md">
-              <q-input
-                class="password-input"
-                v-model="newUsername"
-                type="text"
-                label="New Username"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-user"/>
-                </template>
-              </q-input>
-            </div>
-            <div class="row items-center submitButton">
-              <q-btn
-                class="passwordButton"
-                padding="md"
-                label="Update"
-                type="submit"
-                icon="fas fa-pen-to-square"
-                rounded
-                size="md"
-                color="secondary"
-                unelevated></q-btn>
-            </div>
-          </q-form>
-        </q-card-section>
-        <q-card-section class="q-gutter-y-sm">
-          <h6>Change E-Mail</h6>
-          <div
-            v-if="emailError"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-exclamation"
-              color="negative"/>
-            <span class="text-subtitle1 text-negative">{{ emailError }}</span>
+        </q-form>
+      </q-card-section>
+      <q-card-section class="q-gutter-y-sm text-light">
+        <h6 class="form-header">Change E-Mail</h6>
+        <div
+          v-if="emailError"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-exclamation"
+            color="negative"/>
+          <span class="text-subtitle1 text-negative">{{ emailError }}</span>
+        </div>
+        <div
+          v-if="emailSuccess"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-check"
+            color="positive"/>
+          <span class="text-subtitle1 text-positive">{{ emailSuccess }}</span>
+        </div>
+        <q-form
+          @submit.prevent="updateEmail"
+          class="row q-gutter-x-lg">
+          <div class="password-cont q-gutter-y-md">
+            <q-input
+              class="password-input input"
+              v-model="newEmail"
+              type="email"
+              label="New E-Mail"
+              clearable
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-at"/>
+              </template>
+            </q-input>
+            <q-input
+              class="password-input input"
+              v-model="newEmailPassword"
+              type="password"
+              label="Current Password"
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-key"/>
+              </template>
+            </q-input>
           </div>
-          <div
-            v-if="emailSuccess"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-check"
-              color="positive"/>
-            <span class="text-subtitle1 text-positive">{{ emailSuccess }}</span>
+          <div class="row items-center submitButton">
+            <q-btn
+              class="passwordButton"
+              padding="md"
+              label="Update"
+              type="submit"
+              icon="fas fa-pen-to-square"
+              rounded
+              size="md"
+              color="secondary"
+              unelevated></q-btn>
           </div>
-          <q-form
-            @submit.prevent="updateEmail"
-            class="row q-gutter-x-lg">
-            <div class="password-cont q-gutter-y-md">
-              <q-input
-                class="password-input"
-                v-model="newEmail"
-                type="email"
-                label="New E-Mail"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-at"/>
-                </template>
-              </q-input>
-              <q-input
-                class="password-input"
-                v-model="newEmailPassword"
-                type="password"
-                label="Current Password"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-key"/>
-                </template>
-              </q-input>
-            </div>
-            <div class="row items-center submitButton">
-              <q-btn
-                class="passwordButton"
-                padding="md"
-                label="Update"
-                type="submit"
-                icon="fas fa-pen-to-square"
-                rounded
-                size="md"
-                color="secondary"
-                unelevated></q-btn>
-            </div>
-          </q-form>
-        </q-card-section>
+        </q-form>
+      </q-card-section>
 
-        <q-card-section class="q-gutter-y-sm">
-          <h6>Change Password</h6>
-          <div
-            v-if="passwordError"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-exclamation"
-              color="negative"/>
-            <span class="text-subtitle1 text-negative">{{ passwordError }}</span>
+      <q-card-section class="q-gutter-y-sm text-light">
+        <h6 class="form-header">Change Password</h6>
+        <div
+          v-if="passwordError"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-exclamation"
+            color="negative"/>
+          <span class="text-subtitle1 text-negative">{{ passwordError }}</span>
+        </div>
+        <div
+          v-if="passwordSuccess"
+          class="flex items-center q-gutter-x-sm">
+          <q-icon
+            size="sm"
+            name="fas fa-circle-check"
+            color="positive"/>
+          <span class="text-subtitle1 text-positive">{{ passwordSuccess }}</span>
+        </div>
+        <q-form
+          @submit.prevent="updatePassword"
+          class="row q-gutter-x-lg">
+          <div class="password-cont q-gutter-y-md">
+            <q-input
+              class="password-input input"
+              v-model="currentPassword"
+              type="password"
+              label="Current Password"
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-key"/>
+              </template>
+            </q-input>
+            <q-input
+              class="password-input input"
+              v-model="newPassword"
+              type="password"
+              label="New Password"
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-key"/>
+              </template>
+            </q-input>
+            <q-input
+              class="password-input input"
+              v-model="newPasswordConfirm"
+              type="password"
+              label="Confirm New Password"
+              dark
+              standout
+              rounded>
+              <template v-slot:prepend>
+                <q-icon name="fa-solid fa-key"/>
+              </template>
+            </q-input>
           </div>
-          <div
-            v-if="passwordSuccess"
-            class="flex items-center q-gutter-x-sm">
-            <q-icon
-              size="sm"
-              name="fas fa-circle-check"
-              color="positive"/>
-            <span class="text-subtitle1 text-positive">{{ passwordSuccess }}</span>
+          <div class="row items-center submitButton">
+            <q-btn
+              class="passwordButton"
+              padding="md"
+              label="Update"
+              type="submit"
+              icon="fas fa-pen-to-square"
+              rounded
+              size="md"
+              color="secondary"
+              unelevated></q-btn>
           </div>
-          <q-form
-            @submit.prevent="updatePassword"
-            class="row q-gutter-x-lg">
-            <div class="password-cont q-gutter-y-md">
-              <q-input
-                class="password-input"
-                v-model="currentPassword"
-                type="password"
-                label="Current Password"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-key"/>
-                </template>
-              </q-input>
-              <q-input
-                class="password-input"
-                v-model="newPassword"
-                type="password"
-                label="New Password"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-key"/>
-                </template>
-              </q-input>
-              <q-input
-                class="password-input"
-                v-model="newPasswordConfirm"
-                type="password"
-                label="Confirm New Password"
-                clearable
-                rounded
-                outlined>
-                <template v-slot:prepend>
-                  <q-icon name="fa-solid fa-key"/>
-                </template>
-              </q-input>
-            </div>
-            <div class="row items-center submitButton">
-              <q-btn
-                class="passwordButton"
-                padding="md"
-                label="Update"
-                type="submit"
-                icon="fas fa-pen-to-square"
-                rounded
-                size="md"
-                color="secondary"
-                unelevated></q-btn>
-            </div>
-          </q-form>
-        </q-card-section>
-        <q-card-section class="q-gutter-y-sm">
-          <h6>Delete Account</h6>
-          <q-btn
-            @click="deleteDialog = true"
-            class="delete-button"
-            padding="md"
-            label="Delete Account"
-            type="submit"
-            icon="fas fa-trash"
-            rounded
-            size="md"
-            color="negative"
-            unelevated></q-btn>
-        </q-card-section>
-      </q-card>
+        </q-form>
+      </q-card-section>
+      <q-card-section class="q-gutter-y-sm text-light">
+        <h6 class="form-header">Delete Account</h6>
+        <q-btn
+          @click="deleteDialog = true"
+          class="delete-button"
+          padding="md"
+          label="Delete Account"
+          type="submit"
+          icon="fas fa-trash"
+          rounded
+          size="md"
+          color="negative"
+          unelevated></q-btn>
+      </q-card-section>
     </q-card>
 
     <q-dialog
@@ -289,7 +291,7 @@
             <span class="text-subtitle1 text-negative">{{ deletePasswordError }}</span>
           </div>
           <q-input
-            class="password-input"
+            class="password-input input"
             v-model="deletePassword"
             type="password"
             label="Password"
@@ -352,6 +354,9 @@ export default {
   },
   methods: {
     ...mapActions("authorization", ["updatePasswordDb", "updateEmailDb", "updateUsernameDb", "deleteAccountDb"]),
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
     async usernameCheck() {
       if (!this.newUsername) {
         this.usernameError = "Please enter a new username";
@@ -437,26 +442,60 @@ export default {
 };
 </script>
 
-<style scoped>
+<style
+  scoped
+  lang="scss">
 
-.my-card, .delete-button {
-  width: 40%;
+.form-header, .passwordButton, .delete-button {
+  font-family: Futura, sans-serif;
 }
 
-.password-cont, .input {
-  width: 60%;
+.input, .details {
+  font-family: Gellix, sans-serif;
 }
 
-.submitButton {
-  width: 20%;
+body.screen--sm, body.screen--xs {
+  .my-card {
+    border-radius: 0;
+  }
 }
 
-.passwordButton, .password-input, .my-card-inner {
-  width: 100%;
+body.screen--md {
+  .my-card {
+    border-radius: 0.7rem;
+  }
+
+  .my-card, .delete-button {
+    width: 70%;
+  }
 }
 
-.dialog-button {
-  border-radius: 0.7rem;
+body.screen--lg, body.screen--lx {
+
+  .my-card {
+    border-radius: 0.7rem;
+  }
+
+  .my-card, .delete-button {
+    width: 50%;
+  }
+
+  .password-cont, .input {
+    width: 60%;
+  }
+
+  .submitButton {
+    width: 20%;
+  }
+
+  .passwordButton, .password-input, .my-card-inner {
+    width: 100%;
+  }
+
+  .dialog-button {
+    border-radius: 0.7rem;
+  }
+
 }
 
 </style>

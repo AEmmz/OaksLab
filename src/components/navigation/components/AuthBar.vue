@@ -55,7 +55,7 @@
           left
           name="fas fa-gear"
           color="white"/>
-        <div class="text-center">
+        <div class="text-center item-name">
           Settings
         </div>
       </q-btn>
@@ -72,7 +72,7 @@
           left
           name="fas fa-right-from-bracket"
           color="white"/>
-        <div class="text-center">
+        <div class="text-center item-name">
           Logout
         </div>
       </q-btn>
@@ -103,6 +103,10 @@ export default {
 <style
   scoped
   lang="scss">
+
+.item-name {
+  font-family: Futura, sans-serif;
+}
 
 body.screen--xs, body.screen--sm {
   .btn-container {

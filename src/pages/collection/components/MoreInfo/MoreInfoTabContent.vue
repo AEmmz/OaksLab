@@ -316,6 +316,10 @@ export default {
   scoped
   lang="scss">
 
+.information-panels {
+  font-family: Gellix, sans-serif;
+}
+
 body.screen--xs {
   .information-container {
     overflow: scroll;

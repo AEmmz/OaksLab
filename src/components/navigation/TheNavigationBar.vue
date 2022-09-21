@@ -14,14 +14,14 @@
         flat
         round
         icon="fas fa-bars"/>
-      <q-toolbar-title>
+      <q-toolbar-title class="mobile-title">
         DexHunt
       </q-toolbar-title>
     </q-toolbar>
 
     <!-- Desktop Menu -->
     <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
-      <div class="col-4 site-header row items-center text-h4">
+      <div class="col-6 site-header row items-center text-h4">
         <q-icon
           name="icon-poke-pokeball"
           size="sm"
@@ -35,8 +35,7 @@
           size="sm"
           class="q-pt-xs q-pl-sm"/>
       </div>
-      <div class="col-4"></div>
-      <div class="col-4 menu-bar">
+      <div class="col-6 menu-bar row justify-end">
         <menu-bar></menu-bar>
       </div>
     </q-toolbar>
@@ -57,7 +56,7 @@
             name="icon-poke-pokeball"
             size="xs"
             class="q-pr-md"/>
-          <h5 class="text-center q-py-md q-my-lg">DexHunt</h5>
+          <h5 class="text-center q-py-md q-my-lg mobile-title">DexHunt</h5>
           <q-icon
             name="icon-poke-pokeball"
             size="xs"
@@ -150,11 +149,21 @@ body.screen--xs, body.screen--sm {
   .toolbar {
     height: 4rem;
   }
-  
+
+  .mobile-title {
+    font-family: Gellix, sans-serif;
+  }
+
   .homepage-header {
     top: -9rem;
     transition: 0.5s ease-in-out all;
   }
+}
+
+body.screen--md {
+}
+
+body.screen--lg, body.screen--xl {
 }
 
 body.screen--md, body.screen--lg, body.screen--xl, {
