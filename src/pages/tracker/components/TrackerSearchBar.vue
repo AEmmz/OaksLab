@@ -143,7 +143,7 @@ export default {
       let displayName;
       displayName =
         pokemon && pokemon.dexNo && pokemon.name
-          ? `${pokemon.dexNo}. ${pokemon.name}`
+          ? `${pokemon.dexNo}. ${pokemon.listName || pokemon.name}`
           : null;
       return displayName;
     },
@@ -177,6 +177,7 @@ export default {
       }
 
       this.$router.replace(redirect);
+      console.log(pkmn);
       const inputPokemon = {
         apiNo: pkmn.apiNo,
         dexNo: pkmn.dexNo,

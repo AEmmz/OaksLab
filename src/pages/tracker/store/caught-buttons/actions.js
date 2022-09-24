@@ -6,6 +6,7 @@ import { catchLock } from "src/util/tracker/catchLock";
 // import gameAvailability from "src/assets/json/gameAvailability.json";
 
 export default {
+
   // async addToCollection(context, payload) {
   //   const pokemon = pokemonList.pokemon;
   //   console.log(pokemon);
@@ -114,6 +115,7 @@ export default {
         });
       }
       if (catchData) commit("caughtCheck", catchData);
+      console.log("hi");
       dispatch("lockCheck");
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);

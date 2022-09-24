@@ -1,19 +1,12 @@
-export const catchLock = (id) => {
-  let isShinyAvailable = false;
-  let isAlphaAvailable = false;
-  let isShinyAlphaAvailable = false;
-  let isMarkedAvailable = false;
-  let isShinyMarkedAvailable = false;
-  const pkId = +id;
+import db from "./theshinyobjects-ea7ba-default-rtdb-pokedex-export (3).json";
 
-  //Unobtainable Shiny Pokemon
-  const shinyLockArray = [
+export const dbCheck = () => {
+
+  const shiny = [
     10018, 10024, 10086, 10147, 10191, 10193, 10194, 10249, 20103, 20112, 494, 647, 648, 720, 721,
     789, 790, 801, 802, 890, 891, 892, 893, 896, 897, 898, 905
   ];
-
-  //Obtainable Alpha Pokemon & Shiny Alpha Pokemon
-  const alphaAvailableArray = [
+  const alpha = [
     10004, 10005, 10008, 10009, 10010, 10011, 10012, 10229, 10230, 10231, 10232, 10233, 10234,
     10235, 10236, 10237, 10238, 10239, 10240, 10241, 10242, 10243, 10244, 10247, 10248, 108, 111,
     112, 113, 114, 122, 123, 125, 126, 129, 130, 133, 134, 135, 136, 137, 143, 155, 156, 169, 169,
@@ -30,9 +23,7 @@ export const catchLock = (id) => {
     475, 476, 477, 478, 479, 501, 502, 54, 548, 55, 627, 63, 64, 65, 66, 67, 68, 700, 704, 712, 72,
     722, 723, 73, 74, 75, 76, 77, 78, 81, 82, 899, 900, 901, 902, 903, 904, 92, 93, 94, 95
   ];
-
-  //Obtainable Narked Pokemon & Shiny Marked Pokemon
-  const markedAvailableArray = [
+  const marked = [
     10, 10008, 10009, 10010, 10011, 10012, 10016, 10024, 10025, 10071, 10126, 10127, 10152, 10161,
     10162, 10163, 10164, 10166, 10167, 10168, 10169, 10170, 10171, 10172, 10173, 10174, 10175,
     10176, 10177, 10178, 10179, 10180, 10184, 102, 103, 104, 105, 106, 107, 108, 109, 11, 111, 112,
@@ -66,26 +57,33 @@ export const catchLock = (id) => {
   ];
 
   const shinyMarkedLocked = new Set([10169, 10170, 10171, 10024, 647]);
-  const shinyMarkedAvailableArray = markedAvailableArray.filter((x) => !shinyMarkedLocked.has(x));
+  const shinyMarkedAvailableArray = marked.filter((x) => !shinyMarkedLocked.has(x));
 
-  if (!shinyLockArray.includes(pkId)) isShinyAvailable = true;
-  if (alphaAvailableArray.includes(pkId)) isAlphaAvailable = true;
-  if (alphaAvailableArray.includes(pkId)) isShinyAlphaAvailable = true;
-  if (markedAvailableArray.includes(pkId)) isMarkedAvailable = true;
-  if (shinyMarkedAvailableArray.includes(pkId)) isShinyMarkedAvailable = true;
+  for (const arrayKey in db) {
+    if (alpha.includes(+arrayKey)) {
+      db[arrayKey].catch.alphaCaught = true;
+      db[arrayKey].catch.shinyAlphaCaught = true;
+    }
+  }
 
-  return {
-    normal: true,
-    shiny: isShinyAvailable,
-    alpha: isAlphaAvailable,
-    shinyAlpha: isShinyAlphaAvailable,
-    marked: isMarkedAvailable,
-    shinyMarked: isShinyMarkedAvailable,
-    pokerus: true,
-    shinyPokerus: true,
-    sixIv: true,
-    shinySixIv: true,
-    zeroIv: true,
-    shinyZeroIv: true
-  };
+  for (const arrayKey in db) {
+    if (shiny.includes(+arrayKey)) {
+      db[arrayKey].catch.shiny = false;
+    }
+  }
+
+  for (const arrayKey in db) {
+    if (marked.includes(+arrayKey)) {
+      db[arrayKey].catch.markedCaught = true;
+    }
+  }
+
+  for (const arrayKey in db) {
+    if (shinyMarkedAvailableArray.includes(+arrayKey)) {
+      db[arrayKey].catch.shinyMarkedCaught = true;
+    }
+  }
+
+  console.log(db);
+
 };

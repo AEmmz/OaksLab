@@ -1,6 +1,5 @@
 <template>
-  <q-page
-    class="">
+  <q-page>
     <!-- Mobile -->
     <div class="lt-md mobile-cont bg-dark">
       <div
@@ -181,7 +180,7 @@ export default {
       this.catchDialog = false;
     },
     freshStart() {
-      this.searchDialog = true;
+      if (this.$q.screen.lt.md) this.searchDialog = true;
     },
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;

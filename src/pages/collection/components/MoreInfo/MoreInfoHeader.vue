@@ -31,12 +31,7 @@
         <q-tab
           name="uncaught"
           icon="fas fa-paw"
-          label="uncaught">
-          <!--          <q-badge-->
-          <!--            color="red"-->
-          <!--            floating>{{ uncaughtStatsCount }}-->
-          <!--          </q-badge>-->
-        </q-tab>
+          label="uncaught"></q-tab>
       </q-tabs>
       <q-separator
         v-if="!tabletCheck()"

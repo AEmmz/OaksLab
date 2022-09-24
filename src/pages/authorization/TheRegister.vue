@@ -4,11 +4,15 @@
       <q-card
         class="my-card q-pa-sm column items-center"
         square>
-        <q-card-section>
+        <q-card-section class="column items-center">
           <div class="text-h2 form-header">Register</div>
+          <div
+            v-if="errors"
+            class="error q-py-xs  q-px-lg q-mt-md">{{ errors }}
+          </div>
         </q-card-section>
         <q-form
-          class="form column q-gutter-lg"
+          class="form column q-gutter-y-lg"
           @submit.prevent="submitForm">
           <q-input
             class="input"
@@ -59,6 +63,20 @@
             </template>
           </q-input>
 
+          <!-- Beta Passoword -->
+          <q-input
+            class="input"
+            v-model="betaKey"
+            type="password"
+            label="Beta Key"
+            clearable
+            rounded
+            outlined>
+            <template v-slot:prepend>
+              <q-icon name="fa-solid fa-lock"/>
+            </template>
+          </q-input>
+
           <q-btn
             class="submit"
             padding="md"
@@ -95,7 +113,10 @@ export default {
       errors: null,
       usernameError: false,
       emailError: false,
-      passwordError: false
+      passwordError: false,
+
+      betaKey: "",
+      betaKeyArray: ["abc", "def"]
     };
   },
 
@@ -136,6 +157,10 @@ export default {
 
     async submitForm() {
       try {
+        if (!this.betaKeyArray.includes(this.betaKey)) {
+          this.errors = "Invalid Beta Key";
+          return;
+        }
         this.formIsValid = true;
         this.isLoading = true;
         const userData = {
@@ -176,6 +201,7 @@ export default {
         const redirect = "/" + (this.$route.query.redirect || "home");
         this.$router.replace(redirect);
       } catch (error) {
+        console.log(error);
         this.errors = ["Something went wrong. Please Try Again"];
       }
     }
@@ -331,12 +357,8 @@ input {
 }
 
 .error {
-  width: 100%;
-  margin: 0.5rem;
-  padding: 1rem;
   background: #ff515167;
-  border-radius: 2rem;
-  font-size: 1.8rem;
+  border-radius: 0.7rem;
 }
 
 .exclamation {

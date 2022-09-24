@@ -70,6 +70,7 @@ body.screen--xs, body.screen--sm {
 body.screen--md, body.screen--lg, body.screen--xl {
   .type-cont {
     width: 40%;
+    height: 48px;
   }
 
   .type-1,

@@ -1,6 +1,8 @@
 import { child, get, getDatabase, ref, update } from "firebase/database";
 
+
 export default {
+
   async changeCount(context, payload) {
     try {
       const uid = context.rootGetters["authorization/uid"];

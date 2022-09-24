@@ -9,7 +9,8 @@
           @update:model-value="setToggler('normal')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-pokeball"/>
+          :icon="pkId ? 'icon-poke-pokeball' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Normal</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -68,7 +69,8 @@
           @update:model-value="setToggler('pokerus')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-pokerus"/>
+          :icon="pkId ? 'icon-poke-pokerus' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Pokerus</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -77,7 +79,8 @@
           @update:model-value="setToggler('shinyPokerus')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-pokerus-shiny"/>
+          :icon="pkId ? 'icon-poke-pokerus-shiny' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Shiny Pokerus</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -86,7 +89,8 @@
           @update:model-value="setToggler('zeroIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-zero"/>
+          :icon="pkId ? 'icon-poke-zero' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Zero IV</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -95,7 +99,8 @@
           @update:model-value="setToggler('shinyZeroIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-zero-shiny"/>
+          :icon="pkId ? 'icon-poke-zero-shiny' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Shiny Zero IV</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -104,7 +109,8 @@
           @update:model-value="setToggler('sixIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-six"/>
+          :icon="pkId ? 'icon-poke-six' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Six IV</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -113,7 +119,8 @@
           @update:model-value="setToggler('shinySixIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          icon="icon-poke-six-shiny"/>
+          :icon="pkId ? 'icon-poke-six-shiny' : 'icon-misc-ban'"
+          :disable="!pkId"/>
         <p class="text-body2 text-light">Shiny Six IV</p>
       </div>
     </q-card>

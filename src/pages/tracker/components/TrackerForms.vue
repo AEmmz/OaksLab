@@ -132,10 +132,11 @@ body.screen--xs, body.screen--sm {
 
 body.screen--md, body.screen--lg, body.screen--xl {
 
-
   .form-tabs {
     font-family: Gellix, sans-serif;
+    width: 100%;
     max-width: 100%;
+    height: 182px
   }
 }
 

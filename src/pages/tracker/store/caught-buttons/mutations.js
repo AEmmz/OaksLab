@@ -36,8 +36,8 @@ export default {
     state.shinyAvailable = payload.shiny;
     state.alphaAvailable = payload.alpha;
     state.shinyAlphaAvailable = payload.shinyAlpha;
-    // state.markedAvailable = payload.marked;
-    // state.shinyMarkedAvailable = payload.shinyMarked;
+    state.markedAvailable = payload.marked;
+    state.shinyMarkedAvailable = payload.shinyMarked;
   },
 
   resetTracker(state) {

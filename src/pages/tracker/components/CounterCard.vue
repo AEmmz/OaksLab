@@ -72,7 +72,7 @@
           label-text-color="dark"
           :vertical="desktopCheck()"
           label
-          switch-label-side
+          :switch-label-side="desktopCheck()"
           track-size="10px"
           thumb-size="30px"
           :min="1"

@@ -1,51 +1,43 @@
-import mutations from './mutations.js';
-import actions from './actions.js';
-import getters from './getters.js';
+import mutations from "./mutations.js";
+import actions from "./actions.js";
+import getters from "./getters.js";
 
 export default {
-	namespaced: true,
-	state() {
-		return {
-			//Hunt Counts Do Not Include Forms. Regional, Mega, Gigantamax
-
-			userDex: null,
-
-			normalCount: 0,
-			shinyCount: 0,
-			alphaCount: 0,
-			shinyAlphaCount: 0,
-			megaCount: 0,
-			shinyMegaCount: 0,
-			gigantamaxCount: 0,
-			shinyGigantamaxCount: 0,
-			pokerusCount: 0,
-			shinyPokerusCount: 0,
-			favoriteCount: 0,
-
-			bugCount: 0,
-			darkCount: 0,
-			dragonCount: 0,
-			electricCount: 0,
-			fairyCount: 0,
-			fightingCount: 0,
-			fireCount: 0,
-			flyingCount: 0,
-			grassCount: 0,
-			ghostCount: 0,
-			groundCount: 0,
-			iceCount: 0,
-			normalTypeCount: 0,
-			poisonCount: 0,
-			psychicCount: 0,
-			steelCount: 0,
-			rockCount: 0,
-			waterCount: 0,
-
-			longestHunt: null,
-			shortestHunt: null,
-		};
-	},
-	mutations,
-	actions,
-	getters,
+  namespaced: true,
+  state() {
+    return {
+      userDb: [],
+      statistics: {
+        caught: {
+          all: { total: 0, available: 0, complete: 0 },
+          normal: { total: 0, available: 0, complete: 0 },
+          shiny: { total: 0, available: 0, complete: 0 },
+          alpha: { total: 0, available: 0, complete: 0 },
+          shinyAlpha: { total: 0, available: 0, complete: 0 },
+          marked: { total: 0, available: 0, complete: 0 },
+          shinyMarked: { total: 0, available: 0, complete: 0 },
+          pokerus: { total: 0, available: 0, complete: 0 },
+          shinyPokerus: { total: 0, available: 0, complete: 0 },
+          sixIv: { total: 0, available: 0, complete: 0 },
+          shinySixIv: { total: 0, available: 0, complete: 0 },
+          zeroIv: { total: 0, available: 0, complete: 0 },
+          shinyZeroIv: { total: 0, available: 0, complete: 0 }
+        },
+        generation: {
+          gen1: { caught: null, available: null, percentage: null },
+          gen2: { caught: null, available: null, percentage: null },
+          gen3: { caught: null, available: null, percentage: null },
+          gen4: { caught: null, available: null, percentage: null },
+          gen5: { caught: null, available: null, percentage: null },
+          gen6: { caught: null, available: null, percentage: null },
+          gen7: { caught: null, available: null, percentage: null },
+          gen8: { caught: null, available: null, percentage: null },
+          gen9: { caught: null, available: null, percentage: null }
+        }
+      }
+    };
+  },
+  mutations,
+  actions,
+  getters
 };

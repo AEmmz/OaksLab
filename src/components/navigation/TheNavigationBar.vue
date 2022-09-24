@@ -113,7 +113,6 @@ export default {
       return this.$q.screen.gt.sm;
     },
     onIntersection(entry) {
-      console.log(this.$router);
       this.headerIntersect = entry.isIntersecting;
     }
   }

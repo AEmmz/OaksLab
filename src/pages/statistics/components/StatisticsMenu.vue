@@ -1,0 +1,123 @@
+<template>
+  <div class="column q-pa-md">
+    <h4 class="page-header text-light self-center">Statistics</h4>
+    <q-separator
+      class="full-width q-ma-md"
+      inset
+      dark/>
+    <q-tabs
+      vertical
+      inline-label
+      v-model="tab"
+      model-value="tab"
+      @update:model-value="$emit('changeTabs', tab)"
+      class="text-light flex justify-center">
+      <div class="text-center tab-subheader">General</div>
+      <q-tab
+        class="tab"
+        name="all"
+        icon="fas fa-chart-simple"
+        label="all"/>
+      <q-tab
+        class="tab"
+        name="misc"
+        icon="fas fa-bars-progress"
+        label="misc"/>
+      <q-separator
+        class="full-width q-ma-md"
+        inset
+        dark/>
+      <div class="text-center tab-subheader">Hunts</div>
+      <q-tab
+        class="tab"
+        name="normal"
+        icon="icon-poke-pokeball"
+        label="normal"></q-tab>
+      <q-tab
+        class="tab"
+        name="shiny"
+        icon="icon-poke-shiny"
+        label="shiny"></q-tab>
+      <q-tab
+        class="tab"
+        name="alpha"
+        icon="icon-poke-alpha"
+        label="alpha"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinyAlpha"
+        icon="icon-poke-alpha-shiny"
+        label="shiny alpha"></q-tab>
+      <q-tab
+        class="tab"
+        name="marked"
+        icon="icon-poke-marked"
+        label="marked"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinyMarked"
+        icon="icon-poke-marked-shiny"
+        label="shiny marked"></q-tab>
+      <q-tab
+        class="tab"
+        name="pokerus"
+        icon="icon-poke-pokerus"
+        label="pokerus"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinyPokerus"
+        icon="icon-poke-pokerus-shiny"
+        label="shiny pokerus"></q-tab>
+      <q-tab
+        class="tab"
+        name="sixIv"
+        icon="icon-poke-six"
+        label="six iv"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinySixIv"
+        icon="icon-poke-six-shiny"
+        label="shiny six iv"></q-tab>
+      <q-tab
+        class="tab"
+        name="zeroIv"
+        icon="icon-poke-zero"
+        label="zero iv"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinyZeroIv"
+        icon="icon-poke-zero-shiny"
+        label="shiny zero iv"></q-tab>
+    </q-tabs>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "StatisticsMenu",
+  data() {
+    return {
+      tab: "all"
+    };
+  }
+};
+</script>
+
+<style
+  scoped
+  lang="scss">
+body.screen--md, body.screen--lg, body.screen--xl, {
+  .page-header {
+    font-family: Futura, sans-serif;
+  }
+
+  .tab {
+    justify-content: start;
+  }
+
+  .tab-subheader {
+    font-family: Gellix, sans-serif;
+  }
+}
+
+</style>

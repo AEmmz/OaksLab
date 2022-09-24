@@ -1,7 +1,5 @@
 import { getDatabase, ref, child, get, update } from "firebase/database";
-import {
-  standardDexCount
-} from "src/util/statistics/formsCheck";
+import { catchLock } from "src/util/tracker/catchLock";
 
 const PokeList = () => import("../../../assets/json/pokemonList.json");
 
@@ -10,269 +8,295 @@ export default {
     const uid = context.rootGetters["authorization/uid"];
     const dbRef = ref(getDatabase());
     const data = await get(child(dbRef, `users/${uid}/pokedex`));
-    const userDex = await Object.entries(data.val());
-    context.commit("fetchStats", userDex);
-    context.dispatch("calculateBaseStats");
-    context.dispatch("calculateTypeStats", huntType);
+    const userData = Object.entries(data.val());
+    await context.commit("saveDb", userData);
+    await context.dispatch("calculateAllCaught", userData);
+    await context.dispatch("calculateAllTotal");
   },
 
-  async quickPatch(context) {
-    const uid = context.rootGetters["authorization/uid"];
-    const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/`);
-    const fetchPkDetails = await PokeList();
-    const pokelist = fetchPkDetails.default.pokemon;
+  async calculateAllCaught(context, userData) {
+    let totalCount = 0;
+    let normalCount = 0;
+    let shinyCount = 0;
+    let alphaCount = 0;
+    let shinyAlphaCount = 0;
+    let markedCount = 0;
+    let shinyMarkedCount = 0;
+    let pokerusCount = 0;
+    let shinyPokerusCount = 0;
+    let sixIvCount = 0;
+    let shinySixIvCount = 0;
+    let zeroIvCount = 0;
+    let shinyZeroIvCount = 0;
 
-    pokelist.forEach(async (p) => {
-      const dexNo = p.dexNo;
-      const name = p.name;
-      const pkId = p.apiNo;
-      const type1 = p.types[0];
-      const type2 = p.types[1] || null;
-      const updateDb = await update(dbRef, {
-        [pkId]: {
-          name: name,
-          type1: type1,
-          type2: type2,
-          dexNo: dexNo,
-          catch: {
-            normalCaught: false,
-            shinyCaught: false,
-            alphaCaught: false,
-            shinyAlphaCaught: false,
-            megaCaught: false,
-            shinyMegaCaught: false,
-            gigantamaxCaught: false,
-            shinyGigantamaxCaught: false,
-            pokerusCaught: false,
-            shinyPokerusCaught: false,
-            favoriteCaught: false
-          },
-          count: {
-            normalCount: 0,
-            shinyCount: 0,
-            alphaCount: 0,
-            shinyAlphaCount: 0,
-            megaCount: 0,
-            shinyMegaCount: 0,
-            gigantamaxCount: 0,
-            shinyGigantamaxCount: 0,
-            pokerusCount: 0,
-            shinyPokerusCount: 0,
-            favoriteCount: 0
-          }
+    let generationCounts = {
+      all: 0,
+      normal: 0,
+      shiny: 0,
+      alpha: 0,
+      shinyAlpha: 0,
+      marked: 0,
+      shinyMarked: 0,
+      pokerus: 0,
+      shinyPokerus: 0,
+      sixIv: 0,
+      shinySixIv: 0,
+      zeroIv: 0,
+      shinyZeroIv: 0
+    };
+
+    let gen1Counts = { ...generationCounts };
+    let gen2Counts = { ...generationCounts };
+    let gen3Counts = { ...generationCounts };
+    let gen4Counts = { ...generationCounts };
+    let gen5Counts = { ...generationCounts };
+    let gen6Counts = { ...generationCounts };
+    let gen7Counts = { ...generationCounts };
+    let gen8Counts = { ...generationCounts };
+    let gen9Counts = { ...generationCounts };
+
+    const genCheck = (id, val) => {
+      if (id <= 151) gen1Counts[val]++;
+      else if (id <= 251) gen2Counts[val]++;
+      else if (id <= 386) gen3Counts[val]++;
+      else if (id <= 493) gen4Counts[val]++;
+      else if (id <= 649) gen5Counts[val]++;
+      else if (id <= 721) gen6Counts[val]++;
+      else if (id <= 809) gen7Counts[val]++;
+      else if (id <= 905) gen8Counts[val]++;
+      else if (id <= 1000) gen9Counts[val]++;
+    };
+
+    userData.forEach((pk) => {
+      const caughtObject = pk[1].catch;
+      const pkId = pk[1].dexNo;
+      for (const caught in caughtObject) {
+        if (caughtObject[caught] === true) {
+          totalCount++;
+          genCheck(pkId, "all");
         }
-      });
-    });
-  },
-
-  async calculateBaseStats(context, payload) {
-    const userDex = context.getters.userDex;
-
-    const fetchPkDetails = await PokeList();
-    const pkDetails = fetchPkDetails.default.pokemon;
-    let normalCaught = [];
-    let shinyCaught = [];
-    let alphaCaught = [];
-    let shinyAlphaCaught = [];
-    let megaCaught = [];
-    let shinyMegaCaught = [];
-    let gigantamaxCaught = [];
-    let shinyGigantamaxCaught = [];
-    let pokerusCaught = [];
-    let shinyPokerusCaught = [];
-    let favoriteCaught = [];
-    await Promise.all(
-      userDex.map(async (pkmn) => {
-        const cS = pkmn[1].catch;
-        const count = async (data, array, pokemon) => {
-          if (data === true) {
-            await standardDexCount(array, pokemon, pkDetails);
-          }
-        };
-        await count(cS.normalCaught, normalCaught, pkmn);
-        await count(cS.shinyCaught, shinyCaught, pkmn);
-        await count(cS.alphaCaught, alphaCaught, pkmn);
-        await count(cS.shinyAlphaCaught, shinyAlphaCaught, pkmn);
-        await count(cS.megaCaught, megaCaught, pkmn);
-        await count(cS.shinyMegaCaught, shinyMegaCaught, pkmn);
-        await count(cS.gigantamaxCaught, gigantamaxCaught, pkmn);
-        await count(cS.shinyGigantamaxCaught, shinyGigantamaxCaught, pkmn);
-        await count(cS.pokerusCaught, pokerusCaught, pkmn);
-        await count(cS.shinyPokerusCaught, shinyPokerusCaught, pkmn);
-        await count(cS.favoriteCaught, favoriteCaught, pkmn);
-      })
-    );
-
-    const caughtStats = {
-      normal: normalCaught.length,
-      shiny: shinyCaught.length,
-      alpha: alphaCaught.length,
-      shinyAlpha: shinyAlphaCaught.length,
-      mega: megaCaught.length,
-      shinyMega: shinyMegaCaught.length,
-      gigantamax: gigantamaxCaught.length,
-      shinyGigantamax: shinyGigantamaxCaught.length,
-      pokerus: pokerusCaught.length,
-      shinyPokerus: shinyPokerusCaught.length,
-      favorite: favoriteCaught.length
-    };
-    context.commit("calculateBaseStats", caughtStats);
-    // context.dispatch('quickPatch');
-  },
-
-  async calculateTypeStats(context, payload) {
-    const fetchPkDetails = await PokeList();
-    const pkDetails = fetchPkDetails.default.pokemon;
-    const userDex = context.getters.userDex;
-    let huntFilter;
-    let bug = [];
-    let dark = [];
-    let dragon = [];
-    let electric = [];
-    let fairy = [];
-    let fighting = [];
-    let fire = [];
-    let flying = [];
-    let grass = [];
-    let ghost = [];
-    let ground = [];
-    let ice = [];
-    let normal = [];
-    let poison = [];
-    let psychic = [];
-    let steel = [];
-    let rock = [];
-    let water = [];
-    const pushPokemon = (pokemon, assignArray, type) => {
-      if (pokemon.types.includes(type)) {
-        assignArray.push(pokemon.dexNo);
+        ;
+        if (caught === "normalCaught" && caughtObject[caught] === true) {
+          normalCount++;
+          genCheck(pkId, "normal");
+        }
+        if (caught === "shinyCaught" && caughtObject[caught] === true) {
+          shinyCount++;
+          genCheck(pkId, "shiny");
+        }
+        if (caught === "alphaCaught" && caughtObject[caught] === true) {
+          alphaCount++;
+          genCheck(pkId, "alpha");
+        }
+        if (caught === "shinyAlphaCaught" && caughtObject[caught] === true) {
+          shinyAlphaCount++;
+          genCheck(pkId, "shinyAlpha");
+        }
+        if (caught === "markedCaught" && caughtObject[caught] === true) {
+          markedCount++;
+          genCheck(pkId, "marked");
+        }
+        if (caught === "shinyMarkedCaught" && caughtObject[caught] === true) {
+          shinyMarkedCount++;
+          genCheck(pkId, "shinyMarked");
+        }
+        if (caught === "pokerusCaught" && caughtObject[caught] === true) {
+          pokerusCount++;
+          genCheck(pkId, "pokerus");
+        }
+        if (caught === "shinyPokerusCaught" && caughtObject[caught] === true) {
+          shinyPokerusCount++;
+          genCheck(pkId, "shinyPokerus");
+        }
+        if (caught === "sixIvCaught" && caughtObject[caught] === true) {
+          sixIvCount++;
+          genCheck(pkId, "sixIv");
+        }
+        if (caught === "shinySixIvCaught" && caughtObject[caught] === true) {
+          shinySixIvCount++;
+          genCheck(pkId, "shinySixIv");
+        }
+        if (caught === "zeroIvCaught" && caughtObject[caught] === true) {
+          zeroIvCount++;
+          genCheck(pkId, "zeroIv");
+        }
+        if (caught === "shinyZeroIvCaught" && caughtObject[caught] === true) {
+          shinyZeroIvCount++;
+          genCheck(pkId, "shinyZeroIv");
+        }
       }
+    });
+
+    const statistics = {
+      all: totalCount,
+      normal: normalCount,
+      shiny: shinyCount,
+      alpha: alphaCount,
+      shinyAlpha: shinyAlphaCount,
+      marked: markedCount,
+      shinyMarked: shinyMarkedCount,
+      pokerus: pokerusCount,
+      shinyPokerus: shinyPokerusCount,
+      sixIv: sixIvCount,
+      shinySixIv: shinySixIvCount,
+      zeroIv: zeroIvCount,
+      shinyZeroIv: shinyZeroIvCount,
+      gen1: gen1Counts,
+      gen2: gen2Counts,
+      gen3: gen3Counts,
+      gen4: gen4Counts,
+      gen5: gen5Counts,
+      gen6: gen6Counts,
+      gen7: gen7Counts,
+      gen8: gen8Counts,
+      gen9: gen9Counts
+    };
+    context.commit("setStats", statistics);
+  },
+
+
+  async calculateAllTotal(context) {
+    let pokeArray = await PokeList();
+    pokeArray = pokeArray.pokemon;
+    let totalCount = 0;
+    let normalCount = 0;
+    let shinyCount = 0;
+    let alphaCount = 0;
+    let shinyAlphaCount = 0;
+    let markedCount = 0;
+    let shinyMarkedCount = 0;
+    let pokerusCount = 0;
+    let shinyPokerusCount = 0;
+    let sixIvCount = 0;
+    let shinySixIvCount = 0;
+    let zeroIvCount = 0;
+    let shinyZeroIvCount = 0;
+
+    let generationCounts = {
+      all: 0,
+      normal: 0,
+      shiny: 0,
+      alpha: 0,
+      shinyAlpha: 0,
+      marked: 0,
+      shinyMarked: 0,
+      pokerus: 0,
+      shinyPokerus: 0,
+      sixIv: 0,
+      shinySixIv: 0,
+      zeroIv: 0,
+      shinyZeroIv: 0
+    };
+    let gen1Counts = { ...generationCounts };
+    let gen2Counts = { ...generationCounts };
+    let gen3Counts = { ...generationCounts };
+    let gen4Counts = { ...generationCounts };
+    let gen5Counts = { ...generationCounts };
+    let gen6Counts = { ...generationCounts };
+    let gen7Counts = { ...generationCounts };
+    let gen8Counts = { ...generationCounts };
+    let gen9Counts = { ...generationCounts };
+
+    const genCheck = (id, val) => {
+      if (id <= 151) gen1Counts[val]++;
+      else if (id <= 251) gen2Counts[val]++;
+      else if (id <= 386) gen3Counts[val]++;
+      else if (id <= 493) gen4Counts[val]++;
+      else if (id <= 649) gen5Counts[val]++;
+      else if (id <= 721) gen6Counts[val]++;
+      else if (id <= 809) gen7Counts[val]++;
+      else if (id <= 905) gen8Counts[val]++;
+      else if (id <= 1000) gen9Counts[val]++;
     };
 
-    if (payload === "normal") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.normalCaught === true;
-      });
-    }
-    if (payload === "shiny") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.shinyCaught === true;
-      });
-    }
-    if (payload === "alpha") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.alphaCaught === true;
-      });
-    }
-    if (payload === "shinyAlpha") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.shinyAlphaCaught === true;
-      });
-    }
-    if (payload === "mega") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.megaCaught === true;
-      });
-    }
-    if (payload === "shinyMega") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.shinyMegaCaught === true;
-      });
-    }
-    if (payload === "gigantamax") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.gigantamaxCaught === true;
-      });
-    }
-    if (payload === "shinyGigantamax") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.shinyGigantamaxCaught === true;
-      });
-    }
-    if (payload === "pokerus") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.pokerusCaught === true;
-      });
-    }
-    if (payload === "shinyPokerus") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.shinyPokerusCaught === true;
-      });
-    }
-    if (payload === "favorite") {
-      huntFilter = userDex.filter((p) => {
-        return p[1].catch.favoriteCaught === true;
-      });
-    }
+    pokeArray.forEach((pk) => {
+      const apiNo = pk.apiNo;
+      const pkId = +pk.dexNo;
+      const lockCheck = catchLock(apiNo);
+      for (const available in lockCheck) {
+        if (lockCheck[available] === true) {
+          totalCount++;
+          genCheck(pkId, "all");
+        }
+        if (available === "normal" && lockCheck[available] === true) {
+          normalCount++;
+          genCheck(pkId, "normal");
+        }
+        if (available === "shiny" && lockCheck[available] === true) {
+          shinyCount++;
+          genCheck(pkId, "shiny");
+        }
+        if (available === "alpha" && lockCheck[available] === true) {
+          alphaCount++;
+          genCheck(pkId, "alpha");
+        }
+        if (available === "shinyAlpha" && lockCheck[available] === true) {
+          shinyAlphaCount++;
+          genCheck(pkId, "shinyAlpha");
+        }
+        if (available === "marked" && lockCheck[available] === true) {
+          markedCount++;
+          genCheck(pkId, "marked");
+        }
+        if (available === "shinyMarked" && lockCheck[available] === true) {
+          shinyMarkedCount++;
+          genCheck(pkId, "shinyMarked");
+        }
+        if (available === "pokerus" && lockCheck[available] === true) {
+          pokerusCount++;
+          genCheck(pkId, "pokerus");
+        }
+        if (available === "shinyPokerus" && lockCheck[available] === true) {
+          shinyPokerusCount++;
+          genCheck(pkId, "shinyPokerus");
+        }
+        if (available === "sixIv" && lockCheck[available] === true) {
+          sixIvCount++;
+          genCheck(pkId, "sixIv");
+        }
+        if (available === "shinySixIv" && lockCheck[available] === true) {
+          shinySixIvCount++;
+          genCheck(pkId, "shinySixIv");
+        }
+        if (available === "zeroIv" && lockCheck[available] === true) {
+          zeroIvCount++;
+          genCheck(pkId, "zeroIv");
+        }
+        if (available === "shinyZeroIv" && lockCheck[available] === true) {
+          shinyZeroIvCount++;
+          genCheck(pkId, "shinyZeroIv");
+        }
 
-    //TYPE STATS
-    await Promise.all(
-      huntFilter.map(async (pkmn) => {
-        pkDetails.map((p) => {
-          if (pkmn[1].dexNo === p.dexNo) {
-            pushPokemon(p, bug, "bug");
-            pushPokemon(p, dark, "dark");
-            pushPokemon(p, dragon, "dragon");
-            pushPokemon(p, electric, "electric");
-            pushPokemon(p, fairy, "fairy");
-            pushPokemon(p, fighting, "fighting");
-            pushPokemon(p, fire, "fire");
-            pushPokemon(p, flying, "flying");
-            pushPokemon(p, grass, "grass");
-            pushPokemon(p, ghost, "ghost");
-            pushPokemon(p, ground, "ground");
-            pushPokemon(p, ice, "ice");
-            pushPokemon(p, normal, "normal");
-            pushPokemon(p, poison, "poison");
-            pushPokemon(p, psychic, "psychic");
-            pushPokemon(p, steel, "steel");
-            pushPokemon(p, rock, "rock");
-            pushPokemon(p, water, "water");
-          }
-        });
-      })
-    );
+      }
+    });
 
-    bug = [...new Set(bug)];
-    dark = [...new Set(dark)];
-    dragon = [...new Set(dragon)];
-    electric = [...new Set(electric)];
-    fairy = [...new Set(fairy)];
-    fighting = [...new Set(fighting)];
-    fire = [...new Set(fire)];
-    flying = [...new Set(flying)];
-    grass = [...new Set(grass)];
-    ghost = [...new Set(ghost)];
-    ground = [...new Set(ground)];
-    ice = [...new Set(ice)];
-    normal = [...new Set(normal)];
-    poison = [...new Set(poison)];
-    psychic = [...new Set(psychic)];
-    steel = [...new Set(steel)];
-    rock = [...new Set(rock)];
-    water = [...new Set(water)];
-
-    const caughtStats = {
-      bug: bug.length,
-      dark: dark.length,
-      dragon: dragon.length,
-      electric: electric.length,
-      fairy: fairy.length,
-      fighting: fighting.length,
-      fire: fire.length,
-      flying: flying.length,
-      grass: grass.length,
-      ghost: ghost.length,
-      ground: ground.length,
-      ice: ice.length,
-      normalType: normal.length,
-      poison: poison.length,
-      psychic: psychic.length,
-      steel: steel.length,
-      rock: rock.length,
-      water: water.length
+    const statistics = {
+      all: totalCount,
+      normal: normalCount,
+      shiny: shinyCount,
+      alpha: alphaCount,
+      shinyAlpha: shinyAlphaCount,
+      marked: markedCount,
+      shinyMarked: shinyMarkedCount,
+      pokerus: pokerusCount,
+      shinyPokerus: shinyPokerusCount,
+      sixIv: sixIvCount,
+      shinySixIv: shinySixIvCount,
+      zeroIv: zeroIvCount,
+      shinyZeroIv: shinyZeroIvCount,
+      gen1: gen1Counts,
+      gen2: gen2Counts,
+      gen3: gen3Counts,
+      gen4: gen4Counts,
+      gen5: gen5Counts,
+      gen6: gen6Counts,
+      gen7: gen7Counts,
+      gen8: gen8Counts,
+      gen9: gen9Counts
     };
 
-    context.commit("calculateTypeStats", caughtStats);
+    context.commit("setAvailableStats", statistics);
+
   }
+
 };
