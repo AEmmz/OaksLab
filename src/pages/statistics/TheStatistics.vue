@@ -9,8 +9,22 @@
       <q-separator
         vertical
         inset/>
-      <q-card class="bg-light statistics-container">
-        <statistics-tabs :selectedTab="selectedTab"></statistics-tabs>
+      <q-card class="bg-light statistics-container relative-position">
+        <transition>
+          <div
+            v-if="loading"
+            class="bg-white overlay full-width full-height absolute-top-left z-top column justify-center items-center">
+            <q-card class="loading-card q-pa-xl bg-dark column items-center justify-center">
+              <span class="text-light text-h4 q-ma-md">Loading</span>
+              <q-spinner-bars
+                size="8rem"
+                color="light"/>
+            </q-card>
+          </div>
+        </transition>
+        <statistics-tabs
+          v-if="!loading"
+          :selectedTab="selectedTab"></statistics-tabs>
       </q-card>
     </div>
   </q-page>
@@ -25,13 +39,17 @@ const StatisticsTabs = defineAsyncComponent(() => import("./components/Statistic
 
 export default {
   components: { StatisticsMenu, StatisticsTabs },
-  async created() {
+  async mounted() {
+    this.loading = true;
     await this.fetchStats();
+    this.loading = false;
+
 
   },
   data() {
     return {
-      selectedTab: "all"
+      selectedTab: "all",
+      loading: false
     };
   },
   methods: {
@@ -50,13 +68,23 @@ export default {
   scoped
   lang="scss">
 
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 body.screen--md, body.screen--lg, body.screen--xl, {
   .menu-bar {
     width: 13%;
   }
 
   .statistics-container {
-    width: 70%;
+    width: 80%;
   }
 
   .page-header {

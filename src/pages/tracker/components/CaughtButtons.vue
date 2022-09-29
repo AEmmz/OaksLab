@@ -15,7 +15,7 @@
       </div>
       <div class="toggle q-my-md flex column items-center">
         <q-toggle
-          :model-value="shiny || false"
+          :model-value="shiny && shinyAvailable || false"
           @update:model-value="setToggler('shiny')"
           :color="pkToggleColor"
           :size="sizeCheck()"
@@ -55,7 +55,7 @@
       </div>
       <div class="toggle q-my-md flex column items-center">
         <q-toggle
-          :model-value="shinyMarked || false"
+          :model-value="shinyMarked && shinyMarkedAvailable || false"
           @update:model-value="setToggler('shinyMarked')"
           :color="pkToggleColor"
           :size="sizeCheck()"
@@ -75,12 +75,12 @@
       </div>
       <div class="toggle q-my-md flex column items-center">
         <q-toggle
-          :model-value="shinyPokerus || false"
+          :model-value="shinyPokerus && shinyAvailable|| false"
           @update:model-value="setToggler('shinyPokerus')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          :icon="pkId ? 'icon-poke-pokerus-shiny' : 'icon-misc-ban'"
-          :disable="!pkId"/>
+          :icon="shinyAvailable ? 'icon-poke-pokerus-shiny' : 'icon-misc-ban'"
+          :disable="!shinyAvailable"/>
         <p class="text-body2 text-light">Shiny Pokerus</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -95,12 +95,12 @@
       </div>
       <div class="toggle q-my-md flex column items-center">
         <q-toggle
-          :model-value="shinyZeroIv || false"
+          :model-value="shinyZeroIv && shinyAvailable || false"
           @update:model-value="setToggler('shinyZeroIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          :icon="pkId ? 'icon-poke-zero-shiny' : 'icon-misc-ban'"
-          :disable="!pkId"/>
+          :icon="shinyAvailable ? 'icon-poke-zero-shiny' : 'icon-misc-ban'"
+          :disable="!shinyAvailable"/>
         <p class="text-body2 text-light">Shiny Zero IV</p>
       </div>
       <div class="toggle q-my-md flex column items-center">
@@ -115,12 +115,12 @@
       </div>
       <div class="toggle q-my-md flex column items-center">
         <q-toggle
-          :model-value="shinySixIv || false"
+          :model-value="shinySixIv && shinyAvailable || false"
           @update:model-value="setToggler('shinySixIv')"
           :color="pkToggleColor"
           :size="sizeCheck()"
-          :icon="pkId ? 'icon-poke-six-shiny' : 'icon-misc-ban'"
-          :disable="!pkId"/>
+          :icon="shinyAvailable ? 'icon-poke-six-shiny' : 'icon-misc-ban'"
+          :disable="!shinyAvailable"/>
         <p class="text-body2 text-light">Shiny Six IV</p>
       </div>
     </q-card>

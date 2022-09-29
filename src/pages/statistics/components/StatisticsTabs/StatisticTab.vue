@@ -17,7 +17,9 @@
         </div>
         <div class="column">
           <div class="cat-header">Total Caught:</div>
-          <div class="cat-value text-h4">{{ statistics.total }}</div>
+          <div
+            class="cat-value text-h4">{{ statistics.total }}
+          </div>
         </div>
       </q-card>
 
@@ -50,16 +52,82 @@
       </q-card>
 
       <!--Data Middle Left -->
-      <q-card class="bg-dark stat-4  q-pa-md">
+      <q-card class="bg-dark stat-4 q-pa-md">
         <div class="cat-header text-light">Completion By Generation:</div>
         <generation-chart
           :id="id"
           @changeData="updatedSelectedGeneration"></generation-chart>
+
       </q-card>
 
       <!--Data Middle Right -->
-      <q-card class="bg-dark stat-5 q-pa-md">
-        <div class="cat-header text-light">Generation Data: {{ genDataTitle }}</div>
+      <q-card class="bg-dark stat-5 q-pa-md  full-height">
+        <div class="cat-header text-light">Hunt Type Stats</div>
+        <div class="column justify-center items-start full-height">
+          <div class="q-pa-lg row items-center text-light">
+            <q-icon
+              class="stat-icon bg-accent q-mr-lg q-pa-md"
+              size="md"
+              name="fas fa-clock"></q-icon>
+            <div class="column">
+              <div class="cat-header">Longest Hunt:</div>
+              <div class="cat-value text-h4">{{ hours(statistics?.longestTime.total) }}:{{
+                  minutes(statistics?.longestTime.total) }}:{{ seconds(statistics?.longestTime.total) }}
+              </div>
+              <div class="cat-value">{{
+                  statistics?.longestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.longestTime.category} ${statistics?.longestTime.name}` : statistics?.longestTime.name
+                }}
+              </div>
+            </div>
+          </div>
+          <div class="q-pa-lg row items-center text-light">
+            <q-icon
+              class="stat-icon bg-accent q-mr-lg q-pa-md"
+              size="md"
+              name="fas fa-calculator"></q-icon>
+            <div class="column">
+              <div class="cat-header">Most Encounters:</div>
+              <div class="cat-value text-h4">{{ statistics?.longestCount.total }}</div>
+              <div class="cat-value">{{
+                  statistics?.longestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.longestCount.category} ${statistics?.longestCount.name}` : statistics?.longestCount.name
+                }}
+              </div>
+            </div>
+          </div>
+          <q-separator
+            class="separator q-ma-sm self-center"
+            dark/>
+          <div class="q-pa-lg row items-center text-light">
+            <q-icon
+              class="stat-icon bg-accent q-mr-lg q-pa-md"
+              size="md"
+              name="fas fa-clock"></q-icon>
+            <div class="column">
+              <div class="cat-header">Shortest Hunt:</div>
+              <div class="cat-value text-h4">{{ hours(statistics?.shortestTime.total) }}:{{
+                  minutes(statistics?.shortestTime.total) }}:{{ seconds(statistics?.shortestTime.total) }}
+              </div>
+              <div class="cat-value">{{
+                  statistics?.shortestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.shortestTime.category} ${statistics?.shortestTime.name}` : statistics?.shortestTime.name
+                }}
+              </div>
+            </div>
+          </div>
+          <div class="q-pa-lg row items-center text-light">
+            <q-icon
+              class="stat-icon bg-accent q-mr-lg q-pa-md"
+              size="md"
+              name="fas fa-calculator"></q-icon>
+            <div class="column">
+              <div class="cat-header">Least Encounters:</div>
+              <div class="cat-value text-h4">{{ statistics?.shortestCount.total }}</div>
+              <div class="cat-value">{{
+                  statistics?.shortestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.shortestCount.category} ${statistics?.shortestCount.name}` : statistics?.shortestCount.name
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
       </q-card>
 
     </div>
@@ -87,6 +155,7 @@ export default {
       return ((this.statistics.total / this.statistics.available) * 100).toFixed(2);
     },
     statistics() {
+      console.log(this.$store.getters[`statistics/${this.id}Stats`]);
       return this.$store.getters[`statistics/${this.id}Stats`];
     },
     genDataTitle() {
@@ -98,7 +167,26 @@ export default {
   methods: {
     updatedSelectedGeneration(val) {
       this.selectedGeneration = val;
+    },
+    hours(val) {
+      return Math.floor(val / (1000 * 60 * 60)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+    },
+    minutes(val) {
+      return Math.floor(val % (1000 * 60 * 60) / (1000 * 60)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+    },
+    seconds(val) {
+      return Math.floor(val % (1000 * 60) / (1000)).toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
     }
+
   }
 };
 </script>
@@ -150,6 +238,10 @@ body.screen--md, body.screen--lg, body.screen--xl {
 
   .stat-icon {
     border-radius: 0.3rem;
+  }
+
+  .separator {
+    width: 80%;
   }
 
 

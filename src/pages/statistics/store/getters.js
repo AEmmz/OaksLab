@@ -5,6 +5,9 @@ export default {
   allStats(state) {
     return state.statistics.caught.all;
   },
+  miscStats(state) {
+    return state.statistics.misc;
+  },
   normalStats(state) {
     return state.statistics.caught.normal;
   },
@@ -40,9 +43,6 @@ export default {
   },
   shinyZeroIvStats(state) {
     return state.statistics.caught.shinyZeroIv;
-  },
-  generationStats(state) {
-    return state.statistics.generation;
   },
   generationPercent(state) {
     const data = state.statistics.generation;

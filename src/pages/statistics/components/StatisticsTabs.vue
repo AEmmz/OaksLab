@@ -13,6 +13,12 @@
           :tabName="tabs.name"
           :id="tabs.id"></statistics-tab>
       </q-tab-panel>
+      <q-tab-panel
+        name="misc">
+        <misc-tab
+          tabName="Miscellaneous Dex Hunts"
+          id="misc"></misc-tab>
+      </q-tab-panel>
     </q-tab-panels>
   </div>
 </template>
@@ -21,8 +27,9 @@
 import { defineAsyncComponent } from "vue";
 
 const StatisticsTab = defineAsyncComponent(() => import("./StatisticsTabs/StatisticTab.vue"));
+const MiscTab = defineAsyncComponent(() => import("./StatisticsTabs/MiscTab.vue"));
 export default {
-  components: { StatisticsTab },
+  components: { StatisticsTab, MiscTab },
   name: "StatisticsTabs",
   props: { selectedTab: { type: String } },
   data() {

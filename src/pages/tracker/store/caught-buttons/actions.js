@@ -115,7 +115,6 @@ export default {
         });
       }
       if (catchData) commit("caughtCheck", catchData);
-      console.log("hi");
       dispatch("lockCheck");
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
