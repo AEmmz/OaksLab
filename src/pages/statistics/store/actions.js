@@ -2,10 +2,12 @@
 import { getDatabase, ref, child, get, update } from "firebase/database";
 import { catchLock } from "src/util/tracker/catchLock";
 import { gmaxArray, megaArray } from "src/util/statistics/FormsArrays";
+import PokeList from "../../../assets/json/pokemonList.json";
 
-const PokeList = () => import("../../../assets/json/pokemonList.json");
+// const PokeList = () => import("../../../assets/json/pokemonList.json");
 
 // -----------------General Setup------------------ //
+const pokeArray = PokeList.pokemon;
 const counts = {
   total: 0,
   lTime: { name: null, total: 0, category: null },
@@ -37,11 +39,11 @@ export default {
     const dbRef = ref(getDatabase());
     const data = await get(child(dbRef, `users/${uid}/pokedex`));
     const userData = Object.entries(data.val());
-    // await context.commit("saveDb", userData);
+    // context.commit("saveDb", userData);
     await context.dispatch("calculateAllCaught", userData);
     await context.dispatch("calculateAllTotal");
-    await context.dispatch("formStats", userData);
-    await context.dispatch("pokemonStats", userData);
+    console.log("done");
+    return userData;
   },
 
   async calculateAllCaught(context, userData) {
@@ -183,8 +185,6 @@ export default {
 
 
   async calculateAllTotal(context) {
-    let pokeArray = await PokeList();
-    pokeArray = pokeArray.pokemon;
     let totalCount = structuredClone(counts);
     let normalCount = structuredClone(counts);
     let shinyCount = structuredClone(counts);
@@ -275,9 +275,6 @@ export default {
 
   // -----------------Misc Stats Tabs------------------ //
   async formStats(context, userData) {
-    let pokeArray = await PokeList();
-    pokeArray = pokeArray.pokemon;
-
     const getAvailable = (array, count, type) => {
       const available = pokeArray.filter(pk => {
         if (catchLock(+pk.apiNo)?.[type]) {
@@ -313,23 +310,22 @@ export default {
       mega: statTemplate(megaArray)
     };
 
-    console.log(pokeStats);
     context.commit("setFormStats", pokeStats);
   },
 
   async pokemonStats(context, userData) {
-    let pokeArray = await PokeList();
-    pokeArray = pokeArray.pokemon;
     const getAvailable = (pkId, count, type) => {
-      const available = pokeArray.filter(pk => {
-        if (catchLock(+pk.apiNo)?.[type]) {
-          return +pk.dexNo === pkId;
-        }
+      const targetArray = pokeArray.filter(pk => {
+        return +pk.dexNo === pkId;
+      });
+      const userArray = userData.filter(pk => {
+        return +pk[1].dexNo === pkId && pk[1]?.catch?.[count];
+      });
+      const available = targetArray.filter(pk => {
+        return catchLock(+pk.apiNo)?.[type];
       }).length;
-      const total = userData.filter(pk => {
-        if (catchLock(+pk[0])?.[type]) {
-          return +pk[1].dexNo === pkId && pk[1]?.catch?.[count];
-        }
+      const total = userArray.filter(pk => {
+        return catchLock(+pk[0])?.[type];
       }).length;
       return { total, available };
     };

@@ -1,6 +1,9 @@
 <template>
-  <div class="column q-pa-md">
-    <h4 class="page-header text-light self-center">Statistics</h4>
+  <div
+    class="q-pa-md"
+    :class="desktopCheck() ? 'column' : 'row'">
+    <h4 class="page-header text-light self-center gt-sm">Statistics</h4>
+    <h6 class="page-header text-light full-width text-center lt-md">Select A Stat</h6>
     <q-separator
       class="full-width q-ma-md"
       inset
@@ -11,8 +14,12 @@
       v-model="tab"
       model-value="tab"
       @update:model-value="$emit('changeTabs', tab)"
-      class="text-light flex justify-center">
-      <div class="text-center tab-subheader">General</div>
+      class="text-light flex justify-center"
+      :class="desktopCheck ? '' : 'full-width'">
+      <div
+        class="text-center tab-subheader"
+        :class="desktopCheck() ? '' : 'full-width self-center'">General
+      </div>
       <q-tab
         class="tab"
         name="all"
@@ -95,10 +102,16 @@
 <script>
 export default {
   name: "StatisticsMenu",
+  props: { closeDialog: { type: Function } },
   data() {
     return {
       tab: "all"
     };
+  },
+  methods: {
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    }
   }
 };
 </script>
@@ -106,11 +119,26 @@ export default {
 <style
   scoped
   lang="scss">
-body.screen--md, body.screen--lg, body.screen--xl, {
-  .page-header {
-    font-family: Futura, sans-serif;
+
+.page-header {
+  font-family: Futura, sans-serif;
+}
+
+body.screen--sm, body.screen--xs, {
+  .tab {
+    justify-content: start;
   }
 
+  .q-tabs {
+    width: 100%;
+  }
+
+  .page-header {
+  }
+}
+
+
+body.screen--md, body.screen--lg, body.screen--xl, {
   .tab {
     justify-content: start;
   }

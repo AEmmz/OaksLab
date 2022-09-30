@@ -3,6 +3,7 @@
     <q-tab-panels
       v-model="activeTab"
       class="full-width q-pa-sm"
+      :class="desktopCheck() ? '' : 'bg-dark'"
       animated>
       >
       <q-tab-panel
@@ -28,6 +29,7 @@ import { defineAsyncComponent } from "vue";
 
 const StatisticsTab = defineAsyncComponent(() => import("./StatisticsTabs/StatisticTab.vue"));
 const MiscTab = defineAsyncComponent(() => import("./StatisticsTabs/MiscTab.vue"));
+
 export default {
   components: { StatisticsTab, MiscTab },
   name: "StatisticsTabs",
@@ -82,10 +84,25 @@ export default {
     activeTab() {
       return this.selectedTab;
     }
+  },
+  methods: {
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
+    mediumCheck() {
+      return this.$q.screen.md ? true : false;
+    }
   }
 };
 </script>
 
-<style scoped>
+<style
+  scoped
+  lang="scss">
 
+body.screen--xs, body.screen-sm, {
+  .q-tab-panels {
+    padding: 0;
+  }
+}
 </style>

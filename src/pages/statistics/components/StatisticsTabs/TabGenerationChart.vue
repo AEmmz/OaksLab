@@ -2,7 +2,9 @@
   <apex-chart
     @dataPointSelection="changeData"
     :options="chartOptions"
-    :series="series"></apex-chart>
+    :series="series"
+    :height="desktopCheck() ? '' : smallCheck() ? '350px' : '400px'"
+    class="chart"></apex-chart>
 </template>
 
 <script>
@@ -19,12 +21,12 @@ export default {
     this.chartOptions.chart.id = `dexhunt-completion-gen-${this.id}`;
   },
   computed: {
-    ...mapGetters("statistics", ["generationPercent"]),
+    ...mapGetters("statistics", ["generationData"]),
     series() {
       return [
         {
           name: "completion-percentage",
-          data: this.generationPercent(this.id)
+          data: this.generationData(this.id).data
         }
       ];
     }
@@ -33,9 +35,18 @@ export default {
     return {
       chartOptions: {
         chart: {
-          id: "",
+          id: "barChart",
           type: "bar",
-          fontFamily: "Gellix, sans-serif"
+          fontFamily: "Gellix, sans-serif",
+          height: "400px"
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: !this.desktopCheck(),
+            barHeight: "80%",
+            columnWidth: "80%"
+          }
         },
         yaxis: {
           labels: {
@@ -69,11 +80,12 @@ export default {
             fontFamily: "Futura, sans-serif"
           },
           y: {
-            formatter: (val) => {
-              return `60 / 100`;
+            formatter: (val, e) => {
+              const data = this.generationData(this.id);
+              return `${data.total[e.dataPointIndex]} of ${data.available[e.dataPointIndex]}`;
             },
             title: {
-              formatter: () => "Completion: "
+              formatter: () => "Complete: "
             }
           }
         }
@@ -85,12 +97,26 @@ export default {
       const data = config.w.config.xaxis.categories[config.selectedDataPoints[0][0]] || "All";
       const dataShort = data.toLowerCase().replace(" ", "");
       this.$emit("changeData", dataShort);
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
+    smallCheck() {
+      return this.$q.screen.sm ? true : false;
     }
   }
 };
 </script>
 
 <style lang="scss">
+
+body.screen--xs {
+  .chart {
+    width: 100%;
+  }
+}
+
+
 .apexcharts-zoom-icon svg, .apexcharts-zoomin-icon svg, .apexcharts-zoomout-icon svg, .apexcharts-reset-icon svg, .apexcharts-menu-icon svg {
   fill: $light !important;
 }

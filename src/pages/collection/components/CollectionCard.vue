@@ -247,8 +247,8 @@ export default {
   },
   async mounted() {
     this.statusLock = await this.lockCheck(this.pokemon.apiNo);
-    console.log(this.pokemon);
   },
+  
   computed: {
     selectedImage() {
       if (this.shinyView === "All Shiny") {

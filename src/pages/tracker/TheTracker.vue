@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <!-- Mobile -->
-    <div class="lt-md mobile-cont bg-dark">
+    <div class="lt-md bg-dark">
       <div
         class="page-container row justify-center q-gutter-x-lg"
         :class="{'q-my-md': desktopCheck()}">

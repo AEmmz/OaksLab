@@ -16,10 +16,6 @@ const ApexChart = defineAsyncComponent(() => import("vue3-apexcharts"));
 
 export default {
   name: "MiscRadialChart",
-  mounted() {
-    // console.log(this.data, this.categories, this.available);
-
-  },
   components: { ApexChart },
   props: { categories: { type: Array }, data: { type: Array }, caught: { type: Array }, available: { type: Array } },
   computed: {

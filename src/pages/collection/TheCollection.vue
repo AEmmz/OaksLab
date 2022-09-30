@@ -111,7 +111,7 @@
 <script>
 import { defineAsyncComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-// import { catchLock } from "src/util/tracker/catchLock";
+import { useQuasar } from "quasar";
 
 const CollectionFilters = defineAsyncComponent(() => import("./components/CollectionFilters.vue"));
 const CollectionCard = defineAsyncComponent(() => import("./components/CollectionCard.vue"));
@@ -124,6 +124,8 @@ export default {
   },
 
   async mounted() {
+    const $q = useQuasar();
+    $q.loading.show();
     await this.retrieveList();
     this.userList.forEach((pokemon) => {
       this.rows.push({
@@ -135,6 +137,7 @@ export default {
         need: [pokemon[1].catch]
       });
     });
+    $q.loading.hide();
   },
 
   unmounted() {

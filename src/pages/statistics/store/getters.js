@@ -44,27 +44,43 @@ export default {
   shinyZeroIvStats(state) {
     return state.statistics.caught.shinyZeroIv;
   },
-  generationPercent(state) {
+  generationData(state) {
     const data = state.statistics.generation;
+
     return (id) => {
-      const dataArray = [
-        ((data.gen1.caught?.[id] / data.gen1.available?.[id]) * 100).toFixed(2),
-        ((data.gen2.caught?.[id] / data.gen2.available?.[id]) * 100).toFixed(2),
-        ((data.gen3.caught?.[id] / data.gen3.available?.[id]) * 100).toFixed(2),
-        ((data.gen4.caught?.[id] / data.gen4.available?.[id]) * 100).toFixed(2),
-        ((data.gen5.caught?.[id] / data.gen5.available?.[id]) * 100).toFixed(2),
-        ((data.gen6.caught?.[id] / data.gen6.available?.[id]) * 100).toFixed(2),
-        ((data.gen7.caught?.[id] / data.gen7.available?.[id]) * 100).toFixed(2),
-        ((data.gen8.caught?.[id] / data.gen8.available?.[id]) * 100).toFixed(2),
-        ((data.gen9.caught?.[id] / data.gen9.available?.[id]) * 100).toFixed(2)
-      ];
-
-      return dataArray.map((val) => {
-        return val === "NaN" ? 0 : val;
-      });
+      const dataArray = [];
+      const totalArray = [];
+      const availableArray = [];
+      const genTemplate = (gen) => {
+        return {
+          total: data[gen].caught?.[id],
+          available: data[gen].available?.[id],
+          percent: ((data[gen].caught?.[id] / data[gen].available?.[id]) * 100).toFixed(2)
+        };
+      };
+      const genObject =
+        {
+          gen1: genTemplate("gen1"),
+          gen2: genTemplate("gen2"),
+          gen3: genTemplate("gen3"),
+          gen4: genTemplate("gen4"),
+          gen5: genTemplate("gen5"),
+          gen6: genTemplate("gen6"),
+          gen7: genTemplate("gen7"),
+          gen8: genTemplate("gen8"),
+          gen9: genTemplate("gen9")
+        };
+      for (const gen in genObject) {
+        if (genObject[gen].percent === "NaN") {
+          genObject[gen].total = 0;
+          genObject[gen].available = 0;
+          genObject[gen].percent = 0;
+        }
+        dataArray.push(genObject[gen].percent);
+        totalArray.push(genObject[gen].total);
+        availableArray.push((genObject[gen].available));
+      }
+      return { data: dataArray, total: totalArray, available: availableArray };
     };
-
   }
-
-
 };

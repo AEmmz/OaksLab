@@ -86,6 +86,13 @@ module.exports = configure(function(/* ctx */) {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
       config: {
+        loading: {
+          message: "Loading",
+          spinnerSize: 150,
+          spinnerColor: "primary",
+          spinner: "QSpinnerAudio",
+          boxClass: "bg-grey-2 text-h5 text-primary q-px-xl"
+        },
         cssAddon: true,
         screen: {
           bodyClasses: true // <<< add this
@@ -102,7 +109,7 @@ module.exports = configure(function(/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ["Loading"]
     },
 
     // animations: 'all', // --- includes all animations
