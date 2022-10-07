@@ -218,7 +218,7 @@ export default {
   computed: {
     ...mapGetters("statistics", ["userDb"]),
     completionPercentage() {
-      return ((this.statistics.total / this.statistics.available) * 100).toFixed(2);
+      return ((this.statistics.total / this.statistics.available) * 100).toFixed(1);
     },
     statistics() {
       return this.$store.getters[`statistics/${this.id}Stats`];

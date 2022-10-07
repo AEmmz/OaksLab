@@ -19,15 +19,14 @@
 
       <q-dialog
         v-model="statDialog"
-        class="lt-md z-max">
-        <div>
+        class="lt-md z-max menu-container-dialog ">
+        <div class="menu-container">
           <statistics-menu
             class="menu-bar bg-dark full-width"
             @changeTabs="changeTab"
             :closeDialog="closeDialog"></statistics-menu>
           <q-page-sticky
             position="bottom"
-            :offset="[0, 18]"
             class="floating-button">
             <q-btn
               @click="statDialog=false"
@@ -96,8 +95,8 @@ export default {
     this.loading = true;
     const data = await this.fetchStats();
     this.loading = false;
-    // await this.formStats(data);
-    // await this.pokemonStats(data);
+    await this.formStats(data);
+    await this.pokemonStats(data);
     $q.loading.hide();
   },
   data() {
@@ -130,7 +129,9 @@ export default {
   scoped
   lang="scss">
 
-body.screen--xs, body.screen-sm, {
+body.screen--xs, body.screen--sm, {
+
+
   .menu-bar {
     width: 80%;
   }
@@ -150,7 +151,31 @@ body.screen--xs, body.screen-sm, {
     z-index: 2;
     transform: translate(0, 0);
   }
+}
 
+
+body.screen--xs {
+  .menu-container {
+    height: 40rem;
+  }
+
+  .floating-button {
+    margin: 40px 0;
+  }
+}
+
+body.screen--sm, {
+  .menu-container {
+    width: 100%;
+    position: relative;
+    bottom: 25px;
+    max-height: 20rem;
+
+  }
+
+  .floating-button {
+    margin: 10px 0;
+  }
 }
 
 

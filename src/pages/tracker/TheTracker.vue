@@ -29,6 +29,7 @@
       </div>
 
       <q-dialog
+        persistent
         v-model="searchDialog"
         class="lt-md">
         <tracker-search-bar
@@ -36,12 +37,12 @@
       </q-dialog>
       <q-dialog
         v-model="formDialog"
-        class="lt-md">
+        class="lt-md z-max">
         <tracker-forms :closeDialog="closeDialog"></tracker-forms>
       </q-dialog>
       <q-dialog
         v-model="catchDialog"
-        class="lt-md">
+        class="lt-md z-max">
         <caught-buttons :closeDialog="closeDialog"></caught-buttons>
       </q-dialog>
 

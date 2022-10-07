@@ -128,14 +128,13 @@
     <q-page-sticky
       class="lt-md"
       position="bottom"
-      :offset="[18, 18]">
-      <q-fab
+      :offset="[18, 10]">
+      <q-btn
         @click="closeDialog"
         vertical-actions-align="right"
         color="primary"
-        icon="fas fa-xmark"
-        padding="sm"
-        direction="up"></q-fab>
+        size="1em"
+        label="Close"></q-btn>
     </q-page-sticky>
   </div>
 </template>

@@ -87,6 +87,9 @@ export default {
       timerDialog: false
     };
   },
+  beforeMount() {
+    window.addEventListener("beforeunload", this.preventNav);
+  },
   unmounted() {
     this.stop();
   },
@@ -125,7 +128,13 @@ export default {
   },
   methods: {
     ...mapActions("tracker/counter", ["updateTimer"]),
-
+    preventNav(event) {
+      if (!this.timerRunning) {
+        return;
+      }
+      event.preventDefault();
+      event.returnValue = "";
+    },
     desktopCheck() {
       return this.$q.screen.gt.sm ? true : false;
     },

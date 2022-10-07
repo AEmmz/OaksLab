@@ -203,15 +203,15 @@
             @click="details = true">
             <q-tooltip class="text-body1">More Info</q-tooltip>
           </q-btn>
-          <q-btn
-            :round="desktopCheck()"
-            class="q-ma-xs"
-            :padding="desktopCheck() ? 'sm' : 'sm lg'"
-            :size="desktopCheck() ? 'sm' : 'md'"
-            color="primary"
-            icon="fas fa-pen">
-            <q-tooltip class="text-body1">Quick Edit</q-tooltip>
-          </q-btn>
+          <!--          <q-btn-->
+          <!--            :round="desktopCheck()"-->
+          <!--            class="q-ma-xs"-->
+          <!--            :padding="desktopCheck() ? 'sm' : 'sm lg'"-->
+          <!--            :size="desktopCheck() ? 'sm' : 'md'"-->
+          <!--            color="primary"-->
+          <!--            icon="fas fa-pen">-->
+          <!--            <q-tooltip class="text-body1">Quick Edit</q-tooltip>-->
+          <!--          </q-btn>-->
         </div>
       </div>
     </q-card>
@@ -248,7 +248,7 @@ export default {
   async mounted() {
     this.statusLock = await this.lockCheck(this.pokemon.apiNo);
   },
-  
+
   computed: {
     selectedImage() {
       if (this.shinyView === "All Shiny") {
@@ -305,6 +305,10 @@ export default {
   scoped
   lang="scss">
 @import url(../../../css/card-styles.css);
+
+.background-type-icon {
+  opacity: 0.25;
+}
 
 
 body.screen--xs, body.screen--sm {
@@ -401,10 +405,6 @@ body.screen--md, body.screen--lg, body.screen--xl {
 
   .flipped {
     transform: rotatey(180deg);
-  }
-
-  .type-icon {
-    opacity: 0.15;
   }
 
   .card-front-name {

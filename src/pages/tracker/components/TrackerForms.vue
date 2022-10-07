@@ -78,6 +78,9 @@ export default {
     },
 
     async mobileChangePokemon(form) {
+      let route = "/tracker/" + form.name.toLowerCase().replaceAll(" ", "-");
+      if (route === "/tracker/unown-?") route = "/tracker/unown-question";
+      this.$router.replace(route);
       await this.changePokemon(form);
       this.closeDialog();
     },

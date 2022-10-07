@@ -38,7 +38,8 @@ export default {
           id: "barChart",
           type: "bar",
           fontFamily: "Gellix, sans-serif",
-          height: "400px"
+          height: "400px",
+          toolbar: false
         },
         plotOptions: {
           bar: {

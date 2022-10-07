@@ -169,15 +169,16 @@ export default {
     async searchPokemon() {
       const pkmn = this.pokemon;
       const pokemonName = pkmn.name.toLowerCase();
+      console.log("beforeRoute");
       let redirect = "/tracker/" + pokemonName.replaceAll(" ", "-");
-
+      console.log("afterRoute");
+      
       //Unown Safeguard
       if (redirect === "/tracker/unown-?") {
         redirect = "/tracker/unown-question";
       }
 
       this.$router.replace(redirect);
-      console.log(pkmn);
       const inputPokemon = {
         apiNo: pkmn.apiNo,
         dexNo: pkmn.dexNo,

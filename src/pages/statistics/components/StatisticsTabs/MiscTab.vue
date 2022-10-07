@@ -1,26 +1,41 @@
 <template>
   <div>
-    <div class="text-h5 q-pa-md tab-header">
+    <div
+      class="text-h5 q-pa-md tab-header"
+      :class="desktopCheck()?'':'text-light flex justify-center'">
       {{ tabName }}
     </div>
-    <q-separator></q-separator>
 
-    <div class="row justify-center full-width q-py-lg q-gutter-md">
+    <q-separator :dark="!desktopCheck()"></q-separator>
+
+    <div
+      class="row justify-center full-width q-py-lg "
+      :class="desktopCheck()?'q-gutter-md':''">
       <!--Data Top Left -->
       <q-card
-        class="stat-container bg-dark q-pa-md row items"
+        class="stat-container bg-dark items"
+        :class="desktopCheck() ? 'row q-pa-md' : 'column'"
+        :flat="!desktopCheck()"
         v-for="option in pokemonType"
         :key="option.category">
         <div class="header-container column justify-center items-center text-light">
-          <div class="cat-header q-mb-md text-center">{{ option.category }} Dex</div>
-          <q-icon
-            class="stat-icon bg-primary q-pa-md"
-            size="md"
-            :name="option.icon"></q-icon>
+          <div
+            class="justify-center items-center"
+            :class="desktopCheck()?'column':'row q-mb-md'">
+            <div
+              class="cat-header text-center"
+              :class="desktopCheck()?'q-mb-md':' q-ml-md order-last'">{{ option.category }} Dex
+            </div>
+            <q-icon
+              class="stat-icon bg-primary "
+              :class="desktopCheck()?'q-pa-md':'q-pa-sm'"
+              :size="desktopCheck()?'md':'sm'"
+              :name="option.icon"></q-icon>
+          </div>
         </div>
         <q-separator
           inset
-          vertical
+          :vertical="desktopCheck()"
           dark
           class="q-mx-md"/>
         <div class="chart-container column items-center justify-center">
@@ -35,24 +50,36 @@
     </div>
 
     <q-separator
-      inset/>
+      inset
+      :dark="!desktopCheck()"/>
 
-    <div class="row justify-center full-width q-py-lg q-gutter-md">
-
+    <div
+      class="row justify-center full-width q-py-lg"
+      :class="desktopCheck()?'q-gutter-md':''">
       <q-card
-        class="stat-container bg-dark q-pa-md row items"
+        class="stat-container bg-dark items"
+        :class="desktopCheck() ? 'row q-pa-md' : 'column'"
+        :flat="!desktopCheck()"
         v-for="option in pokemonSpecific"
         :key="option.name">
         <div class="header-container column justify-center items-center text-light">
-          <div class="cat-header q-mb-md text-center">{{ option.name }} Dex</div>
-          <q-icon
-            class="stat-icon bg-primary q-pa-md"
-            size="md"
-            :name="option.icon"></q-icon>
+          <div
+            class="justify-center items-center"
+            :class="desktopCheck()?'column':'row q-mb-md'">
+            <div
+              class="cat-header text-center"
+              :class="desktopCheck()?'q-mb-md':' q-ml-md order-last'">{{ option.name }} Dex
+            </div>
+            <q-icon
+              class="stat-icon bg-primary "
+              :class="desktopCheck()?'q-pa-md':'q-pa-sm'"
+              :size="desktopCheck()?'md':'sm'"
+              :name="option.icon"></q-icon>
+          </div>
         </div>
         <q-separator
           inset
-          vertical
+          :vertical="desktopCheck()"
           dark
           class="q-mx-md"/>
         <div class="chart-container column items-center justify-center">
@@ -192,7 +219,7 @@ export default {
       const statsArray = this.miscStats?.[name];
       for (const stat in statsArray) {
         if (statsArray[stat].available > 0) {
-          const percent = ((statsArray[stat].total / statsArray[stat].available)) * 100;
+          const percent = (((statsArray[stat].total / statsArray[stat].available)) * 100).toFixed(1);
           data.push(percent);
         }
       }
@@ -219,6 +246,12 @@ export default {
         }
       }
       return data;
+    },
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
+    mediumCheck() {
+      return this.$q.screen.md ? true : false;
     }
   }
 
@@ -229,22 +262,33 @@ export default {
   scoped
   lang="scss">
 
+.tab-header, .cat-value {
+  font-family: Futura, sans-serif;
+}
+
+.cat-header {
+  font-family: Gellix, sans-serif;
+}
+
+body.screen--xs {
+  .stat-container {
+    width: 100%;
+    height: 28rem;
+  }
+}
+
+body.screen--sm {
+  .stat-container {
+    width: 50%;
+    padding: 0 1rem
+  }
+}
+
+
 body.screen--md, body.screen--lg, body.screen--xl {
   .stat-container {
     width: 45%;
     height: 25rem;
-  }
-
-  .tab-header {
-    font-family: Futura, sans-serif;
-  }
-
-  .cat-header {
-    font-family: Gellix, sans-serif;
-  }
-
-  .cat-value {
-    font-family: Futura, sans-serif;
   }
 
   .stat-icon {
@@ -261,11 +305,6 @@ body.screen--md, body.screen--lg, body.screen--xl {
 
   .chart-container {
     width: 75%;
-    //height: 15rem;
-  }
-
-  .chart {
-    //width: 15rem;
   }
 }
 </style>

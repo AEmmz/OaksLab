@@ -1,7 +1,7 @@
 <template>
   <apex-chart
     class="full-width"
-    height="100%"
+    height="315px"
     :options="chartOptions"
     :series="series"/>
 </template>
@@ -31,20 +31,16 @@ export default {
       return {
         chart: {
           type: "bar",
-          fontFamily: "Gellix, sans-serif"
+          fontFamily: "Gellix, sans-serif",
+          toolbar: false
         },
-        colors: [({ value }) => {
-          if (value >= 100) {
-            return "rgba(69,181,0,0.6)";
-          }
-          return "rgba(0,143,251,0.85)";
-        }
-        ],
+
         plotOptions: {
           bar: {
             borderRadius: 4,
             horizontal: true,
-            barHeight: "60%"
+            barHeight: "60%",
+            columnWidth: "60%"
           }
         },
         yaxis: {
@@ -68,8 +64,9 @@ export default {
         dataLabels: {
           enabled: true,
           formatter: (val) => {
-            return val >= 100 ? "COMPLETE" : "";
-          }
+            return `${val} %`;
+          },
+          offsetX: 10
         },
         tooltip: {
           style: {
