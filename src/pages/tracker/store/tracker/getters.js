@@ -28,5 +28,32 @@ export default {
   },
   isForms(state) {
     return state.isForms;
+  },
+  hunt(state) {
+    return state.selectors.hunt;
+  },
+  huntList(state) {
+    const list = state.selectors.huntList;
+    const capitalizedList = [];
+    list.forEach(i => {
+      const words = i.split(" ");
+      let capital = [];
+      words.forEach(w => {
+        capital.push(w.charAt(0).toUpperCase() + w.slice(1));
+      });
+      capitalizedList.push(capital.join(" "));
+    });
+    return capitalizedList;
+  },
+
+  huntListVariables(state, getters) {
+    const huntArray = getters.huntList;
+    const huntVariable = [];
+    huntArray.forEach(hunt => {
+      let stringAdjustment = hunt[0].toLowerCase() + hunt.substring(1);
+      stringAdjustment = stringAdjustment.replaceAll(" ", "");
+      huntVariable.push(stringAdjustment);
+    });
+    return huntVariable;
   }
 };

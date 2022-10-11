@@ -1,4 +1,8 @@
 export default {
+  setHunt(state, payload) {
+    state.selectors.hunt = payload
+  },
+
   resetTracker(state) {
     state.pkId = "";
     state.pkName = "";

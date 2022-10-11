@@ -10,6 +10,7 @@ export default {
     });
     await context.dispatch("fetchFormPhotos", { forms: filteredPokemon, id: pkId });
   },
+
   fetchFormPhotos(context, payload) {
     const formArray = [...payload.forms];
     const forms = [];

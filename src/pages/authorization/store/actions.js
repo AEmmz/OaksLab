@@ -11,11 +11,12 @@ import {
 } from "firebase/auth";
 import { child, get, getDatabase, ref, remove, update } from "firebase/database";
 import { loginClientAuth, registerClientAuth, serverError } from "src/util/auth/formAuth";
+import { updateBetaKeys, getBetaKeys } from "src/util/auth/AddBetaKeysScript.js";
 
 const PokeList = () => import("../../../assets/json/pokemonList.json");
 
 export default {
-  async getUsernamesList(context) {
+  async getUsernamesList() {
     try {
       const dbRef = ref(getDatabase());
       const data = await get(child(dbRef, `usernames`));
@@ -26,43 +27,55 @@ export default {
   },
 
   async autoAuth(context, payload) {
-    context.commit("autoAuth", payload);
-    const dbRef = await ref(getDatabase());
-    const data = await get(child(dbRef, `users/${payload.uid}/userInfo/username`));
-    if (data) {
-      const userInfo = data.val();
-      context.commit("setUsername", { username: userInfo });
+    try {
+      context.commit("autoAuth", payload);
+      const dbRef = await ref(getDatabase());
+      const data = await get(child(dbRef, `users/${payload.uid}/userInfo/username`));
+      if (data) {
+        const userInfo = data.val();
+        context.commit("setUsername", { username: userInfo });
+      }
+    } catch (e) {
+      console.log(e);
     }
   },
 
   async clientAuth(context, payload) {
-    const verify = await loginClientAuth(payload.email, payload.password);
-    if (verify.errorArray.length > 0) {
-      return verify;
+    try {
+      const verify = await loginClientAuth(payload.email, payload.password);
+      if (verify.errorArray.length > 0) {
+        return verify;
+      }
+    } catch (e) {
+      console.log(e);
     }
   },
 
   async clientAuthSignup(context, payload) {
-    const verify = await registerClientAuth(
-      payload.username,
-      payload.email,
-      payload.password1,
-      payload.password2
-    );
-    if (verify.errorArray.length > 0) {
-      return verify;
+    try {
+      const verify = await registerClientAuth(
+        payload.username,
+        payload.email,
+        payload.password1,
+        payload.password2,
+        payload.betaKey
+      );
+      if (verify.errorArray.length > 0) {
+        return verify;
+      }
+    } catch (e) {
+      console.log(e);
     }
   },
 
   async login(context, payload) {
     try {
-      const sendInfo = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         getAuth(),
         payload.email,
         payload.password
       );
     } catch (error) {
-      console.log(error.message);
       const servError = error.message.split(" ")[2];
       return serverError(servError);
     }
@@ -70,6 +83,16 @@ export default {
 
   async signup(context, payload) {
     try {
+      const betaKeys = await getBetaKeys();
+      if (!betaKeys || !betaKeys.includes(payload.betaKey)) {
+        console.log("Bad");
+        return {
+          error: "(auth/invalid-beta-key).",
+          message: "Beta key is invalid or was already used. Please verify you input and try again.",
+          field: "beta"
+        };
+      }
+
       const sendInfo = await createUserWithEmailAndPassword(
         getAuth(),
         payload.email,
@@ -81,8 +104,10 @@ export default {
       const dbRef2 = await ref(getDatabase(), `users/${uid}/userInfo`);
 
       const uName = payload.username;
-      const updateUsernames = await update(dbRef, { [uName]: sendInfo.user.uid });
-      const updateUsernames2 = await update(dbRef2, { username: uName });
+      await update(dbRef, { [uName]: sendInfo.user.uid });
+      await update(dbRef2, { username: uName });
+      await updateBetaKeys(payload.betaKey, betaKeys);
+
 
       const dexRef = await ref(getDatabase(), `users/${uid}/pokedex/`);
       const fetchPkDetails = await PokeList();
@@ -115,9 +140,13 @@ export default {
   },
 
   async logout({ commit }) {
-    const auth = await getAuth();
-    const logout = await signOut(auth);
-    commit("logout");
+    try {
+      const auth = await getAuth();
+      await signOut(auth);
+      commit("logout");
+    } catch (e) {
+      console.log(e);
+    }
   },
 
   async updatePasswordDb(context, payload) {

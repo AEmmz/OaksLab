@@ -33,17 +33,19 @@
         v-model="searchDialog"
         class="lt-md">
         <tracker-search-bar
-          :closeDialog="closeDialog"></tracker-search-bar>
+          @closeSearchDialog="closeDialog"></tracker-search-bar>
       </q-dialog>
       <q-dialog
         v-model="formDialog"
-        class="lt-md z-max">
-        <tracker-forms :closeDialog="closeDialog"></tracker-forms>
+        class="lt-md">
+        <tracker-forms
+          @closeFormDialog="closeDialog"></tracker-forms>
       </q-dialog>
       <q-dialog
         v-model="catchDialog"
-        class="lt-md z-max">
-        <caught-buttons :closeDialog="closeDialog"></caught-buttons>
+        class="lt-md">
+        <caught-buttons
+          @closeCaughtDialog="closeDialog"></caught-buttons>
       </q-dialog>
 
       <q-page-sticky

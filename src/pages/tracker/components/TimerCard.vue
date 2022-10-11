@@ -1,76 +1,78 @@
 <template>
-  <q-card
-    class="bg-dark q-pa-md column items-center"
-    :flat="!desktopCheck()">
-    <div class="timer-cont flex-column justify-around full-width q-gutter-y-md">
+  <div>
+    <q-card
+      class="bg-dark q-pa-md column items-center"
+      :flat="!desktopCheck()">
+      <div class="timer-cont flex-column justify-around full-width q-gutter-y-md">
       <span
         class=" flex justify-center items-center text-light time">{{ hours }}:{{ minutes }}:{{ seconds }}</span>
-      <div
-        class=" flex items-center justify-center"
-        :class="desktopCheck() ? 'q-gutter-x-md' : 'q-gutter-x-xs'">
-        <q-btn
-          :size="desktopCheck() ? 'lg' : 'md'"
-          class="button bg-light text-dark"
-          @click="toggleStart">
-          <div class="q-gutter-x-sm row">
-            <q-icon
-              :name="!timerRunning ? 'fas fa-play' : 'fas fa-pause'"></q-icon>
-            <div v-if="desktopCheck()">
-              {{ !timerRunning ? "Start" : "Pause" }}
+        <div
+          class=" flex items-center justify-center"
+          :class="desktopCheck() ? 'q-gutter-x-md' : 'q-gutter-x-xs'">
+          <q-btn
+            :size="desktopCheck() ? 'lg' : 'md'"
+            class="button bg-light text-dark"
+            @click="toggleStart">
+            <div class="q-gutter-x-sm row">
+              <q-icon
+                :name="!timerRunning ? 'fas fa-play' : 'fas fa-pause'"></q-icon>
+              <div v-if="desktopCheck()">
+                {{ !timerRunning ? "Start" : "Pause" }}
+              </div>
             </div>
-          </div>
-        </q-btn>
-        <q-btn
-          :size="desktopCheck() ? 'lg' : 'md'"
-          class="button bg-light text-dark flex justify-center"
-          @click="stop">
-          <div class="q-gutter-x-sm row">
-            <q-icon
-              :name="!saved ? 'fas fa-floppy-disk' : 'fas fa-circle-check'"></q-icon>
-            <div v-if="desktopCheck()">
-              {{ !saved ? "Save" : "Saved" }}
+          </q-btn>
+          <q-btn
+            :size="desktopCheck() ? 'lg' : 'md'"
+            class="button bg-light text-dark flex justify-center"
+            @click="stop">
+            <div class="q-gutter-x-sm row">
+              <q-icon
+                :name="!saved ? 'fas fa-floppy-disk' : 'fas fa-circle-check'"></q-icon>
+              <div v-if="desktopCheck()">
+                {{ !saved ? "Save" : "Saved" }}
+              </div>
             </div>
-          </div>
-        </q-btn>
-        <q-btn
-          :size="desktopCheck() ? 'lg' : 'md'"
-          class="button bg-light text-dark"
-          @click="mainTimer > 0 ? timerDialog=true : timerDialog=false">
-          <div class="q-gutter-x-sm row">
-            <q-icon
-              name="fas fa-arrow-rotate-right"></q-icon>
-            <div v-if="desktopCheck()">
-              Reset
+          </q-btn>
+          <q-btn
+            :size="desktopCheck() ? 'lg' : 'md'"
+            class="button bg-light text-dark"
+            @click="mainTimer > 0 ? timerDialog=true : timerDialog=false">
+            <div class="q-gutter-x-sm row">
+              <q-icon
+                name="fas fa-arrow-rotate-right"></q-icon>
+              <div v-if="desktopCheck()">
+                Reset
+              </div>
             </div>
-          </div>
-        </q-btn>
+          </q-btn>
+        </div>
       </div>
-    </div>
-  </q-card>
-
-  <q-dialog
-    v-model="timerDialog">
-    <q-card>
-      <q-card-section class="column justify-center text-center">
-        <h4>Are You Sure?</h4>
-        <span class="text-subtitle1">Do you really want to reset your timer?</span>
-      </q-card-section>
-      <q-card-section class="row justify-around">
-        <q-btn
-          class="dialog-button"
-          size="xl"
-          label="cancel"
-          color="negative"
-          @click="timerDialog=false"></q-btn>
-        <q-btn
-          class="dialog-button"
-          size="xl"
-          label="Confirm"
-          color="positive"
-          @click="reset"></q-btn>
-      </q-card-section>
     </q-card>
-  </q-dialog>
+
+    <q-dialog
+      v-model="timerDialog">
+      <q-card>
+        <q-card-section class="column justify-center text-center">
+          <h4>Are You Sure?</h4>
+          <span class="text-subtitle1">Do you really want to reset your timer?</span>
+        </q-card-section>
+        <q-card-section class="row justify-around">
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="cancel"
+            color="negative"
+            @click="timerDialog=false"></q-btn>
+          <q-btn
+            class="dialog-button"
+            size="xl"
+            label="Confirm"
+            color="positive"
+            @click="reset"></q-btn>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </div>
 </template>
 
 <script>

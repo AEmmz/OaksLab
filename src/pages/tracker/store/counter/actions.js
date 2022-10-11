@@ -10,107 +10,24 @@ export default {
       const dbRef = ref(getDatabase());
       const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/count`));
       let userData = data.val();
-      if (payload === "normal") {
-        let timer = userData?.normalTimer ? userData.normalTimer : 0;
-        let counter = userData?.normalCount ? userData.normalCount : 0;
-        context.commit("updateCount", { hunt: "normalCount", normalCount: counter, normalTimer: timer });
-      }
-      if (payload === "shiny") {
-        let timer = userData?.shinyTimer ? userData.shinyTimer : 0;
-        let counter = userData?.shinyCount ? userData.shinyCount : 0;
-        context.commit("updateCount", { hunt: "shinyCount", shinyCount: counter, shinyTimer: timer });
-      }
-      if (payload === "alpha") {
-        let timer = userData?.alphaTimer ? userData.alphaTimer : 0;
-        let counter = userData?.alphaCount ? userData.alphaCount : 0;
-        context.commit("updateCount", { hunt: "alphaCount", alphaCount: counter, alphaTimer: timer });
-      }
-      if (payload === "shiny alpha") {
-        let timer = userData?.shinyAlphaTimer ? userData.shinyAlphaTimer : 0;
-        let counter = userData?.shinyAlphaCount ? userData.shinyAlphaCount : 0;
-        context.commit("updateCount", {
-          hunt: "shinyAlphaCount", shinyAlphaCount: counter, shinyAlphaTimer: timer
-        });
-      }
-      if (payload === "marked") {
-        let timer = userData?.markedTimer ? userData.markedTimer : 0;
-        let counter = userData?.markedCount ? userData.markedCount : 0;
-        context.commit("updateCount", {
-          hunt: "markedCount",
-          markedCount: counter,
-          markedTimer: timer
-        });
-      }
-      if (payload === "shiny marked") {
-        let timer = userData?.shinyMarkedTimer ? userData.shinyMarkedTimer : 0;
-        let counter = userData?.shinyMarkedCount ? userData.shinyMarkedCount : 0;
-        context.commit("updateCount", {
-          hunt: "shinyMarkedCount",
-          shinyMarkedCount: counter,
-          shinyMarkedTimer: timer
-        });
-      }
-      if (payload === "pokerus") {
-        let timer = userData?.pokerusTimer ? userData.pokerusTimer : 0;
-        let counter = userData?.pokerusCount ? userData.pokerusCount : 0;
-        context.commit("updateCount", {
-          hunt: "pokerusCount",
-          pokerusCount: counter,
-          pokerusTimer: timer
-        });
-      }
-      if (payload === "shiny pokerus") {
-        let timer = userData?.shinyPokerusTimer ? userData.shinyPokerusTimer : 0;
-        let counter = userData?.shinyPokerusCount ? userData.shinyPokerusCount : 0;
-        context.commit("updateCount", {
-          hunt: "shinyPokerusCount",
-          shinyPokerusCount: counter,
-          shinyPokerusTimer: timer
-        });
-      }
-      if (payload === "0 iv") {
-        let timer = userData?.zeroIvTimer ? userData.zeroIvTimer : 0;
-        let counter = userData?.zeroIvCount ? userData.zeroIvCount : 0;
-        context.commit("updateCount", {
-          hunt: "zeroIvCount",
-          zeroIvCount: counter,
-          zeroIvTimer: timer
-        });
-      }
-      if (payload === "shiny 0 iv") {
-        let timer = userData?.shinyZeroIvTimer ? userData.shinyZeroIvTimer : 0;
-        let counter = userData?.shinyZeroIvCount ? userData.shinyZeroIvCount : 0;
-        context.commit("updateCount", {
-          hunt: "shinyZeroIvCount",
-          shinyZeroIvCount: counter,
-          shinyZeroIvTimer: timer
-        });
-      }
-      if (payload === "6 iv") {
-        let timer = userData?.sixIvTimer ? userData.sixIvTimer : 0;
-        let counter = userData?.sixIvCount ? userData.sixIvCount : 0;
-        context.commit("updateCount", {
-          hunt: "sixIvCount",
-          sixIvCount: counter,
-          sixIvTimer: timer
-        });
-      }
-      if (payload === "shiny 6 iv") {
-        let timer = userData?.shinySixIvTimer ? userData.shinySixIvTimer : 0;
-        let counter = userData?.shinySixIvCount ? userData.shinySixIvCount : 0;
-        context.commit("updateCount", {
-          hunt: "shinySixIvCount",
-          shinySixIvCount: counter,
-          shinySixIvTimer: timer
-        });
-      }
-      if (payload === "favorite") {
-        let timer = userData?.favoriteTimer ? userData.favoriteTimer : 0;
-        let counter = userData?.favoriteCount ? userData.favoriteCount : 0;
-        context.commit("updateCount", { hunt: "favoriteCount", favoriteCount: counter, favoriteTimer: timer });
-      }
+      const currentHunt = payload.replaceAll(" ", "");
+      const huntVariables = context.rootGetters["tracker/huntListVariables"];
+
+      const countersUpdate = (hunt) => {
+        if (currentHunt.toLowerCase() === hunt.toLowerCase()) {
+          let timerVar = `${hunt}Timer`;
+          let countVar = `${hunt}Count`;
+          let timer = userData?.[timerVar] ? userData[timerVar] : 0;
+          let counter = userData?.[countVar] ? userData[countVar] : 0;
+          context.commit("updateCount", { hunt: hunt, counter: counter, timer: timer });
+        }
+      };
+      huntVariables.forEach(hunt => {
+        countersUpdate(hunt);
+      });
     } catch (error) {
       console.log(error.message);
+      console.log(error);
     }
   },
 
@@ -119,22 +36,20 @@ export default {
       const uid = rootGetters["authorization/uid"];
       const pkId = rootGetters["tracker/pkId"];
       const count = getters.mainCount;
-      const hunt = getters.hunt;
+      const currentHunt = rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
+      const huntVariables = rootGetters["tracker/huntListVariables"];
       let savedData;
-      if (hunt === "normalCount") savedData = { normalCount: count };
-      if (hunt === "shinyCount") savedData = { shinyCount: count };
-      if (hunt === "alphaCount") savedData = { alphaCount: count };
-      if (hunt === "shinyAlphaCount") savedData = { shinyAlphaCount: count };
-      if (hunt === "markedCount") savedData = { markedCount: count };
-      if (hunt === "shinyMarkedCount") savedData = { shinyMarkedCount: count };
-      if (hunt === "pokerusCount") savedData = { pokerusCount: count };
-      if (hunt === "shinyPokerusCount") savedData = { shinyPokerusCount: count };
-      if (hunt === "zeroIvCount") savedData = { zeroIvCount: count };
-      if (hunt === "shinyZeroIvCount") savedData = { shinyZeroIvCount: count };
-      if (hunt === "sixIvCount") savedData = { sixIvCount: count };
-      if (hunt === "shinySixIvCount") savedData = { shinySixIvCount: count };
-      if (hunt === "favoriteCount") savedData = { favoriteCount: count };
+
+      const setSaveData = (hunt) => {
+        const huntType = `${hunt}Count`;
+        if (currentHunt.toLowerCase() === hunt.toLowerCase()) savedData = { [huntType]: count };
+      };
+
+      huntVariables.forEach(hunt => {
+        setSaveData(hunt);
+      });
+
       await update(dbRef, savedData);
     } catch (error) {
       console.error("Failed to update count in database. Please try again later", error);
@@ -146,22 +61,20 @@ export default {
       const uid = rootGetters["authorization/uid"];
       const pkId = rootGetters["tracker/pkId"];
       const timer = getters.mainTimer;
-      const hunt = getters.hunt;
+      const currentHunt = rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
+      const huntVariables = rootGetters["tracker/huntListVariables"];
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
       let savedData;
-      if (hunt === "normalCount") savedData = { normalTimer: timer };
-      if (hunt === "shinyCount") savedData = { shinyTimer: timer };
-      if (hunt === "alphaCount") savedData = { alphaTimer: timer };
-      if (hunt === "shinyAlphaCount") savedData = { shinyAlphaTimer: timer };
-      if (hunt === "markedCount") savedData = { markedTimer: timer };
-      if (hunt === "shinyMarkedCount") savedData = { shinyMarkedTimer: timer };
-      if (hunt === "pokerusCount") savedData = { pokerusTimer: timer };
-      if (hunt === "shinyPokerusCount") savedData = { shinyPokerusTimer: timer };
-      if (hunt === "zeroIvCount") savedData = { zeroIvTimer: timer };
-      if (hunt === "shinyZeroIvCount") savedData = { shinyZeroIvTimer: timer };
-      if (hunt === "sixIvCount") savedData = { sixIvTimer: timer };
-      if (hunt === "shinySixIvCount") savedData = { shinySixIvTimer: timer };
-      if (hunt === "favoriteCount") savedData = { favoriteTimer: timer };
+
+      const setSaveData = (hunt) => {
+        const huntType = `${hunt}Timer`;
+        if (currentHunt.toLowerCase() === hunt.toLowerCase()) savedData = { [huntType]: timer };
+      };
+
+      huntVariables.forEach(hunt => {
+        setSaveData(hunt);
+      });
+
       await update(dbRef, savedData);
     } catch (error) {
       console.error("Failed to update timer in database. Please try again later", error);

@@ -9,7 +9,7 @@
       :model-value="pokemon"
       :options="pokemonList"
       :option-label="(pkmn) => menuLabel(pkmn)"
-      @update:model-value="desktopCheckPk()"
+      @update:model-value="pokeUpdate()"
       options-dark
       :options-selected-class="`bg-${pkType1}Type text-light text-h6`"
       use-input
@@ -24,7 +24,7 @@
       v-model="hunt"
       :model-value="hunt"
       :options="huntList"
-      @update:model-value="desktopCheckHunt()"
+      @update:model-value="huntUpdate()"
       options-dark
       :options-selected-class="`bg-${pkType1}Type text-light`"></q-select>
     <q-btn
@@ -40,9 +40,6 @@ import { mapActions, mapGetters } from "vuex";
 import pokeJSON from "../../../assets/json/pokemonList.json";
 
 export default {
-  props: {
-    closeDialog: { type: Function }
-  },
   mounted() {
     let pokemonName = this.$route.params.pkName;
     if (!pokemonName) {
@@ -81,27 +78,19 @@ export default {
   data() {
     return {
       pokemon: "",
-      pokemonList: this.fetchPokemonList(),
-      hunt: "Normal",
-      huntList: [
-        "Normal",
-        "Shiny",
-        "Alpha",
-        "Shiny Alpha",
-        "Marked",
-        "Shiny Marked",
-        "Pokerus",
-        "Shiny Pokerus",
-        "0 IV",
-        "Shiny 0 IV",
-        "6 IV",
-        "Shiny 6 IV"
-      ]
+      pokemonList: this.fetchPokemonList()
     };
   },
   computed: {
-    ...mapGetters("tracker", ["pkType1"])
-
+    ...mapGetters("tracker", ["pkType1", "huntList"]),
+    hunt: {
+      get() {
+        return this.$store.getters["tracker/hunt"];
+      },
+      set(val) {
+        this.$store.commit("tracker/setHunt", val);
+      }
+    }
   },
   methods: {
     ...mapActions("tracker", ["changeActivePokemon"]),
@@ -110,16 +99,21 @@ export default {
     startNew() {
       this.freshStart();
     },
-    desktopCheckPk() {
+    pokeUpdate() {
       if (this.$q.screen.gt.sm) this.searchPokemon();
     },
-    desktopCheckHunt() {
+    huntUpdate() {
       if (this.$q.screen.gt.sm) this.searchHunt();
     },
+
+    desktopCheck() {
+      return this.$q.screen.gt.sm ? true : false;
+    },
+
     async mobileSearch() {
       await this.searchPokemon();
       await this.searchHunt();
-      this.closeDialog();
+      this.$emit("closeSearchDialog");
     },
 
     fetchPokemonList() {
@@ -172,7 +166,7 @@ export default {
       console.log("beforeRoute");
       let redirect = "/tracker/" + pokemonName.replaceAll(" ", "-");
       console.log("afterRoute");
-      
+
       //Unown Safeguard
       if (redirect === "/tracker/unown-?") {
         redirect = "/tracker/unown-question";

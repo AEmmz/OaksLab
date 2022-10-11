@@ -130,7 +130,7 @@
       position="bottom"
       :offset="[18, 10]">
       <q-btn
-        @click="closeDialog"
+        @click="$emit('closeCaughtDialog')"
         vertical-actions-align="right"
         color="primary"
         size="1em"
@@ -143,9 +143,6 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  props: {
-    closeDialog: { type: Function }
-  },
   data() {
     return {
       toggleSize: "80px"

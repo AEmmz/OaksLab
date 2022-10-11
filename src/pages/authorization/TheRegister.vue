@@ -6,14 +6,19 @@
         square>
         <q-card-section class="column items-center">
           <div class="text-h2 form-header">Register</div>
-          <div
-            v-if="errors"
-            class="error q-py-xs  q-px-lg q-mt-md">{{ errors }}
-          </div>
         </q-card-section>
         <q-form
           class="form column q-gutter-y-lg"
           @submit.prevent="submitForm">
+          <div
+            class="error-container self-center "
+            v-if="errors">
+            <div
+              class="error-message text-center"
+              v-for="error in errors.errorArray"
+              :key="error">{{ error }}
+            </div>
+          </div>
           <q-input
             class="input"
             v-model="username"
@@ -78,7 +83,7 @@
           </q-input>
 
           <q-btn
-            class="submit"
+            class="submit self-center"
             padding="md"
             label="Register"
             type="submit"
@@ -86,6 +91,16 @@
             size="lg"
             color="secondary"
             unelevated></q-btn>
+          <q-btn
+            class="to-login self-center"
+            padding="md"
+            label="To Login"
+            to="/login"
+            icon="fas fa-arrow-left"
+            rounded
+            size="md"
+            color="primary"
+            flat></q-btn>
         </q-form>
       </q-card>
     </div>
@@ -114,9 +129,7 @@ export default {
       usernameError: false,
       emailError: false,
       passwordError: false,
-
-      betaKey: "",
-      betaKeyArray: ["abc", "def"]
+      betaKey: ""
     };
   },
 
@@ -157,46 +170,36 @@ export default {
 
     async submitForm() {
       try {
-        if (!this.betaKeyArray.includes(this.betaKey)) {
-          this.errors = "Invalid Beta Key";
-          return;
-        }
         this.formIsValid = true;
         this.isLoading = true;
         const userData = {
           username: this.username,
           email: this.email,
           password1: this.password,
-          password2: this.confirmPassword
+          password2: this.confirmPassword,
+          betaKey: this.betaKey
         };
 
         //Local Authentication
         const localAuth = await this.clientAuthSignup(userData);
         if (localAuth) {
-          this.errors = localAuth.errorArray;
-          if (localAuth.errorField.includes("email")) {
-            this.emailError = true;
-          }
-          if (localAuth.errorField.includes("username")) {
-            this.usernameError = true;
-          }
-          if (localAuth.errorField.includes("password")) {
-            this.passwordError = true;
-          }
+          this.errors = localAuth;
+          if (localAuth.errorField.includes("email")) this.emailError = true;
+          if (localAuth.errorField.includes("username")) this.usernameError = true;
+          if (localAuth.errorField.includes("password")) this.passwordError = true;
           this.formIsValid = false;
           this.isLoading = false;
           return;
         }
 
-        //Server Authentication
+        //Finalize Signup
         const servAuth = await this.signup(userData);
         if (servAuth) {
           this.formIsValid = false;
-          this.errors = [servAuth];
+          this.errors = servAuth;
           this.isLoading = false;
           return;
         }
-
         this.isLoading = false;
         const redirect = "/" + (this.$route.query.redirect || "home");
         this.$router.replace(redirect);
@@ -213,6 +216,18 @@ export default {
   scoped
   lang="scss">
 
+.error-container {
+  margin: 0;
+}
+
+.error-message {
+  margin: 0.3rem;
+  font-family: Gellix, sans-serif;
+  background: #ffa4a4;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
 .form-header, .submit {
   font-family: Futura, sans-serif;
 }
@@ -226,11 +241,21 @@ body.screen--xs, {
   .my-card {
     width: 95%;
   }
+
+  .to-login {
+    width: 70%;
+    margin: 0.5rem;
+  }
 }
 
 body.screen--sm {
   .my-card {
     width: 80%;
+  }
+
+  .to-login {
+    width: 30%;
+    margin: 0.5rem;
   }
 }
 
@@ -238,11 +263,22 @@ body.screen--md, {
   .my-card {
     width: 60%;
   }
+
+  .to-login {
+    width: 30%;
+    margin: 0.5rem;
+  }
+
 }
 
 body.screen--lg, body.screen--xl, {
   .my-card {
     width: 40%;
+  }
+
+  .to-login {
+    width: 30%;
+    margin: 0.5rem;
   }
 }
 
@@ -299,14 +335,8 @@ input {
 }
 
 .submit {
-  background-color: var(--main-red);
-  padding: 2rem;
-  font-size: 2rem;
-  border-radius: 5rem;
-  color: var(--bg-offwhite2);
-  box-shadow: 0px 0px 20px -1px #00000059;
+  width: 70%;
   transition: 800ms all;
-  border: none;
 }
 
 .submit:hover,

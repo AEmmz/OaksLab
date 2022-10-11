@@ -1,70 +1,8 @@
 export default {
   updateCount(state, payload) {
-    if (payload.hunt === "normalCount") {
-      state.mainCount = payload.normalCount;
-      state.mainTimer = payload.normalTimer;
-      state.hunt = "normalCount";
-    }
-    if (payload.hunt === "favoriteCount") {
-      state.mainCount = payload.favoriteCount;
-      state.mainTimer = payload.favoriteTimer;
-      state.hunt = "favoriteCount";
-    }
-    if (payload.hunt === "shinyCount") {
-      state.mainCount = payload.shinyCount;
-      state.mainTimer = payload.shinyTimer;
-      state.hunt = "shinyCount";
-    }
-    if (payload.hunt === "alphaCount") {
-      state.mainCount = payload.alphaCount;
-      state.mainTimer = payload.alphaTimer;
-      state.hunt = "alphaCount";
-    }
-    if (payload.hunt === "shinyAlphaCount") {
-      state.mainCount = payload.shinyAlphaCount;
-      state.mainTimer = payload.shinyAlphaTimer;
-      state.hunt = "shinyAlphaCount";
-    }
-    if (payload.hunt === "markedCount") {
-      state.mainCount = payload.markedCount;
-      state.mainTimer = payload.markedTimer;
-      state.hunt = "markedCount";
-    }
-    if (payload.hunt === "shinyMarkedCount") {
-      state.mainCount = payload.shinyMarkedCount;
-      state.mainTimer = payload.shinyMarkedTimer;
-      state.hunt = "shinyMarkedCount";
-    }
-    if (payload.hunt === "pokerusCount") {
-      state.mainCount = payload.pokerusCount;
-      state.mainTimer = payload.pokerusTimer;
-      state.hunt = "pokerusCount";
-    }
-    if (payload.hunt === "shinyPokerusCount") {
-      state.mainCount = payload.shinyPokerusCount;
-      state.mainTimer = payload.shinyPokerusTimer;
-      state.hunt = "shinyPokerusCount";
-    }
-    if (payload.hunt === "zeroIvCount") {
-      state.mainCount = payload.zeroIvCount;
-      state.mainTimer = payload.zeroIvTimer;
-      state.hunt = "zeroIvCount";
-    }
-    if (payload.hunt === "shinyZeroIvCount") {
-      state.mainCount = payload.shinyZeroIvCount;
-      state.mainTimer = payload.shinyZeroIvTimer;
-      state.hunt = "shinyZeroIvCount";
-    }
-    if (payload.hunt === "sixIvCount") {
-      state.mainCount = payload.sixIvCount;
-      state.mainTimer = payload.sixIvTimer;
-      state.hunt = "sixIvCount";
-    }
-    if (payload.hunt === "shinySixIvCount") {
-      state.mainCount = payload.shinySixIvCount;
-      state.mainTimer = payload.shinySixIvTimer;
-      state.hunt = "shinySixIvCount";
-    }
+    state.mainCount = payload.counter;
+    state.mainTimer = payload.timer;
+    state.hunt = payload.hunt;
   },
   //Main Count
   countUp(state) {

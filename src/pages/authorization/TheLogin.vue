@@ -7,9 +7,20 @@
         <q-card-section>
           <div class="text-h2 form-header">Login</div>
         </q-card-section>
+
         <q-form
           class="column q-gutter-lg form"
           @submit.prevent="submitForm">
+          <div
+            class="error-container self-center "
+            v-if="errors">
+            <div
+              class="error-message text-center"
+              v-for="error in errors.errorArray"
+              :key="error">{{ error }}
+            </div>
+          </div>
+
           <q-input
             class="input"
             v-model="email"
@@ -36,7 +47,7 @@
           </q-input>
 
           <q-btn
-            class="submit"
+            class="submit self-center"
             padding="md"
             label="Login"
             type="submit"
@@ -44,10 +55,19 @@
             size="lg"
             color="primary"
             unelevated></q-btn>
+          <q-btn
+            class="to-signup self-center"
+            padding="md"
+            label="To Signup"
+            to="/register"
+            icon="fas fa-arrow-left"
+            rounded
+            size="md"
+            color="secondary"
+            flat></q-btn>
         </q-form>
       </q-card>
     </div>
-
   </div>
 </template>
 
@@ -86,8 +106,8 @@ export default {
         //Server Authentication
         const servAuth = await this.login(userData);
         if (servAuth) {
+          this.errors = servAuth;
           this.formIsValid = false;
-          this.errors = [servAuth];
           this.isLoading = false;
           return;
         }
@@ -107,6 +127,17 @@ export default {
   scoped
   lang="scss">
 
+.form {
+  width: 90%;
+}
+
+.error-message {
+  font-family: Gellix, sans-serif;
+  background: #ffa4a4;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
 .form-header, .submit {
   font-family: Futura, sans-serif;
 }
@@ -115,56 +146,10 @@ export default {
   font-family: Gellix, sans-serif;
 }
 
-body.screen--xs, {
-  .my-card {
-    width: 95%;
-  }
-}
-
-body.screen--sm {
-  .my-card {
-    width: 80%;
-  }
-}
-
-body.screen--md, {
-  .my-card {
-    width: 60%;
-  }
-}
-
-body.screen--lg, body.screen--xl, {
-  .my-card {
-    width: 40%;
-  }
-}
-
-.form {
-  width: 90%;
-}
-
-.container {
-  position: relative;
-  display: grid;
-  width: 30%;
-  margin: auto;
-  text-align: center;
-}
-
-.inner-container {
-  position: relative;
-  display: grid;
-  color: var(--bg-offwhite2);
-  overflow: hidden;
-}
 
 form {
   position: relative;
   padding: 2rem 1.2rem;
-}
-
-h1 {
-  margin-bottom: 2rem;
 }
 
 input {
@@ -175,29 +160,9 @@ input {
   width: 90%;
 }
 
-.switch {
-  padding-top: 2rem;
-  font-size: 1.8rem;
-}
-
-a {
-  color: var(--bg-offwhite2);
-}
-
-.form-control {
-  margin: 0 0 3rem 0;
-  font-size: 3rem;
-}
-
 .submit {
-  background-color: var(--login-color);
-  padding: 2rem 5rem;
-  font-size: 2rem;
-  border-radius: 5rem;
-  color: var(--bg-offwhite2);
-  box-shadow: 0px 0px 20px -1px #00000059;
+  width: 70%;
   transition: 800ms all;
-  border: none;
 }
 
 .submit:hover,
@@ -206,75 +171,53 @@ a {
   cursor: pointer;
 }
 
-.inner-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  width: 2%;
-  background-color: var(--main-red);
-  box-shadow: 4px 0px 19px 3px #c33c5571;
+
+body.screen--xs, {
+  .my-card {
+    width: 95%;
+  }
+
+  .to-signup {
+    width: 50%;
+    margin: 0.5rem;
+  }
 }
 
-.inner-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 98%;
-  bottom: 0;
-  height: 100%;
-  width: 2%;
-  background-color: var(--login-color);
-  box-shadow: -4px 0px 19px 3px #17a39d8f;
+body.screen--sm {
+  .my-card {
+    width: 80%;
+  }
+
+  .to-signup {
+    width: 50%;
+    margin: 0.5rem;
+  }
 }
 
-.error-cont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 0.5rem;
+body.screen--md, {
+  .my-card {
+    width: 60%;
+  }
+
+  .to-signup {
+    width: 30%;
+    margin: 0.5rem;
+  }
 }
 
-.error-list {
-  display: flex;
-  justify-content: center;
+body.screen--lg, body.screen--xl, {
+  .my-card {
+    width: 40%;
+  }
+
+  .to-signup {
+    width: 30%;
+    margin: 0.5rem;
+  }
 }
 
-.error {
-  width: 100%;
-  margin: 0.5rem;
-  padding: 1rem;
-  background: #ff515167;
-  border-radius: 2rem;
-  font-size: 1.8rem;
-}
-
-.exclamation {
-  height: 32px;
-  width: 32px;
-  transition: 800ms all;
-  color: #ff0000;
-  padding-bottom: 0.5rem;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.v-enter-active {
-  transition: all 1s ease-out;
-}
-
-.v-leave-active {
-  transition: all 1s ease-in;
-}
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
+a {
+  color: var(--bg-offwhite2);
 }
 
 </style>

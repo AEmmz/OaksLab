@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <the-navigation-bar class="z-top"></the-navigation-bar>
+    <the-navigation-bar class=""></the-navigation-bar>
     <!--      <main>-->
     <q-page-container>
       <router-view
