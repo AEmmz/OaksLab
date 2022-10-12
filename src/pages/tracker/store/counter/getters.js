@@ -13,5 +13,8 @@ export default {
   },
   reset(state) {
     return state.reset;
+  },
+  timerRunning(state) {
+    return state.timerRunning;
   }
 };

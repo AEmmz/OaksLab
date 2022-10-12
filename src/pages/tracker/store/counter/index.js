@@ -8,6 +8,7 @@ export default {
     return {
       mainCount: 0,
       mainTimer: 0,
+      timerRunning: false,
       hunt: "",
       incrementCount: 1,
       interval: 0

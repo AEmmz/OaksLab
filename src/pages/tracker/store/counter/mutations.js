@@ -47,5 +47,10 @@ export default {
     state.incrementCount = 1;
     state.interval = 0;
     state.reset = false;
+  },
+
+  setTimerRunning(state, payload) {
+    console.log("HIT");
+    state.timerRunning = payload;
   }
 };

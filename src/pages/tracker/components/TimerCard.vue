@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       timer: null,
-      timerRunning: false,
+      // timerRunning: false,
       savedTimer: 0,
       timerDialog: false
     };
@@ -95,8 +95,23 @@ export default {
   unmounted() {
     this.stop();
   },
+
+  watch: {
+    timerRunning(newVal, oldVal) {
+      if (!newVal) this.stop();
+    }
+  },
+
   computed: {
     ...mapGetters("tracker", ["pkType1"]),
+    timerRunning: {
+      get() {
+        return this.$store.getters["tracker/counter/timerRunning"];
+      },
+      set(val) {
+        this.$store.commit("tracker/counter/setTimerRunning", val);
+      }
+    },
     mainTimer: {
       get() {
         return this.$store.getters["tracker/counter/mainTimer"];

@@ -56,7 +56,10 @@
             name="icon-poke-pokeball"
             size="xs"
             class="q-pr-md"/>
-          <h5 class="text-center q-py-md q-my-lg mobile-title">DexHunt</h5>
+          <router-link
+            to="/home"
+            class="text-h5 text-light text-center q-py-md q-my-lg mobile-title">DexHunt
+          </router-link>
           <q-icon
             name="icon-poke-pokeball"
             size="xs"
@@ -151,6 +154,7 @@ body.screen--xs, body.screen--sm {
 
   .mobile-title {
     font-family: Gellix, sans-serif;
+    text-decoration: none;
   }
 
   .homepage-header {

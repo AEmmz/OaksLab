@@ -32,7 +32,7 @@ export default {
         chart: {
           type: "bar",
           fontFamily: "Gellix, sans-serif",
-          toolbar: false
+          toolbar: { show: false }
         },
 
         plotOptions: {

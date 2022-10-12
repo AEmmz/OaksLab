@@ -90,6 +90,7 @@ export default {
   computed: {
     ...mapGetters("tracker/forms", ["forms"]),
     ...mapGetters("tracker", ["pkType1", "huntList", "hunt"]),
+    ...mapGetters("tracker/counter", ["timerRunning"]),
     selectedHunt: {
       get() {
         return this.$store.getters["tracker/hunt"];
@@ -122,6 +123,9 @@ export default {
     },
 
     async changePokemon(form) {
+      if (this.timerRunning) {
+        this.$store.commit("tracker/counter/setTimerRunning", false);
+      }
       const inputPokemon = {
         apiNo: form.apiNo,
         dexNo: form.dexNo,

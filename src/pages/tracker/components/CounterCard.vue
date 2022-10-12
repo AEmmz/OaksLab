@@ -169,6 +169,10 @@ body.screen--xs, body.screen--sm {
     height: 100%;
   }
 
+  .counter-main {
+    font-family: Futura, sans-serif;
+  }
+
   .secondary-cont {
     height: 6rem;
   }

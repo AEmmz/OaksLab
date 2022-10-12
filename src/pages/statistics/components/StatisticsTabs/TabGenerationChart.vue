@@ -39,8 +39,9 @@ export default {
           type: "bar",
           fontFamily: "Gellix, sans-serif",
           height: "400px",
-          toolbar: false
+          toolbar: { show: false }
         },
+
         plotOptions: {
           bar: {
             borderRadius: 4,
