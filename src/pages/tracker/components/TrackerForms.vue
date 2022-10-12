@@ -1,52 +1,55 @@
 <template>
   <q-card
     class="bg-dark flex text-h6 q-pa-md forms-container"
-    :class="desktopCheck()?'items-center justify-evenly':'column justify-start items-center'">
-    <h5
-      class="flex items-center justify-center full-width text-light q-pb-sm gt-sm">
-      Forms </h5>
-    <h5 class="flex items-center justify-center full-width text-light q-pb-sm lt-md mobile-form-header">Select A
-      Form</h5>
+    :class="desktopCheck()?'items-center justify-evenly':'justify-start items-start'">
+    <div>
+      <h5
+        class="flex items-center justify-center full-width text-light q-pb-sm gt-sm">
+        Forms </h5>
+      <h5 class="flex items-center justify-center full-width self-center text-light q-pb-sm lt-md mobile-form-header">
+        Select A
+        Form</h5>
 
-    <!--MOBILE -->
-    <div
-      class="mobile-form-tabs row lt-md"
-      :class="desktopCheck()?'justify-between':'justify-center'">
-      <div class="full-width row justify-center">
-        <q-select
-          class="selection q-mb-md"
-          outlined
-          dark
-          label="Choose A Hunt"
-          v-model="selectedHunt"
-          :model-value="selectedHunt"
-          :options="huntList"
-          @update:model-value="desktopCheckHunt()"
-          options-dark
-          :options-selected-class="`bg-${pkType1}Type text-light`"></q-select>
-      </div>
+      <!--MOBILE -->
       <div
-        class="q-px-md q-py-lg column items-center mobile-form"
-        v-for="(form, index) in forms"
-        :key="index">
-        <span class="mobile-form-name text-light">{{ form.name }}</span>
-        <q-img
-          width="120px"
-          :src="form.image"
-          :alt="form.name"
-          @click="mobileChangePokemon(form)"></q-img>
+        class="mobile-form-tabs row lt-md"
+        :class="desktopCheck()?'justify-between':'justify-center full-width'">
+        <div class="full-width row justify-center">
+          <q-select
+            class="selection q-mb-md"
+            outlined
+            dark
+            label="Choose A Hunt"
+            v-model="selectedHunt"
+            :model-value="selectedHunt"
+            :options="huntList"
+            @update:model-value="desktopCheckHunt()"
+            options-dark
+            :options-selected-class="`bg-${pkType1}Type text-light`"></q-select>
+        </div>
+        <div
+          class="q-px-md q-py-lg column items-center mobile-form"
+          v-for="(form, index) in forms"
+          :key="index">
+          <span class="mobile-form-name text-light">{{ form.name }}</span>
+          <q-img
+            width="120px"
+            :src="form.image"
+            :alt="form.name"
+            @click="mobileChangePokemon(form)"></q-img>
+        </div>
+        <q-page-sticky
+          class="lt-md"
+          position="bottom"
+          :offset="[18, 15]">
+          <q-btn
+            @click="$emit('closeFormDialog')"
+            vertical-actions-align="right"
+            color="primary"
+            size="1em"
+            label="Close"></q-btn>
+        </q-page-sticky>
       </div>
-      <q-page-sticky
-        class="lt-md"
-        position="bottom"
-        :offset="[18, 15]">
-        <q-btn
-          @click="$emit('closeFormDialog')"
-          vertical-actions-align="right"
-          color="primary"
-          size="1em"
-          label="Close"></q-btn>
-      </q-page-sticky>
     </div>
 
     <!--DESKTOP -->

@@ -83,6 +83,7 @@ export default {
   },
   computed: {
     ...mapGetters("tracker", ["pkType1", "huntList"]),
+    ...mapGetters("tracker/counter", ["timerRunning"]),
     hunt: {
       get() {
         return this.$store.getters["tracker/hunt"];
@@ -161,6 +162,9 @@ export default {
     },
 
     async searchPokemon() {
+      if (this.timerRunning) {
+        this.$store.commit("tracker/counter/setTimerRunning", false);
+      }
       const pkmn = this.pokemon;
       const pokemonName = pkmn.name.toLowerCase();
       let redirect = "/tracker/" + pokemonName.replaceAll(" ", "-");
