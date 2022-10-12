@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { child, get, getDatabase, ref, remove, update } from "firebase/database";
 import { loginClientAuth, registerClientAuth, serverError } from "src/util/auth/formAuth";
-import { updateBetaKeys, getBetaKeys } from "src/util/auth/AddBetaKeysScript.js";
+// import { updateBetaKeys, getBetaKeys } from "src/util/auth/AddBetaKeysScript.js";
 
 const PokeList = () => import("../../../assets/json/pokemonList.json");
 
