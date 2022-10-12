@@ -26,7 +26,6 @@ const verifyBetaKey = async (betaKey) => {
     const dbRef = ref(getDatabase());
     const data = await get(child(dbRef, `usernames`));
     const returnData = Object.entries(data.val());
-    console.log(returnData);
   } catch (error) {
     console.log(error);
   }
@@ -98,6 +97,5 @@ export const serverError = (errorMessage) => {
     }
   });
 
-  console.log({ errorArray, errorField });
   return { errorArray, errorField };
 };

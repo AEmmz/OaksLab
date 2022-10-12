@@ -180,8 +180,6 @@ export default {
       if (this.mainTimer > 0 && !this.saved) {
         this.updateTimer();
         this.savedTimer = this.mainTimer;
-      } else {
-        console.log("rejected");
       }
     },
     reset() {

@@ -50,7 +50,6 @@ export default {
   },
 
   setTimerRunning(state, payload) {
-    console.log("HIT");
     state.timerRunning = payload;
   }
 };

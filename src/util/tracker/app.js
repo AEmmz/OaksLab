@@ -84,6 +84,5 @@ export const dbCheck = () => {
     }
   }
 
-  console.log(db);
 
 };

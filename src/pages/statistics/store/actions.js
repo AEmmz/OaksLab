@@ -42,7 +42,6 @@ export default {
     // context.commit("saveDb", userData);
     await context.dispatch("calculateAllCaught", userData);
     await context.dispatch("calculateAllTotal");
-    console.log("done");
     return userData;
   },
 

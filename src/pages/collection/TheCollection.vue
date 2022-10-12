@@ -255,7 +255,6 @@ export default {
               const categoryCount = Object.values(caught).length;
               const caughtCount = Object.values(caught).filter(e => e === true).length;
               const totalAvailable = categoryCount - lockCount;
-              console.log(caughtCount, totalAvailable, a.name);
               return caughtCount === totalAvailable;
             });
           }

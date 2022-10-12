@@ -85,7 +85,6 @@ export default {
     try {
       const betaKeys = await getBetaKeys();
       if (!betaKeys || !betaKeys.includes(payload.betaKey)) {
-        console.log("Bad");
         return {
           error: "(auth/invalid-beta-key).",
           message: "Beta key is invalid or was already used. Please verify you input and try again.",

@@ -45,20 +45,3 @@ export default boot(async ({ app, store }) => {
 
   const user = await authStatus();
 });
-// export default boot(({ app, store }) => {
-// 	initializeApp(config);
-// 	const auth = getAuth();
-// 	onAuthStateChanged(auth, (user) => {
-// 		if (user) {
-// 			store.dispatch('authorization/autoAuth', {
-// 				isLoggedIn: true,
-// 				uid: user.uid,
-// 				currentUser: user.auth.currentUser,
-// 				auth: auth,
-// 			});
-// 		}
-// 		if (!user) {
-// 			console.log('logged out');
-// 		}
-// 	});
-// });
