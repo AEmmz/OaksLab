@@ -43,6 +43,7 @@
             <q-input
               class="password-input input"
               v-model="newUsername"
+              :model-value="newUsername"
               type="text"
               label="New Username"
               clearable
@@ -57,6 +58,7 @@
           <div class="row items-center submitButton">
             <q-btn
               class="passwordButton"
+              :class="$q.screen.xs ? 'q-my-md' : ''"
               padding="md"
               label="Update"
               type="submit"
@@ -95,6 +97,7 @@
             <q-input
               class="password-input input"
               v-model="newEmail"
+              :model-value="newEmail"
               type="email"
               label="New E-Mail"
               clearable
@@ -108,6 +111,7 @@
             <q-input
               class="password-input input"
               v-model="newEmailPassword"
+              :model-value="newEmailPassword"
               type="password"
               label="Current Password"
               dark
@@ -121,6 +125,7 @@
           <div class="row items-center submitButton">
             <q-btn
               class="passwordButton"
+              :class="$q.screen.xs ? 'q-my-md' : ''"
               padding="md"
               label="Update"
               type="submit"
@@ -160,6 +165,7 @@
             <q-input
               class="password-input input"
               v-model="currentPassword"
+              :model-value="currentPassword"
               type="password"
               label="Current Password"
               dark
@@ -172,6 +178,7 @@
             <q-input
               class="password-input input"
               v-model="newPassword"
+              :model-value="newPassword"
               type="password"
               label="New Password"
               dark
@@ -184,6 +191,7 @@
             <q-input
               class="password-input input"
               v-model="newPasswordConfirm"
+              :model-value="newPasswordConfirm"
               type="password"
               label="Confirm New Password"
               dark
@@ -197,6 +205,7 @@
           <div class="row items-center submitButton">
             <q-btn
               class="passwordButton"
+              :class="$q.screen.xs ? 'q-my-md' : ''"
               padding="md"
               label="Update"
               type="submit"
@@ -213,6 +222,7 @@
         <q-btn
           @click="deleteDialog = true"
           class="delete-button"
+          :class="$q.screen.xs ? 'q-my-md' : ''"
           padding="md"
           label="Delete Account"
           type="submit"
@@ -293,6 +303,7 @@
           <q-input
             class="password-input input"
             v-model="deletePassword"
+            :model-value="deletePassword"
             type="password"
             label="Password"
             rounded
@@ -355,7 +366,7 @@ export default {
   methods: {
     ...mapActions("authorization", ["updatePasswordDb", "updateEmailDb", "updateUsernameDb", "deleteAccountDb"]),
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     async usernameCheck() {
       if (!this.newUsername) {

@@ -1,4 +1,4 @@
-import { child, get, getDatabase, ref, remove, update } from "firebase/database";
+import { child, get, getDatabase, ref } from "firebase/database";
 
 export const loginClientAuth = (email, password) => {
   const errorArray = [];
@@ -21,15 +21,6 @@ export const loginClientAuth = (email, password) => {
   return { errorArray, errorField };
 };
 
-const verifyBetaKey = async (betaKey) => {
-  try {
-    const dbRef = ref(getDatabase());
-    const data = await get(child(dbRef, `usernames`));
-    const returnData = Object.entries(data.val());
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const registerClientAuth = (username, email, password1, password2, betaKey) => {
   const errorArray = [];

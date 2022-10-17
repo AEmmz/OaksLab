@@ -35,7 +35,6 @@
                 @click="countDown"
                 @mousedown="holdCountDown"
                 @mouseup="clearCountHold">
-                <!--                <div class="text-light">Subtract</div>-->
                 <q-icon
                   name="fas fa-minus"
                   :color="desktopCheck() ? 'dark' : 'light'"
@@ -52,7 +51,6 @@
                 :color="!desktopCheck() ? pkTypeColor() : 'light'"
                 class="btn bg-light secondary-btn full-width text-h6"
                 :class="desktopCheck() ? 'text-dark' : `text-light`">
-                <!--                <div class="text-light">Reset</div>-->
                 <q-icon
                   name="fas fa-rotate-left"
                   :color="desktopCheck() ? 'dark' : 'light'"
@@ -141,7 +139,7 @@ export default {
     ]),
 
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
 
     pkTypeColor() {

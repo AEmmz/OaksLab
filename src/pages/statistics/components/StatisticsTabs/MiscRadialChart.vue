@@ -19,7 +19,6 @@ export default {
   components: { ApexChart },
   props: { categories: { type: Array }, data: { type: Array }, caught: { type: Array }, available: { type: Array } },
   computed: {
-    ...mapGetters("statistics", ["generationPercent"]),
     series() {
       return [
         {

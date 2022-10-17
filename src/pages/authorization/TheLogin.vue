@@ -24,6 +24,7 @@
           <q-input
             class="input"
             v-model="email"
+            :model-value="email"
             type="email"
             label="E-Mail"
             clearable
@@ -36,6 +37,7 @@
           <q-input
             class="input"
             v-model="password"
+            :model-value="password"
             type="password"
             label="Password"
             clearable

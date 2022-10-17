@@ -22,6 +22,7 @@
           <q-input
             class="input"
             v-model="username"
+            :model-value="username"
             type="text"
             label="Username"
             clearable
@@ -34,6 +35,7 @@
           <q-input
             class="input"
             v-model="email"
+            :model-value="email"
             type="email"
             label="E-Mail"
             clearable
@@ -46,6 +48,7 @@
           <q-input
             class="input"
             v-model="password"
+            :model-value="password"
             type="password"
             label="Password"
             clearable
@@ -58,6 +61,7 @@
           <q-input
             class="input"
             v-model="confirmPassword"
+            :model-value="confirmPassword"
             type="password"
             label="Confirm Password"
             clearable
@@ -72,6 +76,7 @@
           <q-input
             class="input"
             v-model="betaKey"
+            :model-value="betaKey"
             type="password"
             label="Beta Key"
             clearable
@@ -148,7 +153,7 @@ export default {
     },
     email() {
       if (this.emailError) {
-        if (this.email.includes("@") & this.email.includes(".")) {
+        if (this.email.includes("@") && this.email.includes(".")) {
           this.emailError = false;
         }
       }
@@ -354,7 +359,7 @@ input {
   height: 100%;
   width: 2%;
   background-color: var(--main-red);
-  box-shadow: 4px 0px 19px 3px #c33c5571;
+  box-shadow: 4px 0 19px 3px #c33c5571;
 }
 
 .inner-container::after {

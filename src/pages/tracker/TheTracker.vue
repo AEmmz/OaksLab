@@ -186,10 +186,10 @@ export default {
       if (this.$q.screen.lt.md) this.searchDialog = true;
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     mediumCheck() {
-      return this.$q.screen.md ? true : false;
+      return this.$q.screen.md;
     }
   },
   unmounted() {

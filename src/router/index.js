@@ -1,11 +1,11 @@
-import { route } from 'quasar/wrappers';
+import { route } from "quasar/wrappers";
 import {
-	createRouter,
-	createMemoryHistory,
-	createWebHistory,
-	createWebHashHistory,
-} from 'vue-router';
-import routes from './routes';
+  createRouter,
+  createMemoryHistory,
+  createWebHistory,
+  createWebHashHistory
+} from "vue-router";
+import routes from "./routes";
 
 /*
  * If not building with SSR mode, you can
@@ -16,38 +16,40 @@ import routes from './routes';
  * with the Router instance.
  */
 
-export default route(function ({ store }) {
-	const createHistory = process.env.SERVER
-		? createMemoryHistory
-		: process.env.VUE_ROUTER_MODE === 'history'
-		? createWebHistory
-		: createWebHashHistory;
+export default route(function({ store }) {
 
-	const Router = createRouter({
-		scrollBehavior: () => ({ left: 0, top: 0 }),
-		routes,
+  const createHistory = process.env.SERVER
+    ? createMemoryHistory
+    : process.env.VUE_ROUTER_MODE === "history"
+      ? createWebHistory
+      : createWebHashHistory;
 
-		// Leave this as is and make changes in quasar.conf.js instead!
-		// quasar.conf.js -> build -> vueRouterMode
-		// quasar.conf.js -> build -> publicPath
-		history: createHistory(process.env.VUE_ROUTER_BASE),
-	});
+  const Router = createRouter({
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+    routes,
 
-	Router.beforeEach(async (to, from, next) => {
-		if (
-			to.matched.some((record) => record.meta.requiresAuth) &&
-			!store.getters['authorization/currentUser']
-		) {
-			next('/login');
-		} else if (
-			to.matched.some((record) => record.meta.requiresNotAuth) &&
-			store.getters['authorization/currentUser']
-		) {
-			next('/home');
-		} else {
-			next();
-		}
-	});
+    // Leave this as is and make changes in quasar.conf.js instead!
+    // quasar.conf.js -> build -> vueRouterMode
+    // quasar.conf.js -> build -> publicPath
+    history: createHistory(process.env.VUE_ROUTER_BASE)
+  });
 
-	return Router;
+  Router.beforeEach(async (to, from, next) => {
+    if (
+      to.matched.some((record) => record.meta.requiresAuth) &&
+      !store.getters["authorization/currentUser"]
+    ) {
+      next("/login");
+    } else if (
+      to.matched.some((record) => record.meta.requiresNotAuth) &&
+      store.getters["authorization/currentUser"]
+    ) {
+      next("/home");
+    } else {
+      next();
+    }
+  });
+
+
+  return Router;
 });

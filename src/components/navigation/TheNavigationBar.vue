@@ -105,10 +105,7 @@ export default {
   computed: {
     ...mapGetters("authorization", ["isLoggedIn"]),
     homepageToolbar() {
-      if (this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home") {
-        return true;
-      }
-      return false;
+      return this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home";
     }
   },
   methods: {

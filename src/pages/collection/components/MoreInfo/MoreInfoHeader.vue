@@ -52,9 +52,6 @@ export default {
   computed: {
     statsCount() {
       return this.caughtCount();
-    },
-    uncaughtStatsCount() {
-      return this.uncaughtCount();
     }
   },
   methods: {

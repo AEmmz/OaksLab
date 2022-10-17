@@ -109,10 +109,10 @@ export default {
   methods: {
     ...mapActions("statistics", ["fetchStats", "formStats", "pokemonStats"]),
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     mediumCheck() {
-      return this.$q.screen.md ? true : false;
+      return this.$q.screen.md;
     },
     changeTab(tab) {
       this.selectedTab = tab;

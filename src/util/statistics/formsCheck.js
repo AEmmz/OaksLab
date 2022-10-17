@@ -19,25 +19,5 @@ export const inArray = (arr1, arr2) => {
   });
 };
 
-export const standardDexCount = async (assignArray, pokemon, dex) => {
-  const forms = await fetchForms(pokemon, dex);
-  //Pushing to hunt array if family not present
-  const check = inArray(assignArray, forms[0]);
-  if (!check) {
-    assignArray.push(pokemon);
-  }
-};
 
-export const standardTypeDexCount = async (assignArray, pokemon, dex) => {
-  const forms = await fetchForms(pokemon, dex);
-  const check = inArray(assignArray, forms[0]);
-  if (!check) {
-    const typesArray = [];
-    forms[1].forEach((t) => {
-      typesArray.push(t.types);
-    });
-    let typesArrayFlat = typesArray.flat();
-    typesArrayFlat = [...new Set(typesArrayFlat)];
-    return [typesArrayFlat, forms[0]];
-  }
-};
+

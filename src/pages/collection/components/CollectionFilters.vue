@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center  q-gutter-y-sm">
+  <div class="flex justify-center q-gutter-y-sm">
     <div
       class="full-width justify-center row q-gutter-md items-center filters"
       :class="desktopCheck() ? '' : 'wrap'">
@@ -255,7 +255,7 @@ export default {
   methods: {
     ...mapActions("collection", ["persistFilters"]),
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     sendSearch() {
       this.getSearch({
@@ -293,7 +293,6 @@ export default {
 body.screen--xs {
   .filter {
     width: 40%;
-
   }
 
   .search {
@@ -308,7 +307,6 @@ body.screen--xs {
 body.screen--sm {
   .filter {
     width: 25%;
-
   }
 
   .search {
