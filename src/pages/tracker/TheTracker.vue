@@ -136,7 +136,7 @@ import { defineAsyncComponent } from "vue";
 import { mapGetters, mapMutations } from "vuex";
 
 const PokemonImages = defineAsyncComponent(() => import("./components/PokemonImages.vue"));
-const CaughtButtons = defineAsyncComponent(() => import("./components/CaughtButtons.vue"));
+const CaughtButtons = defineAsyncComponent(() => import("./components/CaughtToggleButtons/CaughtButtons.vue"));
 const TypeBar = defineAsyncComponent(() => import("./components/TypeBar.vue"));
 const TrackerSearchBar = defineAsyncComponent(() => import("./components/TrackerSearchBar.vue"));
 const CounterCard = defineAsyncComponent(() => import("./components/CounterCard.vue"));
