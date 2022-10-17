@@ -1,5 +1,5 @@
 // -----------------Imports------------------ //
-import { getDatabase, ref, child, get, update } from "firebase/database";
+import { getDatabase, ref, child, get } from "firebase/database";
 import { catchLock } from "src/util/tracker/catchLock";
 import { gmaxArray, megaArray } from "src/util/statistics/FormsArrays";
 import PokeList from "../../../assets/json/pokemonList.json";
@@ -34,12 +34,11 @@ const generationCounts = {
 export default {
 
   // -----------------Main Stats Tabs------------------ //
-  async fetchStats(context, huntType) {
+  async fetchStats(context) {
     const uid = context.rootGetters["authorization/uid"];
     const dbRef = ref(getDatabase());
     const data = await get(child(dbRef, `users/${uid}/pokedex`));
     const userData = Object.entries(data.val());
-    // context.commit("saveDb", userData);
     await context.dispatch("calculateAllCaught", userData);
     await context.dispatch("calculateAllTotal");
     return userData;

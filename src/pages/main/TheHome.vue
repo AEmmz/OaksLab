@@ -21,10 +21,7 @@
             name="icon-poke-pokeball"
             size="sm"
             class="q-pt-xs q-pl-sm"/>
-          <!--          ShinySprite-->
-          <!--          TheShinyCharm-->
-          <!--          ExpertDex-->
-          <!--          ShinyPal-->
+
         </div>
       </div>
       <hero-cards
@@ -155,7 +152,7 @@ body.screen--xs, body.screen--sm {
     align-items: center;
     width: 80%;
     font-family: Futura, sans-serif;
-    transition: ease 0.5s all;
+    transition: all ease 0.5s;
     opacity: 1;
   }
 
@@ -295,7 +292,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
     max-width: 35rem;
     min-width: 30rem;
     font-family: Futura, sans-serif;
-    transition: ease 0.5s all;
+    transition: all ease 0.5s;
     opacity: 1;
     align-items: center;
   }

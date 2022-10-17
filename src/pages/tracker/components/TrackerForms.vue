@@ -144,10 +144,10 @@ export default {
       return `${this.pkType1}Type`;
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     mediumCheck() {
-      return this.$q.screen.md ? true : false;
+      return this.$q.screen.md;
     }
   }
 };

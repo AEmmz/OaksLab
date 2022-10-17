@@ -112,10 +112,11 @@
 import { defineAsyncComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { useQuasar } from "quasar";
+import { catchLock } from "src/util/tracker/catchLock";
 
 const CollectionFilters = defineAsyncComponent(() => import("./components/CollectionFilters.vue"));
 const CollectionCard = defineAsyncComponent(() => import("./components/CollectionCard.vue"));
-const catchLock = defineAsyncComponent(() => import("src/util/tracker/catchLock"));
+// const catchLock = defineAsyncComponent(() => import("src/util/tracker/catchLock"));
 
 export default {
   components: {
@@ -200,7 +201,7 @@ export default {
       this.filterDialog = false;
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     getSearch(input) {
       this.filter.searchQuery = input.searchQuery;

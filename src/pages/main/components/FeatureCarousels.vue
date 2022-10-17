@@ -322,9 +322,9 @@ export default {
       slide2F2: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_2-2.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1663703174088",
       slide2F3: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_2-3.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1663703125117",
       masterCarousel: "masterSlide1",
-      slide3F1: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_1.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1663356178378",
-      slide3F2: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_2.PNG",
-      slide3F3: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_2.PNG"
+      slide3F1: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_3?ik-sdk-version=javascript-1.4.3&updatedAt=1665785278926",
+      slide3F2: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_3-2.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1665787264459",
+      slide3F3: "https://ik.imagekit.io/kw2qoeib2/ImageAssets/Feature_3-3.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1665787661457"
     };
   },
   methods: {

@@ -97,7 +97,7 @@ export default {
   },
 
   watch: {
-    timerRunning(newVal, oldVal) {
+    timerRunning(newVal) {
       if (!newVal) this.stop();
     }
   },
@@ -153,10 +153,10 @@ export default {
       event.returnValue = "";
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
+      return this.$q.screen.gt.sm;
     },
     mediumCheck() {
-      return this.$q.screen.md ? true : false;
+      return this.$q.screen.md;
     },
 
     toggleStart() {

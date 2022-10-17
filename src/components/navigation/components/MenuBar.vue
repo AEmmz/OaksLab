@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 import { mapActions, mapGetters } from "vuex";
 
 export default {

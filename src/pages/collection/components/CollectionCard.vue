@@ -12,6 +12,13 @@
       :notCaught="deactivated"
       :toggleDetails="toggleDetails"></more-info>
   </q-dialog>
+  <q-dialog
+    v-model="quickEdit"
+    class="z-max">
+    <collection-quick-edit
+      @closeEditDialog="this.quickEdit = false"
+      :quickEditPokemon="pokemon"></collection-quick-edit>
+  </q-dialog>
   <div
     class="card-cont"
     @mouseenter="flipToBack"
@@ -203,15 +210,16 @@
             @click="details = true">
             <q-tooltip class="text-body1">More Info</q-tooltip>
           </q-btn>
-          <!--          <q-btn-->
-          <!--            :round="desktopCheck()"-->
-          <!--            class="q-ma-xs"-->
-          <!--            :padding="desktopCheck() ? 'sm' : 'sm lg'"-->
-          <!--            :size="desktopCheck() ? 'sm' : 'md'"-->
-          <!--            color="primary"-->
-          <!--            icon="fas fa-pen">-->
-          <!--            <q-tooltip class="text-body1">Quick Edit</q-tooltip>-->
-          <!--          </q-btn>-->
+          <q-btn
+            :round="desktopCheck()"
+            class="q-ma-xs"
+            :padding="desktopCheck() ? 'sm' : 'sm lg'"
+            :size="desktopCheck() ? 'sm' : 'md'"
+            color="primary"
+            icon="fas fa-pen"
+            @click="quickEdit = true">
+            <q-tooltip class="text-body1">Quick Edit</q-tooltip>
+          </q-btn>
         </div>
       </div>
     </q-card>
@@ -225,9 +233,10 @@ import FitTextAlt from "../../../components/ui/FitText/FitText-Alt.vue";
 import { mapActions } from "vuex";
 
 const MoreInfo = defineAsyncComponent(() => import("./MoreInfo/MoreInfoDialog.vue"));
+const CollectionQuickEdit = defineAsyncComponent(() => import("pages/collection/components/CollectionQuickEdit.vue"));
 
 export default {
-  components: { FitText, FitTextAlt, MoreInfo },
+  components: { FitText, FitTextAlt, MoreInfo, CollectionQuickEdit },
   props: {
     pokemon: { type: Object }, shinyView: { type: String }
   },
@@ -235,7 +244,7 @@ export default {
     return {
       flipped: false,
       details: false,
-      edit: false,
+      quickEdit: false,
       statusLock: {
         shinyAvailable: true,
         alphaAvailable: true,
@@ -294,7 +303,7 @@ export default {
       this.details = false;
     },
     desktopCheck() {
-      return this.$q.screen.gt.xs ? true : false;
+      return this.$q.screen.gt.xs;
     }
   }
 };
@@ -311,7 +320,7 @@ export default {
 }
 
 
-body.screen--xs, body.screen--sm {
+body.screen--xs {
   .card-cont {
     position: relative;
     width: 100%;
@@ -328,7 +337,7 @@ body.screen--xs, body.screen--sm {
 
   .card-image {
     left: 11rem;
-    top: 0rem;
+    top: 0;
     width: 200px
   }
 
@@ -385,7 +394,7 @@ body.screen--xs, body.screen--sm {
   }
 }
 
-body.screen--md, body.screen--lg, body.screen--xl {
+body.screen--sm, body.screen--md, body.screen--lg, body.screen--xl {
   .card-cont {
     position: relative;
   }
