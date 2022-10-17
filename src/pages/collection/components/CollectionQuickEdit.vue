@@ -221,7 +221,7 @@ export default {
 body.screen--xs, body.screen--sm {
   .quick-edit-card-cont {
     position: relative;
-    height: 85%;
+    max-height: 85%;
     width: 100%;
   }
 }
