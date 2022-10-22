@@ -10,23 +10,7 @@ export default {
       const pkId = rootGetters["tracker/pkId"];
       await commit("toggler", type);
       const dbType = type + "Caught";
-      let dbSelector;
-      if (dbType === "normalCaught") dbSelector = { normalCaught: state.normal };
-      if (dbType === "shinyCaught") dbSelector = { shinyCaught: state.shiny };
-      if (dbType === "alphaCaught") dbSelector = { alphaCaught: state.alpha };
-      if (dbType === "shinyAlphaCaught") dbSelector = { shinyAlphaCaught: state.shinyAlpha };
-      if (dbType === "markedCaught") dbSelector = { markedCaught: state.marked };
-      if (dbType === "shinyMarkedCaught")
-        dbSelector = { shinyMarkedCaught: state.shinyMarked };
-      if (dbType === "pokerusCaught") dbSelector = { pokerusCaught: state.pokerus };
-      if (dbType === "shinyPokerusCaught")
-        dbSelector = { shinyPokerusCaught: state.shinyPokerus };
-      if (dbType === "zeroIvCaught") dbSelector = { zeroIvCaught: state.zeroIv };
-      if (dbType === "shinyZeroIvCaught")
-        dbSelector = { shinyZeroIvCaught: state.shinyZeroIv };
-      if (dbType === "sixIvCaught") dbSelector = { sixIvCaught: state.sixIv };
-      if (dbType === "shinySixIvCaught") dbSelector = { shinySixIvCaught: state.shinySixIv };
-      if (dbType === "favoriteCaught") dbSelector = { favoriteCaught: state.favorite };
+      const dbSelector = { [dbType]: state[type] };
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/catch`);
       await update(dbRef, dbSelector);
     } catch (error) {

@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Koraidon",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "dragon"
+    ]
+  },
+  {
+    "name": "Miraidon",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "dragon"
+    ]
+  },
+  {
+    "name": "Armarouge",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "fire",
+      "psychic"
+    ]
+  },
+  {
+    "name": "Bellibolt",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "electric"
+    ]
+  },
+  {
+    "name": "Ceruledge",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "fire",
+      "ghost"
+    ]
+  },
+  {
+    "name": "Cetitan",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "ice"
+    ]
+  },
+  {
+    "name": "Cyclizar",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "dragon",
+      "normal"
+    ]
+  },
+  {
+    "name": "Farigiraf",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "normal",
+      "psychic"
+    ]
+  },
+  {
+    "name": "Fidough",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "fairy"
+    ]
+  },
+  {
+    "name": "Grafaiai",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "poison",
+      "normal"
+    ]
+  },
+  {
+    "name": "Klawf",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "rock"
+    ]
+  },
+  {
+    "name": "Lechonk",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "normal"
+    ]
+  },
+  {
+    "name": "Paldean Wooper",
+    "dexNo": "194",
+    "apiNo": "10250",
+    "types": [
+      "poison",
+      "ground"
+    ]
+  },
+  {
+    "name": "Pawmi",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "electric"
+    ]
+  },
+  {
+    "name": "Smoliv",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "grass",
+      "normal"
+    ]
+  },
+  {
+    "name": "Wiglett",
+    "dexNo": "2000",
+    "apiNo": "2000",
+    "types": [
+      "water"
+    ]
+  }
+]

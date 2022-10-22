@@ -233,7 +233,7 @@ import FitTextAlt from "../../../components/ui/FitText/FitText-Alt.vue";
 import { mapActions } from "vuex";
 
 const MoreInfo = defineAsyncComponent(() => import("./MoreInfo/MoreInfoDialog.vue"));
-const CollectionQuickEdit = defineAsyncComponent(() => import("pages/collection/components/CollectionQuickEdit.vue"));
+const CollectionQuickEdit = defineAsyncComponent(() => import("pages/collection/components/QuickEdit/CollectionQuickEdit.vue"));
 
 export default {
   components: { FitText, FitTextAlt, MoreInfo, CollectionQuickEdit },

@@ -47,27 +47,13 @@ export default {
 
   async quickEditToggler(context, payload) {
     try {
-      const huntType = payload.huntType;
-      const pkId = +payload.apiNo;
-      const caughtData = payload.caughtData;
+      const type = payload.huntType;
       const uid = context.rootGetters["authorization/uid"];
-      let dbSelector;
-      if (huntType === "normal") dbSelector = { normalCaught: caughtData.caught.normal };
-      if (huntType === "shiny") dbSelector = { shinyCaught: caughtData.caught.shiny };
-      if (huntType === "alpha") dbSelector = { alphaCaught: caughtData.caught.alpha };
-      if (huntType === "shinyAlpha") dbSelector = { shinyAlphaCaught: caughtData.caught.shinyAlpha };
-      if (huntType === "marked") dbSelector = { markedCaught: caughtData.caught.marked };
-      if (huntType === "shinyMarked")
-        dbSelector = { shinyMarkedCaught: caughtData.caught.shinyMarked };
-      if (huntType === "pokerus") dbSelector = { pokerusCaught: caughtData.caught.pokerus };
-      if (huntType === "shinyPokerus")
-        dbSelector = { shinyPokerusCaught: caughtData.caught.shinyPokerus };
-      if (huntType === "zeroIv") dbSelector = { zeroIvCaught: caughtData.caught.zeroIv };
-      if (huntType === "shinyZeroIv")
-        dbSelector = { shinyZeroIvCaught: caughtData.caught.shinyZeroIv };
-      if (huntType === "sixIv") dbSelector = { sixIvCaught: caughtData.caught.sixIv };
-      if (huntType === "shinySixIv") dbSelector = { shinySixIvCaught: caughtData.caught.shinySixIv };
-      if (huntType === "favorite") dbSelector = { favoriteCaught: caughtData.caught.favorite };
+      const pkId = +payload.apiNo;
+      const tab = payload.tab;
+      await context.commit("quickEditToggler", { type: type, tab: tab });
+      const dbType = type + "Caught";
+      const dbSelector = { [dbType]: context.state.caughtData[tab].caught[type] };
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/catch`);
       await update(dbRef, dbSelector);
     } catch (error) {
@@ -83,37 +69,127 @@ export default {
       const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/catch`));
       const caught = await data.val();
       const locked = await catchLock(+pkId);
-      return {
-        caught: {
-          normal: caught.normalCaught && locked.normal,
-          shiny: caught.shinyCaught && locked.shiny,
-          alpha: caught.alphaCaught && locked.alpha,
-          shinyAlpha: caught.shinyAlphaCaught && locked.shinyAlpha,
-          pokerus: caught.pokerusCaught && locked.pokerus,
-          shinyPokerus: caught.shinyPokerusCaught && locked.shinyPokerus,
-          marked: caught.markedCaught && locked.marked,
-          shinyMarked: caught.shinyMarkedCaught && locked.shinyMarked,
-          zeroIv: caught.zeroIvCaught && locked.zeroIv,
-          shinyZeroIv: caught.shinyZeroIvCaught && locked.shinyZeroIv,
-          sixIv: caught.sixIvCaught && locked.sixIv,
-          shinySixIv: caught.shinySixIvCaught && locked.shinySixIv
+      const caughtData = {
+        normal: {
+          caught: {
+            normal: caught?.normalCaught && locked?.normal || false,
+            alpha: caught?.alphaCaught && locked?.alpha || false,
+            pokerus: caught?.pokerusCaught && locked?.pokerus || false,
+            marked: caught?.markedCaught && locked?.marked || false,
+            zeroIv: caught?.zeroIvCaught && locked?.zeroIv || false,
+            sixIv: caught?.sixIvCaught && locked?.sixIv || false
+          },
+          available: {
+            normal: locked?.normal || false,
+            alpha: locked?.alpha || false,
+            pokerus: locked?.pokerus || false,
+            marked: locked?.marked || false,
+            zeroIv: locked?.zeroIv || false,
+            sixIv: locked?.sixIv || false
+          }
         },
-        available: {
-          normal: locked.normal,
-          shiny: locked.shiny,
-          alpha: locked.alpha,
-          shinyAlpha: locked.shinyAlpha,
-          pokerus: locked.pokerus,
-          shinyPokerus: locked.shinyPokerus,
-          marked: locked.marked,
-          shinyMarked: locked.shinyMarked,
-          zeroIv: locked.zeroIv,
-          shinyZeroIv: locked.shinyZeroIv,
-          sixIv: locked.sixIv,
-          shinySixIv: locked.shinySixIv
+        shiny: {
+          caught: {
+            shiny: caught?.shinyCaught && locked?.shiny || false,
+            shinyAlpha: caught?.shinyAlphaCaught && locked?.shinyAlpha || false,
+            shinyPokerus: caught?.shinyPokerusCaught && locked?.shinyPokerus || false,
+            shinyMarked: caught?.shinyMarkedCaught && locked?.shinyMarked || false,
+            shinyZeroIv: caught?.shinyZeroIvCaught && locked?.shinyZeroIv || false,
+            shinySixIv: caught?.shinySixIvCaught && locked?.shinySixIv || false
+          },
+          available: {
+            shiny: locked?.shiny || false,
+            shinyAlpha: locked?.shinyAlpha || false,
+            shinyPokerus: locked?.shinyPokerus || false,
+            shinyMarked: locked?.shinyMarked || false,
+            shinyZeroIv: locked?.shinyZeroIv || false,
+            shinySixIv: locked?.shinySixIv || false
+          }
+        },
+        tera: {
+          caught: {
+            teraBug: caught?.teraBugCaught && locked?.teraBug || false,
+            teraDark: caught?.teraDarkCaught && locked?.teraDark || false,
+            teraDragon: caught?.teraDragonCaught && locked?.teraDragon || false,
+            teraElectric: caught?.teraElectricCaught && locked?.teraElectric || false,
+            teraFairy: caught?.teraFairyCaught && locked?.teraFairy || false,
+            teraFighting: caught?.teraFightingCaught && locked?.teraFighting || false,
+            teraFire: caught?.teraFireCaught && locked?.teraFire || false,
+            teraFlying: caught?.teraFlyingCaught && locked?.teraFlying || false,
+            teraGhost: caught?.teraGhostCaught && locked?.teraGhost || false,
+            teraGrass: caught?.teraGrassCaught && locked?.teraGrass || false,
+            teraGround: caught?.teraGroundCaught && locked?.teraGround || false,
+            teraIce: caught?.teraIceCaught && locked?.teraIce || false,
+            teraNormal: caught?.teraNormalCaught && locked?.teraNormal || false,
+            teraPoison: caught?.teraPoisonCaught && locked?.teraPoison || false,
+            teraPsychic: caught?.teraPsychicCaught && locked?.teraPsychic || false,
+            teraRock: caught?.teraRockCaught && locked?.teraRock || false,
+            teraSteel: caught?.teraSteelCaught && locked?.teraSteel || false,
+            teraWater: caught?.teraWaterCaught && locked?.teraWater || false,
+            teraShinyBug: caught?.teraShinyBugCaught && locked?.teraShinyBug || false,
+            teraShinyDark: caught?.teraShinyDarkCaught && locked?.teraShinyDark || false,
+            teraShinyDragon: caught?.teraShinyDragonCaught && locked?.teraShinyDragon || false,
+            teraShinyElectric: caught?.teraShinyElectricCaught && locked?.teraShinyElectric || false,
+            teraShinyFairy: caught?.teraShinyFairyCaught && locked?.teraShinyFairy || false,
+            teraShinyFighting: caught?.teraShinyFightingCaught && locked?.teraShinyFighting || false,
+            teraShinyFire: caught?.teraShinyFireCaught && locked?.teraShinyFire || false,
+            teraShinyFlying: caught?.teraShinyFlyingCaught && locked?.teraShinyFlying || false,
+            teraShinyGhost: caught?.teraShinyGhostCaught && locked?.teraShinyGhost || false,
+            teraShinyGrass: caught?.teraShinyGrassCaught && locked?.teraShinyGrass || false,
+            teraShinyGround: caught?.teraShinyGroundCaught && locked?.teraShinyGround || false,
+            teraShinyIce: caught?.teraShinyIceCaught && locked?.teraShinyIce || false,
+            teraShinyNormal: caught?.teraShinyNormalCaught && locked?.teraShinyNormal || false,
+            teraShinyPoison: caught?.teraShinyPoisonCaught && locked?.teraShinyPoison || false,
+            teraShinyPsychic: caught?.teraShinyPsychicCaught && locked?.teraShinyPsychic || false,
+            teraShinyRock: caught?.teraShinyRockCaught && locked?.teraShinyRock || false,
+            teraShinySteel: caught?.teraShinySteelCaught && locked?.teraShinySteel || false,
+            teraShinyWater: caught?.teraShinyWaterCaught && locked?.teraShinyWater || false
+          },
+          available: {
+            teraBugAvailable: locked?.teraBug || false,
+            teraDarkAvailable: locked?.teraDark || false,
+            teraDragonAvailable: locked?.teraDragon || false,
+            teraElectricAvailable: locked?.teraElectric || false,
+            teraFairyAvailable: locked?.teraFairy || false,
+            teraFightingAvailable: locked?.teraFighting || false,
+            teraFireAvailable: locked?.teraFire || false,
+            teraFlyingAvailable: locked?.teraFlying || false,
+            teraGhostAvailable: locked?.teraGhost || false,
+            teraGrassAvailable: locked?.teraGrass || false,
+            teraGroundAvailable: locked?.teraGround || false,
+            teraIceAvailable: locked?.teraIce || false,
+            teraNormalAvailable: locked?.teraNormal || false,
+            teraPoisonAvailable: locked?.teraPoison || false,
+            teraPsychicAvailable: locked?.teraPsychic || false,
+            teraRockAvailable: locked?.teraRock || false,
+            teraSteelAvailable: locked?.teraSteel || false,
+            teraWaterAvailable: locked?.teraWater || false,
+            teraShinyBugAvailable: locked?.teraShinyBug || false,
+            teraShinyDarkAvailable: locked?.teraShinyDark || false,
+            teraShinyDragonAvailable: locked?.teraShinyDragon || false,
+            teraShinyElectricAvailable: locked?.teraShinyElectric || false,
+            teraShinyFairyAvailable: locked?.teraShinyFairy || false,
+            teraShinyFightingAvailable: locked?.teraShinyFighting || false,
+            teraShinyFireAvailable: locked?.teraShinyFire || false,
+            teraShinyFlyingAvailable: locked?.teraShinyFlying || false,
+            teraShinyGhostAvailable: locked?.teraShinyGhost || false,
+            teraShinyGrassAvailable: locked?.teraShinyGrass || false,
+            teraShinyGroundAvailable: locked?.teraShinyGround || false,
+            teraShinyIceAvailable: locked?.teraShinyIce || false,
+            teraShinyNormalAvailable: locked?.teraShinyNormal || false,
+            teraShinyPoisonAvailable: locked?.teraShinyPoison || false,
+            teraShinyPsychicAvailable: locked?.teraShinyPsychic || false,
+            teraShinyRockAvailable: locked?.teraShinyRock || false,
+            teraShinySteelAvailable: locked?.teraShinySteel || false,
+            teraShinyWaterAvailable: locked?.teraShinyWater || false
+          }
+        },
+        pokeball: {
+          caught: {},
+          available: {}
         }
-
       };
+      context.commit("setQuickEditCaughtData", caughtData);
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
     }
