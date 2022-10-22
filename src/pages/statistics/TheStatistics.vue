@@ -130,8 +130,6 @@ export default {
   lang="scss">
 
 body.screen--xs, body.screen--sm, {
-
-
   .menu-bar {
     width: 80%;
   }
@@ -150,6 +148,10 @@ body.screen--xs, body.screen--sm, {
   .floating-button {
     z-index: 2;
     transform: translate(0, 0);
+  }
+
+  .q-dialog__inner--minimized > div {
+    max-height: 80%;
   }
 }
 

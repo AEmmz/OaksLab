@@ -25,7 +25,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Total Caught:</div>
           <div
             class="cat-value"
@@ -48,7 +48,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Total Available:</div>
           <div
             class="cat-value"
@@ -71,7 +71,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Completion:</div>
           <div
             class="cat-value"
