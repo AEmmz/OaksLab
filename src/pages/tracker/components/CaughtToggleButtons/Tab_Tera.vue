@@ -412,7 +412,7 @@ export default {
     return { tab: "normal" };
   },
   computed: {
-    ...mapGetters("tracker", ["pkId", "pkType1"]),
+    ...mapGetters("tracker", ["apiNo", "pkType1"]),
     ...mapGetters("tracker/caught", [
       "teraBug",
       "teraDark",
@@ -488,7 +488,7 @@ export default {
       "teraShinyWaterAvailable"
     ]),
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   methods: {

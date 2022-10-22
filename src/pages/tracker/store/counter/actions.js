@@ -2,43 +2,48 @@ import { child, get, getDatabase, ref, update } from "firebase/database";
 
 
 export default {
+  async changeHuntCount(context, huntType) {
+    const currentHunt = huntType.replaceAll(" ", "");
+    const huntVariables = context.rootGetters["tracker/huntListVariables"];
+    const pokemonCounts = context.getters.pokemonCounts;
 
-  async changeCount(context, payload) {
+    const countersUpdate = (hunt) => {
+      if (currentHunt.toLowerCase() === hunt.toLowerCase()) {
+        let timerVar = `${hunt}Timer`;
+        let countVar = `${hunt}Count`;
+        let timer = pokemonCounts?.[timerVar] ? pokemonCounts[timerVar] : 0;
+        let counter = pokemonCounts?.[countVar] ? pokemonCounts[countVar] : 0;
+        context.commit("updateCount", { hunt: hunt, counter: counter, timer: timer });
+      }
+    };
+
+    huntVariables.forEach(hunt => {
+      countersUpdate(hunt);
+    });
+  },
+
+  async changeCount(context) {
     try {
       const uid = context.rootGetters["authorization/uid"];
-      const pkId = context.rootGetters["tracker/pkId"];
+      const apiNo = context.rootGetters["tracker/apiNo"];
       const dbRef = ref(getDatabase());
-      const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/count`));
-      let userData = data.val();
-      const currentHunt = payload.replaceAll(" ", "");
-      const huntVariables = context.rootGetters["tracker/huntListVariables"];
-
-      const countersUpdate = (hunt) => {
-        if (currentHunt.toLowerCase() === hunt.toLowerCase()) {
-          let timerVar = `${hunt}Timer`;
-          let countVar = `${hunt}Count`;
-          let timer = userData?.[timerVar] ? userData[timerVar] : 0;
-          let counter = userData?.[countVar] ? userData[countVar] : 0;
-          context.commit("updateCount", { hunt: hunt, counter: counter, timer: timer });
-        }
-      };
-      huntVariables.forEach(hunt => {
-        countersUpdate(hunt);
-      });
+      const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}/count`));
+      let pokemonCounts = data.val();
+      context.commit("setPokemonCounts", pokemonCounts);
     } catch (error) {
       console.log(error.message);
       console.log(error);
     }
   },
 
-  async updateCounter({ getters, rootGetters }) {
+  async updateCounter(context) {
     try {
-      const uid = rootGetters["authorization/uid"];
-      const pkId = rootGetters["tracker/pkId"];
-      const count = getters.mainCount;
-      const currentHunt = rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
-      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
-      const huntVariables = rootGetters["tracker/huntListVariables"];
+      const uid = context.rootGetters["authorization/uid"];
+      const apiNo = context.rootGetters["tracker/apiNo"];
+      const count = context.getters.mainCount;
+      const currentHunt = context.rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
+      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/count`);
+      const huntVariables = context.rootGetters["tracker/huntListVariables"];
       let savedData;
 
       const setSaveData = (hunt) => {
@@ -49,21 +54,20 @@ export default {
       huntVariables.forEach(hunt => {
         setSaveData(hunt);
       });
-
       await update(dbRef, savedData);
     } catch (error) {
       console.error("Failed to update count in database. Please try again later", error);
     }
   },
 
-  async updateTimer({ getters, rootGetters }) {
+  async updateTimer(context) {
     try {
-      const uid = rootGetters["authorization/uid"];
-      const pkId = rootGetters["tracker/pkId"];
-      const timer = getters.mainTimer;
-      const currentHunt = rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
-      const huntVariables = rootGetters["tracker/huntListVariables"];
-      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/count`);
+      const uid = context.rootGetters["authorization/uid"];
+      const apiNo = context.rootGetters["tracker/apiNo"];
+      const timer = context.getters.mainTimer;
+      const currentHunt = context.rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
+      const huntVariables = context.rootGetters["tracker/huntListVariables"];
+      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/count`);
       let savedData;
 
       const setSaveData = (hunt) => {
@@ -75,6 +79,7 @@ export default {
         setSaveData(hunt);
       });
 
+      await context.commit("updateTimer");
       await update(dbRef, savedData);
     } catch (error) {
       console.error("Failed to update timer in database. Please try again later", error);

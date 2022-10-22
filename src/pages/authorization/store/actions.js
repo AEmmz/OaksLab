@@ -113,17 +113,12 @@ export default {
       const pokelist = fetchPkDetails.default.pokemon;
       // noinspection ES6MissingAwait
       pokelist.forEach(async (p) => {
-        const dexNo = p.dexNo;
-        const name = p.name;
-        const pkId = p.apiNo;
-        const type1 = p.types[0];
-        const type2 = p.types[1] || null;
         await update(dexRef, {
-          [pkId]: {
-            name: name,
-            type1: type1,
-            type2: type2,
-            dexNo: dexNo,
+          [p.apiNo]: {
+            name: p.name,
+            type1: p.types[0],
+            type2: p.types[1] || null,
+            dexNo: p.dexNo,
             catch: {
               normalCaught: false
             }

@@ -5,8 +5,7 @@ import { shinyMarkedAvailable } from "src/util/huntLockData/shinyMarked";
 import { zeroIvLocked } from "src/util/huntLockData/zeroIv";
 import { teraAvailable } from "src/util/huntLockData/tera";
 
-export const catchLock = (id) => {
-  const pkId = +id;
+export const catchLock = (apiNo) => {
   const shinyLockArray = shinyLocked;
   const zeroIvLockArray = zeroIvLocked;
   const alphaAvailableArray = alphaAvailable;
@@ -14,12 +13,12 @@ export const catchLock = (id) => {
   const shinyMarkedAvailableArray = shinyMarkedAvailable;
   const teraAvailableArray = teraAvailable;
 
-  const isShinyAvailable = !shinyLockArray.includes(pkId);
-  const isAlphaAvailable = alphaAvailableArray.includes(pkId);
-  const isMarkedAvailable = markedAvailableArray.includes(pkId);
-  const isShinyMarkedAvailable = shinyMarkedAvailableArray.includes(pkId);
-  const isZeroIvAvailable = !zeroIvLockArray.includes(pkId);
-  const isTeraAvailable = teraAvailableArray.includes(pkId);
+  const isShinyAvailable = !shinyLockArray.includes(+apiNo);
+  const isAlphaAvailable = alphaAvailableArray.includes(+apiNo);
+  const isMarkedAvailable = markedAvailableArray.includes(+apiNo);
+  const isShinyMarkedAvailable = shinyMarkedAvailableArray.includes(+apiNo);
+  const isZeroIvAvailable = !zeroIvLockArray.includes(+apiNo);
+  const isTeraAvailable = teraAvailableArray.includes(+apiNo);
 
   return {
     normal: true,

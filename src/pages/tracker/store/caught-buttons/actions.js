@@ -3,33 +3,33 @@ import { catchLock } from "src/util/tracker/catchLock";
 
 export default {
 
-  async toggler({ commit, state, rootGetters }, payload) {
+  async toggler(context, payload) {
     try {
       const type = payload;
-      const uid = rootGetters["authorization/uid"];
-      const pkId = rootGetters["tracker/pkId"];
-      await commit("toggler", type);
+      const uid = context.rootGetters["authorization/uid"];
+      const apiNo = context.rootGetters["tracker/apiNo"];
+      await context.commit("toggler", type);
       const dbType = type + "Caught";
-      const dbSelector = { [dbType]: state[type] };
-      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/catch`);
+      const dbSelector = { [dbType]: context.state[type] };
+      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
       await update(dbRef, dbSelector);
     } catch (error) {
       console.error("Failed to update checklist in database. Please try again later", error);
     }
   },
-  async caughtCheck({ commit, dispatch, rootGetters }, payload) {
+  async caughtCheck(context, payload) {
     try {
-      const uid = rootGetters["authorization/uid"];
-      const pkId = rootGetters["tracker/pkId"];
+      const uid = context.rootGetters["authorization/uid"];
+      const apiNo = context.rootGetters["tracker/apiNo"];
       const dbRef = ref(getDatabase());
-      const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/catch`));
+      const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}/catch`));
       let catchData = data.val();
 
       //Create Pokemon Instance If They Do Not Exist In The DB (new Pokemon)
       if (!catchData) {
         const newDbRef = await ref(getDatabase(), `users/${uid}/pokedex/`);
         await update(newDbRef, {
-          [pkId]: {
+          [apiNo]: {
             name: payload.setName,
             type1: payload.setType[0],
             type2: payload.setType[1] || null,
@@ -40,8 +40,8 @@ export default {
           }
         });
       }
-      if (catchData) commit("caughtCheck", catchData);
-      dispatch("lockCheck");
+      if (catchData) context.commit("caughtCheck", catchData);
+      await context.dispatch("lockCheck");
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
     }
@@ -49,12 +49,11 @@ export default {
 
   async lockCheck({ commit, rootGetters }) {
     try {
-      const pkId = rootGetters["tracker/pkId"];
-      const locked = catchLock(pkId);
+      const apiNo = rootGetters["tracker/apiNo"];
+      const locked = catchLock(apiNo);
       commit("catchLock", locked);
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
-      console.log(error.message);
     }
   }
 };

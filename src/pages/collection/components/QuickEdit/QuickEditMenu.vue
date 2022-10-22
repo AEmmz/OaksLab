@@ -44,7 +44,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("tracker", ["pkId", "pkType1"]),
+    ...mapGetters("tracker", ["apiNo", "pkType1"]),
     ...mapGetters("tracker/caught", [
       "normal",
       "shiny",
@@ -68,7 +68,7 @@ export default {
       return `${this.pkType1}Type`;
     },
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   method: {

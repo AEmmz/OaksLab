@@ -6,8 +6,8 @@
         @update:model-value="setToggler('normal')"
         :color="pkToggleColor"
         :size="sizeCheck()"
-        :icon="pkId ? 'icon-poke-pokeball' : 'icon-misc-ban'"
-        :disable="!pkId"/>
+        :icon="apiNo ? 'icon-poke-pokeball' : 'icon-misc-ban'"
+        :disable="!apiNo"/>
       <p class="text-body2 text-light">Normal</p>
     </div>
     <div class="toggle q-my-md q-mx-sm flex column items-center">
@@ -36,8 +36,8 @@
         @update:model-value="setToggler('pokerus')"
         :color="pkToggleColor"
         :size="sizeCheck()"
-        :icon="pkId ? 'icon-poke-pokerus' : 'icon-misc-ban'"
-        :disable="!pkId"/>
+        :icon="apiNo ? 'icon-poke-pokerus' : 'icon-misc-ban'"
+        :disable="!apiNo"/>
       <p class="text-body2 text-light">Pokerus</p>
     </div>
     <div class="toggle q-my-md q-mx-sm flex column items-center">
@@ -46,8 +46,8 @@
         @update:model-value="setToggler('zeroIv')"
         :color="pkToggleColor"
         :size="sizeCheck()"
-        :icon="pkId ? 'icon-poke-zero' : 'icon-misc-ban'"
-        :disable="!pkId"/>
+        :icon="apiNo ? 'icon-poke-zero' : 'icon-misc-ban'"
+        :disable="!apiNo"/>
       <p class="text-body2 text-light">Zero IV</p>
     </div>
     <div class="toggle q-my-md q-mx-sm flex column items-center">
@@ -56,8 +56,8 @@
         @update:model-value="setToggler('sixIv')"
         :color="pkToggleColor"
         :size="sizeCheck()"
-        :icon="pkId ? 'icon-poke-six' : 'icon-misc-ban'"
-        :disable="!pkId"/>
+        :icon="apiNo ? 'icon-poke-six' : 'icon-misc-ban'"
+        :disable="!apiNo"/>
       <p class="text-body2 text-light">Six IV</p>
     </div>
   </div>
@@ -69,6 +69,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Tab_Normal",
   computed: {
+    ...mapGetters("tracker", ["apiNo", "pkType1"]),
     ...mapGetters("tracker/caught", [
       "normal",
       "shiny",
@@ -88,16 +89,15 @@ export default {
       "markedAvailable",
       "shinyMarkedAvailable"
     ]),
-    ...mapGetters("tracker", ["pkId", "pkType1"]),
     pkToggleColor() {
       return `${this.pkType1}Type`;
     },
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   methods: {
-    ...mapActions("tracker/caught", ["toggler", "addToCollection"]),
+    ...mapActions("tracker/caught", ["toggler"]),
     async changeTab(tab) {
       this.tab = tab;
     },

@@ -49,12 +49,12 @@ export default {
     try {
       const type = payload.huntType;
       const uid = context.rootGetters["authorization/uid"];
-      const pkId = +payload.apiNo;
+      const apiNo = +payload.apiNo;
       const tab = payload.tab;
       await context.commit("quickEditToggler", { type: type, tab: tab });
       const dbType = type + "Caught";
       const dbSelector = { [dbType]: context.state.caughtData[tab].caught[type] };
-      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${pkId}/catch`);
+      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
       await update(dbRef, dbSelector);
     } catch (error) {
       console.error("Failed to update checklist in database. Please try again later", error);
@@ -64,11 +64,11 @@ export default {
   async quickEditCaughtCheck(context, payload) {
     try {
       const uid = await context.rootGetters["authorization/uid"];
-      const pkId = +payload.apiNo;
+      const apiNo = +payload.apiNo;
       const dbRef = await ref(getDatabase());
-      const data = await get(child(dbRef, `users/${uid}/pokedex/${pkId}/catch`));
+      const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}/catch`));
       const caught = await data.val();
-      const locked = await catchLock(+pkId);
+      const locked = await catchLock(+apiNo);
       const caughtData = {
         normal: {
           caught: {

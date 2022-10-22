@@ -15,8 +15,8 @@ export default {
   namespaced: true,
   state() {
     return {
-      pkId: "",
-      pkIdVar: "",
+      apiNo: "",
+      dexNo: "",
       pkName: "",
       pkType1: "",
       pkType2: "",

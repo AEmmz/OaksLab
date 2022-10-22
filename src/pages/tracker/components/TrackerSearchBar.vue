@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     ...mapActions("tracker", ["changeActivePokemon"]),
-    ...mapActions("tracker/counter", ["changeCount"]),
+    ...mapActions("tracker/counter", ["changeCount", "changeHuntCount"]),
     ...mapActions("tracker/forms", ["fetchForms"]),
     pokeUpdate() {
       if (this.$q.screen.gt.sm) this.searchPokemon();
@@ -123,7 +123,7 @@ export default {
 
     searchHunt() {
       const hunt = this.hunt.toLowerCase();
-      this.changeCount(hunt);
+      this.changeHuntCount(hunt);
     },
 
     listName(pkmn) {
@@ -180,8 +180,9 @@ export default {
       };
 
       await this.changeActivePokemon(inputPokemon);
-      const data = this.hunt.toLowerCase();
-      await this.changeCount(data);
+      const huntType = this.hunt.toLowerCase();
+      await this.changeCount();
+      await this.changeHuntCount(huntType);
       await this.fetchForms();
     }
   }

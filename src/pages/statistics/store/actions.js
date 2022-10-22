@@ -123,6 +123,8 @@ export default {
     const calcStats = (typeCount, id, type, timer, counter, name, category) => {
       typeCount.total++;
       genCheck(id, type);
+      genCheck(id, "all");
+      totalCount.total++;
       timeCheck(timer, name, typeCount, category);
       countCheck(counter, name, typeCount, category);
     };
@@ -130,27 +132,24 @@ export default {
 
     userData.forEach((pk) => {
       const caughtObject = pk[1].catch;
-      const pkId = pk[1].dexNo;
-      const lockCheck = catchLock(pkId);
+      const dexNo = +pk[1].dexNo;
+      const apiNo = +pk[0];
+      const lockCheck = catchLock(apiNo);
 
       for (const caught in caughtObject) {
         const type = caught.slice(0, -6);
-        if (caughtObject[caught] === true) {
-          totalCount.total++;
-          genCheck(pkId, "all");
-        }
-        if (caught === "normalCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(normalCount, pkId, "normal", pk[1].count?.normalTimer, pk[1].count?.normalCount, pk[1].name, "Normal");
-        if (caught === "shinyCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyCount, pkId, "shiny", pk[1].count?.shinyTimer, pk[1].count?.shinyCount, pk[1].name, "Shiny");
-        if (caught === "alphaCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(alphaCount, pkId, "alpha", pk[1].count?.alphaTimer, pk[1].count?.alphaCount, pk[1].name, "Alpha");
-        if (caught === "shinyAlphaCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyAlphaCount, pkId, "shinyAlpha", pk[1].count?.shinyAlphaTimer, pk[1].count?.shinyAlphaCount, pk[1].name, "Shiny Alpha");
-        if (caught === "markedCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(markedCount, pkId, "marked", pk[1].count?.markedTimer, pk[1].count?.markedCount, pk[1].name, "Marked");
-        if (caught === "shinyMarkedCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyMarkedCount, pkId, "shinyMarked", pk[1].count?.shinyMarkedTimer, pk[1].count?.shinyMarkedCount, pk[1].name, "Shiny Marked");
-        if (caught === "pokerusCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(pokerusCount, pkId, "pokerus", pk[1].count?.pokerusTimer, pk[1].count?.pokerusCount, pk[1].name, "Pokerus");
-        if (caught === "shinyPokerusCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinyPokerusCount, pkId, "shinyPokerus", pk[1].count?.shinyPokerusTimer, pk[1].count?.shinyPokerusCount, pk[1].name, "Shiny Pokerus");
-        if (caught === "sixIvCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(sixIvCount, pkId, "sixIv", pk[1].count?.sixIvTimer, pk[1].count?.sixIvCount, pk[1].name, "Six IV");
-        if (caught === "shinySixIvCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinySixIvCount, pkId, "shinySixIv", pk[1].count?.shinySixIvTimer, pk[1].count?.shinySixIvCount, pk[1].name, "Shiny Six IV");
-        if (caught === "zeroIvCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(zeroIvCount, pkId, "zeroIv", pk[1].count?.zeroIvTimer, pk[1].count?.zeroIvCount, pk[1].name, "Zero IV");
-        if (caught === "shinyZeroIvCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinyZeroIvCount, pkId, "shinyZeroIv", pk[1].count?.shinyZeroIvTimer, pk[1].count?.shinyZeroIvCount, pk[1].name, "Shiny Zero IV");
+        if (caught === "normalCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(normalCount, dexNo, "normal", pk[1].count?.normalTimer, pk[1].count?.normalCount, pk[1].name, "Normal");
+        if (caught === "shinyCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyCount, dexNo, "shiny", pk[1].count?.shinyTimer, pk[1].count?.shinyCount, pk[1].name, "Shiny");
+        if (caught === "alphaCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(alphaCount, dexNo, "alpha", pk[1].count?.alphaTimer, pk[1].count?.alphaCount, pk[1].name, "Alpha");
+        if (caught === "shinyAlphaCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyAlphaCount, dexNo, "shinyAlpha", pk[1].count?.shinyAlphaTimer, pk[1].count?.shinyAlphaCount, pk[1].name, "Shiny Alpha");
+        if (caught === "markedCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(markedCount, dexNo, "marked", pk[1].count?.markedTimer, pk[1].count?.markedCount, pk[1].name, "Marked");
+        if (caught === "shinyMarkedCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(shinyMarkedCount, dexNo, "shinyMarked", pk[1].count?.shinyMarkedTimer, pk[1].count?.shinyMarkedCount, pk[1].name, "Shiny Marked");
+        if (caught === "pokerusCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(pokerusCount, dexNo, "pokerus", pk[1].count?.pokerusTimer, pk[1].count?.pokerusCount, pk[1].name, "Pokerus");
+        if (caught === "shinyPokerusCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinyPokerusCount, dexNo, "shinyPokerus", pk[1].count?.shinyPokerusTimer, pk[1].count?.shinyPokerusCount, pk[1].name, "Shiny Pokerus");
+        if (caught === "sixIvCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(sixIvCount, dexNo, "sixIv", pk[1].count?.sixIvTimer, pk[1].count?.sixIvCount, pk[1].name, "Six IV");
+        if (caught === "shinySixIvCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinySixIvCount, dexNo, "shinySixIv", pk[1].count?.shinySixIvTimer, pk[1].count?.shinySixIvCount, pk[1].name, "Shiny Six IV");
+        if (caught === "zeroIvCaught" && lockCheck[type] && caughtObject[caught] === true) calcStats(zeroIvCount, dexNo, "zeroIv", pk[1].count?.zeroIvTimer, pk[1].count?.zeroIvCount, pk[1].name, "Zero IV");
+        if (caught === "shinyZeroIvCaught" && lockCheck["shiny"] && caughtObject[caught] === true) calcStats(shinyZeroIvCount, dexNo, "shinyZeroIv", pk[1].count?.shinyZeroIvTimer, pk[1].count?.shinyZeroIvCount, pk[1].name, "Shiny Zero IV");
       }
     });
 
@@ -219,27 +218,28 @@ export default {
 
     const calcStats = (typeCount, id, type) => {
       typeCount.total++;
+      totalCount.total++;
       genCheck(id, type);
+      genCheck(id, "all");
     };
 
     pokeArray.forEach((pk) => {
       const apiNo = pk.apiNo;
-      const pkId = +pk.dexNo;
+      const dexNo = +pk.dexNo;
       const lockCheck = catchLock(apiNo);
       for (const available in lockCheck) {
-        if (lockCheck[available] === true) calcStats(totalCount, pkId, "all");
-        if (available === "normal" && lockCheck[available] === true) calcStats(normalCount, pkId, "normal");
-        if (available === "shiny" && lockCheck[available] === true) calcStats(shinyCount, pkId, "shiny");
-        if (available === "alpha" && lockCheck[available] === true) calcStats(alphaCount, pkId, "alpha");
-        if (available === "shinyAlpha" && lockCheck[available] === true) calcStats(shinyAlphaCount, pkId, "shinyAlpha");
-        if (available === "marked" && lockCheck[available] === true) calcStats(markedCount, pkId, "marked");
-        if (available === "shinyMarked" && lockCheck[available] === true) calcStats(shinyMarkedCount, pkId, "shinyMarked");
-        if (available === "pokerus" && lockCheck[available] === true) calcStats(pokerusCount, pkId, "pokerus");
-        if (available === "shinyPokerus" && lockCheck[available] === true) calcStats(shinyPokerusCount, pkId, "shinyPokerus");
-        if (available === "sixIv" && lockCheck[available] === true) calcStats(sixIvCount, pkId, "sixIv");
-        if (available === "shinySixIv" && lockCheck[available] === true) calcStats(shinySixIvCount, pkId, "shinySixIv");
-        if (available === "zeroIv" && lockCheck[available] === true) calcStats(zeroIvCount, pkId, "zeroIv");
-        if (available === "shinyZeroIv" && lockCheck[available] === true) calcStats(shinyZeroIvCount, pkId, "shinyZeroIv");
+        if (available === "normal" && lockCheck[available] === true) calcStats(normalCount, dexNo, "normal");
+        if (available === "shiny" && lockCheck[available] === true) calcStats(shinyCount, dexNo, "shiny");
+        if (available === "alpha" && lockCheck[available] === true) calcStats(alphaCount, dexNo, "alpha");
+        if (available === "shinyAlpha" && lockCheck[available] === true) calcStats(shinyAlphaCount, dexNo, "shinyAlpha");
+        if (available === "marked" && lockCheck[available] === true) calcStats(markedCount, dexNo, "marked");
+        if (available === "shinyMarked" && lockCheck[available] === true) calcStats(shinyMarkedCount, dexNo, "shinyMarked");
+        if (available === "pokerus" && lockCheck[available] === true) calcStats(pokerusCount, dexNo, "pokerus");
+        if (available === "shinyPokerus" && lockCheck[available] === true) calcStats(shinyPokerusCount, dexNo, "shinyPokerus");
+        if (available === "sixIv" && lockCheck[available] === true) calcStats(sixIvCount, dexNo, "sixIv");
+        if (available === "shinySixIv" && lockCheck[available] === true) calcStats(shinySixIvCount, dexNo, "shinySixIv");
+        if (available === "zeroIv" && lockCheck[available] === true) calcStats(zeroIvCount, dexNo, "zeroIv");
+        if (available === "shinyZeroIv" && lockCheck[available] === true) calcStats(shinyZeroIvCount, dexNo, "shinyZeroIv");
       }
     });
 
@@ -312,12 +312,12 @@ export default {
   },
 
   async pokemonStats(context, userData) {
-    const getAvailable = (pkId, count, type) => {
+    const getAvailable = (dexNo, count, type) => {
       const targetArray = pokeArray.filter(pk => {
-        return +pk.dexNo === pkId;
+        return +pk.dexNo === dexNo;
       });
       const userArray = userData.filter(pk => {
-        return +pk[1].dexNo === pkId && pk[1]?.catch?.[count];
+        return +pk[1].dexNo === dexNo && pk[1]?.catch?.[count];
       });
       const available = targetArray.filter(pk => {
         return catchLock(+pk.apiNo)?.[type];
@@ -327,20 +327,20 @@ export default {
       }).length;
       return { total, available };
     };
-    const statTemplate = (pkId) => {
+    const statTemplate = (dexNo) => {
       return {
-        normal: { type: "Normal", ...getAvailable(pkId, "normalCaught", "normal") },
-        shiny: { type: "Shiny", ...getAvailable(pkId, "shinyCaught", "shiny") },
-        alpha: { type: "Alpha", ...getAvailable(pkId, "alphaCaught", "alpha") },
-        shinyAlpha: { type: "Shiny Alpha", ...getAvailable(pkId, "shinyAlphaCaught", "shinyAlpha") },
-        marked: { type: "Marked", ...getAvailable(pkId, "markedCaught", "marked") },
-        shinyMarked: { type: "Shiny Marked", ...getAvailable(pkId, "shinyMarkedCaught", "shinyMarked") },
-        pokerus: { type: "Pokerus", ...getAvailable(pkId, "pokerusCaught", "pokerus") },
-        shinyPokerus: { type: "Shiny Pokerus", ...getAvailable(pkId, "shinyPokerusCaught", "shiny") },
-        sixIv: { type: "Six IV", ...getAvailable(pkId, "sixIvCaught", "sixIv") },
-        shinySixIv: { type: "Shiny Six IV", ...getAvailable(pkId, "shinySixIvCaught", "shiny") },
-        zeroIv: { type: "Zero IV", ...getAvailable(pkId, "zeroIvCaught", "zeroIv") },
-        shinyZeroIv: { type: "Shiny Zero IV", ...getAvailable(pkId, "shinyZeroIvCaught", "shiny") }
+        normal: { type: "Normal", ...getAvailable(dexNo, "normalCaught", "normal") },
+        shiny: { type: "Shiny", ...getAvailable(dexNo, "shinyCaught", "shiny") },
+        alpha: { type: "Alpha", ...getAvailable(dexNo, "alphaCaught", "alpha") },
+        shinyAlpha: { type: "Shiny Alpha", ...getAvailable(dexNo, "shinyAlphaCaught", "shinyAlpha") },
+        marked: { type: "Marked", ...getAvailable(dexNo, "markedCaught", "marked") },
+        shinyMarked: { type: "Shiny Marked", ...getAvailable(dexNo, "shinyMarkedCaught", "shinyMarked") },
+        pokerus: { type: "Pokerus", ...getAvailable(dexNo, "pokerusCaught", "pokerus") },
+        shinyPokerus: { type: "Shiny Pokerus", ...getAvailable(dexNo, "shinyPokerusCaught", "shiny") },
+        sixIv: { type: "Six IV", ...getAvailable(dexNo, "sixIvCaught", "sixIv") },
+        shinySixIv: { type: "Shiny Six IV", ...getAvailable(dexNo, "shinySixIvCaught", "shiny") },
+        zeroIv: { type: "Zero IV", ...getAvailable(dexNo, "zeroIvCaught", "zeroIv") },
+        shinyZeroIv: { type: "Shiny Zero IV", ...getAvailable(dexNo, "shinyZeroIvCaught", "shiny") }
       };
     };
 

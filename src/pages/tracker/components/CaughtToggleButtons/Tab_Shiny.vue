@@ -69,6 +69,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Tab_Shiny",
   computed: {
+    ...mapGetters("tracker", ["apiNo", "pkType1"]),
     ...mapGetters("tracker/caught", [
       "normal",
       "shiny",
@@ -88,12 +89,11 @@ export default {
       "markedAvailable",
       "shinyMarkedAvailable"
     ]),
-    ...mapGetters("tracker", ["pkId", "pkType1"]),
     pkToggleColor() {
       return `${this.pkType1}Type`;
     },
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   methods: {

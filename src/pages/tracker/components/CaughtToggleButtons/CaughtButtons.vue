@@ -67,6 +67,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters("tracker", ["apiNo", "pkType1"]),
     ...mapGetters("tracker/caught", [
       "normal",
       "shiny",
@@ -86,19 +87,17 @@ export default {
       "markedAvailable",
       "shinyMarkedAvailable"
     ]),
-    ...mapGetters("tracker", ["pkId", "pkType1"]),
     pkToggleColor() {
       return `${this.pkType1}Type`;
     },
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   methods: {
     ...mapActions("tracker/caught", ["toggler", "addToCollection"]),
     async changeTab(tab) {
       this.tab = tab;
-      console.log("hit", this.tab);
     },
     setToggler(type) {
       if (this.pkIsActive) {
