@@ -108,11 +108,6 @@ export default {
   scoped
   lang="scss">
 
-.panels {
-  margin: 0;
-  padding: 0;
-}
-
 body.screen--xs, body.screen--sm {
   .quick-edit-card-cont {
     position: relative;
@@ -136,40 +131,4 @@ body.screen--md, body.screen--lg, body.screen--lx {
     transform: translateY(2rem);
   }
 }
-
-* {
-  font-family: Gellix, sans-serif;
-}
-
-
-.toggle {
-  text-align: center;
-}
-
-.toggle > > > .q-toggle__inner--truthy .q-toggle__track {
-  box-shadow: 0 0 15px 1px currentColor;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb:after {
-  background: rgb(63, 63, 63);
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb i {
-  color: #fff;
-  opacity: 0.54;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__track {
-  color: #000;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb {
-  left: 0.45em;
-}
-
-.toggle > > > .q-toggle__inner--indet .q-toggle__thumb:after,
-.toggle > > > .q-toggle__inner--falsy .q-toggle__thumb:after {
-  background: rgb(126, 126, 126);
-}
-
 </style>

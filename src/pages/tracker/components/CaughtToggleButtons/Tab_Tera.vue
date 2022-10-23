@@ -32,11 +32,12 @@
         class="bg-dark full-width flex justify-around q-pa-md">
         <div class="toggle q-my-md q-mx-sm flex column items-center">
           <q-toggle
+            class="toggle-btn"
             :model-value="teraBug && teraBugAvailable || false"
             @update:model-value="setToggler('teraBug')"
             color="bugType"
             :size="sizeCheck()"
-            :icon="teraBugAvailable ? 'icon-type-2-bug' : 'icon-misc-ban'"
+            :icon="teraBugAvailable ? 'icon-type-2-bug toggle-icon' : 'icon-misc-ban'"
             :disable="!teraBugAvailable"/>
           <p class="text-body2 text-light">Bug</p>
         </div>
@@ -67,7 +68,7 @@
             color="electricType"
             :size="sizeCheck()"
             :icon="teraElectricAvailable ? 'icon-type-2-electric' : 'icon-misc-ban'"
-            :disable="!teraElectricAvailable"/>
+            :disable="!teraElectricAvailable"></q-toggle>
           <p class="text-body2 text-light">Electric</p>
         </div>
         <div class="toggle q-my-md q-mx-sm flex column items-center">
@@ -513,10 +514,6 @@ export default {
   scoped
   lang="scss">
 
-* {
-  font-family: Gellix, sans-serif;
-}
-
 .toggle-cont {
   margin: 0;
   padding: 0;
@@ -526,33 +523,12 @@ export default {
   padding: 0.3rem;
 }
 
-.toggle {
-  text-align: center;
+.toggle :deep(.q-icon) {
+  font-size: 2rem
 }
 
-.toggle > > > .q-toggle__inner--truthy .q-toggle__track {
-  box-shadow: 0 0 15px 1px currentColor;
+.toggle :deep(.icon-misc-ban) {
+  font-size: 0.3em
 }
 
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb:after {
-  background: rgb(63, 63, 63);
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb i {
-  color: #fff;
-  opacity: 0.54;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__track {
-  color: #000;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb {
-  left: 0.45em;
-}
-
-.toggle > > > .q-toggle__inner--indet .q-toggle__thumb:after,
-.toggle > > > .q-toggle__inner--falsy .q-toggle__thumb:after {
-  background: rgb(126, 126, 126);
-}
 </style>
