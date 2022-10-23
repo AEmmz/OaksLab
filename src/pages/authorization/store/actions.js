@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { child, get, getDatabase, ref, remove, update } from "firebase/database";
 import { loginClientAuth, registerClientAuth, serverError } from "src/util/auth/formAuth";
-import { updateBetaKeys, getBetaKeys } from "src/util/auth/AddBetaKeysScript.js";
+// import { updateBetaKeys, getBetaKeys } from "src/util/auth/AddBetaKeysScript.js";
 
 const PokeList = () => import("../../../assets/json/pokemonList.json");
 
@@ -57,8 +57,8 @@ export default {
         payload.username,
         payload.email,
         payload.password1,
-        payload.password2,
-        payload.betaKey
+        payload.password2
+        // payload.betaKey
       );
       if (verify.errorArray.length > 0) {
         return verify;
@@ -83,14 +83,15 @@ export default {
 
   async signup(context, payload) {
     try {
-      const betaKeys = await getBetaKeys();
-      if (!betaKeys || !betaKeys.includes(payload.betaKey)) {
-        return {
-          error: "(auth/invalid-beta-key).",
-          message: "Beta key is invalid or was already used. Please verify you input and try again.",
-          field: "beta"
-        };
-      }
+      //NEEDED FOR BETA ACCESS
+      // const betaKeys = await getBetaKeys();
+      // if (!betaKeys || !betaKeys.includes(payload.betaKey)) {
+      //   return {
+      //     error: "(auth/invalid-beta-key).",
+      //     message: "Beta key is invalid or was already used. Please verify you input and try again.",
+      //     field: "beta"
+      //   };
+      // }
 
       const sendInfo = await createUserWithEmailAndPassword(
         getAuth(),
@@ -105,7 +106,7 @@ export default {
       const uName = payload.username;
       await update(dbRef, { [uName]: sendInfo.user.uid });
       await update(dbRef2, { username: uName });
-      await updateBetaKeys(payload.betaKey, betaKeys);
+      // await updateBetaKeys(payload.betaKey, betaKeys);
 
 
       const dexRef = await ref(getDatabase(), `users/${uid}/pokedex/`);

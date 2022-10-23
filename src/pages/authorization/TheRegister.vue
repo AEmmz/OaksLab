@@ -73,19 +73,19 @@
           </q-input>
 
           <!-- Beta Passoword -->
-          <q-input
-            class="input"
-            v-model="betaKey"
-            :model-value="betaKey"
-            type="password"
-            label="Beta Key"
-            clearable
-            rounded
-            outlined>
-            <template v-slot:prepend>
-              <q-icon name="fa-solid fa-lock"/>
-            </template>
-          </q-input>
+          <!--          <q-input-->
+          <!--            class="input"-->
+          <!--            v-model="betaKey"-->
+          <!--            :model-value="betaKey"-->
+          <!--            type="password"-->
+          <!--            label="Beta Key"-->
+          <!--            clearable-->
+          <!--            rounded-->
+          <!--            outlined>-->
+          <!--            <template v-slot:prepend>-->
+          <!--              <q-icon name="fa-solid fa-lock"/>-->
+          <!--            </template>-->
+          <!--          </q-input>-->
 
           <q-btn
             class="submit self-center"
@@ -133,8 +133,8 @@ export default {
       errors: null,
       usernameError: false,
       emailError: false,
-      passwordError: false,
-      betaKey: ""
+      passwordError: false
+      // betaKey: ""
     };
   },
 
@@ -181,8 +181,8 @@ export default {
           username: this.username,
           email: this.email,
           password1: this.password,
-          password2: this.confirmPassword,
-          betaKey: this.betaKey
+          password2: this.confirmPassword
+          // betaKey: this.betaKey
         };
 
         //Local Authentication

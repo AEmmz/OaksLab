@@ -29,7 +29,11 @@ export default {
       const dbRef = ref(getDatabase());
       const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}/count`));
       let pokemonCounts = data.val();
+      if (!pokemonCounts) {
+        return context.commit("setPokemonCounts", {});
+      }
       context.commit("setPokemonCounts", pokemonCounts);
+
     } catch (error) {
       console.log(error.message);
       console.log(error);

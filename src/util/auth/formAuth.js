@@ -22,15 +22,15 @@ export const loginClientAuth = (email, password) => {
 };
 
 
-export const registerClientAuth = (username, email, password1, password2, betaKey) => {
+export const registerClientAuth = (username, email, password1, password2) => {
   const errorArray = [];
   const errorField = [];
 
   //Beta Client Auth
-  if (betaKey === "") {
-    errorArray.push("Beta Key cannot be blank.");
-    errorField.push("beta");
-  }
+  // if (betaKey === "") {
+  //   errorArray.push("Beta Key cannot be blank.");
+  //   errorField.push("beta");
+  // }
 
   //Email Client Auth
   if (email === "") {
