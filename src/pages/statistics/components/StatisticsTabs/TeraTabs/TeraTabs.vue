@@ -6,12 +6,31 @@
       {{ desktopCheck() ? "" : "Statistics - " }}{{ tabName }}
     </div>
     <q-separator></q-separator>
+    <div class="type-selector q-mt-lg">
+      <q-select
+        label="Type:"
+        filled
+        options-selected-class="bg-primary text-light"
+        v-model="selectedType"
+        :model-value="selectedType"
+        :options="isShiny ? selectionOptionShiny : selectionOption ">
+        <template v-slot:option="scope">
+          <q-item v-bind="scope.itemProps">
+            <q-item-section avatar>
+              <q-icon :name="scope.opt.icon"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label> {{ scope.opt.label }}</q-item-label>
+            </q-item-section>
+          </q-item>
+        </template>
+      </q-select>
+    </div>
+
     <div
       class="row full-width stats-container q-py-lg"
       :class="desktopCheck() ? 'justify-center':'justify-between'">
-
       <!--Data Top Left -->
-
       <q-card
         class="bg-dark stat-1 items-center text-light"
         :class="desktopCheck() ? 'row q-pa-md' : 'column col q-pa-sm'"
@@ -29,7 +48,7 @@
           <div class="cat-header">Total Caught:</div>
           <div
             class="cat-value"
-            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics.total }}
+            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.total || 0 }}
           </div>
         </div>
       </q-card>
@@ -52,7 +71,7 @@
           <div class="cat-header">Total Available:</div>
           <div
             class="cat-value"
-            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics.available }}
+            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.available }}
           </div>
         </div>
       </q-card>
@@ -90,9 +109,9 @@
         :class="desktopCheck() ? 'q-pa-md' : 'col-12 q-pa-sm'"
         :flat="!desktopCheck()">
         <div class="cat-header text-light">Completion By Generation:</div>
-        <generation-chart
-          :id="id"
-          @changeData="updatedSelectedGeneration"></generation-chart>
+        <tera-chart
+          :id="this.selectedType?.value"
+          @changeData="updatedSelectedGeneration"></tera-chart>
       </q-card>
 
       <q-separator
@@ -121,10 +140,10 @@
               <div
                 class="cat-value"
                 :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.longestTime.total) }}:{{
-                  minutes(statistics?.longestTime.total) }}:{{ seconds(statistics?.longestTime.total) }}
+                  minutes(statistics?.longestTime?.total) }}:{{ seconds(statistics?.longestTime?.total) }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.longestTime.category} ${statistics?.longestTime.name}` : statistics?.longestTime.name
+                  statistics?.longestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.longestTime?.category} ${statistics?.longestTime?.name}` : statistics?.longestTime?.name
                 }}
               </div>
             </div>
@@ -141,10 +160,10 @@
               <div class="cat-header">Most Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.longestCount.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.longestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.longestCount.category} ${statistics?.longestCount.name}` : statistics?.longestCount.name
+                  statistics?.longestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.longestCount?.category} ${statistics?.longestCount?.name}` : statistics?.longestCount?.name
                 }}
               </div>
             </div>
@@ -164,11 +183,11 @@
               <div class="cat-header">Shortest Hunt:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.shortestTime.total) }}:{{
-                  minutes(statistics?.shortestTime.total) }}:{{ seconds(statistics?.shortestTime.total) }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.shortestTime?.total) }}:{{
+                  minutes(statistics?.shortestTime?.total) }}:{{ seconds(statistics?.shortestTime?.total) }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.shortestTime.category} ${statistics?.shortestTime.name}` : statistics?.shortestTime.name
+                  statistics?.shortestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.shortestTime?.category} ${statistics?.shortestTime?.name}` : statistics?.shortestTime?.name
                 }}
               </div>
             </div>
@@ -185,10 +204,10 @@
               <div class="cat-header">Least Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.shortestCount.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.shortestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.shortestCount.category} ${statistics?.shortestCount.name}` : statistics?.shortestCount.name
+                  statistics?.shortestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.shortestCount?.category} ${statistics?.shortestCount?.name}` : statistics?.shortestCount?.name
                 }}
               </div>
             </div>
@@ -204,15 +223,178 @@
 import { defineAsyncComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 
-const GenerationChart = defineAsyncComponent(() => import("./TabGenerationChart.vue"));
+const TeraChart = defineAsyncComponent(() => import("./TeraChart.vue"));
 
 export default {
   name: "TabAll",
-  props: { tabName: { type: String }, id: { type: String } },
-  components: { GenerationChart },
+  props: { tabName: { type: String }, id: { type: String }, isShiny: { type: Boolean } },
+  components: { TeraChart },
   data() {
     return {
-      selectedGeneration: "all"
+      selectedType: {
+        label: this.isShiny ? "Shiny All" : "All",
+        value: this.isShiny ? "teraShinyAll" : "teraAll",
+        icon: "fas fa-gem"
+      },
+      selectedGeneration: "all",
+      selectionOption: [
+        {
+          label: "All",
+          value: "teraAll",
+          icon: "fas fa-gem"
+        }, {
+          label: "Bug",
+          value: "teraBug",
+          icon: "icon-type-2-bug"
+        }, {
+          label: "Dark",
+          value: "teraDark",
+          icon: "icon-type-2-dark"
+        }, {
+          label: "Dragon",
+          value: "teraDragon",
+          icon: "icon-type-2-dragon"
+        }, {
+          label: "Electric",
+          value: "teraElectric",
+          icon: "icon-type-2-electric"
+        }, {
+          label: "Fairy",
+          value: "teraFairy",
+          icon: "icon-type-2-fairy"
+        }, {
+          label: "Fighting",
+          value: "teraFighting",
+          icon: "icon-type-2-fighting"
+        }, {
+          label: "Fire",
+          value: "teraFire",
+          icon: "icon-type-2-fire"
+        }, {
+          label: "Flying",
+          value: "teraFlying",
+          icon: "icon-type-2-flying"
+        }, {
+          label: "Ghost",
+          value: "teraGhost",
+          icon: "icon-type-2-ghost"
+        }, {
+          label: "Grass",
+          value: "teraGrass",
+          icon: "icon-type-2-grass"
+        }, {
+          label: "Ground",
+          value: "teraGround",
+          icon: "icon-type-2-ground"
+        }, {
+          label: "Ice",
+          value: "teraIce",
+          icon: "icon-type-2-ice"
+        }, {
+          label: "Normal",
+          value: "teraNormal",
+          icon: "icon-type-2-normal"
+        }, {
+          label: "Poison",
+          value: "teraPoison",
+          icon: "icon-type-2-poison"
+        }, {
+          label: "Psychic",
+          value: "teraPsychic",
+          icon: "icon-type-2-psychic"
+        }, {
+          label: "Rock",
+          value: "teraRock",
+          icon: "icon-type-2-rock"
+        }, {
+          label: "Steel",
+          value: "teraSteel",
+          icon: "icon-type-2-steel"
+        }, {
+          label: "Water",
+          value: "teraWater",
+          icon: "icon-type-2-water"
+        }
+      ],
+      selectionOptionShiny: [
+        {
+          label: "Shiny All",
+          value: "teraShinyAll",
+          icon: "fas fa-gem"
+        }, {
+          label: "Shiny Bug",
+          value: "teraShinyBug",
+          icon: "icon-type-2-bug"
+        }, {
+          label: "Shiny Dark",
+          value: "teraShinyDark",
+          icon: "icon-type-2-dark"
+        }, {
+          label: "Shiny Dragon",
+          value: "teraShinyDragon",
+          icon: "icon-type-2-dragon"
+        }, {
+          label: "Shiny Electric",
+          value: "teraShinyElectric",
+          icon: "icon-type-2-electric"
+        }, {
+          label: "Shiny Fairy",
+          value: "teraShinyFairy",
+          icon: "icon-type-2-fairy"
+        }, {
+          label: "Shiny Fighting",
+          value: "teraShinyFighting",
+          icon: "icon-type-2-fighting"
+        }, {
+          label: "Shiny Fire",
+          value: "teraShinyFire",
+          icon: "icon-type-2-fire"
+        }, {
+          label: "Shiny Flying",
+          value: "teraShinyFlying",
+          icon: "icon-type-2-flying"
+        }, {
+          label: "Shiny Ghost",
+          value: "teraShinyGhost",
+          icon: "icon-type-2-ghost"
+        }, {
+          label: "Shiny Grass",
+          value: "teraShinyGrass",
+          icon: "icon-type-2-grass"
+        }, {
+          label: "Shiny Ground",
+          value: "teraShinyGround",
+          icon: "icon-type-2-ground"
+        }, {
+          label: "Shiny Ice",
+          value: "teraShinyIce",
+          icon: "icon-type-2-ice"
+        }, {
+          label: "Shiny Normal",
+          value: "teraShinyNormal",
+          icon: "icon-type-2-normal"
+        }, {
+          label: "Shiny Poison",
+          value: "teraShinyPoison",
+          icon: "icon-type-2-poison"
+        }, {
+          label: "Shiny Psychic",
+          value: "teraShinyPsychic",
+          icon: "icon-type-2-psychic"
+        }, {
+          label: "Shiny Rock",
+          value: "teraShinyRock",
+          icon: "icon-type-2-rock"
+        }, {
+          label: "Shiny Steel",
+          value: "teraShinySteel",
+          icon: "icon-type-2-steel"
+        }, {
+          label: "Shiny Water",
+          value: "teraShinyWater",
+          icon: "icon-type-2-water"
+        }
+      ]
     };
   },
 
@@ -226,7 +408,8 @@ export default {
       return percent;
     },
     statistics() {
-      return this.$store.getters[`statistics/${this.id}Stats`];
+      const stats = this.$store.getters["statistics/teraStats"];
+      return stats[this.selectedType?.value];
     },
     genDataTitle() {
       const title = this.selectedGeneration.split("");
@@ -270,6 +453,15 @@ export default {
 <style
   scoped
   lang="scss">
+
+.q-item__section--side :deep(.q-icon) {
+  font-size: 48px;
+}
+
+.q-item__section--side :deep(.fa-gem) {
+  font-size: 36px;
+  padding: 6px
+}
 
 .tab-header {
   font-family: Futura, sans-serif;

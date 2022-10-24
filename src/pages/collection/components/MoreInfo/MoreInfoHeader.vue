@@ -1,11 +1,11 @@
 <template>
   <q-card
-    class="header-container flex items-center justify-center"
+    class="header-container row items-center justify-center"
     square
     flat>
     <div
       class="text-center q-py-sm name-cont"
-      :class="desktopCheck() ? 'text-h3': ''">{{ pokemonInfo.name }}
+      :class="desktopCheck() ? 'text-h4': ''">{{ pokemonInfo.name }}
     </div>
     <div class="full-width q-pt-xs">
       <q-tabs

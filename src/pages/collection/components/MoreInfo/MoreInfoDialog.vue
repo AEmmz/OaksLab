@@ -38,19 +38,20 @@
         label="Track"></q-btn>
     </div>
     <div class="bg-white full-height desktop-tablet-view relative-position">
-      <q-btn
-        class="absolute-top-left"
-        color="primary"
-        flat
-        @click="toggleDetails()"
-        size="xl"
-        icon="fas fa-arrow-left"></q-btn>
       <div
         class="more-info-panel full-height">
-        <div class="header-panel flex justify-center">
+        <div class="row full-width">
+          <q-btn
+            class="arrow-button"
+            color="primary"
+            flat
+            @click="toggleDetails()"
+            size="xl"
+            icon="fas fa-arrow-left"></q-btn>
           <more-info-header
+            class="header-tabs"
             :pokemonInfo="pokemonInfo"
-            @changeTabs="changeTab"></more-info-header>
+            @changeTab="changeTab"></more-info-header>
         </div>
         <div class="information-panels flex justify-center">
           <more-info-tab-content
@@ -130,6 +131,14 @@ body.screen--xs, body.screen--sm, {
 }
 
 body.screen--md, body.screen--lg, body.screen--xl {
+  .arrow-button {
+    width: 15%
+  }
+
+  .header-tabs {
+    width: 85%
+  }
+
   .information-panels {
     min-height: 35rem;
   }

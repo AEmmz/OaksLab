@@ -100,7 +100,6 @@ export default {
     ...mapActions("tracker/caught", ["toggler", "addToCollection"]),
     async changeTab(tab) {
       this.tab = tab;
-      console.log("hit", this.tab);
     },
     setToggler(type) {
       if (this.pkIsActive) {

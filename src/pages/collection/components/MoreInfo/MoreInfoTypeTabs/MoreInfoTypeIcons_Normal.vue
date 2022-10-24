@@ -65,9 +65,6 @@
 export default {
   name: "MoreInfoTypeIcons",
   props: { pokemonInfo: { type: Object }, caught: { type: Boolean }, isAvailable: { type: Object } },
-  mounted() {
-    console.log("AVL", this.isAvailable);
-  },
   data() {
     return {
       tab: "normal"
