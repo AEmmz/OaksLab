@@ -2,28 +2,23 @@
   <q-card
     flat
     square
-    v-if="!desktopCheck() && !tabletCheck()"
+    v-if="!desktopCheck()"
     class="full-width bg-primary row justify-center button-container">
-    <router-link
-      :to="{
-							name: 'tracker',
-							params: { pkName: pokemonInfo.name.toLowerCase() },
-						}"
-      class="track-button-cont full-height">
-      <q-btn
-        class="full-height"
-        padding="sm xl"
-        size="md"
-        unelevated
-        icon="fas fa-paw"
-        label="Track"
-        color="primary"/>
-    </router-link>
+    <q-btn
+      class="button"
+      padding="sm xl"
+      size="md"
+      unelevated
+      icon="fas fa-paw"
+      label="Track"
+      color="primary"
+      :to="{ name: 'tracker', params: { pkName: pokemonInfo.name.toLowerCase() }}"/>
     <q-separator
       vertical
       inset
       dark></q-separator>
     <q-btn
+      class="button"
       padding="sm xl"
       size="md"
       unelevated
@@ -40,10 +35,7 @@ export default {
   props: { pokemonInfo: { type: Object }, toggleDetails: { type: Function } },
   methods: {
     desktopCheck() {
-      return this.$q.screen.gt.xs;
-    },
-    tabletCheck() {
-      return this.$q.screen.sm;
+      return this.$q.screen.gt.sm;
     }
   }
 };
@@ -55,16 +47,15 @@ export default {
 
 .button-container {
   font-family: Futura, sans-serif;
+  height: 8%;
 }
 
-body.screen--xs {
-  .button-container {
-    height: 8%;
-  }
+.button {
+  width: 49%;
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
 }
 
 </style>

@@ -2,7 +2,7 @@
 <template>
   <!-- Mobile View -->
   <div
-    v-if="!desktopCheck() && !tabletCheck()"
+    v-if="!desktopCheck()"
     class="more-info-card-cont"
     :class="desktopCheck() ? 'row items-center justify-center' : 'column justify-center'">
     <more-info-image
@@ -10,7 +10,7 @@
       :selectedImage="selectedImage"></more-info-image>
     <more-info-header
       :pokemonInfo="pokemonInfo"
-      @changeTabs="changeTab"></more-info-header>
+      @changeTab="changeTab"></more-info-header>
     <more-info-tab-content
       :pokemonInfo="pokemonInfo"
       :tabs="tabs"></more-info-tab-content>
@@ -21,7 +21,7 @@
 
   <!--Desktop & Tablet Views -->
   <div
-    v-if="desktopCheck() || tabletCheck()"
+    v-if="desktopCheck()"
     class="more-info-card-cont full-width"
     :class="desktopCheck() ? 'row items-center justify-center' : 'column justify-center'">
     <more-info-image
@@ -30,11 +30,11 @@
       :selectedImage="selectedImage"></more-info-image>
     <div class="tracker-button-cont absolute-bottom-left flex justify-end">
       <q-btn
-        v-if="tabletCheck() || desktopCheck()"
+        v-if="desktopCheck()"
         class="track-button"
         color="primary"
-        :size="tabletCheck() ? 'md' : 'xl'"
-        :padding="tabletCheck() ? '8px': '18px'"
+        size="xl"
+        padding="18px"
         label="Track"></q-btn>
     </div>
     <div class="bg-white full-height desktop-tablet-view relative-position">
@@ -43,22 +43,15 @@
         color="primary"
         flat
         @click="toggleDetails()"
-        :size="tabletCheck() ? 'md' : 'xl'"
+        size="xl"
         icon="fas fa-arrow-left"></q-btn>
-      <h6
-        v-if="tabletCheck()"
-        class="text-center q-py-sm tablet-name">{{ pokemonInfo.name }}</h6>
       <div
-        :class="{'row tablet-view': tabletCheck()}">
+        class="more-info-panel full-height">
         <div class="header-panel flex justify-center">
           <more-info-header
             :pokemonInfo="pokemonInfo"
             @changeTabs="changeTab"></more-info-header>
         </div>
-        <q-separator
-          v-if="tabletCheck()"
-          vertical
-          inset></q-separator>
         <div class="information-panels flex justify-center">
           <more-info-tab-content
             :pokemonInfo="pokemonInfo"
@@ -70,9 +63,7 @@
         :pokemonInfo="pokemonInfo"
         :toggleDetails="toggleDetails"></more-info-buttons>
     </div>
-
   </div>
-
 </template>
 
 <script>
@@ -95,7 +86,7 @@ export default {
   },
   data() {
     return {
-      tabs: "stats"
+      tabs: "caught"
     };
   },
   methods: {
@@ -103,12 +94,8 @@ export default {
       this.tabs = tab;
     },
     desktopCheck() {
-      return this.$q.screen.gt.xs;
-    },
-    tabletCheck() {
-      return this.$q.screen.sm;
+      return this.$q.screen.gt.sm;
     }
-
   }
 };
 </script>
@@ -126,7 +113,7 @@ export default {
   font-family: Futura, sans-serif;
 }
 
-body.screen--xs, {
+body.screen--xs, body.screen--sm, {
   .more-info-card-cont {
     position: relative;
     height: 100%;
@@ -142,59 +129,10 @@ body.screen--xs, {
   }
 }
 
-body.screen--sm {
-  .more-info-card-cont {
-    position: relative;
-    max-height: 95%;
-    height: 100%;
-    width: 90%;
-    max-width: 120rem;
-    overflow: hidden;
-    border-radius: 0.7rem;
-  }
-
-  .more-info-card {
-    overflow: hidden;
-    border-radius: 0.7rem;
-  }
-
-  .desktop-tablet-view {
-    width: 75%;
-    border-radius: 0.7rem 0.7rem 0.7rem 0;
-    overflow: hidden;
-  }
-
-  .tablet-name {
-    height: 15%;
-    font-family: Futura, sans-serif;
-  }
-
-  .tablet-view {
-    display: flex;
-    justify-content: center;
-    height: 85%;
-  }
-
-  .header-panel {
-    width: 18%;
-  }
-
-  .information-panels {
-    width: 79%;
-  }
-
-  .tracker-button-cont {
-    width: 25%;
-  }
-
-  .track-button {
-    width: 70%;
-    margin: 0 0;
-    border-radius: 0.3rem 0 0 0.3rem;
-  }
-}
-
 body.screen--md, body.screen--lg, body.screen--xl {
+  .information-panels {
+    min-height: 35rem;
+  }
 
   .more-info-card-cont {
     position: relative;
@@ -213,7 +151,7 @@ body.screen--md, body.screen--lg, body.screen--xl {
   .desktop-tablet-view {
     width: 70%;
     border-radius: 0.7rem 0.7rem 0.7rem 0;
-    overflow: hidden;
+    overflow: scroll;
   }
 
 

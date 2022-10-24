@@ -58,168 +58,52 @@
       <div
         class="card-back-info-cont column items-center q-px-xs absolute-center bg-light"
         :class="{'full-width full-height q-pb-md q-pt-sm' : !desktopCheck()}">
-        <div class="card-back-name col flex items-center justify-center">
+        <div class="card-back-name row items-center justify-center col-3">
           <fit-text-alt class="name">
             {{ pokemon.name }}
           </fit-text-alt>
         </div>
         <div
-          class="card-back-info full-width"
-          :class="{'column  col-8': desktopCheck(), 'row col-6' : !desktopCheck()}">
-          <q-separator inset/>
-          <div
-            class="q-ma-xs col column items-center icons-cont"
-            :class="{'justify-center': desktopCheck(), '' : !desktopCheck()}">
-            <span class="card-back-subtitle q-pb-xs">Caught</span>
-            <div class="icons flex justify-center q-gutter-xs">
-              <q-icon
-                v-if="pokemon.caught[0].normalCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokeball"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinyCaught && statusLock.shinyAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-shiny"/>
-              <q-icon
-                v-if="pokemon.caught[0].alphaCaught && statusLock.alphaAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-alpha"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-alpha-shiny"/>
-              <q-icon
-                v-if="pokemon.caught[0].pokerusCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokerus"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinyPokerusCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokerus-shiny"/>
-              <q-icon
-                v-if="pokemon.caught[0].markedCaught && statusLock.markedAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-marked"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-marked-shiny"/>
-              <q-icon
-                v-if="pokemon.caught[0].sixIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-six"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinySixIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-six-shiny"/>
-              <q-icon
-                v-if="pokemon.caught[0].zeroIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-zero"/>
-              <q-icon
-                v-if="pokemon.caught[0].shinyZeroIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-zero-shiny"/>
-            </div>
-          </div>
-          <q-separator inset/>
-          <div
-            class="q-ma-xs col column items-center icons-cont"
-            :class="{' justify-center q-pb-xs': desktopCheck(), '' : !desktopCheck()}">
-            <span class="card-back-subtitle q-pb-xs">Uncaught</span>
-            <div class="icons flex justify-center q-gutter-xs">
-              <q-icon
-                v-if="!pokemon.caught[0].normalCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokeball"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinyCaught && statusLock.shinyAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-shiny"/>
-              <q-icon
-                v-if="!pokemon.caught[0].alphaCaught && statusLock.alphaAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-alpha"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinyAlphaCaught && statusLock.shinyAlphaAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-alpha-shiny"/>
-              <q-icon
-                v-if="!pokemon.caught[0].pokerusCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokerus"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinyPokerusCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-pokerus-shiny"/>
-              <q-icon
-                v-if="!pokemon.caught[0].markedCaught && statusLock.markedAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-marked"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinyMarkedCaught && statusLock.shinyMarkedAvailable"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-marked-shiny"/>
-              <q-icon
-                v-if="!pokemon.caught[0].sixIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-six"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinySixIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-six-shiny"/>
-              <q-icon
-                v-if="!pokemon.caught[0].zeroIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-zero"/>
-              <q-icon
-                v-if="!pokemon.caught[0].shinyZeroIvCaught"
-                :size="desktopCheck() ? 'xs' : 'sm'"
-                name="icon-poke-zero-shiny"/>
-            </div>
-          </div>
-          <q-separator inset/>
-        </div>
-
-        <div
-          class="card-back-buttons items-center  col-3 full-width"
-          :class="desktopCheck() ? 'row justify-around' : 'column justify-center' ">
-          <router-link
-            :to="{
-							name: 'tracker',
-							params: { pkName: pokemon.name.toLowerCase() },
-						}"
-            class="track-button-cont">
+          class="card-back-buttons full-width column col-9 justify-center items-center">
+          <div class="col-3 flex justify-center q-mb-sm">
             <q-btn
-              :round="desktopCheck()"
-              class="q-ma-xs"
+              class="q-ma-xs col-12"
               :padding="desktopCheck() ? 'sm' : 'sm lg'"
-              :size="desktopCheck() ? 'sm' : 'md'"
+              :size="desktopCheck() ? 'md' : 'md'"
               color="primary"
-              icon="fas fa-paw">
+              label="Track"
+              icon="fas fa-paw"
+              :to="{
+        							name: 'tracker',
+        							params: { pkName: pokemon.name.toLowerCase() },
+        						}">
               <q-tooltip class="text-body1">Track</q-tooltip>
             </q-btn>
-          </router-link>
-          <q-btn
-            :round="desktopCheck()"
-            class="q-ma-xs"
-            :padding="desktopCheck() ? 'sm' : 'sm lg'"
-            :size="desktopCheck() ? 'sm' : 'md'"
-            color="primary"
-            icon="fas fa-info"
-            @click="details = true">
-            <q-tooltip class="text-body1">More Info</q-tooltip>
-          </q-btn>
-          <q-btn
-            :round="desktopCheck()"
-            class="q-ma-xs"
-            :padding="desktopCheck() ? 'sm' : 'sm lg'"
-            :size="desktopCheck() ? 'sm' : 'md'"
-            color="primary"
-            icon="fas fa-pen"
-            @click="quickEdit = true">
-            <q-tooltip class="text-body1">Quick Edit</q-tooltip>
-          </q-btn>
+          </div>
+          <div class="col-3 flex justify-center q-mb-sm">
+            <q-btn
+              class="q-ma-xs"
+              :padding="desktopCheck() ? 'sm' : 'sm lg'"
+              :size="desktopCheck() ? 'md' : 'md'"
+              color="primary"
+              icon="fas fa-info"
+              label="More Info"
+              @click="details = true">
+              <q-tooltip class="text-body1">More Info</q-tooltip>
+            </q-btn>
+          </div>
+          <div class="col-3 flex justify-center">
+            <q-btn
+              class="q-ma-xs"
+              :padding="desktopCheck() ? 'sm' : 'sm lg'"
+              :size="desktopCheck() ? 'md' : 'md'"
+              color="primary"
+              icon="fas fa-pen"
+              label="Quick Edit"
+              @click="quickEdit = true">
+              <q-tooltip class="text-body1">Quick Edit</q-tooltip>
+            </q-btn>
+          </div>
         </div>
       </div>
     </q-card>
@@ -319,8 +203,11 @@ export default {
   opacity: 0.25;
 }
 
-
 body.screen--xs {
+  .card :deep(.q-btn) {
+    width: 12rem;
+  }
+
   .card-cont {
     position: relative;
     width: 100%;
@@ -351,14 +238,14 @@ body.screen--xs {
     text-align: left;
     left: 1rem;
     height: 8rem;
-    width: 50%;
+    width: 70%;
     opacity: 50%;
     font-family: Futura, sans-serif;
   }
 
   .card-back-name {
     text-align: center;
-    height: 5rem;
+    //height: 5rem;
     width: 10rem;
     opacity: 70%;
     font-family: Futura, sans-serif;
@@ -395,6 +282,10 @@ body.screen--xs {
 }
 
 body.screen--sm, body.screen--md, body.screen--lg, body.screen--xl {
+  .card :deep(.q-btn) {
+    width: 8rem;
+  }
+
   .card-cont {
     position: relative;
   }
@@ -420,10 +311,10 @@ body.screen--sm, body.screen--md, body.screen--lg, body.screen--xl {
     display: block;
     position: absolute;
     text-align: left;
-    top: 3rem;
+    top: 0rem;
     left: -0.5rem;
     height: 8rem;
-    width: 15rem;
+    width: 18rem;
     transform: rotate(-90deg) translate(-107%, 0);
     transform-origin: 0 0;
     opacity: 50%;
@@ -432,7 +323,7 @@ body.screen--sm, body.screen--md, body.screen--lg, body.screen--xl {
 
   .card-back-name {
     text-align: center;
-    height: 5rem;
+    //height: 5rem;
     width: 10rem;
     opacity: 70%;
     font-family: Futura, sans-serif;

@@ -4,16 +4,14 @@
     square
     flat>
     <div
-      v-if="!tabletCheck()"
       class="text-center q-py-sm name-cont"
-      :class="desktopCheck() ? 'text-h3': 'text-h4'">{{ pokemonInfo.name }}
+      :class="desktopCheck() ? 'text-h3': ''">{{ pokemonInfo.name }}
     </div>
     <div class="full-width q-pt-xs">
       <q-tabs
-        :vertical="tabletCheck()"
+        :breakpoint="1000"
+        active-color="primary"
         v-model="tab"
-        model-value="tab"
-        @update:model-value="$emit('changeTabs', tab)"
         class="text-primary col-9 info-tabs">
         <q-tab
           name="stats"
@@ -22,19 +20,13 @@
         <q-tab
           name="caught"
           icon="icon-poke-pokeball"
-          label="caught">
-          <q-badge
-            color="red"
-            floating>{{ statsCount }}
-          </q-badge>
-        </q-tab>
+          label="caught"></q-tab>
         <q-tab
           name="uncaught"
           icon="fas fa-paw"
           label="uncaught"></q-tab>
       </q-tabs>
       <q-separator
-        v-if="!tabletCheck()"
         class="q-mb-md"></q-separator>
     </div>
   </q-card>
@@ -46,8 +38,15 @@ export default {
   props: { pokemonInfo: { type: Object } },
   data() {
     return {
-      tab: "stats"
+      tab: "caught"
     };
+  },
+  watch: {
+    tab(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$emit("changeTab", this.tab);
+      }
+    }
   },
   computed: {
     statsCount() {
@@ -56,11 +55,9 @@ export default {
   },
   methods: {
     desktopCheck() {
-      return this.$q.screen.gt.xs;
+      return this.$q.screen.gt.sm;
     },
-    tabletCheck() {
-      return this.$q.screen.sm;
-    },
+
     caughtCount() {
       let count = 0;
       let caught = this.pokemonInfo.caught[0];
@@ -85,9 +82,13 @@ export default {
   font-family: Futura, sans-serif
 }
 
-body.screen--xs, {
+body.screen--xs, body.screen--sm {
   .header-container {
     height: 20%;
+  }
+
+  .name-cont {
+    font-size: 1.1rem;
   }
 }
 

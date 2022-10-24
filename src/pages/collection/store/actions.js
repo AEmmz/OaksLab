@@ -31,15 +31,7 @@ export default {
   },
 
   lockCheck(context, payload) {
-    //payload === apiNo
-    const locked = catchLock(payload);
-    return {
-      shinyAvailable: locked.shiny,
-      alphaAvailable: locked.alpha,
-      shinyAlphaAvailable: locked.shinyAlpha,
-      markedAvailable: locked.marked,
-      shinyMarkedAvailable: locked.shinyMarked
-    };
+    return catchLock(payload);
   },
 
   ////////////////////////////////////////////////////

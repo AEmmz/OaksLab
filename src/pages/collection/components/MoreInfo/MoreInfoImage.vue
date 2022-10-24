@@ -25,10 +25,7 @@ export default {
   props: { pokemonInfo: { type: Object }, selectedImage: { type: String } },
   methods: {
     desktopCheck() {
-      return this.$q.screen.gt.xs;
-    },
-    tabletCheck() {
-      return this.$q.screen.sm;
+      return this.$q.screen.gt.sm;
     },
     iconSize() {
       if (this.$q.screen.xs) return "175px";
@@ -47,7 +44,7 @@ export default {
   opacity: 0.20;
 }
 
-body.screen--xs {
+body.screen--xs, body.screen--sm {
   .image-container {
     height: 25%;
   }
@@ -63,29 +60,29 @@ body.screen--xs {
   }
 }
 
-body.screen--sm {
-  .image-container {
-    border-radius: 0.7rem 0 0 0.7rem;
-    height: 70%;
-    width: 25%;
-  }
-
-  .type-icon {
-    max-height: 100%;
-    max-width: 100%;
-  }
-
-  .card-image {
-    width: 200px;
-    left: 1rem;
-    bottom: 0.5rem
-  }
-
-  .track-button {
-    bottom: 20rem;
-  }
-
-}
+//body.screen--sm {
+//  .image-container {
+//    border-radius: 0.7rem 0 0 0.7rem;
+//    height: 70%;
+//    width: 25%;
+//  }
+//
+//  .type-icon {
+//    max-height: 100%;
+//    max-width: 100%;
+//  }
+//
+//  .card-image {
+//    width: 200px;
+//    left: 1rem;
+//    bottom: 0.5rem
+//  }
+//
+//  .track-button {
+//    bottom: 20rem;
+//  }
+//
+//}
 
 body.screen--md, body.screen--lg, body.screen--xl {
   .image-container {
