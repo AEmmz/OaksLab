@@ -6,10 +6,13 @@
       {{ desktopCheck() ? "" : "Statistics - " }}{{ tabName }}
     </div>
     <q-separator></q-separator>
-    <div class="type-selector q-mt-lg">
+    <div class="type-selector q-mt-lg full-width">
       <q-select
+        :class="desktopCheck() ? '' : 'q-field--dark'"
         label="Type:"
-        filled
+        outlined
+        size="lg"
+        color="primary"
         options-selected-class="bg-primary text-light"
         v-model="selectedType"
         :model-value="selectedType"
@@ -440,12 +443,8 @@ export default {
       });
     },
     desktopCheck() {
-      return this.$q.screen.gt.sm ? true : false;
-    },
-    mediumCheck() {
-      return this.$q.screen.md ? true : false;
+      return this.$q.screen.gt.sm;
     }
-
   }
 };
 </script>
