@@ -1,96 +1,74 @@
-export const catchLock = (id) => {
-  let isShinyAvailable = false;
-  let isAlphaAvailable = false;
-  let isShinyAlphaAvailable = false;
-  let isMarkedAvailable = false;
-  let isShinyMarkedAvailable = false;
-  let isZeroIvAvailable = false;
-  const pkId = +id;
+import { shinyLocked } from "src/util/huntLockData/shiny";
+import { alphaAvailable } from "src/util/huntLockData/alpha";
+import { markedAvailable } from "src/util/huntLockData/marked";
+import { shinyMarkedAvailable } from "src/util/huntLockData/shinyMarked";
+import { zeroIvLocked } from "src/util/huntLockData/zeroIv";
+import { teraAvailable } from "src/util/huntLockData/tera";
 
-  //Unobtainable Shiny Pokemon
-  const shinyLockArray = [
-    10018, 10024, 10086, 10147, 10191, 10193, 10194, 10226, 10227, 10249, 20103, 20112, 494, 647, 648, 720, 721,
-    789, 790, 801, 802, 890, 891, 892, 893, 896, 897, 898, 905
-  ];
+export const catchLock = (apiNo) => {
+  const shinyLockArray = shinyLocked;
+  const zeroIvLockArray = zeroIvLocked;
+  const alphaAvailableArray = alphaAvailable;
+  const markedAvailableArray = markedAvailable;
+  const shinyMarkedAvailableArray = shinyMarkedAvailable;
+  const teraAvailableArray = teraAvailable;
 
-  //Obtainable Alpha Pokemon & Shiny Alpha Pokemon
-  const alphaAvailableArray = [
-    10004, 10005, 10008, 10009, 10010, 10011, 10012, 10229, 10230, 10231, 10232, 10233, 10234,
-    10235, 10236, 10237, 10238, 10239, 10240, 10241, 10242, 10243, 10244, 10247, 10248, 108, 111,
-    112, 113, 114, 122, 123, 125, 126, 129, 130, 133, 134, 135, 136, 137, 143, 155, 156, 169, 169,
-    172, 173, 175, 176, 185, 190, 193, 196, 197, 198, 200, 201, 20200, 20201, 20202, 20203, 20204,
-    20205, 20206, 20207, 20208, 20209, 20210, 20211, 20212, 20213, 20214, 20215, 20216, 20217,
-    20218, 20219, 20220, 20221, 20222, 20223, 20224, 20225, 20226, 20500, 20501, 20502, 20503, 207,
-    208, 212, 214, 215, 216, 217, 220, 221, 223, 224, 226, 233, 234, 239, 240, 242, 25, 26, 265,
-    266, 267, 268, 269, 280, 281, 282, 299, 315, 339, 340, 35, 355, 356, 358, 36, 361, 362, 363,
-    364, 365, 37, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402,
-    403, 404, 405, 406, 407, 408, 409, 41, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 42,
-    420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438,
-    439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 455, 456, 456, 457,
-    458, 459, 46, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 47, 470, 471, 472, 473, 474,
-    475, 476, 477, 478, 479, 501, 502, 54, 548, 55, 627, 63, 64, 65, 66, 67, 68, 700, 704, 712, 72,
-    722, 723, 73, 74, 75, 76, 77, 78, 81, 82, 899, 900, 901, 902, 903, 904, 92, 93, 94, 95
-  ];
-
-  //Obtainable Narked Pokemon & Shiny Marked Pokemon
-  const markedAvailableArray = [
-    10, 10008, 10009, 10010, 10011, 10012, 10016, 10024, 10025, 10126, 10127, 10152, 10161,
-    10162, 10163, 10164, 10166, 10167, 10168, 10169, 10170, 10171, 10172, 10173, 10174, 10175,
-    10176, 10177, 10178, 10179, 10180, 10184, 10198, 10199, 102, 10200, 10201, 10202, 10203, 10204, 10205, 10206, 10207,
-    10212, 10213, 10214, 10215, 10216, 10217, 10218, 10219, 10220, 10221, 10222, 10223, 10224, 10225,
-    10228, 103, 104, 105, 106, 107, 108, 109, 11, 111, 112,
-    113, 114, 115, 116, 117, 118, 119, 12, 120, 121, 123, 124, 125, 126, 127, 128, 129, 130, 131,
-    132, 133, 134, 135, 136, 138, 139, 140, 141, 142, 143, 147, 148, 149, 163, 164, 169, 170, 171,
-    172, 175, 176, 177, 178, 182, 183, 184, 185, 186, 194, 195, 196, 197, 199, 202, 20300, 20301, 20302, 20303, 20304, 20305, 20306, 20307, 20309, 20310, 20311, 20312, 20313, 20314, 20315, 20316, 20317, 20319, 20320, 20321, 20322, 20323, 20324, 20325, 20326, 20327, 20329, 20330, 20331, 20332, 20333, 20334, 20335, 20336, 20337, 20339, 20340, 20341, 20342, 20343, 20344, 20345, 20346, 20347, 20349, 20350, 20351, 20352, 20353, 20354, 20355, 20356, 20357, 20359, 20360, 20361, 20362, 20363, 20364, 20365, 20366, 20367, 20500, 20501, 20524, 20525, 206, 208, 211, 212, 213, 214, 215, 220, 221, 223, 224, 225, 226, 227, 230, 236,
-    237, 238, 239, 240, 241, 242, 246, 247, 248, 25, 26, 27, 270, 271, 272, 273, 274, 275, 278, 279,
-    28, 280, 281, 282, 29, 290, 291, 293, 294, 295, 298, 30, 302, 303, 304, 305, 306, 309, 31, 310,
-    315, 318, 319, 32, 320, 321, 324, 328, 329, 33, 330, 333, 334, 337, 338, 339, 34, 340, 341, 342,
-    343, 344, 345, 346, 347, 348, 349, 35, 350, 355, 356, 359, 36, 361, 362, 363, 364, 365, 369, 37,
-    371, 372, 373, 374, 375, 376, 38, 39, 40, 403, 404, 405, 406, 407, 41, 415, 416, 42, 420, 421,
-    422, 423, 425, 426, 427, 428, 43, 434, 435, 436, 437, 438, 439, 44, 440, 442, 443, 444, 445,
-    446, 447, 448, 449, 45, 450, 451, 452, 453, 454, 458, 459, 460, 461, 462, 463, 464, 465, 466,
-    467, 468, 470, 471, 473, 475, 477, 478, 479, 50, 506, 507, 508, 509, 51, 510, 517, 518, 519,
-    520, 521, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 54,
-    543, 544, 545, 546, 547, 548, 549, 55, 550, 551, 552, 553, 556, 557, 558, 559, 560, 561, 564,
-    565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 58, 582, 583, 584,
-    587, 588, 589, 59, 590, 591, 592, 593, 595, 596, 597, 598, 599, 60, 600, 601, 605, 606, 607,
-    608, 609, 61, 610, 611, 612, 613, 614, 615, 616, 617, 619, 62, 620, 621, 622, 623, 624, 625,
-    626, 627, 628, 629, 63, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 64, 640, 647, 65, 659,
-    66, 660, 661, 662, 663, 67, 674, 675, 677, 678, 679, 68, 680, 681, 682, 683, 684, 685, 686, 687,
-    688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706,
-    707, 708, 709, 710, 711, 712, 713, 714, 715, 72, 73, 736, 737, 738, 742, 743, 744, 745, 746,
-    747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765,
-    766, 767, 768, 769, 770, 771, 776, 777, 778, 780, 781, 782, 783, 784, 80, 81, 819, 82, 820, 821,
-    822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840,
-    841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859,
-    860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878,
-    879, 884, 885, 886, 887, 90, 91, 92, 93, 94, 95, 98, 99
-  ];
-
-  const zeroIvArray = [891, 892, 10226, 10191, 10227];
-
-  const shinyMarkedLocked = new Set([10169, 10170, 10171, 10024, 647]);
-  const shinyMarkedAvailableArray = markedAvailableArray.filter((x) => !shinyMarkedLocked.has(x));
-
-  if (!shinyLockArray.includes(pkId)) isShinyAvailable = true;
-  if (alphaAvailableArray.includes(pkId)) isAlphaAvailable = true;
-  if (alphaAvailableArray.includes(pkId)) isShinyAlphaAvailable = true;
-  if (markedAvailableArray.includes(pkId)) isMarkedAvailable = true;
-  if (shinyMarkedAvailableArray.includes(pkId)) isShinyMarkedAvailable = true;
-  if (!zeroIvArray.includes(pkId)) isZeroIvAvailable = true;
+  const isShinyAvailable = !shinyLockArray.includes(+apiNo);
+  const isAlphaAvailable = alphaAvailableArray.includes(+apiNo);
+  const isMarkedAvailable = markedAvailableArray.includes(+apiNo);
+  const isShinyMarkedAvailable = shinyMarkedAvailableArray.includes(+apiNo);
+  const isZeroIvAvailable = !zeroIvLockArray.includes(+apiNo);
+  const isTeraAvailable = teraAvailableArray.includes(+apiNo);
 
   return {
     normal: true,
     shiny: isShinyAvailable,
     alpha: isAlphaAvailable,
-    shinyAlpha: isShinyAlphaAvailable,
+    shinyAlpha: isAlphaAvailable && isShinyAvailable,
     marked: isMarkedAvailable,
     shinyMarked: isShinyMarkedAvailable,
     pokerus: true,
-    shinyPokerus: true,
+    shinyPokerus: isShinyAvailable,
     sixIv: true,
-    shinySixIv: true,
+    shinySixIv: isShinyAvailable,
     zeroIv: isZeroIvAvailable,
-    shinyZeroIv: isZeroIvAvailable
+    shinyZeroIv: isZeroIvAvailable && isShinyAvailable,
+
+    teraBug: isTeraAvailable,
+    teraDark: isTeraAvailable,
+    teraDragon: isTeraAvailable,
+    teraElectric: isTeraAvailable,
+    teraFairy: isTeraAvailable,
+    teraFighting: isTeraAvailable,
+    teraFire: isTeraAvailable,
+    teraFlying: isTeraAvailable,
+    teraGhost: isTeraAvailable,
+    teraGrass: isTeraAvailable,
+    teraGround: isTeraAvailable,
+    teraIce: isTeraAvailable,
+    teraNormal: isTeraAvailable,
+    teraPoison: isTeraAvailable,
+    teraPsychic: isTeraAvailable,
+    teraRock: isTeraAvailable,
+    teraSteel: isTeraAvailable,
+    teraWater: isTeraAvailable,
+    teraShinyBug: isTeraAvailable && isShinyAvailable,
+    teraShinyDark: isTeraAvailable && isShinyAvailable,
+    teraShinyDragon: isTeraAvailable && isShinyAvailable,
+    teraShinyElectric: isTeraAvailable && isShinyAvailable,
+    teraShinyFairy: isTeraAvailable && isShinyAvailable,
+    teraShinyFighting: isTeraAvailable && isShinyAvailable,
+    teraShinyFire: isTeraAvailable && isShinyAvailable,
+    teraShinyFlying: isTeraAvailable && isShinyAvailable,
+    teraShinyGhost: isTeraAvailable && isShinyAvailable,
+    teraShinyGrass: isTeraAvailable && isShinyAvailable,
+    teraShinyGround: isTeraAvailable && isShinyAvailable,
+    teraShinyIce: isTeraAvailable && isShinyAvailable,
+    teraShinyNormal: isTeraAvailable && isShinyAvailable,
+    teraShinyPoison: isTeraAvailable && isShinyAvailable,
+    teraShinyPsychic: isTeraAvailable && isShinyAvailable,
+    teraShinyRock: isTeraAvailable && isShinyAvailable,
+    teraShinySteel: isTeraAvailable && isShinyAvailable,
+    teraShinyWater: isTeraAvailable && isShinyAvailable
   };
 };

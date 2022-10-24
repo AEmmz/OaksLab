@@ -106,7 +106,7 @@ export default {
   methods: {
     ...mapActions("tracker/forms", ["fetchForms"]),
     ...mapActions("tracker", ["changeActivePokemon"]),
-    ...mapActions("tracker/counter", ["changeCount"]),
+    ...mapActions("tracker/counter", ["changeCount", "changeHuntCount"]),
 
     desktopCheckHunt() {
       if (this.$q.screen.gt.sm) this.searchHunt();
@@ -136,8 +136,9 @@ export default {
         setType: form.types
       };
       await this.changeActivePokemon(inputPokemon);
-      const data = this.hunt.toLowerCase();
-      await this.changeCount(data);
+      const huntType = this.hunt.toLowerCase();
+      await this.changeCount();
+      await this.changeHuntCount(huntType);
       await this.fetchForms();
     },
     pkTypeColor() {

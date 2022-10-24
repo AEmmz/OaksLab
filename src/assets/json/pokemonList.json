@@ -10606,6 +10606,14 @@
       "types": [
         "fire"
       ]
+    },
+    {
+      "name": "Quaxly",
+      "dexNo": "912",
+      "apiNo": "912",
+      "types": [
+        "water"
+      ]
     }
   ]
 }

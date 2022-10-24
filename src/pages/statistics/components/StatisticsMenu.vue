@@ -12,8 +12,6 @@
       vertical
       inline-label
       v-model="tab"
-      model-value="tab"
-      @update:model-value="$emit('changeTabs', tab)"
       class="text-light flex justify-center"
       :class="desktopCheck ? '' : 'full-width'">
       <div
@@ -35,6 +33,7 @@
         inset
         dark/>
       <div class="text-center tab-subheader">Hunts</div>
+
       <q-tab
         class="tab"
         name="normal"
@@ -45,6 +44,16 @@
         name="shiny"
         icon="icon-poke-shiny"
         label="shiny"></q-tab>
+      <q-tab
+        class="tab"
+        name="tera"
+        icon="fas fa-gem"
+        label="tera"></q-tab>
+      <q-tab
+        class="tab"
+        name="shinyTera"
+        icon="fas fa-gem"
+        label="shiny tera"></q-tab>
       <q-tab
         class="tab"
         name="alpha"
@@ -107,6 +116,13 @@ export default {
     return {
       tab: "all"
     };
+  },
+  watch: {
+    tab(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$emit("changeTab", this.tab);
+      }
+    }
   },
   methods: {
     desktopCheck() {

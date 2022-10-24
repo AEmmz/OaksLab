@@ -84,7 +84,6 @@ export default {
   data() {
     return {
       timer: null,
-      // timerRunning: false,
       savedTimer: 0,
       timerDialog: false
     };

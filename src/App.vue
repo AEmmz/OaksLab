@@ -13,16 +13,18 @@
       </router-view>
     </q-page-container>
     <!--      </main>-->
+    <the-footer-bar></the-footer-bar>
   </q-layout>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TheNavigationBar from "./components/navigation/TheNavigationBar.vue";
+import TheFooterBar from "components/navigation/TheFooterBar.vue";
 
 export default {
   components: {
-    TheNavigationBar
+    TheNavigationBar, TheFooterBar
   },
   computed: {
     ...mapGetters("authorization", ["uid"])

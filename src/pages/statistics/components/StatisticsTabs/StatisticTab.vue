@@ -3,7 +3,7 @@
     <div
       class="text-h5 tab-header"
       :class="desktopCheck()?'':'text-light'">
-      {{ desktopCheck() ? "" : "Statistics" }} - {{ tabName }}
+      {{ desktopCheck() ? "" : "Statistics - " }}{{ tabName }}
     </div>
     <q-separator></q-separator>
     <div
@@ -25,7 +25,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Total Caught:</div>
           <div
             class="cat-value"
@@ -48,7 +48,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Total Available:</div>
           <div
             class="cat-value"
@@ -71,7 +71,7 @@
         </div>
         <div
           class="column"
-          :class="desktopCheck() ? '' : 'items-center q-mt-sm'">
+          :class="desktopCheck() ? '' : 'items-center q-mt-sm text-center'">
           <div class="cat-header">Completion:</div>
           <div
             class="cat-value"
@@ -215,10 +215,15 @@ export default {
       selectedGeneration: "all"
     };
   },
+
   computed: {
     ...mapGetters("statistics", ["userDb"]),
     completionPercentage() {
-      return ((this.statistics.total / this.statistics.available) * 100).toFixed(1);
+      const percent = ((this.statistics?.total / this.statistics?.available) * 100).toFixed(1);
+      if (percent === "NaN") {
+        return 0;
+      }
+      return percent;
     },
     statistics() {
       return this.$store.getters[`statistics/${this.id}Stats`];

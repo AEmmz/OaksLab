@@ -121,28 +121,7 @@
           :disable="!caughtData.available.shinySixIv"/>
         <p class="text-body2 text-light">Shiny Six IV</p>
       </div>
-      <div
-        class="full-width flex justify-center gt-sm">
-        <q-btn
-          @click="$emit('closeEditDialog')"
-          class="col-12"
-          color="primary"
-          size="lg"
-          label="Close"></q-btn>
-      </div>
     </q-card>
-
-    <q-page-sticky
-      class="lt-md"
-      position="bottom"
-      :offset="[18,20]">
-      <q-btn
-        @click="$emit('closeEditDialog')"
-        vertical-actions-align="right"
-        color="primary"
-        size="1rem"
-        label="Close"></q-btn>
-    </q-page-sticky>
   </div>
 </template>
 
@@ -150,46 +129,15 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  async mounted() {
-    this.caughtData = await this.quickEditCaughtCheck(this.quickEditPokemon);
-  },
   data() {
     return {
-      toggleSize: "80px",
-      caughtData: {
-        caught: {
-          normal: false,
-          shiny: false,
-          alpha: false,
-          shinyAlpha: false,
-          pokerus: false,
-          shinyPokerus: false,
-          marked: false,
-          shinyMarked: false,
-          zeroIv: false,
-          shinyZeroIv: false,
-          sixIv: false,
-          shinySixIv: false
-        },
-        available: {
-          normal: false,
-          shiny: false,
-          alpha: false,
-          shinyAlpha: false,
-          pokerus: false,
-          shinyPokerus: false,
-          marked: false,
-          shinyMarked: false,
-          zeroIv: false,
-          shinyZeroIv: false,
-          sixIv: false,
-          shinySixIv: false
-        }
-      }
+      tab: "normal",
+      toggleSize: "80px"
     };
   },
-  props: { quickEditPokemon: { type: Object, required: false } },
+  props: { quickEditPokemon: { type: Object } },
   computed: {
+    ...mapGetters({ caughtData: "collection/caughtData_Pokeball" }),
     pkToggleColor() {
       return `${this.quickEditPokemon.type[0]}Type`;
     },
@@ -199,12 +147,13 @@ export default {
   },
   methods: {
     ...mapActions("collection", ["quickEditToggler", "quickEditCaughtCheck"]),
-    setToggler(huntType) {
+    async setToggler(huntType) {
       if (this.pkIsActive) {
-        console.log("hit1");
-        this.caughtData.caught[huntType] = !this.caughtData.caught[huntType];
-        console.log(this.caughtData.caught.normal);
-        this.quickEditToggler({ huntType: huntType, apiNo: this.quickEditPokemon.apiNo, caughtData: this.caughtData });
+        await this.quickEditToggler({
+          tab: "pokeball",
+          huntType: huntType,
+          apiNo: this.quickEditPokemon.apiNo
+        });
       }
     },
     sizeCheck() {
@@ -218,11 +167,20 @@ export default {
   scoped
   lang="scss">
 
+.panels {
+  margin: 0;
+  padding: 0;
+}
+
 body.screen--xs, body.screen--sm {
   .quick-edit-card-cont {
     position: relative;
     max-height: 85%;
     width: 100%;
+  }
+
+  .toggles-cont {
+    max-height: 78% !important;
   }
 }
 
@@ -236,39 +194,5 @@ body.screen--md, body.screen--lg, body.screen--lx {
   .close-button {
     transform: translateY(2rem);
   }
-}
-
-* {
-  font-family: Gellix, sans-serif;
-}
-
-.toggle {
-  text-align: center;
-}
-
-.toggle > > > .q-toggle__inner--truthy .q-toggle__track {
-  box-shadow: 0 0 15px 1px currentColor;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb:after {
-  background: rgb(63, 63, 63);
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb i {
-  color: #fff;
-  opacity: 0.54;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__track {
-  color: #000;
-}
-
-.toggle > > > .disabled .q-toggle__inner .q-toggle__thumb {
-  left: 0.45em;
-}
-
-.toggle > > > .q-toggle__inner--indet .q-toggle__thumb:after,
-.toggle > > > .q-toggle__inner--falsy .q-toggle__thumb:after {
-  background: rgb(126, 126, 126);
 }
 </style>

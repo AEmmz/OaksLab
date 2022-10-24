@@ -257,10 +257,6 @@ body.screen--md, body.screen--lg, body.screen--xl, {
   .slider-text {
     width: 50%;
   }
-
-  .slider > > > .q-slider__text {
-    font-size: 1.2rem;
-  }
 }
 
 </style>

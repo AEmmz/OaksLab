@@ -6,14 +6,12 @@
       :style="`left: ${cardPosition}%`">
       <div class="full-width full-height  absolute-top-left card-overlay"></div>
       <collection-card
-        class="cards"
         :pokemon="card1"
         shiny-view="All Normal"></collection-card>
     </div>
     <div class="card2 relative-position">
       <div class="full-width full-height  absolute-top-left card-overlay"></div>
       <collection-card
-        class="cards"
         :pokemon="card2"
         shiny-view="All Normal"></collection-card>
     </div>
@@ -22,7 +20,6 @@
       :style="`right: ${cardPosition}%`">
       <div class="full-width full-height  absolute-top-left card-overlay"></div>
       <collection-card
-        class="cards"
         :pokemon="card3"
         shiny-view="All Normal"></collection-card>
     </div>
@@ -70,11 +67,6 @@ export default {
 <style
   scoped
   lang="scss">
-
-body.screen--xs, body.screen--sm {
-
-}
-
 
 body.screen--md, body.screen--lg, body.screen--xl, {
   .main-container {

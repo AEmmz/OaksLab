@@ -15,6 +15,20 @@
           :id="tabs.id"></statistics-tab>
       </q-tab-panel>
       <q-tab-panel
+        name="tera">
+        <tera-tabs
+          tabName="Tera"
+          id="tera"
+          :isShiny="false"></tera-tabs>
+      </q-tab-panel>
+      <q-tab-panel
+        name="shinyTera">
+        <tera-tabs
+          tabName="Shiny Tera"
+          id="shinyTera"
+          :isShiny="true"></tera-tabs>
+      </q-tab-panel>
+      <q-tab-panel
         name="misc">
         <misc-tab
           tabName="Miscellaneous Dex Hunts"
@@ -29,9 +43,10 @@ import { defineAsyncComponent } from "vue";
 
 const StatisticsTab = defineAsyncComponent(() => import("./StatisticsTabs/StatisticTab.vue"));
 const MiscTab = defineAsyncComponent(() => import("./StatisticsTabs/MiscTab.vue"));
+const TeraTabs = defineAsyncComponent(() => import("./StatisticsTabs/TeraTabs/TeraTabs.vue"));
 
 export default {
-  components: { StatisticsTab, MiscTab },
+  components: { StatisticsTab, MiscTab, TeraTabs },
   name: "StatisticsTabs",
   props: { selectedTab: { type: String } },
   data() {

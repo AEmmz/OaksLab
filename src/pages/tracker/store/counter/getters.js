@@ -1,4 +1,7 @@
 export default {
+  pokemonCounts(state) {
+    return state.pokemonCounts;
+  },
   mainCount(state) {
     return state.mainCount;
   },

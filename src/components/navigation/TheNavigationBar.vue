@@ -123,12 +123,6 @@ export default {
   scoped
   lang="scss">
 
-//.auth-bar,
-//.name-bar,
-//.menu-bar {
-//  width: 25%;
-//}
-
 .auth-bar,
 .menu-bar {
   height: 100%;

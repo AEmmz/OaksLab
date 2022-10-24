@@ -23,7 +23,7 @@
         <div class="menu-container">
           <statistics-menu
             class="menu-bar bg-dark full-width"
-            @changeTabs="changeTab"
+            @changeTab="changeTab"
             :closeDialog="closeDialog"></statistics-menu>
           <q-page-sticky
             position="bottom"
@@ -58,7 +58,7 @@
         class="row justify-center q-gutter-x-sm"
         :class="{'q-my-md': desktopCheck()}">
         <q-card class="menu-bar bg-dark">
-          <statistics-menu @changeTabs="changeTab"></statistics-menu>
+          <statistics-menu @changeTab="changeTab"></statistics-menu>
         </q-card>
         <q-separator
           vertical
@@ -130,8 +130,6 @@ export default {
   lang="scss">
 
 body.screen--xs, body.screen--sm, {
-
-
   .menu-bar {
     width: 80%;
   }
@@ -150,6 +148,10 @@ body.screen--xs, body.screen--sm, {
   .floating-button {
     z-index: 2;
     transform: translate(0, 0);
+  }
+
+  .q-dialog__inner--minimized > div {
+    max-height: 80%;
   }
 }
 

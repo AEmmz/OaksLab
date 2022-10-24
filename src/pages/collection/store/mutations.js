@@ -23,5 +23,14 @@ export default {
     state.filters.generationQuery = "All";
     state.filters.typeQuery1 = "All";
     state.filters.typeQuery2 = "All";
+  },
+  setQuickEditCaughtData(state, payload) {
+    state.caughtData = payload;
+  },
+  quickEditToggler(state, payload) {
+    const type = payload.type;
+    const tab = payload.tab;
+    state.caughtData[tab].caught[type] = !state.caughtData[tab].caught[type];
+
   }
 };

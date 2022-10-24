@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
+      pokemonCounts: {},
       mainCount: 0,
       mainTimer: 0,
       timerRunning: false,

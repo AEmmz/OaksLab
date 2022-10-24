@@ -1,9 +1,12 @@
 export default {
-  pkId(state) {
-    return state.pkId;
+  pokemonData(state) {
+    return state.pokemonData;
   },
-  pkIdVar(state) {
-    return state.pkIdVar;
+  apiNo(state) {
+    return state.apiNo;
+  },
+  dexNo(state) {
+    return state.dexNo;
   },
   pkName(state) {
     return state.pkName;

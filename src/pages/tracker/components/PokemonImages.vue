@@ -58,9 +58,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters("tracker", ["pkImageNormal", "pkImageShiny", "pkId", "pkType1"]),
+    ...mapGetters("tracker", ["pkImageNormal", "pkImageShiny", "apiNo", "pkType1"]),
     pkIsActive() {
-      return this.pkId !== "";
+      return this.apiNo !== "";
     }
   },
   methods: {

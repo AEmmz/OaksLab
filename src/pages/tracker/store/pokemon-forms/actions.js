@@ -4,11 +4,11 @@ export default {
   async fetchForms(context) {
     const fetchAllPokemon = await PokeList();
     const allPokemon = fetchAllPokemon.default.pokemon;
-    const pkId = context.rootGetters["tracker/pkIdVar"];
+    const dexNo = context.rootGetters["tracker/dexNo"];
     const filteredPokemon = allPokemon.filter((p) => {
-      return +p.dexNo === +pkId;
+      return +p.dexNo === +dexNo;
     });
-    await context.dispatch("fetchFormPhotos", { forms: filteredPokemon, id: pkId });
+    await context.dispatch("fetchFormPhotos", { forms: filteredPokemon, id: dexNo });
   },
 
   fetchFormPhotos(context, payload) {
