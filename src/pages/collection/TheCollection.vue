@@ -77,7 +77,7 @@
     <div class="lt-md mobile">
       <q-dialog
         v-model="filterDialog"
-        class="lt-md z-max">
+        class="lt-md">
         <q-card class="bg-dark filter-cont flex justify-around items-center q-px-md q-py-lg">
           <collection-filters
             :closeDialog="closeDialog"
