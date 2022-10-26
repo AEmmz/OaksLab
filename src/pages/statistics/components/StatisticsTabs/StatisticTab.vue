@@ -29,7 +29,7 @@
           <div class="cat-header">Total Caught:</div>
           <div
             class="cat-value"
-            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics.total }}
+            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.total }}
           </div>
         </div>
       </q-card>
@@ -120,11 +120,12 @@
               <div class="cat-header">Longest Hunt:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.longestTime.total) }}:{{
-                  minutes(statistics?.longestTime.total) }}:{{ seconds(statistics?.longestTime.total) }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.longestTime?.total) }}:{{
+                  minutes(statistics?.caught?.longestTime?.total) }}:{{ seconds(statistics?.caught?.longestTime?.total)
+                }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.longestTime.category} ${statistics?.longestTime.name}` : statistics?.longestTime.name
+                  statistics?.caught?.longestTime?.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.caught?.longestTime?.category} ${statistics?.caught?.longestTime?.name}` : statistics?.caught?.longestTime?.name
                 }}
               </div>
             </div>
@@ -141,10 +142,10 @@
               <div class="cat-header">Most Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.longestCount.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.longestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.longestCount.category} ${statistics?.longestCount.name}` : statistics?.longestCount.name
+                  statistics?.caught?.longestCount?.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.caught?.longestCount?.category} ${statistics?.caught?.longestCount?.name}` : statistics?.caught?.longestCount?.name
                 }}
               </div>
             </div>
@@ -164,11 +165,12 @@
               <div class="cat-header">Shortest Hunt:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.shortestTime.total) }}:{{
-                  minutes(statistics?.shortestTime.total) }}:{{ seconds(statistics?.shortestTime.total) }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.shortestTime?.total) }}:{{
+                  minutes(statistics?.caught?.shortestTime?.total) }}:{{
+                  seconds(statistics?.caught?.shortestTime?.total) }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestTime.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.shortestTime.category} ${statistics?.shortestTime.name}` : statistics?.shortestTime.name
+                  statistics?.caught?.shortestTime?.total === 0 ? "No Times Recorded" : id === "all" ? `${statistics?.caught?.shortestTime?.category} ${statistics?.caught?.shortestTime?.name}` : statistics?.caught?.shortestTime?.name
                 }}
               </div>
             </div>
@@ -185,10 +187,10 @@
               <div class="cat-header">Least Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.shortestCount.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.shortestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestCount.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.shortestCount.category} ${statistics?.shortestCount.name}` : statistics?.shortestCount.name
+                  statistics?.caught?.shortestCount?.total === 0 ? "No Counts Recorded" : id === "all" ? `${statistics?.caught?.shortestCount?.category} ${statistics?.caught?.shortestCount?.name}` : statistics?.caught?.shortestCount?.name
                 }}
               </div>
             </div>
@@ -215,18 +217,19 @@ export default {
       selectedGeneration: "all"
     };
   },
-
   computed: {
-    ...mapGetters("statistics", ["userDb"]),
     completionPercentage() {
-      const percent = ((this.statistics?.total / this.statistics?.available) * 100).toFixed(1);
+      const percent = ((this.statistics?.caught?.total / this.statistics?.available) * 100).toFixed(1);
       if (percent === "NaN") {
         return 0;
       }
       return percent;
     },
     statistics() {
-      return this.$store.getters[`statistics/${this.id}Stats`];
+      return {
+        caught: this.$store.getters[`statistics/${this.id}Stats`],
+        available: this.$store.getters["statistics/availableStats"][this.id]
+      };
     },
     genDataTitle() {
       const title = this.selectedGeneration.split("");

@@ -35,7 +35,8 @@
         color="primary"
         size="xl"
         padding="18px"
-        label="Track"></q-btn>
+        label="Track"
+        :to="{ name: 'tracker', params: { pkName: pokemonInfo.name.toLowerCase() }}"></q-btn>
     </div>
     <div class="bg-white full-height desktop-tablet-view relative-position">
       <div

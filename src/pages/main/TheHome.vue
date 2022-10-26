@@ -1,5 +1,5 @@
 <template>
-  <q-page-container class="home-main-container relative-position">
+  <q-page-container class="home-main-container relative-position full-height">
     <div
       class="home-container row relative-position justify-center items-center"
       v-intersection="{handler: cardIntersect, cfg:{threshold: cardThreshold}}">

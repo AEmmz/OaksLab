@@ -1,7 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <the-navigation-bar class=""></the-navigation-bar>
-    <!--      <main>-->
+    <the-navigation-bar></the-navigation-bar>
     <q-page-container>
       <router-view
         v-slot="slotProps">
@@ -12,19 +11,27 @@
         </transition>
       </router-view>
     </q-page-container>
-    <!--      </main>-->
-    <the-footer-bar></the-footer-bar>
+
+    <div
+      class="footer-bar bg-dark shadow-up-3 flex justify-center">
+      <q-toolbar>
+        <div class="col-12 text-light row justify-center text-caption text-center">
+          © 2022 DexHunt. All Rights Reserved.
+          <br/>
+          Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2022
+        </div>
+      </q-toolbar>
+    </div>
   </q-layout>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TheNavigationBar from "./components/navigation/TheNavigationBar.vue";
-import TheFooterBar from "components/navigation/TheFooterBar.vue";
 
 export default {
   components: {
-    TheNavigationBar, TheFooterBar
+    TheNavigationBar
   },
   computed: {
     ...mapGetters("authorization", ["uid"])

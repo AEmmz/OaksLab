@@ -304,6 +304,7 @@
         </q-carousel-slide>
       </q-carousel>
     </div>
+
   </div>
 </template>
 

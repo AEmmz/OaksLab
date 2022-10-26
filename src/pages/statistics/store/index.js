@@ -11,8 +11,6 @@ export default {
         caught: {
           all: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0, category: null },
             shortestTime: { name: null, total: 0, category: null },
             shortestCount: { name: null, total: 0, category: null },
@@ -20,8 +18,6 @@ export default {
           },
           normal: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -29,8 +25,6 @@ export default {
           },
           shiny: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -38,8 +32,6 @@ export default {
           },
           alpha: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -47,8 +39,6 @@ export default {
           },
           shinyAlpha: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -56,8 +46,6 @@ export default {
           },
           marked: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -65,8 +53,6 @@ export default {
           },
           shinyMarked: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -74,8 +60,6 @@ export default {
           },
           pokerus: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -83,8 +67,6 @@ export default {
           },
           shinyPokerus: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -92,8 +74,6 @@ export default {
           },
           sixIv: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -101,8 +81,6 @@ export default {
           },
           shinySixIv: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -110,8 +88,6 @@ export default {
           },
           zeroIv: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -119,8 +95,6 @@ export default {
           },
           shinyZeroIv: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 },
@@ -128,8 +102,6 @@ export default {
           },
           teraAll: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0, category: null },
             shortestTime: { name: null, total: 0, category: null },
             longestCount: { name: null, total: 0, category: null },
@@ -137,8 +109,6 @@ export default {
           },
           teraBug: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -146,8 +116,6 @@ export default {
           },
           teraDark: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -155,8 +123,6 @@ export default {
           },
           teraDragon: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -164,8 +130,6 @@ export default {
           },
           teraElectric: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -173,8 +137,6 @@ export default {
           },
           teraFairy: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -182,8 +144,6 @@ export default {
           },
           teraFighting: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -191,8 +151,6 @@ export default {
           },
           teraFire: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -200,8 +158,6 @@ export default {
           },
           teraFlying: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -209,8 +165,6 @@ export default {
           },
           teraGhost: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -218,8 +172,6 @@ export default {
           },
           teraGrass: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -227,8 +179,6 @@ export default {
           },
           teraGround: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -236,8 +186,6 @@ export default {
           },
           teraIce: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -245,8 +193,6 @@ export default {
           },
           teraNormal: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -254,8 +200,6 @@ export default {
           },
           teraPoison: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -263,8 +207,6 @@ export default {
           },
           teraPsychic: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -272,8 +214,6 @@ export default {
           },
           teraRock: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -281,8 +221,6 @@ export default {
           },
           teraSteel: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -290,8 +228,6 @@ export default {
           },
           teraWater: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -299,8 +235,6 @@ export default {
           },
           teraShinyAll: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0, category: null },
             shortestTime: { name: null, total: 0, category: null },
             longestCount: { name: null, total: 0, category: null },
@@ -308,8 +242,6 @@ export default {
           },
           teraShinyBug: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -317,8 +249,6 @@ export default {
           },
           teraShinyDark: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -326,8 +256,6 @@ export default {
           },
           teraShinyDragon: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -335,8 +263,6 @@ export default {
           },
           teraShinyElectric: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -344,8 +270,6 @@ export default {
           },
           teraShinyFairy: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -353,8 +277,6 @@ export default {
           },
           teraShinyFighting: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -362,8 +284,6 @@ export default {
           },
           teraShinyFire: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -371,8 +291,6 @@ export default {
           },
           teraShinyFlying: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -380,8 +298,6 @@ export default {
           },
           teraShinyGhost: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -389,8 +305,6 @@ export default {
           },
           teraShinyGrass: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -398,8 +312,6 @@ export default {
           },
           teraShinyGround: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -407,8 +319,6 @@ export default {
           },
           teraShinyIce: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -416,8 +326,6 @@ export default {
           },
           teraShinyNormal: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -425,8 +333,6 @@ export default {
           },
           teraShinyPoison: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -434,8 +340,6 @@ export default {
           },
           teraShinyPsychic: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -443,8 +347,6 @@ export default {
           },
           teraShinyRock: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -452,8 +354,6 @@ export default {
           },
           teraShinySteel: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
@@ -461,31 +361,95 @@ export default {
           },
           teraShinyWater: {
             total: 0,
-            available: 0,
-            complete: 0,
             longestTime: { name: null, total: 0 },
             shortestTime: { name: null, total: 0 },
             longestCount: { name: null, total: 0 },
             shortestCount: { name: null, total: 0 }
           }
         },
+        available: {
+          all: 0,
+          normal: 0,
+          shiny: 0,
+          alpha: 0,
+          shinyAlpha: 0,
+          marked: 0,
+          shinyMarked: 0,
+          pokerus: 0,
+          shinyPokerus: 0,
+          sixIv: 0,
+          shinySixIv: 0,
+          zeroIv: 0,
+          shinyZeroIv: 0,
+          teraAll: 0,
+          teraBug: 0,
+          teraDark: 0,
+          teraDragon: 0,
+          teraElectric: 0,
+          teraFairy: 0,
+          teraFighting: 0,
+          teraFire: 0,
+          teraFlying: 0,
+          teraGhost: 0,
+          teraGrass: 0,
+          teraGround: 0,
+          teraIce: 0,
+          teraNormal: 0,
+          teraPoison: 0,
+          teraPsychic: 0,
+          teraRock: 0,
+          teraSteel: 0,
+          teraWater: 0,
+          teraShinyAll: 0,
+          teraShinyBug: 0,
+          teraShinyDark: 0,
+          teraShinyDragon: 0,
+          teraShinyElectric: 0,
+          teraShinyFairy: 0,
+          teraShinyFighting: 0,
+          teraShinyFire: 0,
+          teraShinyFlying: 0,
+          teraShinyGhost: 0,
+          teraShinyGrass: 0,
+          teraShinyGround: 0,
+          teraShinyIce: 0,
+          teraShinyNormal: 0,
+          teraShinyPoison: 0,
+          teraShinyPsychic: 0,
+          teraShinyRock: 0,
+          teraShinySteel: 0,
+          teraShinyWater: 0
+        },
         generation: {
-          gen1: { caught: null, available: null, percentage: null },
-          gen2: { caught: null, available: null, percentage: null },
-          gen3: { caught: null, available: null, percentage: null },
-          gen4: { caught: null, available: null, percentage: null },
-          gen5: { caught: null, available: null, percentage: null },
-          gen6: { caught: null, available: null, percentage: null },
-          gen7: { caught: null, available: null, percentage: null },
-          gen8: { caught: null, available: null, percentage: null },
-          gen9: { caught: null, available: null, percentage: null }
+          caught: {
+            gen1: {},
+            gen2: {},
+            gen3: {},
+            gen4: {},
+            gen5: {},
+            gen6: {},
+            gen7: {},
+            gen8: {},
+            gen9: {}
+          },
+          available: {
+            gen1: {},
+            gen2: {},
+            gen3: {},
+            gen4: {},
+            gen5: {},
+            gen6: {},
+            gen7: {},
+            gen8: {},
+            gen9: {}
+          }
+
+        },
+        miscDex: {
+          gmax: {},
+          mega: {}
         },
         misc: {
-          // Forms //
-          gmax: {},
-          mega: {},
-
-          // Pokemon //
           alcremie: {},
           flebebe: {},
           floette: {},

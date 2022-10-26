@@ -10,10 +10,10 @@ import PokeList from "../../../assets/json/pokemonList.json";
 const pokeArray = PokeList.pokemon;
 const counts = {
   total: 0,
-  lTime: { name: null, total: 0, category: null },
-  sTime: { name: null, total: 0, category: null },
-  lCount: { name: null, total: 0, category: null },
-  sCount: { name: null, total: 0, category: null }
+  longestTime: { name: null, total: 0, category: null },
+  shortestTime: { name: null, total: 0, category: null },
+  longestCount: { name: null, total: 0, category: null },
+  shortestCount: { name: null, total: 0, category: null }
 };
 const generationCounts = {
   all: 0,
@@ -157,91 +157,91 @@ export default {
       else if (id <= 1000) gen9Counts[val]++;
     };
     const timeCheck = (val, name, typeArray, category, type) => {
-      if (typeArray.lTime.total === 0 || val > typeArray.lTime.total) {
-        typeArray.lTime.total = val || 0;
-        typeArray.lTime.name = name;
+      if (typeArray.longestTime.total === 0 || val > typeArray.longestTime.total) {
+        typeArray.longestTime.total = val || 0;
+        typeArray.longestTime.name = name;
       }
-      if (typeArray.sTime.total === 0 || val < typeArray.sTime.total) {
-        typeArray.sTime.total = val || 0;
-        typeArray.sTime.name = name;
+      if (typeArray.shortestTime.total === 0 || val < typeArray.shortestTime.total) {
+        typeArray.shortestTime.total = val || 0;
+        typeArray.shortestTime.name = name;
       }
-      if (totalCount.lTime.total === 0 || val > totalCount.lTime.total) {
-        totalCount.lTime.total = val || 0;
-        totalCount.lTime.name = name;
-        totalCount.lTime.category = category;
+      if (totalCount.longestTime.total === 0 || val > totalCount.longestTime.total) {
+        totalCount.longestTime.total = val || 0;
+        totalCount.longestTime.name = name;
+        totalCount.longestTime.category = category;
       }
-      if (totalCount.sTime.total === 0 || val < totalCount.sTime.total) {
-        totalCount.sTime.total = val || 0;
-        totalCount.sTime.name = name;
-        totalCount.sTime.category = category;
+      if (totalCount.shortestTime.total === 0 || val < totalCount.shortestTime.total) {
+        totalCount.shortestTime.total = val || 0;
+        totalCount.shortestTime.name = name;
+        totalCount.shortestTime.category = category;
       }
 
       if (type.startsWith("tera") && type.startsWith("teraShiny")) {
-        if (teraShinyAllCount.lTime.total === 0 || val > teraShinyAllCount.lTime.total) {
-          teraShinyAllCount.lTime.total = val || 0;
-          teraShinyAllCount.lTime.name = name;
-          teraShinyAllCount.lTime.category = category;
+        if (teraShinyAllCount.longestTime.total === 0 || val > teraShinyAllCount.longestTime.total) {
+          teraShinyAllCount.longestTime.total = val || 0;
+          teraShinyAllCount.longestTime.name = name;
+          teraShinyAllCount.longestTime.category = category;
         }
-        if (teraShinyAllCount.sTime.total === 0 || val < teraShinyAllCount.sTime.total) {
-          teraShinyAllCount.sTime.total = val || 0;
-          teraShinyAllCount.sTime.name = name;
-          teraShinyAllCount.sTime.category = category;
+        if (teraShinyAllCount.shortestTime.total === 0 || val < teraShinyAllCount.shortestTime.total) {
+          teraShinyAllCount.shortestTime.total = val || 0;
+          teraShinyAllCount.shortestTime.name = name;
+          teraShinyAllCount.shortestTime.category = category;
         }
       }
       if (type.startsWith("tera") && !type.startsWith("teraShiny")) {
-        if (teraAllCount.lTime.total === 0 || val > teraAllCount.lTime.total) {
-          teraAllCount.lTime.total = val || 0;
-          teraAllCount.lTime.name = name;
-          teraAllCount.lTime.category = category;
+        if (teraAllCount.longestTime.total === 0 || val > teraAllCount.longestTime.total) {
+          teraAllCount.longestTime.total = val || 0;
+          teraAllCount.longestTime.name = name;
+          teraAllCount.longestTime.category = category;
         }
-        if (teraAllCount.sTime.total === 0 || val < teraAllCount.sTime.total) {
-          teraAllCount.sTime.total = val || 0;
-          teraAllCount.sTime.name = name;
-          teraAllCount.sTime.category = category;
+        if (teraAllCount.shortestTime.total === 0 || val < teraAllCount.shortestTime.total) {
+          teraAllCount.shortestTime.total = val || 0;
+          teraAllCount.shortestTime.name = name;
+          teraAllCount.shortestTime.category = category;
         }
       }
     };
     const countCheck = (val, name, typeArray, category, type) => {
-      if (typeArray.lCount.total === 0 || val > typeArray.lCount.total) {
-        typeArray.lCount.total = val || 0;
-        typeArray.lCount.name = name;
+      if (typeArray.longestCount.total === 0 || val > typeArray.longestCount.total) {
+        typeArray.longestCount.total = val || 0;
+        typeArray.longestCount.name = name;
       }
-      if (typeArray.sCount.total === 0 || val < typeArray.sCount.total) {
-        typeArray.sCount.total = val || 0;
-        typeArray.sCount.name = name;
+      if (typeArray.shortestCount.total === 0 || val < typeArray.shortestCount.total) {
+        typeArray.shortestCount.total = val || 0;
+        typeArray.shortestCount.name = name;
       }
-      if (totalCount.lCount.total === 0 || val > totalCount.lCount.total) {
-        totalCount.lCount.total = val || 0;
-        totalCount.lCount.name = name;
-        totalCount.lCount.category = category;
+      if (totalCount.longestCount.total === 0 || val > totalCount.longestCount.total) {
+        totalCount.longestCount.total = val || 0;
+        totalCount.longestCount.name = name;
+        totalCount.longestCount.category = category;
       }
-      if (totalCount.sCount.total === 0 || val < totalCount.sCount.total) {
-        totalCount.sCount.total = val || 0;
-        totalCount.sCount.name = name;
-        totalCount.sCount.category = category;
+      if (totalCount.shortestCount.total === 0 || val < totalCount.shortestCount.total) {
+        totalCount.shortestCount.total = val || 0;
+        totalCount.shortestCount.name = name;
+        totalCount.shortestCount.category = category;
       }
       if (type.startsWith("tera") && type.startsWith("teraShiny")) {
-        if (teraShinyAllCount.lCount.total === 0 || val > teraShinyAllCount.lCount.total) {
-          teraShinyAllCount.lCount.total = val || 0;
-          teraShinyAllCount.lCount.name = name;
-          teraShinyAllCount.lCount.category = category;
+        if (teraShinyAllCount.longestCount.total === 0 || val > teraShinyAllCount.longestCount.total) {
+          teraShinyAllCount.longestCount.total = val || 0;
+          teraShinyAllCount.longestCount.name = name;
+          teraShinyAllCount.longestCount.category = category;
         }
-        if (teraShinyAllCount.sCount.total === 0 || val < teraShinyAllCount.sCount.total) {
-          teraShinyAllCount.sCount.total = val || 0;
-          teraShinyAllCount.sCount.name = name;
-          teraShinyAllCount.sCount.category = category;
+        if (teraShinyAllCount.shortestCount.total === 0 || val < teraShinyAllCount.shortestCount.total) {
+          teraShinyAllCount.shortestCount.total = val || 0;
+          teraShinyAllCount.shortestCount.name = name;
+          teraShinyAllCount.shortestCount.category = category;
         }
       }
       if (type.startsWith("tera") && !type.startsWith("teraShiny")) {
-        if (teraAllCount.lCount.total === 0 || val > teraAllCount.lCount.total) {
-          teraAllCount.lCount.total = val || 0;
-          teraAllCount.lCount.name = name;
-          teraAllCount.lCount.category = category;
+        if (teraAllCount.longestCount.total === 0 || val > teraAllCount.longestCount.total) {
+          teraAllCount.longestCount.total = val || 0;
+          teraAllCount.longestCount.name = name;
+          teraAllCount.longestCount.category = category;
         }
-        if (teraAllCount.sCount.total === 0 || val < teraAllCount.sCount.total) {
-          teraAllCount.sCount.total = val || 0;
-          teraAllCount.sCount.name = name;
-          teraAllCount.sCount.category = category;
+        if (teraAllCount.shortestCount.total === 0 || val < teraAllCount.shortestCount.total) {
+          teraAllCount.shortestCount.total = val || 0;
+          teraAllCount.shortestCount.name = name;
+          teraAllCount.shortestCount.category = category;
         }
       }
     };
@@ -340,7 +340,6 @@ export default {
       shinySixIv: shinySixIvCount,
       zeroIv: zeroIvCount,
       shinyZeroIv: shinyZeroIvCount,
-
       teraAll: teraAllCount,
       teraBug: teraBugCount,
       teraDark: teraDarkCount,
@@ -378,8 +377,10 @@ export default {
       teraShinyPsychic: teraShinyPsychicCount,
       teraShinyRock: teraShinyRockCount,
       teraShinySteel: teraShinySteelCount,
-      teraShinyWater: teraShinyWaterCount,
+      teraShinyWater: teraShinyWaterCount
+    };
 
+    const generationStatistics = {
       gen1: gen1Counts,
       gen2: gen2Counts,
       gen3: gen3Counts,
@@ -390,62 +391,65 @@ export default {
       gen8: gen8Counts,
       gen9: gen9Counts
     };
+
     context.commit("setStats", statistics);
+    context.commit("setGenStats", generationStatistics);
   },
 
 
   async calculateAllTotal(context) {
-    let totalCount = structuredClone(counts);
-    let normalCount = structuredClone(counts);
-    let shinyCount = structuredClone(counts);
-    let alphaCount = structuredClone(counts);
-    let shinyAlphaCount = structuredClone(counts);
-    let markedCount = structuredClone(counts);
-    let shinyMarkedCount = structuredClone(counts);
-    let pokerusCount = structuredClone(counts);
-    let shinyPokerusCount = structuredClone(counts);
-    let sixIvCount = structuredClone(counts);
-    let shinySixIvCount = structuredClone(counts);
-    let zeroIvCount = structuredClone(counts);
-    let shinyZeroIvCount = structuredClone(counts);
-    let teraAllCount = structuredClone(counts);
-    let teraBugCount = structuredClone(counts);
-    let teraDarkCount = structuredClone(counts);
-    let teraDragonCount = structuredClone(counts);
-    let teraElectricCount = structuredClone(counts);
-    let teraFairyCount = structuredClone(counts);
-    let teraFightingCount = structuredClone(counts);
-    let teraFireCount = structuredClone(counts);
-    let teraFlyingCount = structuredClone(counts);
-    let teraGhostCount = structuredClone(counts);
-    let teraGrassCount = structuredClone(counts);
-    let teraGroundCount = structuredClone(counts);
-    let teraIceCount = structuredClone(counts);
-    let teraNormalCount = structuredClone(counts);
-    let teraPoisonCount = structuredClone(counts);
-    let teraPsychicCount = structuredClone(counts);
-    let teraRockCount = structuredClone(counts);
-    let teraSteelCount = structuredClone(counts);
-    let teraWaterCount = structuredClone(counts);
-    let teraShinyAllCount = structuredClone(counts);
-    let teraShinyBugCount = structuredClone(counts);
-    let teraShinyDarkCount = structuredClone(counts);
-    let teraShinyDragonCount = structuredClone(counts);
-    let teraShinyElectricCount = structuredClone(counts);
-    let teraShinyFairyCount = structuredClone(counts);
-    let teraShinyFightingCount = structuredClone(counts);
-    let teraShinyFireCount = structuredClone(counts);
-    let teraShinyFlyingCount = structuredClone(counts);
-    let teraShinyGhostCount = structuredClone(counts);
-    let teraShinyGrassCount = structuredClone(counts);
-    let teraShinyGroundCount = structuredClone(counts);
-    let teraShinyIceCount = structuredClone(counts);
-    let teraShinyNormalCount = structuredClone(counts);
-    let teraShinyPoisonCount = structuredClone(counts);
-    let teraShinyPsychicCount = structuredClone(counts);
-    let teraShinyRockCount = structuredClone(counts);
-    let teraShinySteelCount = structuredClone(counts);
-    let teraShinyWaterCount = structuredClone(counts);
+    let totalCount = 0;
+    let normalCount = 0;
+    let shinyCount = 0;
+    let alphaCount = 0;
+    let shinyAlphaCount = 0;
+    let markedCount = 0;
+    let shinyMarkedCount = 0;
+    let pokerusCount = 0;
+    let shinyPokerusCount = 0;
+    let sixIvCount = 0;
+    let shinySixIvCount = 0;
+    let zeroIvCount = 0;
+    let shinyZeroIvCount = 0;
+    let teraAllCount = 0;
+    let teraBugCount = 0;
+    let teraDarkCount = 0;
+    let teraDragonCount = 0;
+    let teraElectricCount = 0;
+    let teraFairyCount = 0;
+    let teraFightingCount = 0;
+    let teraFireCount = 0;
+    let teraFlyingCount = 0;
+    let teraGhostCount = 0;
+    let teraGrassCount = 0;
+    let teraGroundCount = 0;
+    let teraIceCount = 0;
+    let teraNormalCount = 0;
+    let teraPoisonCount = 0;
+    let teraPsychicCount = 0;
+    let teraRockCount = 0;
+    let teraSteelCount = 0;
+    let teraWaterCount = 0;
+    let teraShinyAllCount = 0;
+    let teraShinyBugCount = 0;
+    let teraShinyDarkCount = 0;
+    let teraShinyDragonCount = 0;
+    let teraShinyElectricCount = 0;
+    let teraShinyFairyCount = 0;
+    let teraShinyFightingCount = 0;
+    let teraShinyFireCount = 0;
+    let teraShinyFlyingCount = 0;
+    let teraShinyGhostCount = 0;
+    let teraShinyGrassCount = 0;
+    let teraShinyGroundCount = 0;
+    let teraShinyIceCount = 0;
+    let teraShinyNormalCount = 0;
+    let teraShinyPoisonCount = 0;
+    let teraShinyPsychicCount = 0;
+    let teraShinyRockCount = 0;
+    let teraShinySteelCount = 0;
+    let teraShinyWaterCount = 0;
+
     let gen1Counts = structuredClone(generationCounts);
     let gen2Counts = structuredClone(generationCounts);
     let gen3Counts = structuredClone(generationCounts);
@@ -455,6 +459,7 @@ export default {
     let gen7Counts = structuredClone(generationCounts);
     let gen8Counts = structuredClone(generationCounts);
     let gen9Counts = structuredClone(generationCounts);
+
     const genCheck = (id, val) => {
       if (id <= 151) gen1Counts[val]++;
       else if (id <= 251) gen2Counts[val]++;
@@ -467,20 +472,22 @@ export default {
       else if (id <= 1000) gen9Counts[val]++;
     };
 
-    const calcStats = (typeCount, id, type) => {
-      typeCount.total++;
-      totalCount.total++;
+    const calcStats = (id, type) => {
+      const count = type + "Count";
+      const total = eval(count);
+      totalCount++;
       genCheck(id, type);
       genCheck(id, "all");
       if (type.startsWith("tera")) {
         if (type.startsWith("teraShiny")) {
-          teraShinyAllCount.total++;
+          teraShinyAllCount += 1;
           genCheck(id, "teraShinyAll");
         } else {
-          teraAllCount.total++;
+          teraAllCount += 1;
           genCheck(id, "teraAll");
         }
       }
+      return total + 1;
     };
 
     pokeArray.forEach((pk) => {
@@ -488,57 +495,59 @@ export default {
       const dexNo = +pk.dexNo;
       const lockCheck = catchLock(apiNo);
       for (const available in lockCheck) {
-        if (available === "normal" && lockCheck[available] === true) calcStats(normalCount, dexNo, "normal");
-        if (available === "shiny" && lockCheck[available] === true) calcStats(shinyCount, dexNo, "shiny");
-        if (available === "alpha" && lockCheck[available] === true) calcStats(alphaCount, dexNo, "alpha");
-        if (available === "shinyAlpha" && lockCheck[available] === true) calcStats(shinyAlphaCount, dexNo, "shinyAlpha");
-        if (available === "marked" && lockCheck[available] === true) calcStats(markedCount, dexNo, "marked");
-        if (available === "shinyMarked" && lockCheck[available] === true) calcStats(shinyMarkedCount, dexNo, "shinyMarked");
-        if (available === "pokerus" && lockCheck[available] === true) calcStats(pokerusCount, dexNo, "pokerus");
-        if (available === "shinyPokerus" && lockCheck[available] === true) calcStats(shinyPokerusCount, dexNo, "shinyPokerus");
-        if (available === "sixIv" && lockCheck[available] === true) calcStats(sixIvCount, dexNo, "sixIv");
-        if (available === "shinySixIv" && lockCheck[available] === true) calcStats(shinySixIvCount, dexNo, "shinySixIv");
-        if (available === "zeroIv" && lockCheck[available] === true) calcStats(zeroIvCount, dexNo, "zeroIv");
-        if (available === "shinyZeroIv" && lockCheck[available] === true) calcStats(shinyZeroIvCount, dexNo, "shinyZeroIv");
-        if (available === "teraBug" && lockCheck[available] === true) calcStats(teraBugCount, dexNo, "teraBug");
-        if (available === "teraDark" && lockCheck[available] === true) calcStats(teraDarkCount, dexNo, "teraDark");
-        if (available === "teraDragon" && lockCheck[available] === true) calcStats(teraDragonCount, dexNo, "teraDragon");
-        if (available === "teraElectric" && lockCheck[available] === true) calcStats(teraElectricCount, dexNo, "teraElectric");
-        if (available === "teraFairy" && lockCheck[available] === true) calcStats(teraFairyCount, dexNo, "teraFairy");
-        if (available === "teraFighting" && lockCheck[available] === true) calcStats(teraFightingCount, dexNo, "teraFighting");
-        if (available === "teraFire" && lockCheck[available] === true) calcStats(teraFireCount, dexNo, "teraFire");
-        if (available === "teraFlying" && lockCheck[available] === true) calcStats(teraFlyingCount, dexNo, "teraFlying");
-        if (available === "teraGhost" && lockCheck[available] === true) calcStats(teraGhostCount, dexNo, "teraGhost");
-        if (available === "teraGrass" && lockCheck[available] === true) calcStats(teraGrassCount, dexNo, "teraGrass");
-        if (available === "teraGround" && lockCheck[available] === true) calcStats(teraGroundCount, dexNo, "teraGround");
-        if (available === "teraIce" && lockCheck[available] === true) calcStats(teraIceCount, dexNo, "teraIce");
-        if (available === "teraNormal" && lockCheck[available] === true) calcStats(teraNormalCount, dexNo, "teraNormal");
-        if (available === "teraPoison" && lockCheck[available] === true) calcStats(teraPoisonCount, dexNo, "teraPoison");
-        if (available === "teraPsychic" && lockCheck[available] === true) calcStats(teraPsychicCount, dexNo, "teraPsychic");
-        if (available === "teraRock" && lockCheck[available] === true) calcStats(teraRockCount, dexNo, "teraRock");
-        if (available === "teraSteel" && lockCheck[available] === true) calcStats(teraSteelCount, dexNo, "teraSteel");
-        if (available === "teraWater" && lockCheck[available] === true) calcStats(teraWaterCount, dexNo, "teraWater");
-        if (available === "teraShinyBug" && lockCheck[available] === true) calcStats(teraShinyBugCount, dexNo, "teraShinyBug");
-        if (available === "teraShinyDark" && lockCheck[available] === true) calcStats(teraShinyDarkCount, dexNo, "teraShinyDark");
-        if (available === "teraShinyDragon" && lockCheck[available] === true) calcStats(teraShinyDragonCount, dexNo, "teraShinyDragon");
-        if (available === "teraShinyElectric" && lockCheck[available] === true) calcStats(teraShinyElectricCount, dexNo, "teraShinyElectric");
-        if (available === "teraShinyFairy" && lockCheck[available] === true) calcStats(teraShinyFairyCount, dexNo, "teraShinyFairy");
-        if (available === "teraShinyFighting" && lockCheck[available] === true) calcStats(teraShinyFightingCount, dexNo, "teraShinyFighting");
-        if (available === "teraShinyFire" && lockCheck[available] === true) calcStats(teraShinyFireCount, dexNo, "teraShinyFire");
-        if (available === "teraShinyFlying" && lockCheck[available] === true) calcStats(teraShinyFlyingCount, dexNo, "teraShinyFlying");
-        if (available === "teraShinyGhost" && lockCheck[available] === true) calcStats(teraShinyGhostCount, dexNo, "teraShinyGhost");
-        if (available === "teraShinyGrass" && lockCheck[available] === true) calcStats(teraShinyGrassCount, dexNo, "teraShinyGrass");
-        if (available === "teraShinyGround" && lockCheck[available] === true) calcStats(teraShinyGroundCount, dexNo, "teraShinyGround");
-        if (available === "teraShinyIce" && lockCheck[available] === true) calcStats(teraShinyIceCount, dexNo, "teraShinyIce");
-        if (available === "teraShinyNormal" && lockCheck[available] === true) calcStats(teraShinyNormalCount, dexNo, "teraShinyNormal");
-        if (available === "teraShinyPoison" && lockCheck[available] === true) calcStats(teraShinyPoisonCount, dexNo, "teraShinyPoison");
-        if (available === "teraShinyPsychic" && lockCheck[available] === true) calcStats(teraShinyPsychicCount, dexNo, "teraShinyPsychic");
-        if (available === "teraShinyRock" && lockCheck[available] === true) calcStats(teraShinyRockCount, dexNo, "teraShinyRock");
-        if (available === "teraShinySteel" && lockCheck[available] === true) calcStats(teraShinySteelCount, dexNo, "teraShinySteel");
-        if (available === "teraShinyWater" && lockCheck[available] === true) calcStats(teraShinyWaterCount, dexNo, "teraShinyWater");
+        const isLockCheck = (type) => available === type && lockCheck[available] === true;
+        normalCount = isLockCheck("normal") ? calcStats(dexNo, "normal") : normalCount;
+        shinyCount = isLockCheck("shiny") ? calcStats(dexNo, "shiny") : shinyCount;
+        alphaCount = isLockCheck("alpha") ? calcStats(dexNo, "alpha") : alphaCount;
+        shinyAlphaCount = isLockCheck("shinyAlpha") ? calcStats(dexNo, "shinyAlpha") : shinyAlphaCount;
+        markedCount = isLockCheck("marked") ? calcStats(dexNo, "marked") : markedCount;
+        shinyMarkedCount = isLockCheck("shinyMarked") ? calcStats(dexNo, "shinyMarked") : shinyMarkedCount;
+        pokerusCount = isLockCheck("pokerus") ? calcStats(dexNo, "pokerus") : pokerusCount;
+        shinyPokerusCount = isLockCheck("shinyPokerus") ? calcStats(dexNo, "shinyPokerus") : shinyPokerusCount;
+        sixIvCount = isLockCheck("sixIv") ? calcStats(dexNo, "sixIv") : sixIvCount;
+        shinySixIvCount = isLockCheck("shinySixIv") ? calcStats(dexNo, "shinySixIv") : shinySixIvCount;
+        zeroIvCount = isLockCheck("zeroIv") ? calcStats(dexNo, "zeroIv") : zeroIvCount;
+        shinyZeroIvCount = isLockCheck("shinyZeroIv") ? calcStats(dexNo, "shinyZeroIv") : shinyZeroIvCount;
+        teraBugCount = isLockCheck("teraBug") ? calcStats(dexNo, "teraBug") : teraBugCount;
+        teraDarkCount = isLockCheck("teraDark") ? calcStats(dexNo, "teraDark") : teraDarkCount;
+        teraDragonCount = isLockCheck("teraDragon") ? calcStats(dexNo, "teraDragon") : teraDragonCount;
+        teraElectricCount = isLockCheck("teraElectric") ? calcStats(dexNo, "teraElectric") : teraElectricCount;
+        teraFairyCount = isLockCheck("teraFairy") ? calcStats(dexNo, "teraFairy") : teraFairyCount;
+        teraFightingCount = isLockCheck("teraFighting") ? calcStats(dexNo, "teraFighting") : teraFightingCount;
+        teraFireCount = isLockCheck("teraFire") ? calcStats(dexNo, "teraFire") : teraFireCount;
+        teraFlyingCount = isLockCheck("teraFlying") ? calcStats(dexNo, "teraFlying") : teraFlyingCount;
+        teraGhostCount = isLockCheck("teraGhost") ? calcStats(dexNo, "teraGhost") : teraGhostCount;
+        teraGrassCount = isLockCheck("teraGrass") ? calcStats(dexNo, "teraGrass") : teraGrassCount;
+        teraGroundCount = isLockCheck("teraGround") ? calcStats(dexNo, "teraGround") : teraGroundCount;
+        teraIceCount = isLockCheck("teraIce") ? calcStats(dexNo, "teraIce") : teraIceCount;
+        teraNormalCount = isLockCheck("teraNormal") ? calcStats(dexNo, "teraNormal") : teraNormalCount;
+        teraPoisonCount = isLockCheck("teraPoison") ? calcStats(dexNo, "teraPoison") : teraPoisonCount;
+        teraPsychicCount = isLockCheck("teraPsychic") ? calcStats(dexNo, "teraPsychic") : teraPsychicCount;
+        teraRockCount = isLockCheck("teraRock") ? calcStats(dexNo, "teraRock") : teraRockCount;
+        teraSteelCount = isLockCheck("teraSteel") ? calcStats(dexNo, "teraSteel") : teraSteelCount;
+        teraWaterCount = isLockCheck("teraWater") ? calcStats(dexNo, "teraWater") : teraWaterCount;
+        teraShinyBugCount = isLockCheck("teraShinyBug") ? calcStats(dexNo, "teraShinyBug") : teraShinyBugCount;
+        teraShinyDarkCount = isLockCheck("teraShinyDark") ? calcStats(dexNo, "teraShinyDark") : teraShinyDarkCount;
+        teraShinyDragonCount = isLockCheck("teraShinyDragon") ? calcStats(dexNo, "teraShinyDragon") : teraShinyDragonCount;
+        teraShinyElectricCount = isLockCheck("teraShinyElectric") ? calcStats(dexNo, "teraShinyElectric") : teraShinyElectricCount;
+        teraShinyFairyCount = isLockCheck("teraShinyFairy") ? calcStats(dexNo, "teraShinyFairy") : teraShinyFairyCount;
+        teraShinyFightingCount = isLockCheck("teraShinyFighting") ? calcStats(dexNo, "teraShinyFighting") : teraShinyFightingCount;
+        teraShinyFireCount = isLockCheck("teraShinyFire") ? calcStats(dexNo, "teraShinyFire") : teraShinyFireCount;
+        teraShinyFlyingCount = isLockCheck("teraShinyFlying") ? calcStats(dexNo, "teraShinyFlying") : teraShinyFlyingCount;
+        teraShinyGhostCount = isLockCheck("teraShinyGhost") ? calcStats(dexNo, "teraShinyGhost") : teraShinyGhostCount;
+        teraShinyGrassCount = isLockCheck("teraShinyGrass") ? calcStats(dexNo, "teraShinyGrass") : teraShinyGrassCount;
+        teraShinyGroundCount = isLockCheck("teraShinyGround") ? calcStats(dexNo, "teraShinyGround") : teraShinyGroundCount;
+        teraShinyIceCount = isLockCheck("teraShinyIce") ? calcStats(dexNo, "teraShinyIce") : teraShinyIceCount;
+        teraShinyNormalCount = isLockCheck("teraShinyNormal") ? calcStats(dexNo, "teraShinyNormal") : teraShinyNormalCount;
+        teraShinyPoisonCount = isLockCheck("teraShinyPoison") ? calcStats(dexNo, "teraShinyPoison") : teraShinyPoisonCount;
+        teraShinyPsychicCount = isLockCheck("teraShinyPsychic") ? calcStats(dexNo, "teraShinyPsychic") : teraShinyPsychicCount;
+        teraShinyRockCount = isLockCheck("teraShinyRock") ? calcStats(dexNo, "teraShinyRock") : teraShinyRockCount;
+        teraShinySteelCount = isLockCheck("teraShinySteel") ? calcStats(dexNo, "teraShinySteel") : teraShinySteelCount;
+        teraShinyWaterCount = isLockCheck("teraShinyWater") ? calcStats(dexNo, "teraShinyWater") : teraShinyWaterCount;
       }
     });
 
+    console.log(normalCount);
 
     const statistics = {
       all: totalCount,
@@ -592,6 +601,9 @@ export default {
       teraShinyRock: teraShinyRockCount,
       teraShinySteel: teraShinySteelCount,
       teraShinyWater: teraShinyWaterCount,
+    };
+
+    const generationStatistics = {
       gen1: gen1Counts,
       gen2: gen2Counts,
       gen3: gen3Counts,
@@ -602,8 +614,9 @@ export default {
       gen8: gen8Counts,
       gen9: gen9Counts
     };
-    context.commit("setAvailableStats", statistics);
 
+    context.commit("setAvailableStats", statistics);
+    context.commit("setAvailableGenStats", generationStatistics);
   },
 
   // -----------------Misc Stats Tabs------------------ //

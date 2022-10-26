@@ -5,8 +5,11 @@ export default {
   allStats(state) {
     return state.statistics.caught.all;
   },
+  availableStats(state) {
+    return state.statistics.available;
+  },
   miscStats(state) {
-    return state.statistics.misc;
+    return { ...state.statistics.misc, ...state.statistics.miscDex };
   },
   normalStats(state) {
     return state.statistics.caught.normal;
@@ -86,22 +89,63 @@ export default {
       teraShinyWater: state.statistics.caught.teraShinyWater
     };
   },
+  teraAvailableStats(state) {
+    return {
+      teraAll: state.statistics.available.teraAll,
+      teraBug: state.statistics.available.teraBug,
+      teraDark: state.statistics.available.teraDark,
+      teraDragon: state.statistics.available.teraDragon,
+      teraElectric: state.statistics.available.teraElectric,
+      teraFairy: state.statistics.available.teraFairy,
+      teraFighting: state.statistics.available.teraFighting,
+      teraFire: state.statistics.available.teraFire,
+      teraFlying: state.statistics.available.teraFlying,
+      teraGhost: state.statistics.available.teraGhost,
+      teraGrass: state.statistics.available.teraGrass,
+      teraGround: state.statistics.available.teraGround,
+      teraIce: state.statistics.available.teraIce,
+      teraNormal: state.statistics.available.teraNormal,
+      teraPoison: state.statistics.available.teraPoison,
+      teraPsychic: state.statistics.available.teraPsychic,
+      teraRock: state.statistics.available.teraRock,
+      teraSteel: state.statistics.available.teraSteel,
+      teraWater: state.statistics.available.teraWater,
+      teraShinyAll: state.statistics.available.teraShinyAll,
+      teraShinyBug: state.statistics.available.teraShinyBug,
+      teraShinyDark: state.statistics.available.teraShinyDark,
+      teraShinyDragon: state.statistics.available.teraShinyDragon,
+      teraShinyElectric: state.statistics.available.teraShinyElectric,
+      teraShinyFairy: state.statistics.available.teraShinyFairy,
+      teraShinyFighting: state.statistics.available.teraShinyFighting,
+      teraShinyFire: state.statistics.available.teraShinyFire,
+      teraShinyFlying: state.statistics.available.teraShinyFlying,
+      teraShinyGhost: state.statistics.available.teraShinyGhost,
+      teraShinyGrass: state.statistics.available.teraShinyGrass,
+      teraShinyGround: state.statistics.available.teraShinyGround,
+      teraShinyIce: state.statistics.available.teraShinyIce,
+      teraShinyNormal: state.statistics.available.teraShinyNormal,
+      teraShinyPoison: state.statistics.available.teraShinyPoison,
+      teraShinyPsychic: state.statistics.available.teraShinyPsychic,
+      teraShinyRock: state.statistics.available.teraShinyRock,
+      teraShinySteel: state.statistics.available.teraShinySteel,
+      teraShinyWater: state.statistics.available.teraShinyWater
+    };
+  },
   generationData(state) {
-    const data = state.statistics.generation;
+    const caughtData = state.statistics.generation.caught;
+    const availableData = state.statistics.generation.available;
 
     return (id) => {
       const dataArray = [];
       const totalArray = [];
       const availableArray = [];
-
       const genTemplate = (gen) => {
         return {
-          total: data[gen].caught?.[id],
-          available: data[gen].available?.[id],
-          percent: ((data[gen].caught?.[id] / data[gen].available?.[id]) * 100).toFixed(2)
+          total: caughtData[gen]?.[id],
+          available: availableData[gen]?.[id],
+          percent: ((caughtData[gen]?.[id] / availableData[gen]?.[id]) * 100).toFixed(2)
         };
       };
-
       const genObject =
         {
           gen1: genTemplate("gen1"),
