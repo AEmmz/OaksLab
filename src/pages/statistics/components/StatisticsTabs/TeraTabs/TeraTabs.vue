@@ -51,7 +51,7 @@
           <div class="cat-header">Total Caught:</div>
           <div
             class="cat-value"
-            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.total || 0 }}
+            :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.total || 0 }}
           </div>
         </div>
       </q-card>
@@ -142,11 +142,12 @@
               <div class="cat-header">Longest Hunt:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.longestTime.total) }}:{{
-                  minutes(statistics?.longestTime?.total) }}:{{ seconds(statistics?.longestTime?.total) }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.longestTime.total) }}:{{
+                  minutes(statistics?.caught?.longestTime?.total) }}:{{ seconds(statistics?.caught?.longestTime?.total)
+                }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.longestTime?.category} ${statistics?.longestTime?.name}` : statistics?.longestTime?.name
+                  statistics?.caught?.longestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.caught?.longestTime?.category} ${statistics?.caught?.longestTime?.name}` : statistics?.caught?.longestTime?.name
                 }}
               </div>
             </div>
@@ -163,10 +164,10 @@
               <div class="cat-header">Most Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.longestCount?.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.longestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.longestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.longestCount?.category} ${statistics?.longestCount?.name}` : statistics?.longestCount?.name
+                  statistics?.caught?.longestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.caught?.longestCount?.category} ${statistics?.caught?.longestCount?.name}` : statistics?.caught?.longestCount?.name
                 }}
               </div>
             </div>
@@ -186,11 +187,12 @@
               <div class="cat-header">Shortest Hunt:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.shortestTime?.total) }}:{{
-                  minutes(statistics?.shortestTime?.total) }}:{{ seconds(statistics?.shortestTime?.total) }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.shortestTime?.total) }}:{{
+                  minutes(statistics?.caught?.shortestTime?.total) }}:{{
+                  seconds(statistics?.caught?.shortestTime?.total) }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.shortestTime?.category} ${statistics?.shortestTime?.name}` : statistics?.shortestTime?.name
+                  statistics?.caught?.shortestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.caught?.shortestTime?.category} ${statistics?.caught?.shortestTime?.name}` : statistics?.caught?.shortestTime?.name
                 }}
               </div>
             </div>
@@ -207,10 +209,10 @@
               <div class="cat-header">Least Encounters:</div>
               <div
                 class="cat-value"
-                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.shortestCount?.total }}
+                :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.shortestCount?.total }}
               </div>
               <div class="cat-value">{{
-                  statistics?.shortestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.shortestCount?.category} ${statistics?.shortestCount?.name}` : statistics?.shortestCount?.name
+                  statistics?.caught?.shortestCount?.total === 0 ? "No Counts Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.caught?.shortestCount?.category} ${statistics?.caught?.shortestCount?.name}` : statistics?.caught?.shortestCount?.name
                 }}
               </div>
             </div>
@@ -231,6 +233,9 @@ const TeraChart = defineAsyncComponent(() => import("./TeraChart.vue"));
 export default {
   name: "TabAll",
   props: { tabName: { type: String }, id: { type: String }, isShiny: { type: Boolean } },
+  created() {
+    console.log("try", this.statistics);
+  },
   components: { TeraChart },
   data() {
     return {
@@ -402,17 +407,20 @@ export default {
   },
 
   computed: {
-    ...mapGetters("statistics", ["userDb"]),
     completionPercentage() {
-      const percent = ((this.statistics?.total / this.statistics?.available) * 100).toFixed(1);
+      const percent = ((this.statistics?.caught?.total / this.statistics?.available) * 100).toFixed(1);
       if (percent === "NaN") {
         return 0;
       }
       return percent;
     },
     statistics() {
-      const stats = this.$store.getters["statistics/teraStats"];
-      return stats[this.selectedType?.value];
+      const caughtStats = this.$store.getters["statistics/teraStats"];
+      const availableStats = this.$store.getters["statistics/teraAvailableStats"];
+      return {
+        caught: caughtStats[this.selectedType?.value],
+        available: availableStats[this.selectedType?.value]
+      };
     },
     genDataTitle() {
       const title = this.selectedGeneration.split("");
