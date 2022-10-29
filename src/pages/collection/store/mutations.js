@@ -31,6 +31,18 @@ export default {
     const type = payload.type;
     const tab = payload.tab;
     state.caughtData[tab].caught[type] = !state.caughtData[tab].caught[type];
+  },
+  collectionQuickEditToggler(state, payload) {
+    const index = payload.index;
+    const catchType = payload.catchType;
+    const catchValue = payload.catchValue;
+    console.log(catchValue);
+
+
+    // console.log(state.userList[index])
+    console.log(state.userList[index][1].catch[catchType]);
+    state.userList[index][1].catch[catchType] = catchValue;
+    console.log(state.userList[index][1].catch[catchType]);
 
   }
 };

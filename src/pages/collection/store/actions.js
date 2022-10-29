@@ -185,5 +185,19 @@ export default {
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
     }
+  },
+
+  async collectionQuickEditToggler(context, payload) {
+    // console.log(payload.column);
+    console.log(payload.value);
+    // console.log(payload.data);
+    // console.log(payload.rowIndex);
+    // console.log(context.getters.userList);
+    const dataUpdate = {
+      index: payload.rowIndex,
+      catchType: payload.column,
+      catchValue: payload.value
+    };
+    context.commit("collectionQuickEditToggler", dataUpdate);
   }
 };

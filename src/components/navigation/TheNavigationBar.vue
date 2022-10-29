@@ -3,7 +3,7 @@
     :reveal="!desktopCheck()"
     elevated
     class="toolbar-cont"
-    :class="{'homepage-header' : homepageToolbar}"
+    :class="[{'homepage-header' : homepageToolbar}, {'greenscreen-header': greenScreenToolBar}]"
     v-intersection="onIntersection">
 
     <!--Mobile Menu -->
@@ -106,6 +106,9 @@ export default {
     ...mapGetters("authorization", ["isLoggedIn"]),
     homepageToolbar() {
       return this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home";
+    },
+    greenScreenToolBar() {
+      return this.$router.currentRoute.value.path === "/streamer";
     }
   },
   methods: {
@@ -122,6 +125,16 @@ export default {
 <style
   scoped
   lang="scss">
+
+.greenscreen-header {
+  //display: none
+}
+
+//.auth-bar,
+//.name-bar,
+//.menu-bar {
+//  width: 25%;
+//}
 
 .auth-bar,
 .menu-bar {
