@@ -404,7 +404,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   data() {
@@ -413,9 +413,9 @@ export default {
       toggleSize: "80px"
     };
   },
-  props: { quickEditPokemon: { type: Object } },
+  props: {quickEditPokemon: {type: Object}},
   computed: {
-    ...mapGetters({ caughtData: "collection/caughtData_Tera" }),
+    ...mapGetters({caughtData: "collection/caughtData_Tera"}),
     pkToggleColor() {
       return `${this.quickEditPokemon.type[0]}Type`;
     },
@@ -430,7 +430,7 @@ export default {
         await this.quickEditToggler({
           tab: "tera",
           huntType: huntType,
-          apiNo: this.quickEditPokemon.apiNo
+          pokemon: this.quickEditPokemon,
         });
       }
     },

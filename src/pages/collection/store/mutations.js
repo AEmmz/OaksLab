@@ -6,14 +6,11 @@ export default {
     state.userList = payload;
   },
   persistFilters(state, payload) {
-    state.filters.searchQuery = payload.searchQuery;
-    state.filters.sortQuery = payload.sortQuery;
-    state.filters.caughtQuery = payload.caughtQuery;
-    state.filters.needQuery = payload.needQuery;
-    state.filters.generationQuery = payload.generationQuery;
-    state.filters.typeQuery1 = payload.typeQuery1;
-    state.filters.typeQuery2 = payload.typeQuery2;
-    state.filters.shinyView = payload.shinyView;
+    if (payload.isQuickEdit) {
+      state.quickEditFilters = payload.filters;
+    } else {
+      state.filters = payload.filters;
+    }
   },
   resetFilters(state) {
     state.filters.searchQuery = "";
@@ -23,6 +20,14 @@ export default {
     state.filters.generationQuery = "All";
     state.filters.typeQuery1 = "All";
     state.filters.typeQuery2 = "All";
+    state.quickEditFilters.searchQuery = "";
+    state.quickEditFilters.sortQuery = "Dex: Asc";
+    state.quickEditFilters.caughtQuery = "Show All";
+    state.quickEditFilters.needQuery = "None";
+    state.quickEditFilters.generationQuery = "All";
+    state.quickEditFilters.typeQuery1 = "All";
+    state.quickEditFilters.typeQuery2 = "All";
+    state.quickEditFilters.shinyView = "All Normal";
   },
   setQuickEditCaughtData(state, payload) {
     state.caughtData = payload;
@@ -31,6 +36,15 @@ export default {
     const type = payload.type;
     const tab = payload.tab;
     state.caughtData[tab].caught[type] = !state.caughtData[tab].caught[type];
-
+  },
+  collectionQuickEditToggler(state, payload) {
+    const apiNo = payload.apiNo;
+    const catchType = payload.catchType;
+    const catchValue = payload.catchValue;
+    state.userList.forEach((pokemon) => {
+      if (+pokemon[0] === +apiNo) {
+        pokemon[1].catch[catchType] = catchValue;
+      }
+    })
   }
 };

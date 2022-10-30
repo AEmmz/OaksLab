@@ -143,7 +143,9 @@
               <div
                 class="cat-value"
                 :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.longestTime.total) }}:{{
-                  minutes(statistics?.caught?.longestTime?.total) }}:{{ seconds(statistics?.caught?.longestTime?.total)
+                  minutes(statistics?.caught?.longestTime?.total)
+                }}:{{
+                  seconds(statistics?.caught?.longestTime?.total)
                 }}
               </div>
               <div class="cat-value">{{
@@ -188,8 +190,10 @@
               <div
                 class="cat-value"
                 :class="desktopCheck() ? 'text-h4':'text-h5'">{{ hours(statistics?.caught?.shortestTime?.total) }}:{{
-                  minutes(statistics?.caught?.shortestTime?.total) }}:{{
-                  seconds(statistics?.caught?.shortestTime?.total) }}
+                  minutes(statistics?.caught?.shortestTime?.total)
+                }}:{{
+                  seconds(statistics?.caught?.shortestTime?.total)
+                }}
               </div>
               <div class="cat-value">{{
                   statistics?.caught?.shortestTime?.total === 0 ? "No Times Recorded" : selectedType?.value === "teraAll" || selectedType?.value === "teraShinyAll" ? `${statistics?.caught?.shortestTime?.category} ${statistics?.caught?.shortestTime?.name}` : statistics?.caught?.shortestTime?.name
@@ -225,18 +229,14 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
+import {defineAsyncComponent} from "vue";
 
 const TeraChart = defineAsyncComponent(() => import("./TeraChart.vue"));
 
 export default {
   name: "TabAll",
-  props: { tabName: { type: String }, id: { type: String }, isShiny: { type: Boolean } },
-  created() {
-    console.log("try", this.statistics);
-  },
-  components: { TeraChart },
+  props: {tabName: {type: String}, id: {type: String}, isShiny: {type: Boolean}},
+  components: {TeraChart},
   data() {
     return {
       selectedType: {

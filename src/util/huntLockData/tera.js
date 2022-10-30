@@ -1,1 +1,1 @@
-export const teraAvailable = [906, 909];
+export const teraAvailable = [906, 909, 912];

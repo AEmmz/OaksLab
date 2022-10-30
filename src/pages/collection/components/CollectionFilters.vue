@@ -5,8 +5,8 @@
       :class="desktopCheck() ? '' : 'wrap'">
       <q-input
         class="filter search"
-        v-model="searchQuery"
-        :model-value="searchQuery"
+        v-model="setFilters.searchQuery"
+        :model-value="setFilters.searchQuery"
         dark
         outlined
         clearable
@@ -23,9 +23,9 @@
         dark
         outlined
         label="Sort"
-        v-model="sortQuery"
-        :model-value="sortQuery"
-        :options="sortFilter"
+        v-model="setFilters.sortQuery"
+        :model-value="setFilters.sortQuery"
+        :options="filterTypes.sortFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
@@ -34,9 +34,9 @@
         dark
         outlined
         label="Caught"
-        v-model="caughtQuery"
-        :model-value="caughtQuery"
-        :options="caughtFilter"
+        v-model="setFilters.caughtQuery"
+        :model-value="setFilters.caughtQuery"
+        :options="filterTypes.caughtFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
@@ -45,9 +45,9 @@
         dark
         outlined
         label="Need"
-        v-model="needQuery"
-        :model-value="needQuery"
-        :options="needFilter"
+        v-model="setFilters.needQuery"
+        :model-value="setFilters.needQuery"
+        :options="filterTypes.needFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
@@ -60,9 +60,9 @@
         outlined
         size="xl"
         label="Generation"
-        v-model="generationQuery"
-        :model-value="generationQuery"
-        :options="generationFilter"
+        v-model="setFilters.generationQuery"
+        :model-value="setFilters.generationQuery"
+        :options="filterTypes.generationFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
@@ -72,9 +72,9 @@
         dark
         outlined
         label="Type 1"
-        v-model="typeQuery1"
-        :model-value="typeQuery1"
-        :options="typeFilter"
+        v-model="setFilters.typeQuery1"
+        :model-value="setFilters.typeQuery1"
+        :options="filterTypes.typeFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
@@ -84,24 +84,24 @@
         dark
         outlined
         label="Type 2"
-        v-model="typeQuery2"
-        :model-value="typeQuery2"
-        :options="typeFilter"
+        v-model="setFilters.typeQuery2"
+        :model-value="setFilters.typeQuery2"
+        :options="filterTypes.typeFilter"
         transition-show="jump-up"
         transition-hide="jump-up"
         @update:model-value="sendSearch"></q-select>
       <q-select
-        v-if="!desktopCheck()"
+        v-if="!desktopCheck() && !isQuickEdit"
         class="filter"
         dark
         outlined
         label="Shiny View"
-        v-model="shinyView"
-        :model-value="shinyView"
-        :options="shinyViewOptions"
+        v-model="setFilters.shinyView"
+        :model-value="setFilters.shinyView"
+        :options="filterTypes.shinyViewOptions"
         transition-show="jump-up"
         transition-hide="jump-up"
-        @update:model-value="getShinyView(shinyView)"></q-select>
+        @update:model-value="getShinyView(setFilters.shinyView)"></q-select>
 
       <div
         class="buttons-container q-gutter-x-md"
@@ -128,7 +128,7 @@
       v-if="desktopCheck()">
       <q-btn
         icon="fas fa-rotate"
-        label="Reset"
+        label="Reset Filters"
         class="reset-button filter-button"
         color="primary"
         text-color="light"
@@ -139,6 +139,22 @@
         color="primary"
         text-color="light"
         @click="moreOptionsVisible = !moreOptionsVisible"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection'"
+        icon="fas fa-pen"
+        label="Collection Quick Edit"
+        class="quick-edit-button"
+        color="primary"
+        text-color="light"
+        to="/collection/quick-update"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection/quick-update'"
+        icon="fas fa-grip"
+        label="Collection Viewer"
+        class="collection-viewer-button"
+        color="primary"
+        text-color="light"
+        to="/collection"/>
       <q-slide-transition>
         <div
           v-show="moreOptionsVisible"
@@ -149,9 +165,9 @@
             outlined
             size="xl"
             label="Generation"
-            v-model="generationQuery"
-            :model-value="generationQuery"
-            :options="generationFilter"
+            v-model="setFilters.generationQuery"
+            :model-value="setFilters.generationQuery"
+            :options="filterTypes.generationFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
             @update:model-value="sendSearch"></q-select>
@@ -160,9 +176,9 @@
             dark
             outlined
             label="Type 1"
-            v-model="typeQuery1"
-            :model-value="typeQuery1"
-            :options="typeFilter"
+            v-model="setFilters.typeQuery1"
+            :model-value="setFilters.typeQuery1"
+            :options="filterTypes.typeFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
             @update:model-value="sendSearch"></q-select>
@@ -171,23 +187,24 @@
             dark
             outlined
             label="Type 2"
-            v-model="typeQuery2"
-            :model-value="typeQuery2"
-            :options="typeFilter"
+            v-model="setFilters.typeQuery2"
+            :model-value="setFilters.typeQuery2"
+            :options="filterTypes.typeFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
             @update:model-value="sendSearch"></q-select>
           <q-select
+            v-if="!isQuickEdit"
             class="filter"
             dark
             outlined
             label="Shiny View"
-            v-model="shinyView"
-            :model-value="shinyView"
-            :options="shinyViewOptions"
+            v-model="setFilters.shinyView"
+            :model-value="setFilters.shinyView"
+            :options="filterTypes.shinyViewOptions"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="getShinyView(shinyView)"></q-select>
+            @update:model-value="getShinyView(setFilters.shinyView)"></q-select>
         </div>
       </q-slide-transition>
     </div>
@@ -195,63 +212,49 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
-  props: { getSearch: { type: Function }, getShinyView: { type: Function }, closeDialog: { type: Function } },
+  props: {
+    getSearch: {type: Function},
+    getShinyView: {type: Function},
+    closeDialog: {type: Function},
+    isQuickEdit: {type: Boolean}
+  },
   data() {
     return {
       moreOptionsVisible: false,
-      searchQuery: null,
-      sortQuery: null,
-      caughtQuery: null,
-      needQuery: null,
-      generationQuery: null,
-      typeQuery1: null,
-      typeQuery2: null,
-      shinyView: null,
-      sortFilter: ["Dex: Asc", "Dex: Desc", "Name: A-Z", "Name: Z-A"],
-      caughtFilter: ["Show All", "My Caught", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV", "Complete"],
-      needFilter: ["None", "All", "Normal", "Shiny", "Alpha", "Shiny Alpha", "Pokerus", "Shiny Pokerus", "Marked", "Shiny Marked", "0 IV", "Shiny 0 IV", "6 IV", "Shiny 6 IV"],
-      generationFilter: ["All", "Gen 1", "Gen 2", "Gen 3", "Gen 4", "Gen 5", "Gen 6", "Gen 7", "Gen 8"],
-      typeFilter: ["All", "Bug", "Dark", "Dragon", "Electric", "Fairy", "Fighting", "Fire", "Flying", "Grass", "Ghost", "Ground", "Ice", "Normal", "Poison", "Psychic", "Steel", "Rock", "Water"],
-      shinyViewOptions: ["All Normal", "All Shiny", "Shiny Caught"]
+      setFilters: {
+        searchQuery: null,
+        sortQuery: null,
+        caughtQuery: null,
+        needQuery: null,
+        generationQuery: null,
+        typeQuery1: null,
+        typeQuery2: null,
+        shinyView: null,
+      },
     };
   },
   computed: {
-    ...mapGetters("collection", ["collectionSettings", "persistedFilters"])
+    ...mapGetters("collection", ["collectionSettings", "persistedFilters", "quickEditFilters", "filterTypes"])
   },
   watch: {
     collectionSettings(curVal, prevVal) {
       if (curVal !== prevVal) {
-        this.shinyView = this.collectionSettings.shinyView;
-        this.getShinyView(this.shinyView);
+        this.setFilters.shinyView = this.collectionSettings.shinyView;
+        this.getShinyView(this.setFilters.shinyView);
       }
     }
   },
   mounted() {
-    this.searchQuery = this.persistedFilters.searchQuery;
-    this.sortQuery = this.persistedFilters.sortQuery;
-    this.caughtQuery = this.persistedFilters.caughtQuery;
-    this.needQuery = this.persistedFilters.needQuery;
-    this.generationQuery = this.persistedFilters.generationQuery;
-    this.typeQuery1 = this.persistedFilters.typeQuery1;
-    this.typeQuery2 = this.persistedFilters.typeQuery2;
-    this.shinyView = this.persistedFilters.shinyView;
+    this.setFilters = this.isQuickEdit ? {...this.quickEditFilters} : {...this.persistedFilters}
   },
 
   unmounted() {
-    this.persistFilters({
-      searchQuery: this.searchQuery,
-      sortQuery: this.sortQuery,
-      caughtQuery: this.caughtQuery,
-      needQuery: this.needQuery,
-      generationQuery: this.generationQuery,
-      typeQuery1: this.typeQuery1,
-      typeQuery2: this.typeQuery2,
-      shinyView: this.shinyView
-    });
+    this.persistFilters({filters: this.setFilters, isQuickEdit: this.isQuickEdit || false});
   },
+
   methods: {
     ...mapActions("collection", ["persistFilters"]),
     desktopCheck() {
@@ -259,23 +262,26 @@ export default {
     },
     sendSearch() {
       this.getSearch({
-        searchQuery: this.searchQuery,
-        sortQuery: this.sortQuery,
-        caughtQuery: this.caughtQuery,
-        needQuery: this.needQuery,
-        generationQuery: this.generationQuery,
-        typeQuery1: this.typeQuery1,
-        typeQuery2: this.typeQuery2
+        searchQuery: this.setFilters.searchQuery,
+        sortQuery: this.setFilters.sortQuery,
+        caughtQuery: this.setFilters.caughtQuery,
+        needQuery: this.setFilters.needQuery,
+        generationQuery: this.setFilters.generationQuery,
+        typeQuery1: this.setFilters.typeQuery1,
+        typeQuery2: this.setFilters.typeQuery2
       });
     },
     resetFilters() {
-      this.searchQuery = "";
-      this.sortQuery = "Dex: Asc";
-      this.caughtQuery = "My Caught";
-      this.needQuery = "None";
-      this.generationQuery = "All";
-      this.typeQuery1 = "All";
-      this.typeQuery2 = "All";
+      if (this.isQuickEdit) this.setFilters.caughtQuery = "Show All";
+      else this.setFilters.caughtQuery = "My Caught";
+
+
+      this.setFilters.searchQuery = "";
+      this.setFilters.sortQuery = "Dex: Asc";
+      this.setFilters.needQuery = "None";
+      this.setFilters.generationQuery = "All";
+      this.setFilters.typeQuery1 = "All";
+      this.setFilters.typeQuery2 = "All";
       this.sendSearch();
     }
   }

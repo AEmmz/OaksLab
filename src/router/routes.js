@@ -5,6 +5,8 @@ const Login = () => import("../pages/authorization/TheLogin.vue");
 const Admin = () => import("../pages/authorization/TheAdmin.vue");
 const Collection = () => import("../pages/collection/TheCollection.vue");
 const Statistics = () => import("../pages/statistics/TheStatistics.vue");
+// const StreamerTools = () => import("../pages/streamer-tools/StreamerTools.vue");
+const QuickCollectionUpdate = () => import("../pages/collection/components/QuickCollectionUpdate/QuickCollectionUpdate.vue");
 const NotFound = () => import("../pages/page-not-found/PageNotFound.vue");
 
 const routes = [
@@ -16,8 +18,8 @@ const routes = [
     path: "/tracker",
     component: Tracker,
     name: "tracker",
-    meta: { requiresAuth: true },
-    children: [{ path: ":pkName", component: Tracker }]
+    meta: {requiresAuth: true},
+    children: [{path: ":pkName", component: Tracker}]
   },
   {
     path: "/home",
@@ -28,25 +30,31 @@ const routes = [
     path: "/register",
     name: "register",
     component: Register,
-    meta: { requiresNotAuth: true }
+    meta: {requiresNotAuth: true}
   },
   {
     path: "/login",
     name: "login",
     component: Login,
-    meta: { requiresNotAuth: true }
+    meta: {requiresNotAuth: true}
   },
   {
     path: "/admin",
     name: "admin",
     component: Admin,
-    meta: { requiresAuth: true }
+    meta: {requiresAuth: true}
   },
   {
-    path: "/collection",
+    path: "/collection/quick-update",
+    name: "quick-update",
+    component: QuickCollectionUpdate,
+    meta: {requiresAuth: true}
+  },
+  {
+    path: "/collection/",
     name: "collection",
     component: Collection,
-    meta: { requiresAuth: true }
+    meta: {requiresAuth: true}
   },
   {
     path: "/statistics",
@@ -56,7 +64,15 @@ const routes = [
       requiresAuth: true
     }
   },
-  { path: "/:notFound(.*)", component: NotFound }
+  // {
+  //   path: "/streamer",
+  //   component: StreamerTools,
+  //   name: "streamertools",
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
+  {path: "/:notFound(.*)", component: NotFound}
 ];
 
 export default routes;
