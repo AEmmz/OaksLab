@@ -28,12 +28,28 @@
         :rows="rows"
         :filter="filter"
         :filter-method="filterData"
+        :visible-columns="visibleColumns"
         row-key="name"
         hide-pagination
         v-model:pagination="pagination"
         card-container-class="flex justify-center q-gutter-sm"
         :class="desktopCheck() ? 'q-pt-md' : ''">
 
+
+        <template v-slot:top>
+          <q-tabs
+            v-model="tab"
+            mobile-arrows
+            outside-arrows
+            class="text-light full-width"
+          >
+            <q-tab class="table-tab" name="all" icon="icon-poke-pokeball" label="All"/>
+            <q-tab class="table-tab" name="normal" icon="fas fa-paw" label="Normal"/>
+            <q-tab class="table-tab" name="shiny" icon="icon-poke-shiny" label="Shiny"/>
+            <q-tab class="table-tab" name="tera" icon="fas fa-gem" label="Tera"/>
+            <q-tab class="table-tab" name="shinyTera" icon="fas fa-gem" label="Shiny Tera"/>
+          </q-tabs>
+        </template>
         <template v-slot:body="props">
           <q-tr :props="props">
             <q-td
@@ -52,7 +68,7 @@
               :key="col.name">
               <q-checkbox
                 dark
-                size="lg"
+                :size="desktopCheck()?'lg':'md'"
                 :checked-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
                 :unchecked-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
                 :indeterminate-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
@@ -62,6 +78,17 @@
                 @update:model-value="(val)=> {updateCheckBox(col.name,val,props.row)}"/>
             </q-td>
           </q-tr>
+        </template>
+        <template v-slot:no-data>
+          <div class="full-width justify-center text-center items-center text-light q-pa-lg"
+               :class="desktopCheck()?'row':'column'">
+            <q-icon size="sm" name="icon-poke-pokeball"/>
+            <div class="column text-subtitle2 q-pa-lg">
+              <span>No Pokemon To Display.</span>
+              <span>Try using different filters!</span>
+            </div>
+            <q-icon size="sm" name="icon-poke-pokeball"/>
+          </div>
         </template>
 
       </q-table>
@@ -74,9 +101,9 @@
           v-model="pagination.page"
           :model-value="pagination.page"
           :max="maxPages"
+          :size="desktopCheck()?'20px':'16px'"
           :max-pages="desktopCheck() ? 7 : 7"
           direction-links
-          size="20px"
           text-color="white"
           color="white"
           active-color="primary"/>
@@ -170,6 +197,7 @@ export default {
 
   data() {
     return {
+      tab: "all",
       shinyView: "All Normal",
       rows: [],
       columns: [
@@ -368,6 +396,28 @@ export default {
 
   computed: {
     ...mapGetters("collection", ["userList", "filterTypes"]),
+    visibleColumns() {
+      if (this.tab === "all") {
+        const allColumns = [];
+        this.columns.forEach((column) => {
+          allColumns.push(column.name);
+        });
+        return allColumns;
+      }
+      if (this.tab === "normal") {
+        return ["dexNo", "name", "normal", "alpha", "pokerus", "marked", "zeroIv", "sixIv"]
+      }
+      if (this.tab === "shiny") {
+        return ["dexNo", "name", "shiny", "shinyAlpha", "shinyPokerus", "shinyMarked", "shinyZeroIv", "shinySixIv"]
+      }
+      if (this.tab === "tera") {
+        return ["dexNo", "name", "teraBug", "teraDark", "teraDragon", "teraElectric", "teraFairy", "teraFighting", "teraFire", "teraFlying", "teraGhost", "teraGrass", "teraGround", "teraIce", "teraNormal", "teraPoison", "teraPsychic", "teraRock", "teraSteel", "teraWater"]
+      }
+      if (this.tab === "shinyTera") {
+        return ["dexNo", "name", "teraShinyBug", "teraShinyDark", "teraShinyDragon", "teraShinyElectric", "teraShinyFairy", "teraShinyFighting", "teraShinyFire", "teraShinyFlying", "teraShinyGhost", "teraShinyGrass", "teraShinyGround", "teraShinyIce", "teraShinyNormal", "teraShinyPoison", "teraShinyPsychic", "teraShinyRock", "teraShinySteel", "teraShinyWater"]
+      }
+      return [];
+    },
     maxPages() {
       return Math.ceil(this.pagination.dataLength / this.pagination.rowsPerPage);
     },
@@ -379,7 +429,7 @@ export default {
       return pages;
     },
     quickEditColumns() {
-      return this.columns.filter(column => column.name !== "name" && column.name !== "dexNo");
+      return this.columns.filter(column => column.name !== "name" && column.name !== "dexNo" && this.visibleColumns.includes(column.name));
     }
   },
 
@@ -387,6 +437,9 @@ export default {
     ...mapActions("collection", ["retrieveList", "updateShinyView", "resetFilters", "quickEditToggler", "collectionQuickEditToggler"]),
     onIntersection(entry) {
       this.endPage = entry.isIntersecting;
+      setTimeout(() => {
+        this.endPage = false
+      }, 3000)
     },
 
     updateCheckBox(column, value, data) {
@@ -509,7 +562,6 @@ export default {
         if (term === "generationQuery") {
           const q = this.filter.generationQuery.value;
           if (q === 'all') rows;
-          console.log(q)
           if (q === "gen1") rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
           if (q === "gen2") rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
           if (q === "gen3") rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
@@ -537,7 +589,6 @@ export default {
 <style
   scoped
   lang="scss">
-
 
 .checkbox :deep(.q-checkbox__inner--indet) {
   color: transparent;
@@ -567,14 +618,10 @@ export default {
 
 .quick-edit-table :deep(thead tr th) {
   text-align: center;
-  font-size: 1rem;
-  min-width: 6rem;
 }
 
 .quick-edit-table :deep(tbody tr td) {
   text-align: center;
-  font-size: 1rem;
-  min-width: 6rem;
 }
 
 .quick-edit-table :deep(thead tr) {
@@ -632,7 +679,7 @@ body.screen--xs {
 body.screen--sm {
   .q-dialog__inner--minimized > div {
     max-width: 80%;
-    max-height: 85%;
+    max-height: 100%;
   }
 
   .per-page {
@@ -649,6 +696,16 @@ body.screen--xs, body.screen--sm {
   .filter-cont {
     width: 100%;
     max-height: 100%;
+  }
+
+  .quick-edit-table :deep(thead tr th) {
+    font-size: 0.7rem;
+    min-width: 4rem;
+  }
+
+  .quick-edit-table :deep(tbody tr td) {
+    font-size: 0.7rem;
+    min-width: 4rem;
   }
 }
 
@@ -673,6 +730,18 @@ body.screen--md, body.screen--lg, body.screen--xl, {
 
   .per-page {
     width: 15%;
+  }
+
+  .quick-edit-table :deep(thead tr th) {
+    font-size: 1rem;
+    min-width: 6rem;
+
+  }
+
+  .quick-edit-table :deep(tbody tr td) {
+    font-size: 1rem;
+    min-width: 6rem;
+
   }
 }
 </style>

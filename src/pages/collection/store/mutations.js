@@ -20,6 +20,14 @@ export default {
     state.filters.generationQuery = "All";
     state.filters.typeQuery1 = "All";
     state.filters.typeQuery2 = "All";
+    state.quickEditFilters.searchQuery = "";
+    state.quickEditFilters.sortQuery = "Dex: Asc";
+    state.quickEditFilters.caughtQuery = "Show All";
+    state.quickEditFilters.needQuery = "None";
+    state.quickEditFilters.generationQuery = "All";
+    state.quickEditFilters.typeQuery1 = "All";
+    state.quickEditFilters.typeQuery2 = "All";
+    state.quickEditFilters.shinyView = "All Normal";
   },
   setQuickEditCaughtData(state, payload) {
     state.caughtData = payload;

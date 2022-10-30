@@ -17,6 +17,22 @@
       <q-toolbar-title class="mobile-title">
         DexHunt
       </q-toolbar-title>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection'"
+        icon="fas fa-pen"
+        class="q-ma-sm"
+        flat
+        size="sm"
+        round
+        to="/collection/quick-update"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection/quick-update'"
+        icon="fas fa-grip"
+        class="q-ma-sm"
+        flat
+        size="sm"
+        round
+        to="/collection"/>
     </q-toolbar>
 
     <!-- Desktop Menu -->
@@ -90,12 +106,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 import AuthBar from "./components/AuthBar.vue";
 import MenuBar from "./components/MenuBar.vue";
 
 export default {
-  components: { AuthBar, MenuBar },
+  components: {AuthBar, MenuBar},
   data() {
     return {
       drawerLeft: false,

@@ -13,20 +13,20 @@
     </q-page-container>
 
     <div
-      class="footer-bar bg-dark shadow-up-3 flex justify-center">
-      <q-toolbar>
+      class="bg-dark shadow-up-3 flex justify-center q-py-sm">
+      <div>
         <div class="col-12 text-light row justify-center text-caption text-center">
           © 2022 DexHunt. All Rights Reserved.
           <br/>
           Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2022
         </div>
-      </q-toolbar>
+      </div>
     </div>
   </q-layout>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 import TheNavigationBar from "./components/navigation/TheNavigationBar.vue";
 
 export default {
@@ -55,11 +55,6 @@ html {
   background-color: var(--med-bg);
   font-family: Gellix, sans-serif;
   overflow-x: hidden;
-}
-
-.main {
-  position: relative;
-  top: 80px;
 }
 
 .router-enter-from {

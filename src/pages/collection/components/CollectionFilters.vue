@@ -128,7 +128,7 @@
       v-if="desktopCheck()">
       <q-btn
         icon="fas fa-rotate"
-        label="Reset"
+        label="Reset Filters"
         class="reset-button filter-button"
         color="primary"
         text-color="light"
@@ -139,6 +139,22 @@
         color="primary"
         text-color="light"
         @click="moreOptionsVisible = !moreOptionsVisible"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection'"
+        icon="fas fa-pen"
+        label="Collection Quick Edit"
+        class="quick-edit-button"
+        color="primary"
+        text-color="light"
+        to="/collection/quick-update"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection/quick-update'"
+        icon="fas fa-grip"
+        label="Collection Viewer"
+        class="collection-viewer-button"
+        color="primary"
+        text-color="light"
+        to="/collection"/>
       <q-slide-transition>
         <div
           v-show="moreOptionsVisible"
@@ -256,13 +272,16 @@ export default {
       });
     },
     resetFilters() {
-      this.setFilers.searchQuery = "";
-      this.setFilers.sortQuery = "Dex: Asc";
-      this.setFilers.caughtQuery = "My Caught";
-      this.setFilers.needQuery = "None";
-      this.setFilers.generationQuery = "All";
-      this.setFilers.typeQuery1 = "All";
-      this.setFilers.typeQuery2 = "All";
+      if (this.isQuickEdit) this.setFilters.caughtQuery = "Show All";
+      else this.setFilters.caughtQuery = "My Caught";
+
+
+      this.setFilters.searchQuery = "";
+      this.setFilters.sortQuery = "Dex: Asc";
+      this.setFilters.needQuery = "None";
+      this.setFilters.generationQuery = "All";
+      this.setFilters.typeQuery1 = "All";
+      this.setFilters.typeQuery2 = "All";
       this.sendSearch();
     }
   }

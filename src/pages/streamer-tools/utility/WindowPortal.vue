@@ -41,10 +41,7 @@ export default {
     }
   },
   mounted() {
-    console.log("hitPortal");
-    console.log(this.isOpen);
     if (this.isOpen) {
-      console.log("open True");
       this.openPortal();
     }
   },

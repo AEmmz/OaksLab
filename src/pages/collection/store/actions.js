@@ -36,7 +36,6 @@ export default {
 
   async updateShinyView(context, payload) {
     try {
-      console.log(payload)
       const uid = await context.rootGetters["authorization/uid"];
       const updateType = {shinyView: payload};
       const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/collectionSettings`);
@@ -61,7 +60,6 @@ export default {
 
   async quickEditToggler(context, payload) {
     try {
-      console.log(payload)
       const uid = context.rootGetters["authorization/uid"];
       const tab = payload.tab;
       const type = payload.huntType;
@@ -84,14 +82,10 @@ export default {
           type2: pokemon.type[1] || null,
         }
         await context.dispatch("tracker/createPokemonDbEntry", pokemonObject, {root: true})
-        console.log('addedtoDb')
       }
-      console.log('updatedDB')
-
 
       const dbSelector = {[huntType]: value};
 
-      console.log(dbSelector)
       const updateRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
       await update(updateRef, dbSelector);
     } catch (error) {

@@ -39,9 +39,6 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    console.log("counters", this.counterActive, this.pictureActive, this.nameActive);
-  }
 };
 </script>
 

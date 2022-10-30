@@ -166,7 +166,7 @@ export default {
         top: "0px"
       },
       fontSizeOptions: ["16px", "32px", "48px", "64px", "80px"],
-      booleanOptions: [{ label: "Yes", value: true }, { label: "No", value: false }]
+      booleanOptions: [{label: "Yes", value: true}, {label: "No", value: false}]
     };
   },
   computed: {
@@ -192,10 +192,9 @@ export default {
       number = number - 10;
       this.subtitleObject.lineHeight = number + "px";
     },
-    mainLineHeight(newVal, oldVal) {
+    mainLineHeight() {
       let number = Number(this.styleObject.fontSize.split("px")[0]);
       number = number - 10;
-      console.log(number);
       this.styleObject.lineHeight = number + "px";
     }
   }

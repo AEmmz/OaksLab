@@ -36,6 +36,17 @@
             :pokemon="props.row"
             :shinyView="shinyView"></collection-card>
         </template>
+        <template v-slot:no-data>
+          <div class="full-width justify-center text-center items-center text-light q-pa-lg"
+               :class="desktopCheck()?'row':'column'">
+            <q-icon size="sm" name="icon-poke-pokeball"/>
+            <div class="column text-subtitle2 q-pa-lg">
+              <span>No Pokemon To Display.</span>
+              <span>Add to your collection by marking Pokemon as caught!</span>
+            </div>
+            <q-icon size="sm" name="icon-poke-pokeball"/>
+          </div>
+        </template>
       </q-table>
       <div
         class="flex items-center justify-center full-width q-my-md"
@@ -197,6 +208,9 @@ export default {
     ...mapActions("collection", ["retrieveList", "updateShinyView", "resetFilters"]),
     onIntersection(entry) {
       this.endPage = entry.isIntersecting;
+      setTimeout(() => {
+        this.endPage = false
+      }, 3000)
     },
     closeDialog() {
       this.filterDialog = false;
@@ -214,7 +228,6 @@ export default {
       this.filter.typeQuery2 = input.typeQuery2;
     },
     changeShinyView(input) {
-      console.log(input)
       this.shinyView = input;
       this.updateShinyView(input);
     },
