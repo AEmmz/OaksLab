@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   data() {
@@ -76,9 +76,9 @@ export default {
       toggleData: {}
     };
   },
-  props: { quickEditPokemon: { type: Object } },
+  props: {quickEditPokemon: {type: Object}},
   computed: {
-    ...mapGetters({ caughtData: "collection/caughtData_Normal" }),
+    ...mapGetters({caughtData: "collection/caughtData_Normal"}),
     pkToggleColor() {
       return `${this.quickEditPokemon.type[0]}Type`;
     },
@@ -91,9 +91,9 @@ export default {
     async setToggler(huntType) {
       if (this.pkIsActive) {
         await this.quickEditToggler({
+          pokemon: this.quickEditPokemon,
           tab: "normal",
           huntType: huntType,
-          apiNo: this.quickEditPokemon.apiNo
         });
       }
     },

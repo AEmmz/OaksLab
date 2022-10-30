@@ -3,7 +3,7 @@
     class="flex row justify-center"
     :class="{'full-width full-height':!desktopCheck(), 'q-ma-md':desktopCheck()}">
     <q-card
-      class="collection-cont bg-dark flex column items-center justify-center"
+      class="collection-cont bg-dark flex column items-center justify-center full-height"
       :class="{'full-width': !desktopCheck(), 'q-pa-md': desktopCheck()}"
       :square="!desktopCheck()">
       <span
@@ -13,7 +13,7 @@
         <collection-filters
           v-if="desktopCheck()"
           :getSearch="getSearch"
-          :getShinyView="changeShinyView"></collection-filters>
+          :getShinyView="changeShinyView" :isQuickEdit="true"></collection-filters>
       </div>
       <q-separator
         class="header-seperator"
@@ -21,7 +21,9 @@
         inset
         dark></q-separator>
       <q-table
-        class="full-width quick-edit-table"
+        class="full-width quick-edit-table full-height"
+        dark
+        wrap-cells
         :columns="columns"
         :rows="rows"
         :filter="filter"
@@ -37,7 +39,7 @@
             <q-td
               key="dexNo"
               :props="props">
-              {{ props.row.dexNo }}
+              {{ +props.row.dexNo }}
             </q-td>
             <q-td
               key="name"
@@ -49,8 +51,15 @@
               v-for="col in quickEditColumns"
               :key="col.name">
               <q-checkbox
+                dark
+                size="lg"
+                :checked-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
+                :unchecked-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
+                :indeterminate-icon="!props.row.locked[col.name] ? 'fas fa-lock':''"
+                :disable="!props.row.locked[col.name]"
+                :class="props.row.locked[col.name] ? '' : 'catch-locked'"
                 :model-value="props.row.caught[0][`${col.name}Caught`]"
-                @update:model-value="(val)=> {updateCheckBox(col.name,val,props.row, props.rowIndex )}"/>
+                @update:model-value="(val)=> {updateCheckBox(col.name,val,props.row)}"/>
             </q-td>
           </q-tr>
         </template>
@@ -101,7 +110,7 @@
           <collection-filters
             :closeDialog="closeDialog"
             :getSearch="getSearch"
-            :getShinyView="changeShinyView"></collection-filters>
+            :getShinyView="changeShinyView" :isQuickEdit="true"></collection-filters>
         </q-card>
       </q-dialog>
 
@@ -128,26 +137,28 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import { useQuasar } from "quasar";
-import { catchLock } from "src/util/tracker/catchLock";
+import {mapActions, mapGetters} from "vuex";
+import {useQuasar} from "quasar";
+import {catchLock} from "src/util/tracker/catchLock";
 import CollectionFilters from "pages/collection/components/CollectionFilters.vue";
 
 
 export default {
-  components: { CollectionFilters },
+  components: {CollectionFilters},
 
   async mounted() {
     const $q = useQuasar();
     $q.loading.show();
     await this.retrieveList();
     this.userList.forEach((pokemon) => {
+      const locked = catchLock(+pokemon[0]);
       this.rows.push({
         name: pokemon[1].name,
         apiNo: pokemon[0],
-        dexNo: +pokemon[1].dexNo,
+        dexNo: pokemon[1].dexNo,
         type: [pokemon[1].type1, pokemon[1].type2],
-        caught: [pokemon[1].catch]
+        caught: [pokemon[1].catch],
+        locked: locked
       });
     });
     $q.loading.hide();
@@ -162,192 +173,192 @@ export default {
       shinyView: "All Normal",
       rows: [],
       columns: [
-        { name: "dexNo", label: "Pokedex Number", field: "dexNo", sortable: true },
-        { name: "name", label: "Name", field: "name", sortable: true, sortOrder: "ad" },
-        { name: "normal", label: "Normal", field: "caught", format: (val) => val[0].normalCaught || false },
-        { name: "alpha", label: "Alpha", field: "caught", format: (val) => val[0].alphaCaught || false },
-        { name: "pokerus", label: "Pokerus", field: "caught", format: (val) => val[0].pokerusCaught || false },
-        { name: "marked", label: "Marked", field: "caught", format: (val) => val[0].markedCaught || false },
-        { name: "zeroIv", label: "ZeroIv", field: "caught", format: (val) => val[0].zeroIvCaught || false },
-        { name: "sixIv", label: "SixIv", field: "caught", format: (val) => val[0].sixIvCaught || false },
-        { name: "shiny", label: "Shiny", field: "caught", format: (val) => val[0].shinyCaught || false },
-        { name: "shinyAlpha", label: "ShinyAlpha", field: "caught", format: (val) => val[0].shinyAlphaCaught || false },
+        {name: "dexNo", label: "Pokedex Number", field: "dexNo", sortable: false},
+        {name: "name", label: "Name", field: "name", sortable: false, sortOrder: "ad", align: "left"},
+        {name: "normal", label: "Normal", field: "caught", format: (val) => val[0].normalCaught || false},
+        {name: "alpha", label: "Alpha", field: "caught", format: (val) => val[0].alphaCaught || false},
+        {name: "pokerus", label: "Pokerus", field: "caught", format: (val) => val[0].pokerusCaught || false},
+        {name: "marked", label: "Marked", field: "caught", format: (val) => val[0].markedCaught || false},
+        {name: "zeroIv", label: "Zero Iv", field: "caught", format: (val) => val[0].zeroIvCaught || false},
+        {name: "sixIv", label: "Six Iv", field: "caught", format: (val) => val[0].sixIvCaught || false},
+        {name: "shiny", label: "Shiny", field: "caught", format: (val) => val[0].shinyCaught || false},
+        {name: "shinyAlpha", label: "Shiny Alpha", field: "caught", format: (val) => val[0].shinyAlphaCaught || false},
         {
           name: "shinyPokerus",
-          label: "ShinyPokerus",
+          label: "Shiny Pokerus",
           field: "caught",
           format: (val) => val[0].shinyPokerusCaught || false
         },
         {
           name: "shinyMarked",
-          label: "ShinyMarked",
+          label: "Shiny Marked",
           field: "caught",
           format: (val) => val[0].shinyMarkedCaught || false
         },
         {
           name: "shinyZeroIv",
-          label: "ShinyZeroIv",
+          label: "Shiny Zero Iv",
           field: "caught",
           format: (val) => val[0].shinyZeroIvCaught || false
         },
-        { name: "shinySixIv", label: "ShinySixIv", field: "caught", format: (val) => val[0].shinySixIvCaught || false },
-        { name: "teraBug", label: "TeraBug", field: "caught", format: (val) => val[0].teraBugCaught || false },
-        { name: "teraDark", label: "TeraDark", field: "caught", format: (val) => val[0].teraDarkCaught || false },
-        { name: "teraDragon", label: "TeraDragon", field: "caught", format: (val) => val[0].teraDragonCaught || false },
+        {name: "shinySixIv", label: "Shiny Six Iv", field: "caught", format: (val) => val[0].shinySixIvCaught || false},
+        {name: "teraBug", label: "Tera Bug", field: "caught", format: (val) => val[0].teraBugCaught || false},
+        {name: "teraDark", label: "Tera Dark", field: "caught", format: (val) => val[0].teraDarkCaught || false},
+        {name: "teraDragon", label: "Tera Dragon", field: "caught", format: (val) => val[0].teraDragonCaught || false},
         {
           name: "teraElectric",
-          label: "TeraElectric",
+          label: "Tera Electric",
           field: "caught",
           format: (val) => val[0].teraElectricCaught || false
         },
-        { name: "teraFairy", label: "TeraFairy", field: "caught", format: (val) => val[0].teraFairyCaught || false },
+        {name: "teraFairy", label: "Tera Fairy", field: "caught", format: (val) => val[0].teraFairyCaught || false},
         {
           name: "teraFighting",
-          label: "TeraFighting",
+          label: "Tera Fighting",
           field: "caught",
           format: (val) => val[0].teraFightingCaught || false
         },
-        { name: "teraFire", label: "TeraFire", field: "caught", format: (val) => val[0].teraFireCaught || false },
-        { name: "teraFlying", label: "TeraFlying", field: "caught", format: (val) => val[0].teraFlyingCaught || false },
-        { name: "teraGhost", label: "TeraGhost", field: "caught", format: (val) => val[0].teraGhostCaught || false },
-        { name: "teraGrass", label: "TeraGrass", field: "caught", format: (val) => val[0].teraGrassCaught || false },
-        { name: "teraGround", label: "TeraGround", field: "caught", format: (val) => val[0].teraGroundCaught || false },
-        { name: "teraIce", label: "TeraIce", field: "caught", format: (val) => val[0].teraIceCaught || false },
-        { name: "teraNormal", label: "TeraNormal", field: "caught", format: (val) => val[0].teraNormalCaught || false },
-        { name: "teraPoison", label: "TeraPoison", field: "caught", format: (val) => val[0].teraPoisonCaught || false },
+        {name: "teraFire", label: "Tera Fire", field: "caught", format: (val) => val[0].teraFireCaught || false},
+        {name: "teraFlying", label: "Tera Flying", field: "caught", format: (val) => val[0].teraFlyingCaught || false},
+        {name: "teraGhost", label: "Tera Ghost", field: "caught", format: (val) => val[0].teraGhostCaught || false},
+        {name: "teraGrass", label: "Tera Grass", field: "caught", format: (val) => val[0].teraGrassCaught || false},
+        {name: "teraGround", label: "Tera Ground", field: "caught", format: (val) => val[0].teraGroundCaught || false},
+        {name: "teraIce", label: "Tera Ice", field: "caught", format: (val) => val[0].teraIceCaught || false},
+        {name: "teraNormal", label: "Tera Normal", field: "caught", format: (val) => val[0].teraNormalCaught || false},
+        {name: "teraPoison", label: "Tera Poison", field: "caught", format: (val) => val[0].teraPoisonCaught || false},
         {
           name: "teraPsychic",
-          label: "TeraPsychic",
+          label: "Tera Psychic",
           field: "caught",
           format: (val) => val[0].teraPsychicCaught || false
         },
-        { name: "teraRock", label: "TeraRock", field: "caught", format: (val) => val[0].teraRockCaught || false },
-        { name: "teraSteel", label: "TeraSteel", field: "caught", format: (val) => val[0].teraSteelCaught || false },
-        { name: "teraWater", label: "TeraWater", field: "caught", format: (val) => val[0].teraWaterCaught || false },
+        {name: "teraRock", label: "Tera Rock", field: "caught", format: (val) => val[0].teraRockCaught || false},
+        {name: "teraSteel", label: "Tera Steel", field: "caught", format: (val) => val[0].teraSteelCaught || false},
+        {name: "teraWater", label: "Tera Water", field: "caught", format: (val) => val[0].teraWaterCaught || false},
         {
           name: "teraShinyBug",
-          label: "TeraShinyBug",
+          label: "Shiny Tera Bug",
           field: "caught",
           format: (val) => val[0].teraShinyBugCaught || false
         },
         {
           name: "teraShinyDark",
-          label: "TeraShinyDark",
+          label: "Shiny Tera Dark",
           field: "caught",
           format: (val) => val[0].teraShinyDarkCaught || false
         },
         {
           name: "teraShinyDragon",
-          label: "TeraShinyDragon",
+          label: "Shiny Tera Dragon",
           field: "caught",
           format: (val) => val[0].teraShinyDragonCaught || false
         },
         {
           name: "teraShinyElectric",
-          label: "TeraShinyElectric",
+          label: "Shiny Tera Electric",
           field: "caught",
           format: (val) => val[0].teraShinyElectricCaught || false
         },
         {
           name: "teraShinyFairy",
-          label: "TeraShinyFairy",
+          label: "Shiny Tera Fairy",
           field: "caught",
           format: (val) => val[0].teraShinyFairyCaught || false
         },
         {
           name: "teraShinyFighting",
-          label: "TeraShinyFighting",
+          label: "Shiny Tera Fighting",
           field: "caught",
           format: (val) => val[0].teraShinyFightingCaught || false
         },
         {
           name: "teraShinyFire",
-          label: "TeraShinyFire",
+          label: "Shiny Tera Fire",
           field: "caught",
           format: (val) => val[0].teraShinyFireCaught || false
         },
         {
           name: "teraShinyFlying",
-          label: "TeraShinyFlying",
+          label: "Shiny Tera Flying",
           field: "caught",
           format: (val) => val[0].teraShinyFlyingCaught || false
         },
         {
           name: "teraShinyGhost",
-          label: "TeraShinyGhost",
+          label: "Shiny Tera Ghost",
           field: "caught",
           format: (val) => val[0].teraShinyGhostCaught || false
         },
         {
           name: "teraShinyGrass",
-          label: "TeraShinyGrass",
+          label: "Shiny Tera Grass",
           field: "caught",
           format: (val) => val[0].teraShinyGrassCaught || false
         },
         {
           name: "teraShinyGround",
-          label: "TeraShinyGround",
+          label: "Shiny Tera Ground",
           field: "caught",
           format: (val) => val[0].teraShinyGroundCaught || false
         },
         {
           name: "teraShinyIce",
-          label: "TeraShinyIce",
+          label: "Shiny Tera Ice",
           field: "caught",
           format: (val) => val[0].teraShinyIceCaught || false
         },
         {
           name: "teraShinyNormal",
-          label: "TeraShinyNormal",
+          label: "Shiny Tera Normal",
           field: "caught",
           format: (val) => val[0].teraShinyNormalCaught || false
         },
         {
           name: "teraShinyPoison",
-          label: "TeraShinyPoison",
+          label: "Shiny Tera Poison",
           field: "caught",
           format: (val) => val[0].teraShinyPoisonCaught || false
         },
         {
           name: "teraShinyPsychic",
-          label: "TeraShinyPsychic",
+          label: "Shiny Tera Psychic",
           field: "caught",
           format: (val) => val[0].teraShinyPsychicCaught || false
         },
         {
           name: "teraShinyRock",
-          label: "TeraShinyRock",
+          label: "Shiny Tera Rock",
           field: "caught",
           format: (val) => val[0].teraShinyRockCaught || false
         },
         {
           name: "teraShinySteel",
-          label: "TeraShinySteel",
+          label: "Shiny Tera Steel",
           field: "caught",
           format: (val) => val[0].teraShinySteelCaught || false
         },
         {
           name: "teraShinyWater",
-          label: "TeraShinyWater",
+          label: "Shiny Tera Water",
           field: "caught",
           format: (val) => val[0].teraShinyWaterCaught || false
         }
       ],
       filter: {
         searchQuery: "",
-        sortQuery: "Dex: Asc",
-        caughtQuery: "My Caught",
-        needQuery: "None",
-        typeQuery1: "All",
-        typeQuery2: "All",
-        generationQuery: "All"
+        sortQuery: {label: 'Dex: Asc', value: 'dexAsc'},
+        caughtQuery: {label: 'Show All', value: 'showAll'},
+        needQuery: {label: 'None', value: 'none'},
+        typeQuery1: {label: "All", value: "all"},
+        typeQuery2: {label: "All", value: "all"},
+        generationQuery: {label: "All", value: "all"}
       },
       paginationOption: 20,
       pagination: {
         page: 1,
         dataLength: 0,
         rowsPerPage: 25,
-        perPageOptions: [25, 50, 100]
+        perPageOptions: [25, 50, 100, 200]
       },
       filterFab: false,
       filterDialog: false,
@@ -356,16 +367,7 @@ export default {
   },
 
   computed: {
-    // ...mapGetters("collection", ["userList"]),
-    userList: {
-      get() {
-        return this.$store.getters["collection/userList"];
-      },
-      set(newVal) {
-        return this.$store.commit("collection/collectionQuickEditToggler", newVal);
-      }
-    },
-
+    ...mapGetters("collection", ["userList", "filterTypes"]),
     maxPages() {
       return Math.ceil(this.pagination.dataLength / this.pagination.rowsPerPage);
     },
@@ -375,9 +377,6 @@ export default {
         pages.push(i);
       }
       return pages;
-    },
-    quickEditHeaderColumns() {
-      return this.columns.filter(column => column.name === "name" || column.name === "dexNo");
     },
     quickEditColumns() {
       return this.columns.filter(column => column.name !== "name" && column.name !== "dexNo");
@@ -390,12 +389,9 @@ export default {
       this.endPage = entry.isIntersecting;
     },
 
-    updateCheckBox(column, value, data, rowIndex) {
-      const huntType = `${column}Caught`;
-      console.log(value);
-      this.collectionQuickEditToggler({ column: huntType, value: value, data: data, rowIndex: rowIndex });
+    updateCheckBox(column, value, data) {
+      this.collectionQuickEditToggler({column: column, value: value, data: data});
     },
-
     closeDialog() {
       this.filterDialog = false;
     },
@@ -423,133 +419,111 @@ export default {
         }
         if (term === "sortQuery") {
           const q = this.filter.sortQuery;
-          if (q === "Dex: Asc") rows.sort((a, b) => a.dexNo - b.dexNo);
-          if (q === "Dex: Desc") rows.sort((a, b) => b.dexNo - a.dexNo);
-          if (q === "Name: A-Z") rows.sort((a, b) => a.name.localeCompare(b.name));
-          if (q === "Name: Z-A") rows.sort((a, b) => b.name.localeCompare(a.name));
+          if (q.value === "dexAsc") rows.sort((a, b) => a.dexNo - b.dexNo);
+          if (q.value === "dexDesc") rows.sort((a, b) => b.dexNo - a.dexNo);
+          if (q.value === "nameAz") rows.sort((a, b) => a.name.localeCompare(b.name));
+          if (q.value === "nameZa") rows.sort((a, b) => b.name.localeCompare(a.name));
         }
         if (term === "caughtQuery") {
-          const q = this.filter.caughtQuery;
-          if (q === "Show All") rows;
-          if (q === "My Caught") rows = rows.filter((a) => {
+          const q = this.filter.caughtQuery.value;
+          const filterArray = this.filterTypes.caughtFilter.filter((filter) => filter.value !== "showAll" && filter.value !== "complete" && filter.value !== "myCaught");
+          const caughtFilter = (typeCaught) => {
+            const typeCaughtValue = `${typeCaught}Caught`;
+            rows = rows.filter((a) => a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught])
+          }
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
+          if (q === "showAll") rows;
+          if (q === "myCaught") rows = rows.filter((a) => {
             const caught = Object.values(a.caught[0]);
             return caught.some((a) => a === true);
           });
-          if (q === "Normal") rows = rows.filter((a) => a.caught[0]?.normalCaught);
-          if (q === "Shiny") rows = rows.filter((a) => a.caught[0]?.shinyCaught);
-          if (q === "Alpha") rows = rows.filter((a) => a.caught[0]?.alphaCaught);
-          if (q === "Shiny Alpha") rows = rows.filter((a) => a.caught[0]?.shinyAlphaCaught);
-          if (q === "Pokerus") rows = rows.filter((a) => a.caught[0]?.pokerusCaught);
-          if (q === "Shiny Pokerus") rows = rows.filter((a) => a.caught[0]?.shinyPokerusCaught);
-          if (q === "Marked") rows = rows.filter((a) => a.caught[0]?.markedCaught);
-          if (q === "Shiny Marked") rows = rows.filter((a) => a.caught[0]?.shinyMarkedCaught);
-          if (q === "0 IV") rows = rows.filter((a) => a.caught[0]?.zeroIvCaught);
-          if (q === "Shiny 0 IV") rows = rows.filter((a) => a.caught[0]?.shinyZeroIvCaught);
-          if (q === "6 IV") rows = rows.filter((a) => a.caught[0]?.sixIvCaught);
-          if (q === "Shiny 6 IV") rows = rows.filter((a) => a.caught[0]?.shinySixIvCaught);
-          if (q === "Complete") {
+          if (q === "complete") {
             rows = rows.filter((a) => {
               const caught = a.caught[0];
-              const lockCheck = catchLock(a.apiNo);
+              const lockCheck = a.locked;
               const lockCount = Object.values(lockCheck).filter(e => e === false).length;
-              const categoryCount = Object.values(caught).length;
+              const categoryCount = Object.values(lockCheck).length;
               const caughtCount = Object.values(caught).filter(e => e === true).length;
               const totalAvailable = categoryCount - lockCount;
               return caughtCount === totalAvailable;
-            });
+            })
           }
         }
         if (term === "needQuery") {
-          const q = this.filter.needQuery;
-          if (q === "None") rows;
-          if (q === "All") {
-            rows = rows.filter((a) => {
-              const need = a.caught[0];
-              const catchCheck = catchLock(a.apiNo);
-              const fullyCatchable = Object.values(catchCheck).every(p => p === true);
-              if (fullyCatchable) return true;
-              if (!fullyCatchable) {
-                const lockCount = Object.values(catchCheck).filter((c) => c === false).length;
-                const caughtCount = Object.values(need).filter((c) => c === true).length;
-                const categoryCount = Object.values(need).length;
-                const totalAvailable = caughtCount + lockCount;
-                return totalAvailable < categoryCount;
-              }
-            });
-            rows = rows.filter((a) => {
-              const need = Object.values(a.caught[0]);
-              return need.some((a) => a === false);
-            });
+          const q = this.filter.needQuery.value;
+          const filterArray = this.filterTypes.needFilter.filter((filter) => filter.value !== "none" && filter.value !== "all");
+          if (q === "none") rows;
+
+          const caughtFilter = (typeCaught) => {
+            const typeCaughtValue = `${typeCaught}Caught`;
+            rows = rows.filter((a) => !a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught])
           }
-          if (q === "Normal") rows = rows.filter((a) => !a.caught[0]?.normalCaught);
-          if (q === "Shiny") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyCaught && catchCheck.shiny;
-          });
-          if (q === "Alpha") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.alphaCaught && catchCheck.alpha;
-          });
-          if (q === "Shiny Alpha") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyAlphaCaught && catchCheck.shinyAlpha;
-          });
-          if (q === "Pokerus") rows = rows.filter((a) => !a.caught[0]?.pokerusCaught);
-          if (q === "Shiny Pokerus") rows = rows.filter((a) => !a.caught[0]?.shinyPokerusCaught);
-          if (q === "Marked") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.markedCaught && catchCheck.marked;
-          });
-          if (q === "Shiny Marked") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyMarkedCaught && catchCheck.shinyMarked;
-          });
-          if (q === "0 IV") rows = rows.filter((a) => !a.caught[0]?.zeroIvCaught);
-          if (q === "Shiny 0 IV") rows = rows.filter((a) => !a.caught[0]?.shinyZeroIvCaught);
-          if (q === "6 IV") rows = rows.filter((a) => !a.caught[0]?.sixIvCaught);
-          if (q === "Shiny 6 IV") rows = rows.filter((a) => !a.caught[0]?.shinySixIvCaught);
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
+
+
+          // if (q === "Normal") rows = rows.filter((a) => !a.caught[0]?.normalCaught);
+          // if (q === "Shiny") rows = rows.filter((a) => {
+          //   const catchCheck = catchLock(a.apiNo);
+          //   return !a.caught[0]?.shinyCaught && catchCheck.shiny;
+          // });
+          // if (q === "Alpha") rows = rows.filter((a) => {
+          //   const catchCheck = catchLock(a.apiNo);
+          //   return !a.caught[0]?.alphaCaught && catchCheck.alpha;
+          // });
+          // if (q === "Shiny Alpha") rows = rows.filter((a) => {
+          //   const catchCheck = catchLock(a.apiNo);
+          //   return !a.caught[0]?.shinyAlphaCaught && catchCheck.shinyAlpha;
+          // });
+          // if (q === "Pokerus") rows = rows.filter((a) => !a.caught[0]?.pokerusCaught);
+          // if (q === "Shiny Pokerus") rows = rows.filter((a) => !a.caught[0]?.shinyPokerusCaught);
+          // if (q === "Marked") rows = rows.filter((a) => {
+          //   const catchCheck = catchLock(a.apiNo);
+          //   return !a.caught[0]?.markedCaught && catchCheck.marked;
+          // });
+          // if (q === "Shiny Marked") rows = rows.filter((a) => {
+          //   const catchCheck = catchLock(a.apiNo);
+          //   return !a.caught[0]?.shinyMarkedCaught && catchCheck.shinyMarked;
+          // });
+          // if (q === "0 IV") rows = rows.filter((a) => !a.caught[0]?.zeroIvCaught);
+          // if (q === "Shiny 0 IV") rows = rows.filter((a) => !a.caught[0]?.shinyZeroIvCaught);
+          // if (q === "6 IV") rows = rows.filter((a) => !a.caught[0]?.sixIvCaught);
+          // if (q === "Shiny 6 IV") rows = rows.filter((a) => !a.caught[0]?.shinySixIvCaught);
         }
         if (term === "typeQuery1" || term === "typeQuery2") {
           let q;
-          if (term === "typeQuery1") q = this.filter.typeQuery1;
-          if (term === "typeQuery2") q = this.filter.typeQuery2;
-          if (q.includes("All")) rows;
-          if (q.includes("Bug")) rows = rows.filter((a) => a.type.includes("bug"));
-          if (q.includes("Dark")) rows = rows.filter((a) => a.type.includes("dark"));
-          if (q.includes("Dragon")) rows = rows.filter((a) => a.type.includes("dragon"));
-          if (q.includes("Electric")) rows = rows.filter((a) => a.type.includes("electric"));
-          if (q.includes("Fairy")) rows = rows.filter((a) => a.type.includes("fairy"));
-          if (q.includes("Fighting")) rows = rows.filter((a) => a.type.includes("fighting"));
-          if (q.includes("Fire")) rows = rows.filter((a) => a.type.includes("fire"));
-          if (q.includes("Flying")) rows = rows.filter((a) => a.type.includes("flying"));
-          if (q.includes("Grass")) rows = rows.filter((a) => a.type.includes("grass"));
-          if (q.includes("Ghost")) rows = rows.filter((a) => a.type.includes("ghost"));
-          if (q.includes("Ground")) rows = rows.filter((a) => a.type.includes("ground"));
-          if (q.includes("Ice")) rows = rows.filter((a) => a.type.includes("ice"));
-          if (q.includes("Normal")) rows = rows.filter((a) => a.type.includes("normal"));
-          if (q.includes("Poison")) rows = rows.filter((a) => a.type.includes("poison"));
-          if (q.includes("Psychic")) rows = rows.filter((a) => a.type.includes("psychic"));
-          if (q.includes("Steel")) rows = rows.filter((a) => a.type.includes("steel"));
-          if (q.includes("Rock")) rows = rows.filter((a) => a.type.includes("rock"));
-          if (q.includes("Water")) rows = rows.filter((a) => a.type.includes("water"));
+          const filterArray = this.filterTypes.typeFilter.filter((filter) => filter.value !== "all");
+          if (term === "typeQuery1") q = this.filter.typeQuery1.value;
+          if (term === "typeQuery2") q = this.filter.typeQuery2.value;
+          if (q === "all") rows;
+          const caughtFilter = (type) => {
+            rows = rows.filter((a) => a.type.includes(type))
+          }
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
         }
         if (term === "generationQuery") {
-          const q = this.filter.generationQuery;
-          if (q.includes("All")) rows;
-          if (q.includes("Gen 1")) rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
-          if (q.includes("Gen 2")) rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
-          if (q.includes("Gen 3")) rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
-          if (q.includes("Gen 4")) rows = rows.filter((a) => a.dexNo >= 387 && a.dexNo <= 493);
-          if (q.includes("Gen 5")) rows = rows.filter((a) => a.dexNo >= 494 && a.dexNo <= 649);
-          if (q.includes("Gen 6")) rows = rows.filter((a) => a.dexNo >= 650 && a.dexNo <= 721);
-          if (q.includes("Gen 7")) rows = rows.filter((a) => a.dexNo >= 722 && a.dexNo <= 809);
-          if (q.includes("Gen 8")) rows = rows.filter((a) => a.dexNo >= 810 && a.dexNo <= 905);
-          if (q.includes("Gen 9")) rows = rows.filter((a) => a.dexNo >= 906 && a.dexNo <= 1500);
+          const q = this.filter.generationQuery.value;
+          if (q === 'all') rows;
+          console.log(q)
+          if (q === "gen1") rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
+          if (q === "gen2") rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
+          if (q === "gen3") rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
+          if (q === "gen4") rows = rows.filter((a) => a.dexNo >= 387 && a.dexNo <= 493);
+          if (q === "gen5") rows = rows.filter((a) => a.dexNo >= 494 && a.dexNo <= 649);
+          if (q === "gen6") rows = rows.filter((a) => a.dexNo >= 650 && a.dexNo <= 721);
+          if (q === "gen7") rows = rows.filter((a) => a.dexNo >= 722 && a.dexNo <= 809);
+          if (q === "gen8") rows = rows.filter((a) => a.dexNo >= 810 && a.dexNo <= 905);
+          if (q === "gen9") rows = rows.filter((a) => a.dexNo >= 906 && a.dexNo <= 1500);
         }
       }
       this.pagination.dataLength = rows.length;
       return rows;
-    }
+    },
   }
 };
 </script>
@@ -564,22 +538,26 @@ export default {
   scoped
   lang="scss">
 
+
 .checkbox :deep(.q-checkbox__inner--indet) {
-  //background: transparent;
   color: transparent;
 }
 
 .checkbox :deep(.q-checkbox__inner--indet .q-checkbox__bg) {
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 2px solid rgba(255, 255, 255, 0.54);
   border-radius: 2px;
 }
 
 .checkbox :deep(.q-checkbox:not(.disabled):hover .q-checkbox__inner:before) {
-  background: rgba(0, 0, 0, 0.54);
+  background: rgba(255, 255, 255, 0.54);
 }
 
 .checkbox :deep(.q-checkbox__indet) {
   display: none;
+}
+
+.catch-locked :deep(.q-checkbox__inner) {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .quick-edit-table {
@@ -587,40 +565,33 @@ export default {
   max-width: 90%;
 }
 
-.quick-edit-table td:first-child {
-  background-color: #c1f4cd !important;
+.quick-edit-table :deep(thead tr th) {
+  text-align: center;
+  font-size: 1rem;
+  min-width: 6rem;
 }
 
-.quick-edit-table tr th {
-  position: sticky;
-  z-index: 2;
-  background: #fff;
+.quick-edit-table :deep(tbody tr td) {
+  text-align: center;
+  font-size: 1rem;
+  min-width: 6rem;
 }
 
-.quick-edit-table thead tr:last-child th {
-  top: 48px;
-  z-index: 3;
+.quick-edit-table :deep(thead tr) {
+  background-color: rgb(255, 255, 255, 1);
+  color: $dark;
+  font-family: Futura, sans-serif;
 }
 
-
-.quick-edit-table thead tr:first-child th {
-  top: 0;
-  z-index: 1;
+.quick-edit-table :deep(tbody tr td:first-child), .quick-edit-table :deep(tbody tr td:nth-child(2)) {
+  background-color: rgb(106, 106, 106);
 }
 
-.quick-edit-table tr:first-child th:first-child {
-  z-index: 3;
-}
-
-.quick-edit-table td:first-child {
-  z-index: 1;
-}
-
-.quick-edit-table td:first-child, th:first-child {
+.quick-edit-table :deep(tbody tr td:nth-child(2)), .quick-edit-table :deep(thead tr th:nth-child(2)) {
   position: sticky;
   left: 0;
+  z-index: 1;
 }
-
 
 .collection-title {
   font-family: Futura, sans-serif;

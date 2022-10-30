@@ -8,6 +8,12 @@ export default {
   persistedFilters(state) {
     return state.filters;
   },
+  quickEditFilters(state) {
+    return state.quickEditFilters;
+  },
+  filterTypes(state) {
+    return state.filterTypes;
+  },
   caughtData_Normal(state) {
     return state.caughtData.normal;
   },

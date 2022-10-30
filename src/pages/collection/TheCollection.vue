@@ -109,14 +109,13 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
-import { useQuasar } from "quasar";
-import { catchLock } from "src/util/tracker/catchLock";
+import {defineAsyncComponent} from "vue";
+import {mapActions, mapGetters} from "vuex";
+import {useQuasar} from "quasar";
+import {catchLock} from "src/util/tracker/catchLock";
 
 const CollectionFilters = defineAsyncComponent(() => import("./components/CollectionFilters.vue"));
 const CollectionCard = defineAsyncComponent(() => import("./components/CollectionCard.vue"));
-// const catchLock = defineAsyncComponent(() => import("src/util/tracker/catchLock"));
 
 export default {
   components: {
@@ -129,13 +128,15 @@ export default {
     $q.loading.show();
     await this.retrieveList();
     this.userList.forEach((pokemon) => {
+      const locked = catchLock(+pokemon[0]);
       this.rows.push({
         name: pokemon[1].name,
         apiNo: pokemon[0],
         dexNo: pokemon[1].dexNo,
         type: [pokemon[1].type1, pokemon[1].type2],
         caught: [pokemon[1].catch],
-        need: [pokemon[1].catch]
+        need: [pokemon[1].catch],
+        locked: locked
       });
     });
     $q.loading.hide();
@@ -150,20 +151,20 @@ export default {
       shinyView: "All Normal",
       rows: [],
       columns: [
-        { name: "name", label: "Name", field: "name", sortable: true, sortOrder: "ad" },
-        { name: "dexNo", label: "Pokedex Number", field: "dexNo", sortable: true },
-        { name: "type", label: "Type", field: "type" },
-        { name: "caught", label: "Caught", field: "caught" },
-        { name: "need", label: "Need", field: "need" }
+        {name: "name", label: "Name", field: "name", sortable: true, sortOrder: "ad"},
+        {name: "dexNo", label: "Pokedex Number", field: "dexNo", sortable: true},
+        {name: "type", label: "Type", field: "type"},
+        {name: "caught", label: "Caught", field: "caught"},
+        {name: "need", label: "Need", field: "need"}
       ],
       filter: {
         searchQuery: "",
-        sortQuery: "Dex: Asc",
-        caughtQuery: "My Caught",
-        needQuery: "None",
-        typeQuery1: "All",
-        typeQuery2: "All",
-        generationQuery: "All"
+        sortQuery: {label: 'Dex: Asc', value: 'dexAsc'},
+        caughtQuery: {label: 'My Caught', value: 'myCaught'},
+        needQuery: {label: 'None', value: 'none'},
+        typeQuery1: {label: "All", value: "all"},
+        typeQuery2: {label: "All", value: "all"},
+        generationQuery: {label: "All", value: "all"}
       },
       paginationOption: 20,
       pagination: {
@@ -179,7 +180,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("collection", ["userList"]),
+    ...mapGetters("collection", ["userList", "filterTypes"]),
     maxPages() {
       return Math.ceil(this.pagination.dataLength / this.pagination.rowsPerPage);
     },
@@ -213,6 +214,7 @@ export default {
       this.filter.typeQuery2 = input.typeQuery2;
     },
     changeShinyView(input) {
+      console.log(input)
       this.shinyView = input;
       this.updateShinyView(input);
     },
@@ -224,128 +226,76 @@ export default {
         }
         if (term === "sortQuery") {
           const q = this.filter.sortQuery;
-          if (q === "Dex: Asc") rows.sort((a, b) => a.dexNo - b.dexNo);
-          if (q === "Dex: Desc") rows.sort((a, b) => b.dexNo - a.dexNo);
-          if (q === "Name: A-Z") rows.sort((a, b) => a.name.localeCompare(b.name));
-          if (q === "Name: Z-A") rows.sort((a, b) => b.name.localeCompare(a.name));
+          if (q.value === "dexAsc") rows.sort((a, b) => a.dexNo - b.dexNo);
+          if (q.value === "dexDesc") rows.sort((a, b) => b.dexNo - a.dexNo);
+          if (q.value === "nameAz") rows.sort((a, b) => a.name.localeCompare(b.name));
+          if (q.value === "nameZa") rows.sort((a, b) => b.name.localeCompare(a.name));
         }
         if (term === "caughtQuery") {
-          const q = this.filter.caughtQuery;
-          if (q === "Show All") rows;
-          if (q === "My Caught") rows = rows.filter((a) => {
+          const q = this.filter.caughtQuery.value;
+          const filterArray = this.filterTypes.caughtFilter.filter((filter) => filter.value !== "showAll" && filter.value !== "complete" && filter.value !== "myCaught");
+          const caughtFilter = (typeCaught) => {
+            const typeCaughtValue = `${typeCaught}Caught`;
+            rows = rows.filter((a) => a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught])
+          }
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
+          if (q === "showAll") rows;
+          if (q === "myCaught") rows = rows.filter((a) => {
             const caught = Object.values(a.caught[0]);
             return caught.some((a) => a === true);
           });
-          if (q === "Normal") rows = rows.filter((a) => a.caught[0]?.normalCaught);
-          if (q === "Shiny") rows = rows.filter((a) => a.caught[0]?.shinyCaught);
-          if (q === "Alpha") rows = rows.filter((a) => a.caught[0]?.alphaCaught);
-          if (q === "Shiny Alpha") rows = rows.filter((a) => a.caught[0]?.shinyAlphaCaught);
-          if (q === "Pokerus") rows = rows.filter((a) => a.caught[0]?.pokerusCaught);
-          if (q === "Shiny Pokerus") rows = rows.filter((a) => a.caught[0]?.shinyPokerusCaught);
-          if (q === "Marked") rows = rows.filter((a) => a.caught[0]?.markedCaught);
-          if (q === "Shiny Marked") rows = rows.filter((a) => a.caught[0]?.shinyMarkedCaught);
-          if (q === "0 IV") rows = rows.filter((a) => a.caught[0]?.zeroIvCaught);
-          if (q === "Shiny 0 IV") rows = rows.filter((a) => a.caught[0]?.shinyZeroIvCaught);
-          if (q === "6 IV") rows = rows.filter((a) => a.caught[0]?.sixIvCaught);
-          if (q === "Shiny 6 IV") rows = rows.filter((a) => a.caught[0]?.shinySixIvCaught);
-          if (q === "Complete") {
+          if (q === "complete") {
             rows = rows.filter((a) => {
               const caught = a.caught[0];
-              const lockCheck = catchLock(a.apiNo);
+              const lockCheck = a.locked;
               const lockCount = Object.values(lockCheck).filter(e => e === false).length;
-              const categoryCount = Object.values(caught).length;
+              const categoryCount = Object.values(lockCheck).length;
               const caughtCount = Object.values(caught).filter(e => e === true).length;
               const totalAvailable = categoryCount - lockCount;
               return caughtCount === totalAvailable;
-            });
+            })
           }
         }
         if (term === "needQuery") {
-          const q = this.filter.needQuery;
-          if (q === "None") rows;
-          if (q === "All") {
-            rows = rows.filter((a) => {
-              const need = a.caught[0];
-              const catchCheck = catchLock(a.apiNo);
-              const fullyCatchable = Object.values(catchCheck).every(p => p === true);
-              if (fullyCatchable) return true;
-              if (!fullyCatchable) {
-                const lockCount = Object.values(catchCheck).filter((c) => c === false).length;
-                const caughtCount = Object.values(need).filter((c) => c === true).length;
-                const categoryCount = Object.values(need).length;
-                const totalAvailable = caughtCount + lockCount;
-                return totalAvailable < categoryCount;
-              }
-            });
-            rows = rows.filter((a) => {
-              const need = Object.values(a.caught[0]);
-              return need.some((a) => a === false);
-            });
+          const q = this.filter.needQuery.value;
+          const filterArray = this.filterTypes.needFilter.filter((filter) => filter.value !== "none" && filter.value !== "all");
+          if (q === "none") rows;
+
+          const caughtFilter = (typeCaught) => {
+            const typeCaughtValue = `${typeCaught}Caught`;
+            rows = rows.filter((a) => !a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught])
           }
-          if (q === "Normal") rows = rows.filter((a) => !a.caught[0]?.normalCaught);
-          if (q === "Shiny") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyCaught && catchCheck.shiny;
-          });
-          if (q === "Alpha") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.alphaCaught && catchCheck.alpha;
-          });
-          if (q === "Shiny Alpha") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyAlphaCaught && catchCheck.shinyAlpha;
-          });
-          if (q === "Pokerus") rows = rows.filter((a) => !a.caught[0]?.pokerusCaught);
-          if (q === "Shiny Pokerus") rows = rows.filter((a) => !a.caught[0]?.shinyPokerusCaught);
-          if (q === "Marked") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.markedCaught && catchCheck.marked;
-          });
-          if (q === "Shiny Marked") rows = rows.filter((a) => {
-            const catchCheck = catchLock(a.apiNo);
-            return !a.caught[0]?.shinyMarkedCaught && catchCheck.shinyMarked;
-          });
-          if (q === "0 IV") rows = rows.filter((a) => !a.caught[0]?.zeroIvCaught);
-          if (q === "Shiny 0 IV") rows = rows.filter((a) => !a.caught[0]?.shinyZeroIvCaught);
-          if (q === "6 IV") rows = rows.filter((a) => !a.caught[0]?.sixIvCaught);
-          if (q === "Shiny 6 IV") rows = rows.filter((a) => !a.caught[0]?.shinySixIvCaught);
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
         }
         if (term === "typeQuery1" || term === "typeQuery2") {
           let q;
-          if (term === "typeQuery1") q = this.filter.typeQuery1;
-          if (term === "typeQuery2") q = this.filter.typeQuery2;
-          if (q.includes("All")) rows;
-          if (q.includes("Bug")) rows = rows.filter((a) => a.type.includes("bug"));
-          if (q.includes("Dark")) rows = rows.filter((a) => a.type.includes("dark"));
-          if (q.includes("Dragon")) rows = rows.filter((a) => a.type.includes("dragon"));
-          if (q.includes("Electric")) rows = rows.filter((a) => a.type.includes("electric"));
-          if (q.includes("Fairy")) rows = rows.filter((a) => a.type.includes("fairy"));
-          if (q.includes("Fighting")) rows = rows.filter((a) => a.type.includes("fighting"));
-          if (q.includes("Fire")) rows = rows.filter((a) => a.type.includes("fire"));
-          if (q.includes("Flying")) rows = rows.filter((a) => a.type.includes("flying"));
-          if (q.includes("Grass")) rows = rows.filter((a) => a.type.includes("grass"));
-          if (q.includes("Ghost")) rows = rows.filter((a) => a.type.includes("ghost"));
-          if (q.includes("Ground")) rows = rows.filter((a) => a.type.includes("ground"));
-          if (q.includes("Ice")) rows = rows.filter((a) => a.type.includes("ice"));
-          if (q.includes("Normal")) rows = rows.filter((a) => a.type.includes("normal"));
-          if (q.includes("Poison")) rows = rows.filter((a) => a.type.includes("poison"));
-          if (q.includes("Psychic")) rows = rows.filter((a) => a.type.includes("psychic"));
-          if (q.includes("Steel")) rows = rows.filter((a) => a.type.includes("steel"));
-          if (q.includes("Rock")) rows = rows.filter((a) => a.type.includes("rock"));
-          if (q.includes("Water")) rows = rows.filter((a) => a.type.includes("water"));
+          const filterArray = this.filterTypes.typeFilter.filter((filter) => filter.value !== "all");
+          if (term === "typeQuery1") q = this.filter.typeQuery1.value;
+          if (term === "typeQuery2") q = this.filter.typeQuery2.value;
+          if (q === "all") rows;
+          const caughtFilter = (type) => {
+            rows = rows.filter((a) => a.type.includes(type))
+          }
+          filterArray.forEach((filter) => {
+            if (q === filter.value) caughtFilter(filter.value);
+          })
         }
         if (term === "generationQuery") {
-          const q = this.filter.generationQuery;
-          if (q.includes("All")) rows;
-          if (q.includes("Gen 1")) rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
-          if (q.includes("Gen 2")) rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
-          if (q.includes("Gen 3")) rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
-          if (q.includes("Gen 4")) rows = rows.filter((a) => a.dexNo >= 387 && a.dexNo <= 493);
-          if (q.includes("Gen 5")) rows = rows.filter((a) => a.dexNo >= 494 && a.dexNo <= 649);
-          if (q.includes("Gen 6")) rows = rows.filter((a) => a.dexNo >= 650 && a.dexNo <= 721);
-          if (q.includes("Gen 7")) rows = rows.filter((a) => a.dexNo >= 722 && a.dexNo <= 809);
-          if (q.includes("Gen 8")) rows = rows.filter((a) => a.dexNo >= 810 && a.dexNo <= 905);
-          if (q.includes("Gen 9")) rows = rows.filter((a) => a.dexNo >= 906 && a.dexNo <= 1500);
+          const q = this.filter.generationQuery.value;
+          if (q === 'all') rows;
+          if (q === "gen1") rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
+          if (q === "gen2") rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
+          if (q === "gen3") rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
+          if (q === "gen4") rows = rows.filter((a) => a.dexNo >= 387 && a.dexNo <= 493);
+          if (q === "gen5") rows = rows.filter((a) => a.dexNo >= 494 && a.dexNo <= 649);
+          if (q === "gen6") rows = rows.filter((a) => a.dexNo >= 650 && a.dexNo <= 721);
+          if (q === "gen7") rows = rows.filter((a) => a.dexNo >= 722 && a.dexNo <= 809);
+          if (q === "gen8") rows = rows.filter((a) => a.dexNo >= 810 && a.dexNo <= 905);
+          if (q === "gen9") rows = rows.filter((a) => a.dexNo >= 906 && a.dexNo <= 1500);
         }
       }
       this.pagination.dataLength = rows.length;
