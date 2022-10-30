@@ -21,7 +21,7 @@
         inset
         dark></q-separator>
       <q-table
-        class="full-width quick-edit-table full-height"
+        class="full-width quick-edit-table"
         dark
         wrap-cells
         :columns="columns"
@@ -612,7 +612,7 @@ export default {
 }
 
 .quick-edit-table {
-  height: 1000px;
+  height: 90vh;
   max-width: 90%;
 }
 
@@ -632,6 +632,12 @@ export default {
 
 .quick-edit-table :deep(tbody tr td:first-child), .quick-edit-table :deep(tbody tr td:nth-child(2)) {
   background-color: rgb(106, 106, 106);
+}
+
+.quick-edit-table :deep(thead tr:first-child) {
+  z-index: 2;
+  top: 0;
+  position: sticky;
 }
 
 .quick-edit-table :deep(tbody tr td:nth-child(2)), .quick-edit-table :deep(thead tr th:nth-child(2)) {
