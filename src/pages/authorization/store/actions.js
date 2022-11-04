@@ -250,9 +250,13 @@ export default {
   },
 
   async toggleWhatsNew(context, payload) {
-    const uid = context.getters.uid;
-    const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/notifications/whatsNew`);
-    await update(dbRef, payload);
-    await context.commit("toggleWhatsNew", payload);
+    const prevStatus = context.getters.whatsNew;
+    if (prevStatus === true) {
+      const uid = context.getters.uid;
+      const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/notifications/`);
+      await update(dbRef, { whatsNew: payload });
+      await context.commit("toggleWhatsNew", payload);
+    }
+
   }
 };

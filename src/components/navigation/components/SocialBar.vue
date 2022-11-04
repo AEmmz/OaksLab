@@ -42,8 +42,10 @@
         rounded></q-badge>
     </q-btn>
 
-    <q-dialog v-model="whatsNewDialog">
-      <whats-new-dialog></whats-new-dialog>
+    <q-dialog
+      v-model="whatsNewDialog"
+      @hide="viewedWhatsNew">
+      <whats-new-dialog @closeWhatsNewDialog="whatsNewDialog=false"></whats-new-dialog>
       <!--      <q-page-sticky-->
       <!--        position="bottom"-->
       <!--        class="floating-button">-->
@@ -54,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import WhatsNewDialog from "components/navigation/components/WhatsNewDialog.vue";
 
 export default {
@@ -67,6 +69,13 @@ export default {
   },
   computed: {
     ...mapGetters("authorization", ["whatsNew"])
+  },
+  methods: {
+    ...mapActions("authorization", ["toggleWhatsNew"]),
+    viewedWhatsNew() {
+      this.whatsNewDialog = false;
+      this.toggleWhatsNew(this.whatsNewDialog);
+    }
   }
 };
 </script>
