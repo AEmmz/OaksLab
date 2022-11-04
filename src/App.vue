@@ -26,15 +26,23 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import TheNavigationBar from "./components/navigation/TheNavigationBar.vue";
 
 export default {
   components: {
     TheNavigationBar
   },
+  mounted() {
+    if (this.uid) {
+      this.retrieveUserSettings();
+    }
+  },
   computed: {
     ...mapGetters("authorization", ["uid"])
+  },
+  methods: {
+    ...mapActions("authorization", ["retrieveUserSettings"])
   }
 };
 </script>

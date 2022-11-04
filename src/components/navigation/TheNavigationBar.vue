@@ -37,7 +37,7 @@
 
     <!-- Desktop Menu -->
     <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
-      <div class="col-6 site-header row items-center text-h4">
+      <div class="site-header row items-center text-h4">
         <q-icon
           name="icon-poke-pokeball"
           size="sm"
@@ -51,7 +51,8 @@
           size="sm"
           class="q-pt-xs q-pl-sm"/>
       </div>
-      <div class="col-6 menu-bar row justify-end">
+      <div class="menu-bar row justify-end">
+        <social-bar></social-bar>
         <menu-bar></menu-bar>
       </div>
     </q-toolbar>
@@ -84,6 +85,10 @@
         <q-separator
           dark
           inset></q-separator>
+        <social-bar class="q-py-sm"></social-bar>
+        <q-separator
+          dark
+          inset></q-separator>
         <div class="menu">
           <div
             class="q-my-lg q-py-md mobile-menu"
@@ -106,12 +111,13 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 import AuthBar from "./components/AuthBar.vue";
 import MenuBar from "./components/MenuBar.vue";
+import SocialBar from "./components/SocialBar.vue";
 
 export default {
-  components: {AuthBar, MenuBar},
+  components: { AuthBar, MenuBar, SocialBar },
   data() {
     return {
       drawerLeft: false,

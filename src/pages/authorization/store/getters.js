@@ -13,5 +13,11 @@ export default {
   },
   email(state) {
     return state.email;
+  },
+  userInfo(state) {
+    return state.userInfo;
+  },
+  whatsNew(state) {
+    return state.userInfo.notifications.whatsNew;
   }
 };
