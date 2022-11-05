@@ -39,15 +39,6 @@ export default {
     state.mainTimer = payload;
   },
 
-  //Hold Intervals
-  startHold(state, payload) {
-    state.interval = payload;
-  },
-
-  clearHold(state) {
-    clearInterval(state.interval);
-  },
-
   //Reset
   resetCounter(state) {
     state.mainCount = 0;

@@ -17,9 +17,7 @@
             :unelevated="!desktopCheck()"
             class="counter-main text-h1 full-width text-dark"
             :color="pkType1 ? `${pkType1}Type` : 'primary'"
-            @click="countUp"
-            @mousedown="holdCountUp"
-            @mouseup="clearCountHold">
+            @click="countUp">
             <div class="text-light">{{ mainCount }}</div>
           </q-btn>
           <div class="secondary-cont full-width justify-center row">
@@ -32,9 +30,7 @@
                 :color="!desktopCheck() ? pkTypeColor() : 'light'"
                 class="btn bg-light secondary-btn full-width text-h6"
                 :class="desktopCheck() ? 'text-dark' : `text-light`"
-                @click="countDown"
-                @mousedown="holdCountDown"
-                @mouseup="clearCountHold">
+                @click="countDown">
                 <q-icon
                   name="fas fa-minus"
                   :color="desktopCheck() ? 'dark' : 'light'"
@@ -132,9 +128,6 @@ export default {
     ...mapActions("tracker/counter", [
       "countUp",
       "countDown",
-      "holdCountUp",
-      "holdCountDown",
-      "clearCountHold",
       "resetCounter"
     ]),
 
