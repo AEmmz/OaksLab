@@ -44,6 +44,7 @@ export default {
     try {
       const uid = context.rootGetters["authorization/uid"];
       const apiNo = context.rootGetters["tracker/apiNo"];
+      if (apiNo === "" || apiNo === null || apiNo === undefined || apiNo === false) return;
       const count = context.getters.mainCount;
       const currentHunt = context.rootGetters["tracker/hunt"].toLowerCase().replaceAll(" ", "");
       const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/count`);
@@ -105,23 +106,6 @@ export default {
   },
   async countDown(context) {
     context.commit("countDown");
-    await context.dispatch("updateCounter");
-  },
-  holdCountUp(context) {
-    context.commit("clearHold");
-    context.commit("startHold");
-    const int = setInterval(() => context.commit("countUp"), 300);
-    context.commit("startHold", int);
-  },
-  holdCountDown(context) {
-    context.commit("clearHold");
-    context.commit("startHold");
-    const int = setInterval(() => context.commit("countDown"), 300);
-    context.commit("startHold", int);
-  },
-
-  async clearCountHold(context) {
-    context.commit("clearHold");
     await context.dispatch("updateCounter");
   },
 
