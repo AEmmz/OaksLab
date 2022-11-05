@@ -96,7 +96,7 @@ export default {
           title: "Quick Edit",
           description: `Now you can quick edit individual Pokemon's capture status' straight from the collection screen. Hover or touch a Pokemon's card on the collection screen to reveal the new "Quick Edit" button. This will open a dialog allowing you to make your changes.`,
           screenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new3.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667599252343",
-          mobileScreenshot: ""
+          mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new3_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667607142048"
         },
         {
           name: "new4",
@@ -104,7 +104,7 @@ export default {
           title: "And We're Live",
           description: "Introducing DexHunt! A passion project of a dedicated Pokemon fan. Since Generation 1, Anthony, the creator of DexHunt, has been hunting, capturing and collection all the Pokemon he could, mostly keeping track of his collection in spreadsheets. It's time for something different. Welcome and thank you for stopping by!",
           screenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667599364005",
-          mobileScreenshot: ""
+          mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667607372682"
         }]
     };
   },
