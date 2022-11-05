@@ -3,7 +3,7 @@
     :reveal="!desktopCheck()"
     elevated
     class="toolbar-cont"
-    :class="{'homepage-header' : homepageToolbar}"
+    :class="[{'homepage-header' : homepageToolbar}, {'greenscreen-header': greenScreenToolBar}]"
     v-intersection="onIntersection">
 
     <!--Mobile Menu -->
@@ -17,11 +17,27 @@
       <q-toolbar-title class="mobile-title">
         DexHunt
       </q-toolbar-title>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection'"
+        icon="fas fa-pen"
+        class="q-ma-sm"
+        flat
+        size="sm"
+        round
+        to="/collection/quick-update"/>
+      <q-btn
+        v-if="this.$router.currentRoute.value.path === '/collection/quick-update'"
+        icon="fas fa-grip"
+        class="q-ma-sm"
+        flat
+        size="sm"
+        round
+        to="/collection"/>
     </q-toolbar>
 
     <!-- Desktop Menu -->
     <q-toolbar class="bg-dark row justify-between fixed toolbar gt-sm">
-      <div class="col-6 site-header row items-center text-h4">
+      <div class="site-header row items-center text-h4">
         <q-icon
           name="icon-poke-pokeball"
           size="sm"
@@ -35,7 +51,8 @@
           size="sm"
           class="q-pt-xs q-pl-sm"/>
       </div>
-      <div class="col-6 menu-bar row justify-end">
+      <div class="menu-bar row justify-end">
+        <social-bar></social-bar>
         <menu-bar></menu-bar>
       </div>
     </q-toolbar>
@@ -68,6 +85,10 @@
         <q-separator
           dark
           inset></q-separator>
+        <social-bar class="q-py-sm"></social-bar>
+        <q-separator
+          dark
+          inset></q-separator>
         <div class="menu">
           <div
             class="q-my-lg q-py-md mobile-menu"
@@ -93,9 +114,10 @@
 import { mapGetters } from "vuex";
 import AuthBar from "./components/AuthBar.vue";
 import MenuBar from "./components/MenuBar.vue";
+import SocialBar from "./components/SocialBar.vue";
 
 export default {
-  components: { AuthBar, MenuBar },
+  components: { AuthBar, MenuBar, SocialBar },
   data() {
     return {
       drawerLeft: false,
@@ -106,6 +128,9 @@ export default {
     ...mapGetters("authorization", ["isLoggedIn"]),
     homepageToolbar() {
       return this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home";
+    },
+    greenScreenToolBar() {
+      return this.$router.currentRoute.value.path === "/streamer";
     }
   },
   methods: {
@@ -122,6 +147,16 @@ export default {
 <style
   scoped
   lang="scss">
+
+.greenscreen-header {
+  //display: none
+}
+
+//.auth-bar,
+//.name-bar,
+//.menu-bar {
+//  width: 25%;
+//}
 
 .auth-bar,
 .menu-bar {

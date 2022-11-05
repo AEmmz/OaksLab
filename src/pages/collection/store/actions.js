@@ -1,5 +1,6 @@
-import { child, get, getDatabase, ref, update } from "firebase/database";
-import { catchLock } from "src/util/tracker/catchLock";
+import {child, get, getDatabase, ref, update} from "firebase/database";
+import {catchLock} from "src/util/tracker/catchLock";
+import PokemonList from "src/assets/json/pokemonList.json"
 
 export default {
   async retrieveList(context) {
@@ -9,14 +10,34 @@ export default {
     const settingsData = await get(child(dbRef, `users/${uid}/userInfo/collectionSettings`));
     const dexInfo = Object.entries(data.val());
     const userSettings = await settingsData.val();
-    context.commit("setDefaultLists", dexInfo);
-    context.commit("setShinyView", userSettings);
+    const pokemonList = PokemonList.pokemon;
+    const pokemonInDb = [];
+    dexInfo.forEach(pokemon => pokemonInDb.push(+pokemon[0]));
+    for (let pokemonListKey in pokemonList) {
+      if (!pokemonInDb.includes(+pokemonList[pokemonListKey].apiNo)) {
+        const pokemonObject = pokemonList[pokemonListKey];
+        const excludedPokemon = [
+          pokemonObject.apiNo,
+          {
+            catch: {},
+            count: {},
+            dexNo: pokemonObject.dexNo,
+            name: pokemonObject.name,
+            type1: pokemonObject.types[0],
+            type2: pokemonObject.types[1] || undefined
+          }
+        ]
+        dexInfo.push(excludedPokemon);
+      }
+      context.commit("setDefaultLists", dexInfo);
+      context.commit("setShinyView", userSettings);
+    }
   },
 
   async updateShinyView(context, payload) {
     try {
       const uid = await context.rootGetters["authorization/uid"];
-      const updateType = { shinyView: payload };
+      const updateType = {shinyView: payload};
       const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/collectionSettings`);
       await update(dbRef, updateType);
     } catch (e) {
@@ -39,15 +60,34 @@ export default {
 
   async quickEditToggler(context, payload) {
     try {
-      const type = payload.huntType;
       const uid = context.rootGetters["authorization/uid"];
-      const apiNo = +payload.apiNo;
       const tab = payload.tab;
-      await context.commit("quickEditToggler", { type: type, tab: tab });
-      const dbType = type + "Caught";
-      const dbSelector = { [dbType]: context.state.caughtData[tab].caught[type] };
-      const dbRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
-      await update(dbRef, dbSelector);
+      const type = payload.huntType;
+      const pokemon = payload.pokemon;
+      const apiNo = +pokemon.apiNo;
+      const huntType = type + "Caught";
+      await context.commit("quickEditToggler", {type: type, tab: tab});
+      const value = context.state.caughtData[tab].caught[type];
+
+      const dbRef = await ref(getDatabase());
+      const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}`));
+      const pokemonInDb = data.exists();
+      if (!pokemonInDb) {
+
+        const pokemonObject = {
+          apiNo: pokemon.apiNo,
+          dexNo: pokemon.dexNo,
+          name: pokemon.name,
+          type1: pokemon.type[0],
+          type2: pokemon.type[1] || null,
+        }
+        await context.dispatch("tracker/createPokemonDbEntry", pokemonObject, {root: true})
+      }
+
+      const dbSelector = {[huntType]: value};
+
+      const updateRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
+      await update(updateRef, dbSelector);
     } catch (error) {
       console.error("Failed to update checklist in database. Please try again later", error);
     }
@@ -184,6 +224,41 @@ export default {
       context.commit("setQuickEditCaughtData", caughtData);
     } catch (error) {
       console.error("Failed to pull checklist in database. Please try again later", error);
+    }
+  },
+
+  async collectionQuickEditToggler(context, payload) {
+    try {
+      const uid = context.rootGetters["authorization/uid"];
+      const value = payload.value;
+      const apiNo = +payload.data.apiNo;
+      const pokemon = payload.data
+      const huntType = `${payload.column}Caught`;
+      const dataUpdate = {
+        apiNo: apiNo,
+        catchType: huntType,
+        catchValue: value,
+      };
+      await context.commit("collectionQuickEditToggler", dataUpdate);
+      const dbSelector = {[huntType]: value};
+
+      const dbRef = await ref(getDatabase());
+      const data = await get(child(dbRef, `users/${uid}/pokedex/${apiNo}`));
+      const pokemonInDb = data.exists();
+      if (!pokemonInDb) {
+        const pokemonObject = {
+          apiNo: pokemon.apiNo,
+          dexNo: pokemon.dexNo,
+          name: pokemon.name,
+          type1: pokemon.type[0],
+          type2: pokemon.type[1] || null,
+        }
+        await context.dispatch("tracker/createPokemonDbEntry", pokemonObject, {root: true})
+      }
+      const updateRef = await ref(getDatabase(), `users/${uid}/pokedex/${apiNo}/catch`);
+      await update(updateRef, dbSelector);
+    } catch (error) {
+      console.error("Failed to update checklist in database. Please try again later", error);
     }
   }
 };

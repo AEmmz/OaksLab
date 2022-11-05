@@ -105,7 +105,11 @@ export default {
 
       const uName = payload.username;
       await update(dbRef, { [uName]: sendInfo.user.uid });
-      await update(dbRef2, { username: uName });
+      await update(dbRef2, {
+        username: uName,
+        collectionSettings: { shinyView: "All Normal" },
+        notifications: { whatsNew: true }
+      });
       // await updateBetaKeys(payload.betaKey, betaKeys);
 
 
@@ -236,5 +240,23 @@ export default {
     }
     context.commit("logout");
     return { message: "Account Successfully Deleted!" };
+  },
+
+  async retrieveUserSettings(context) {
+    const uid = context.getters.uid;
+    const dbRef = await ref(getDatabase());
+    const data = await get(child(dbRef, `users/${uid}/userInfo/`));
+    await context.commit("setUserSettings", data.val());
+  },
+
+  async toggleWhatsNew(context, payload) {
+    const prevStatus = context.getters.whatsNew;
+    if (prevStatus === true) {
+      const uid = context.getters.uid;
+      const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/notifications/`);
+      await update(dbRef, { whatsNew: payload });
+      await context.commit("toggleWhatsNew", payload);
+    }
+
   }
 };

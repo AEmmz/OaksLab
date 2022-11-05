@@ -17,5 +17,11 @@ export default {
     state.uid = null;
     state.email = null;
     state.username = null;
+  },
+  setUserSettings(state, payload) {
+    state.userInfo = payload;
+  },
+  toggleWhatsNew(state, payload) {
+    state.userInfo.notifications.whatsNew = payload;
   }
 };

@@ -1,7 +1,7 @@
 // -----------------Imports------------------ //
-import { getDatabase, ref, child, get } from "firebase/database";
-import { catchLock } from "src/util/tracker/catchLock";
-import { gmaxArray, megaArray } from "src/util/statistics/FormsArrays";
+import {getDatabase, ref, child, get} from "firebase/database";
+import {catchLock} from "src/util/tracker/catchLock";
+import {gmaxArray, megaArray} from "src/util/statistics/FormsArrays";
 import PokeList from "../../../assets/json/pokemonList.json";
 
 // const PokeList = () => import("../../../assets/json/pokemonList.json");
@@ -10,10 +10,10 @@ import PokeList from "../../../assets/json/pokemonList.json";
 const pokeArray = PokeList.pokemon;
 const counts = {
   total: 0,
-  longestTime: { name: null, total: 0, category: null },
-  shortestTime: { name: null, total: 0, category: null },
-  longestCount: { name: null, total: 0, category: null },
-  shortestCount: { name: null, total: 0, category: null }
+  longestTime: {name: null, total: 0, category: null},
+  shortestTime: {name: null, total: 0, category: null},
+  longestCount: {name: null, total: 0, category: null},
+  shortestCount: {name: null, total: 0, category: null}
 };
 const generationCounts = {
   all: 0,
@@ -546,9 +546,6 @@ export default {
         teraShinyWaterCount = isLockCheck("teraShinyWater") ? calcStats(dexNo, "teraShinyWater") : teraShinyWaterCount;
       }
     });
-
-    console.log(normalCount);
-
     const statistics = {
       all: totalCount,
       normal: normalCount,
@@ -633,21 +630,21 @@ export default {
           return array.includes(+pk[0]) && pk[1]?.catch?.[count];
         }
       }).length;
-      return { total, available };
+      return {total, available};
     };
 
     const statTemplate = (array) => {
       return {
-        normal: { type: "Normal", ...getAvailable(array, "normalCaught", "normal") },
-        shiny: { type: "Shiny", ...getAvailable(array, "shinyCaught", "shiny") },
-        marked: { type: "Marked", ...getAvailable(array, "markedCaught", "marked") },
-        shinyMarked: { type: "Shiny Marked", ...getAvailable(array, "shinyMarkedCaught", "shinyMarked") },
-        pokerus: { type: "Pokerus", ...getAvailable(array, "pokerusCaught", "pokerus") },
-        shinyPokerus: { type: "Shiny Pokerus", ...getAvailable(array, "shinyPokerusCaught", "shiny") },
-        sixIv: { type: "Six IV", ...getAvailable(array, "sixIvCaught", "sixIv") },
-        shinySixIv: { type: "Shiny Six IV", ...getAvailable(array, "shinySixIvCaught", "shiny") },
-        zeroIv: { type: "Zero IV", ...getAvailable(array, "zeroIvCaught", "zeroIv") },
-        shinyZeroIv: { type: "Shiny Zero IV", ...getAvailable(array, "shinyZeroIvCaught", "shiny") }
+        normal: {type: "Normal", ...getAvailable(array, "normalCaught", "normal")},
+        shiny: {type: "Shiny", ...getAvailable(array, "shinyCaught", "shiny")},
+        marked: {type: "Marked", ...getAvailable(array, "markedCaught", "marked")},
+        shinyMarked: {type: "Shiny Marked", ...getAvailable(array, "shinyMarkedCaught", "shinyMarked")},
+        pokerus: {type: "Pokerus", ...getAvailable(array, "pokerusCaught", "pokerus")},
+        shinyPokerus: {type: "Shiny Pokerus", ...getAvailable(array, "shinyPokerusCaught", "shiny")},
+        sixIv: {type: "Six IV", ...getAvailable(array, "sixIvCaught", "sixIv")},
+        shinySixIv: {type: "Shiny Six IV", ...getAvailable(array, "shinySixIvCaught", "shiny")},
+        zeroIv: {type: "Zero IV", ...getAvailable(array, "zeroIvCaught", "zeroIv")},
+        shinyZeroIv: {type: "Shiny Zero IV", ...getAvailable(array, "shinyZeroIvCaught", "shiny")}
       };
     };
 
@@ -673,22 +670,22 @@ export default {
       const total = userArray.filter(pk => {
         return catchLock(+pk[0])?.[type];
       }).length;
-      return { total, available };
+      return {total, available};
     };
     const statTemplate = (dexNo) => {
       return {
-        normal: { type: "Normal", ...getAvailable(dexNo, "normalCaught", "normal") },
-        shiny: { type: "Shiny", ...getAvailable(dexNo, "shinyCaught", "shiny") },
-        alpha: { type: "Alpha", ...getAvailable(dexNo, "alphaCaught", "alpha") },
-        shinyAlpha: { type: "Shiny Alpha", ...getAvailable(dexNo, "shinyAlphaCaught", "shinyAlpha") },
-        marked: { type: "Marked", ...getAvailable(dexNo, "markedCaught", "marked") },
-        shinyMarked: { type: "Shiny Marked", ...getAvailable(dexNo, "shinyMarkedCaught", "shinyMarked") },
-        pokerus: { type: "Pokerus", ...getAvailable(dexNo, "pokerusCaught", "pokerus") },
-        shinyPokerus: { type: "Shiny Pokerus", ...getAvailable(dexNo, "shinyPokerusCaught", "shiny") },
-        sixIv: { type: "Six IV", ...getAvailable(dexNo, "sixIvCaught", "sixIv") },
-        shinySixIv: { type: "Shiny Six IV", ...getAvailable(dexNo, "shinySixIvCaught", "shiny") },
-        zeroIv: { type: "Zero IV", ...getAvailable(dexNo, "zeroIvCaught", "zeroIv") },
-        shinyZeroIv: { type: "Shiny Zero IV", ...getAvailable(dexNo, "shinyZeroIvCaught", "shiny") }
+        normal: {type: "Normal", ...getAvailable(dexNo, "normalCaught", "normal")},
+        shiny: {type: "Shiny", ...getAvailable(dexNo, "shinyCaught", "shiny")},
+        alpha: {type: "Alpha", ...getAvailable(dexNo, "alphaCaught", "alpha")},
+        shinyAlpha: {type: "Shiny Alpha", ...getAvailable(dexNo, "shinyAlphaCaught", "shinyAlpha")},
+        marked: {type: "Marked", ...getAvailable(dexNo, "markedCaught", "marked")},
+        shinyMarked: {type: "Shiny Marked", ...getAvailable(dexNo, "shinyMarkedCaught", "shinyMarked")},
+        pokerus: {type: "Pokerus", ...getAvailable(dexNo, "pokerusCaught", "pokerus")},
+        shinyPokerus: {type: "Shiny Pokerus", ...getAvailable(dexNo, "shinyPokerusCaught", "shiny")},
+        sixIv: {type: "Six IV", ...getAvailable(dexNo, "sixIvCaught", "sixIv")},
+        shinySixIv: {type: "Shiny Six IV", ...getAvailable(dexNo, "shinySixIvCaught", "shiny")},
+        zeroIv: {type: "Zero IV", ...getAvailable(dexNo, "zeroIvCaught", "zeroIv")},
+        shinyZeroIv: {type: "Shiny Zero IV", ...getAvailable(dexNo, "shinyZeroIvCaught", "shiny")}
       };
     };
 

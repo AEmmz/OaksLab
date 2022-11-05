@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   data() {
@@ -76,9 +76,9 @@ export default {
       toggleSize: "80px"
     };
   },
-  props: { quickEditPokemon: { type: Object } },
+  props: {quickEditPokemon: {type: Object}},
   computed: {
-    ...mapGetters({ caughtData: "collection/caughtData_Shiny" }),
+    ...mapGetters({caughtData: "collection/caughtData_Shiny"}),
     pkToggleColor() {
       return `${this.quickEditPokemon.type[0]}Type`;
     },
@@ -93,7 +93,7 @@ export default {
         await this.quickEditToggler({
           tab: "shiny",
           huntType: huntType,
-          apiNo: this.quickEditPokemon.apiNo
+          pokemon: this.quickEditPokemon,
         });
       }
     },
