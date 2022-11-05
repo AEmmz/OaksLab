@@ -10,7 +10,16 @@ export default {
       currentUser: null,
       isLoggedIn: false,
       username: null,
-      email: null
+      email: null,
+      userInfo: {
+        username: "",
+        collectionSettings: {
+          shinyView: "All Normal"
+        },
+        notifications: {
+          whatsNew: false
+        }
+      }
     };
   },
   mutations,
