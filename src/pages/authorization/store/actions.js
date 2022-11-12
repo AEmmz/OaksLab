@@ -257,6 +257,14 @@ export default {
       await update(dbRef, { whatsNew: payload });
       await context.commit("toggleWhatsNew", payload);
     }
+  },
 
+  async setSelectedGame(context, payload) {
+    const prevGame = context.getters.selectedGame;
+    if (prevGame === payload) return;
+    const uid = context.getters.uid;
+    const dbRef = await ref(getDatabase(), `users/${uid}/userInfo/`);
+    await update(dbRef, { selectedGame: payload });
+    await context.commit("setSelectedGame", payload);
   }
 };

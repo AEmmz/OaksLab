@@ -97,6 +97,7 @@ export default {
     ...mapActions("tracker", ["changeActivePokemon"]),
     ...mapActions("tracker/counter", ["changeCount", "changeHuntCount"]),
     ...mapActions("tracker/forms", ["fetchForms"]),
+    ...mapActions("tracker/details", ["getLocationDetails"]),
     pokeUpdate() {
       if (this.$q.screen.gt.sm) this.searchPokemon();
     },
@@ -184,6 +185,7 @@ export default {
       await this.changeCount();
       await this.changeHuntCount(huntType);
       await this.fetchForms();
+      await this.getLocationDetails();
     }
   }
 };
