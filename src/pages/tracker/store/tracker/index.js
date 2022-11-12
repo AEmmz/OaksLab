@@ -5,12 +5,14 @@ import getters from "./getters.js";
 import counter from "../counter/index.js";
 import caughtButtons from "../caught-buttons/index.js";
 import pokemonForms from "../pokemon-forms/index.js";
+import pokemonDetails from "../pokemon-details/index.js";
 
 export default {
   modules: {
     counter: counter,
     caught: caughtButtons,
-    forms: pokemonForms
+    forms: pokemonForms,
+    details: pokemonDetails
   },
   namespaced: true,
   state() {

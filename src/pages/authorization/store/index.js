@@ -18,7 +18,8 @@ export default {
         },
         notifications: {
           whatsNew: false
-        }
+        },
+        selectedGame: "Scarlet / Violet"
       }
     };
   },

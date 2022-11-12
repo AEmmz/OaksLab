@@ -19,5 +19,8 @@ export default {
   },
   whatsNew(state) {
     return state.userInfo.notifications.whatsNew;
+  },
+  selectedGame(state) {
+    return state.userInfo.selectedGame;
   }
 };

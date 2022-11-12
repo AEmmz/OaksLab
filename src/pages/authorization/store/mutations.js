@@ -23,5 +23,8 @@ export default {
   },
   toggleWhatsNew(state, payload) {
     state.userInfo.notifications.whatsNew = payload;
+  },
+  setSelectedGame(state, payload) {
+    state.userInfo.selectedGame = payload;
   }
 };
