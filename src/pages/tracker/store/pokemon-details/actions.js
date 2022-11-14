@@ -10,9 +10,14 @@ export default {
     await context.dispatch("changeLocationDetails");
   },
 
-  changeLocationDetails(context) {
+  async changeLocationDetails(context) {
     const details = context.getters.locationDetails;
-    const rawGame = context.rootGetters["authorization/selectedGame"];
+    let rawGame = context.rootGetters["authorization/selectedGame"];
+    if (!rawGame) {
+      rawGame = "Scarlet / Violet";
+      await context.dispatch("authorization/setSelectedGame", rawGame, { root: true });
+    }
+    // const selectedGame = rawGame ? rawGame.toLowerCase() : "red / blue";
     const selectedGame = rawGame.toLowerCase();
     let currentGameDetails = [];
     const inputOptions = {
@@ -34,15 +39,17 @@ export default {
       legendsArceus: ["legends: arceus", "legends arceus", "legend's: arceus", "legend's arceus"],
       scarletViolet: ["scarlet", "violet", "scarlet / violet"]
     };
-    details.forEach((gameEntry) => {
-      const gameDataName = gameEntry.game.toLowerCase();
-      for (let inputOptionsKey in inputOptions) {
-        const gameNameArray = inputOptions[inputOptionsKey];
-        if (gameNameArray.includes(selectedGame) && gameNameArray.includes(gameDataName)) {
-          currentGameDetails.push(gameEntry);
+    if (details) {
+      details.forEach((gameEntry) => {
+        const gameDataName = gameEntry.game.toLowerCase();
+        for (let inputOptionsKey in inputOptions) {
+          const gameNameArray = inputOptions[inputOptionsKey];
+          if (gameNameArray.includes(selectedGame) && gameNameArray.includes(gameDataName)) {
+            currentGameDetails.push(gameEntry);
+          }
         }
-      }
-    });
+      });
+    }
     context.commit("setCurrentGameLocations", currentGameDetails);
   }
 
