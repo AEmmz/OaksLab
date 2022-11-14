@@ -7,7 +7,7 @@ export default {
   state() {
     return {
       locationDetails: [],
-      currentGame: "",
+      currentGame: null,
       currentGameDetails: [],
       gameOptions: [
         "Scarlet / Violet",

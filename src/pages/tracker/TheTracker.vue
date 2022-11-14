@@ -48,6 +48,7 @@
                @closeSearchDialog="closeDialog"></tracker-search-bar>
          </q-dialog>
          <q-dialog
+            persistent
             v-model="formDialog"
             class="lt-md">
             <tracker-forms
