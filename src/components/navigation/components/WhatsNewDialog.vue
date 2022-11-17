@@ -78,7 +78,16 @@ export default {
          changes: [
             {
                name: "new",
-               date: "October 30 2022",
+               date: "November 17, 2022",
+               title: "The Wait Is Over!",
+               description:
+                  "Scarlet and Violet have arrived and DexHunt has also added all of the new Pokemon. Some forms and locations may be missing at this time but will be quickly added as we receive more information. Don't forget: You can also now track tera types on DexHunt! Get your hunt on!!",
+               screenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4.png?ik-sdk-version=javascript-1.4.3&updatedAt=1668556386946",
+               mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1668556433610"
+            },
+            {
+               name: "new1",
+               date: "November 14 2022",
                title: "Location Data",
                description:
                   `Woah! That's a lot of data! Pokemon will now have location data available on their tracking pages, making it just a bit easier to track down your hunts!`,
@@ -86,7 +95,7 @@ export default {
                mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1668211543974"
             },
             {
-               name: "new1",
+               name: "new2",
                date: "October 30 2022",
                title: "Collection Quick Edit",
                description: `Introducing a new way to quickly edit your collections. Simply select the "Collection Quick Edit" button (pen icon on mobile) on the "Collections" page. From there you can now mark Pokemon as caught or uncaught by checking them off of the provided table.`,
@@ -94,7 +103,7 @@ export default {
                mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new1_mobile?ik-sdk-version=javascript-1.4.3&updatedAt=1667604743899"
             },
             {
-               name: "new2",
+               name: "new3",
                date: "October 24 2022",
                title: "Tera Types Are Here!",
                description: `In anticipation for the release of Pokemon Scarlet and Viole, Tera Types and Shiny Tera Types have been added. These will continue to be updated up to and after the game realse to ensure they are accurate and up to date. Stay tuned for more!`,
@@ -102,21 +111,14 @@ export default {
                mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new2_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667606134713"
             },
             {
-               name: "new3",
+               name: "new4",
                date: "October 17 2022",
                title: "Quick Edit",
                description: `Now you can quick edit individual Pokemon's capture status' straight from the collection screen. Hover or touch a Pokemon's card on the collection screen to reveal the new "Quick Edit" button. This will open a dialog allowing you to make your changes.`,
                screenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new3.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667599252343",
                mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new3_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667607142048"
-            },
-            {
-               name: "new4",
-               date: "October 11 2022",
-               title: "And We're Live",
-               description: "Introducing DexHunt! A passion project of a dedicated Pokemon fan. Since Generation 1, Anthony, the creator of DexHunt, has been hunting, capturing and collection all the Pokemon he could, mostly keeping track of his collection in spreadsheets. It's time for something different. Welcome and thank you for stopping by!",
-               screenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667599364005",
-               mobileScreenshot: "https://ik.imagekit.io/kw2qoeib2/WhatsNew/new4_mobile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667607372682"
-            }]
+            }
+         ]
       };
    },
    methods: {
