@@ -17,9 +17,7 @@
                greedy
                @submit.prevent="handleSubmit"
                class="q-gutter-y-md"
-               name="Feature Request"
-               data-netlify-recaptcha="true"
-               data-netlify="true">
+               name="Feature Request">
                <div class="feature-request-input">
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
@@ -78,7 +76,6 @@
                      </template>
                   </q-input>
                </div>
-               <div data-netlify-recaptcha="true"></div>
                <div class="full-width flex justify-center">
                   <q-btn
                      class="submitButton q-mt-md"
