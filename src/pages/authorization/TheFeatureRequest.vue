@@ -129,16 +129,23 @@ export default {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
+      encode(data) {
+         return Object.keys(data)
+            .map(
+               key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+            )
+            .join("&");
+      },
       async handleSubmit(e) {
-         await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new FormData({
+         const data = this.encode(
+            {
                "form-name": "feature-request",
                "username": this.username,
                ...this.form
-            })
-         });
+            }
+         );
+
+         await this.axios.post("/", data);
          this.$router.push("/tracker");
       }
    }
