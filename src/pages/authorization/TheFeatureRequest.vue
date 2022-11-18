@@ -111,9 +111,9 @@ export default {
       return {
          formName: "feature-request",
          form: {
-            "feature-type": "",
-            "short-description": "",
-            "long-description": ""
+            featureType: "",
+            shortDescription: "",
+            longDescription: ""
          },
          featureOptions: [
             "Tracker", "Collection", "Statistics", "Data / Information", "Admin / Settings", "Other"
@@ -141,7 +141,9 @@ export default {
             {
                "form-name": "Feature Request",
                "username": this.username,
-               ...this.form
+               "feature-type": this.form.featureType,
+               "short-description": this.form.shortDescription,
+               "long-description": this.form.longDescription
             }
          );
 
