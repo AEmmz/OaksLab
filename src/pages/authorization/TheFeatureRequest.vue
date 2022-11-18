@@ -29,7 +29,6 @@
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
                      class="input"
-                     name="feature-type"
                      v-model="form.featureType"
                      :model-value="form.featureType"
                      :options="featureOptions"
@@ -47,7 +46,6 @@
                   <h6 class="form-header">Short Description *</h6>
                   <q-input
                      class="input"
-                     name="short-description"
                      v-model="form.shortDescription"
                      :model-value="form.shortDescription"
                      hint="80 Character Limit"
@@ -68,7 +66,6 @@
                   <h6 class="form-header">Tell Us More *</h6>
                   <q-input
                      class="input"
-                     name="long-description"
                      v-model="form.longDescription"
                      :model-value="form.longDescription"
                      type="textarea"
@@ -114,9 +111,9 @@ export default {
       return {
          formName: "feature-request",
          form: {
-            featureType: "",
-            shortDescription: "",
-            longDescription: ""
+            "feature-type": "",
+            "short-description": "",
+            "long-description": ""
          },
          featureOptions: [
             "Tracker", "Collection", "Statistics", "Data / Information", "Admin / Settings", "Other"
