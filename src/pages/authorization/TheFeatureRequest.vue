@@ -76,7 +76,8 @@
                      </template>
                   </q-input>
                </div>
-               <div class="full-width flex justify-center">
+               <div class="full-width column items-center">
+                  <div v-if="failedVerification">Please verify that you are not a robot.</div>
                   <vue-recaptcha
                      class="recaptcha-container"
                      theme="dark"
@@ -110,6 +111,7 @@ export default {
    data() {
       return {
          verification: false,
+         failedVerification: false,
          formName: "feature-request",
          form: {
             featureType: "",
@@ -151,6 +153,8 @@ export default {
 
             await this.$axios.post("/", encodedData);
             this.$router.push("/tracker");
+         } else {
+            this.failedVerification = true;
          }
       },
       recaptchaSuccess(response) {
