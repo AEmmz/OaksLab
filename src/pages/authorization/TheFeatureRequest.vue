@@ -133,11 +133,11 @@ export default {
          await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: {
+            body: new FormData({
                "form-name": "feature-request",
                "username": this.username,
                ...this.form
-            }
+            })
          });
          this.$router.push("/tracker");
       }
