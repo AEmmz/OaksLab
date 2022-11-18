@@ -11280,14 +11280,6 @@
       ]
     },
     {
-      "name": "Pikachu",
-      "dexNo": "980",
-      "apiNo": "980",
-      "types": [
-        "electric"
-      ]
-    },
-    {
       "name": "Sandy Shocks",
       "dexNo": "981",
       "apiNo": "981",
@@ -11339,14 +11331,6 @@
       "types": [
         "ground",
         "steel"
-      ]
-    },
-    {
-      "name": "Pikachu",
-      "dexNo": "987",
-      "apiNo": "987",
-      "types": [
-        "electric"
       ]
     },
     {
