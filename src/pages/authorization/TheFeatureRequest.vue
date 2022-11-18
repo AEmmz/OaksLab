@@ -77,6 +77,7 @@
                   </q-input>
                </div>
                <div class="full-width flex justify-center">
+                  <div data-netlify-recaptcha="true"></div>
                   <q-btn
                      class="submitButton q-mt-md"
                      padding="md"
