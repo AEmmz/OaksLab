@@ -110,7 +110,7 @@ export default {
    name: "TheFeatureRequest",
    data() {
       return {
-         formName: "feature-request",
+         formName: "Feature Request",
          form: {
             featureType: "",
             shortDescription: "",
@@ -140,11 +140,13 @@ export default {
       async handleSubmit(e) {
          const encodedData = this.encode(
             {
-               "form-name": "feature-request",
+               "form-name": this.formName,
                "username": this.username,
                ...this.form
             }
          );
+
+         console.log(encodedData);
 
          await this.$axios.post("/", encodedData);
          this.$router.push("/tracker");
