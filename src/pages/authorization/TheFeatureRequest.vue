@@ -77,6 +77,10 @@
                   </q-input>
                </div>
                <div class="full-width flex justify-center">
+                  <vue-recaptcha
+                     sitekey="6Ldh6hkjAAAAADhqf3wV72y6QrQpoNzi1M3nX53D"
+                     :load-recaptcha-script="true"
+                     @verify="recaptchaSuccess"></vue-recaptcha>
                   <q-btn
                      class="submitButton q-mt-md"
                      padding="md"
@@ -96,12 +100,14 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-// import axios from "axios"
+import VueRecaptcha from "vue-recaptcha";
 
 export default {
    name: "TheFeatureRequest",
+   components: { VueRecaptcha },
    data() {
       return {
+         verification: false,
          formName: "feature-request",
          form: {
             featureType: "",
@@ -130,18 +136,23 @@ export default {
             .join("&");
       },
       async handleSubmit(e) {
-         const encodedData = this.encode(
-            {
-               "form-name": "Feature Request",
-               "username": this.username,
-               "feature-type": this.form.featureType,
-               "short-description": this.form.shortDescription,
-               "long-description": this.form.longDescription
-            }
-         );
+         if (this.verification) {
+            const encodedData = this.encode(
+               {
+                  "form-name": "Feature Request",
+                  "username": this.username,
+                  "feature-type": this.form.featureType,
+                  "short-description": this.form.shortDescription,
+                  "long-description": this.form.longDescription
+               }
+            );
 
-         await this.$axios.post("/", encodedData);
-         this.$router.push("/tracker");
+            await this.$axios.post("/", encodedData);
+            this.$router.push("/tracker");
+         }
+      },
+      recaptchaSuccess(response) {
+         if (response) this.verification = true;
       }
    }
 };
