@@ -78,6 +78,8 @@
                </div>
                <div class="full-width flex justify-center">
                   <vue-recaptcha
+                     class="recaptcha-container"
+                     theme="dark"
                      sitekey="6Ldh6hkjAAAAADhqf3wV72y6QrQpoNzi1M3nX53D"
                      :load-recaptcha-script="true"
                      @verify="recaptchaSuccess"></vue-recaptcha>
@@ -100,7 +102,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import VueRecaptcha from "vue-recaptcha";
+import { VueRecaptcha } from "vue-recaptcha";
 
 export default {
    name: "TheFeatureRequest",
@@ -161,6 +163,10 @@ export default {
 <style
    scoped
    lang="scss">
+
+.recaptcha-container :deep(.rc-anchor-light) {
+   background-color: green
+}
 
 .form-header, .submitButton {
    font-family: Futura, sans-serif;
