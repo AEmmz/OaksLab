@@ -17,15 +17,14 @@
                greedy
                @submit.prevent="handleSubmit"
                class="q-gutter-y-md"
-               name="feature-request"
+               name="Feature Request"
                method="post"
-               data-netlify="true"
-               data-netlify-honeypot="bot-field">
-               <!--               <q-input-->
-               <!--                  class="hidden"-->
-               <!--                  type="text"-->
-               <!--                  name="form-name"-->
-               <!--                  :model-value="formName"/>-->
+               data-netlify="true">
+               <q-input
+                  class="hidden"
+                  type="text"
+                  name="Feature Request"
+                  :model-value="formName"/>
                <div class="feature-request-input">
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
