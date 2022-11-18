@@ -17,14 +17,7 @@
                greedy
                @submit.prevent="handleSubmit"
                class="q-gutter-y-md"
-               name="Feature Request"
-               method="post"
-               data-netlify="true">
-               <q-input
-                  class="hidden"
-                  type="text"
-                  name="Feature Request"
-                  :model-value="formName"/>
+               name="Feature Request">
                <div class="feature-request-input">
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
