@@ -18,7 +18,8 @@
                @submit.prevent="handleSubmit"
                class="q-gutter-y-md"
                name="Feature Request"
-               data-netlify-recaptcha="true">
+               data-netlify-recaptcha="true"
+               data-netlify="true">
                <div class="feature-request-input">
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
@@ -77,8 +78,8 @@
                      </template>
                   </q-input>
                </div>
+               <div data-netlify-recaptcha="true"></div>
                <div class="full-width flex justify-center">
-                  <div data-netlify-recaptcha="true"></div>
                   <q-btn
                      class="submitButton q-mt-md"
                      padding="md"
