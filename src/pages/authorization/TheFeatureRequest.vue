@@ -104,6 +104,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+// import axios from "axios"
 
 export default {
    name: "TheFeatureRequest",
@@ -137,7 +138,7 @@ export default {
             .join("&");
       },
       async handleSubmit(e) {
-         const data = this.encode(
+         const encodedData = this.encode(
             {
                "form-name": "feature-request",
                "username": this.username,
@@ -145,7 +146,7 @@ export default {
             }
          );
 
-         await this.axios.post("/", data);
+         await this.$axios.post("/", encodedData);
          this.$router.push("/tracker");
       }
    }
