@@ -12,7 +12,7 @@
          v-if="isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
-            size="lg"
+            size="md"
             name="icon-poke-pokeball"
             color="white"/>
          <div
@@ -28,7 +28,7 @@
          v-if="isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
-            size="lg"
+            size="md"
             name="fas fa-book"
             color="white"/>
          <div
@@ -44,7 +44,7 @@
          v-if="isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
-            size="lg"
+            size="md"
             name="fas fa-chart-simple"
             color="white"/>
          <div
@@ -145,7 +145,7 @@ export default {
 
 body.screen--xs, body.screen--sm {
    .tab {
-      height: 8rem;
+      height: 6rem;
    }
 }
 

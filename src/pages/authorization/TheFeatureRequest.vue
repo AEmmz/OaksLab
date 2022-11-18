@@ -3,8 +3,8 @@
       class="column items-center"
       :class="desktopCheck() ? 'q-ma-xl' : ''">
       <q-card
-         class="my-card q-pa-lg column bg-dark"
-         :class="desktopCheck() ? '' : 'full-width'">
+         class="my-card column bg-dark"
+         :class="desktopCheck() ? 'q-pa-lg' : 'full-width'">
          <q-card-section class="self-center">
             <div
                class="text-light form-header"
