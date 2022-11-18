@@ -21,11 +21,11 @@
                method="post"
                data-netlify="true"
                data-netlify-honeypot="bot-field">
-               <q-input
-                  class="hidden"
-                  type="text"
-                  name="form-name"
-                  :model-value="formName"/>
+               <!--               <q-input-->
+               <!--                  class="hidden"-->
+               <!--                  type="text"-->
+               <!--                  name="form-name"-->
+               <!--                  :model-value="formName"/>-->
                <div class="feature-request-input">
                   <h6 class="form-header">Feature Type *</h6>
                   <q-select
@@ -110,7 +110,7 @@ export default {
    name: "TheFeatureRequest",
    data() {
       return {
-         formName: "Feature Request",
+         formName: "feature-request",
          form: {
             featureType: "",
             shortDescription: "",
@@ -140,13 +140,11 @@ export default {
       async handleSubmit(e) {
          const encodedData = this.encode(
             {
-               "form-name": this.formName,
+               "form-name": "Feature Request",
                "username": this.username,
                ...this.form
             }
          );
-
-         console.log(encodedData);
 
          await this.$axios.post("/", encodedData);
          this.$router.push("/tracker");
