@@ -6,6 +6,7 @@ import {
   createWebHashHistory
 } from "vue-router";
 import routes from "./routes";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 /*
  * If not building with SSR mode, you can
@@ -16,8 +17,8 @@ import routes from "./routes";
  * with the Router instance.
  */
 
-export default route(function({ store }) {
-
+export default route(function({}) {
+  const userStore = useUserStore();
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : process.env.VUE_ROUTER_MODE === "history"
@@ -37,12 +38,12 @@ export default route(function({ store }) {
   Router.beforeEach(async (to, from, next) => {
     if (
       to.matched.some((record) => record.meta.requiresAuth) &&
-      !store.getters["authorization/currentUser"]
+      !userStore.currentUser
     ) {
       next("/login");
     } else if (
       to.matched.some((record) => record.meta.requiresNotAuth) &&
-      store.getters["authorization/currentUser"]
+      userStore.currentUser
     ) {
       next("/home");
     } else {

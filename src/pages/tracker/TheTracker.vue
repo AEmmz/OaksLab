@@ -8,35 +8,35 @@
             <div
                class="flex justify-center text-h4 text-light q-my-lg text-center name-cont"
                v-if="!desktopCheck()">
-               {{ pkName }}
+               {{ PokemonStore.pkName }}
             </div>
             <q-separator
                class="separator col-12"
                v-if="!desktopCheck()"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
             <pokemon-images class="container col-12"></pokemon-images>
             <q-separator
                class="separator col-12"
                v-if="!desktopCheck()"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
             <counter-card class="container col-12"></counter-card>
             <q-separator
                inset
                class="separator col-12"
                v-if="!desktopCheck()"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
             <timer-card class="container col-12"></timer-card>
             <q-separator
                inset
                class="separator col-12"
                v-if="!desktopCheck()"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
             <location-details class="container col-12"></location-details>
             <q-separator
                inset
                class="separator col-12 q-mb-md"
                v-if="!desktopCheck()"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
 
          </div>
 
@@ -69,7 +69,7 @@
             <q-fab
                @click="catchDialog=true"
                v-model="catchDialog"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"
                icon="icon-poke-pokeball"
                padding="18px"
                direction="up"></q-fab>
@@ -82,19 +82,19 @@
             <q-fab
                v-model="searchFab"
                vertical-actions-align="left"
-               :color="pkType1 ? `${pkType1}Type` : 'primary'"
+               :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"
                icon="fas fa-magnifying-glass"
                padding="18px"
                direction="up">
                <q-fab-action
                   label="Change Forms"
-                  :color="pkType1 ? `${pkType1}Type` : 'primary'"
+                  :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"
                   padding="md"
                   @click="formDialog=true"
                   icon="fas fa-paw"></q-fab-action>
                <q-fab-action
                   label="New Search"
-                  :color="pkType1 ? `${pkType1}Type` : 'primary'"
+                  :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"
                   padding="md"
                   @click="searchDialog=true"
                   icon="fas fa-magnifying-glass"></q-fab-action>
@@ -149,7 +149,11 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { usePokemonStore } from "pages/tracker/_PokemonStore";
+import { usePokemonFormStore } from "pages/tracker/_PokemonFormStore";
+import { usePokemonDetailsStore } from "pages/tracker/_PokemonDetailsStore";
+import { usePokemonCatchStatusStore } from "pages/tracker/_PokemonCatchStatusStore";
+import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
 
 const PokemonImages = defineAsyncComponent(() => import("./components/PokemonImages.vue"));
 const CaughtButtons = defineAsyncComponent(() => import("./components/CaughtToggleButtons/CaughtButtons.vue"));
@@ -179,19 +183,26 @@ export default {
          catchDialog: false
       };
    },
+   setup() {
+      const PokemonStore = usePokemonStore();
+      const PokemonFormStore = usePokemonFormStore();
+      const PokemonDetailsStore = usePokemonDetailsStore();
+      const PokemonCatchStatusStore = usePokemonCatchStatusStore();
+      const PokemonTrackerStore = usePokemonTrackerStore();
+      return {
+         PokemonStore,
+         PokemonFormStore,
+         PokemonDetailsStore,
+         PokemonCatchStatusStore,
+         PokemonTrackerStore
+      };
+   },
    computed: {
-      ...mapGetters("tracker/forms", ["forms"]),
-      ...mapGetters("tracker", ["pkType1", "pkType2", "pkName"]),
       isForms() {
-         return this.forms.length > 1;
+         return this.PokemonFormStore.forms.length > 1;
       }
    },
    methods: {
-      ...mapMutations("tracker", ["resetTracker"]),
-      ...mapMutations("tracker/counter", ["resetCounts"]),
-      ...mapMutations("tracker/forms", ["resetForms"]),
-      ...mapMutations("tracker/caught", ["resetToggles"]),
-
       closeDialog() {
          this.moreFab = false;
          this.searchFab = false;
@@ -210,10 +221,10 @@ export default {
       }
    },
    unmounted() {
-      this.resetTracker();
-      this.resetForms();
-      this.resetCounts();
-      this.resetToggles();
+      this.PokemonStore.resetPokemon();
+      this.PokemonFormStore.resetForms();
+      this.PokemonTrackerStore.defaultAllCounts();
+      this.PokemonCatchStatusStore.defaultToggles();
    }
 };
 </script>

@@ -2,6 +2,7 @@ import { boot } from "quasar/wrappers";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 const config = {
   apiKey: "AIzaSyAquwvDRvTgvwq1ka09nhoTRILea8sUhsA",
@@ -18,14 +19,15 @@ const db = getFirestore(app);
 
 export { db };
 
-export default boot(async ({ app, store }) => {
+export default boot(async ({}) => {
   const authStatus = () => {
     return new Promise((resolve, reject) => {
       try {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
           if (user) {
-            store.dispatch("authorization/autoAuth", {
+            const userStore = useUserStore();
+            userStore.autoAuth({
               isLoggedIn: true,
               uid: user.uid,
               email: user.email,

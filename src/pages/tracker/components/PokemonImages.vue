@@ -9,7 +9,7 @@
          <div class="image-label absolute-top q-ma-md">Normal</div>
          <div class="img-cont">
             <q-img
-               :src="pkImageNormal"
+               :src="PokemonStore.pkImageNormal"
                height="100%"
                fit="contain"></q-img>
          </div>
@@ -17,7 +17,7 @@
       <q-separator
          v-if="!desktopCheck()"
          dark
-         :color="pkType1 ? `${pkType1}Type` : 'primary'"
+         :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"
          vertical></q-separator>
       <q-card
          class="shiny bg-dark q-pa-md flex justify-center items-center"
@@ -38,7 +38,7 @@
                v-else
                class="img-cont">
                <q-img
-                  :src="pkImageShiny"
+                  :src="PokemonStore.pkImageShiny"
                   height="100%"
                   fit="contain"></q-img>
             </div>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { usePokemonStore } from "pages/tracker/_PokemonStore";
 
 export default {
    data() {
@@ -56,11 +56,16 @@ export default {
          shinyIsActive: false
       };
    },
+   setup() {
+      const PokemonStore = usePokemonStore();
+      return {
+         PokemonStore
+      };
+   },
 
    computed: {
-      ...mapGetters("tracker", ["pkImageNormal", "pkImageShiny", "apiNo", "pkType1"]),
       pkIsActive() {
-         return this.apiNo !== "";
+         return this.PokemonStore.apiNo !== "";
       }
    },
    methods: {

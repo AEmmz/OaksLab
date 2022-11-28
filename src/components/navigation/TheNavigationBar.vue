@@ -92,7 +92,7 @@
             <div class="menu">
                <div
                   class="q-my-sm q-py-xs mobile-menu"
-                  v-if="isLoggedIn">
+                  v-if="userStore.isLoggedIn">
                   <menu-bar></menu-bar>
                </div>
                <q-separator
@@ -111,13 +111,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { useUserStore } from "pages/authorization/_UserStore";
 import AuthBar from "./components/AuthBar.vue";
 import MenuBar from "./components/MenuBar.vue";
 import SocialBar from "./components/SocialBar.vue";
 
 export default {
    components: { AuthBar, MenuBar, SocialBar },
+   setup() {
+      const userStore = useUserStore();
+      return { userStore };
+   },
    data() {
       return {
          drawerLeft: false,
@@ -125,7 +129,6 @@ export default {
       };
    },
    computed: {
-      ...mapGetters("authorization", ["isLoggedIn"]),
       homepageToolbar() {
          return this.$router.currentRoute.value.path === "/" || this.$router.currentRoute.value.path === "/home";
       },
