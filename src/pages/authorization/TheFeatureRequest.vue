@@ -102,8 +102,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import { VueRecaptcha } from "vue-recaptcha";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 export default {
    name: "TheFeatureRequest",
@@ -124,10 +124,10 @@ export default {
 
       };
    },
-   computed: {
-      ...mapGetters("authorization", ["currentUser", "username"])
+   setup() {
+      const UserStore = useUserStore();
+      return { UserStore };
    },
-
    methods: {
       desktopCheck() {
          return this.$q.screen.gt.sm;
@@ -144,7 +144,7 @@ export default {
             const encodedData = this.encode(
                {
                   "form-name": "Feature Request",
-                  "username": this.username,
+                  "username": this.UserStore.username,
                   "feature-type": this.form.featureType,
                   "short-description": this.form.shortDescription,
                   "long-description": this.form.longDescription

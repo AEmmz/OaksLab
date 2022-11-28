@@ -9,24 +9,26 @@
             dark
             outlined
             dense
-            model-value="selectedGame"
-            v-model="selectedGame"
-            :options="gameOptions"></q-select>
+            :model-value="UserStore.userInfo.selectedGame"
+            v-model="UserStore.userInfo.selectedGame"
+            @update:model-value="PokemonDetailsStore.changeLocationDetails()"
+            :options="PokemonDetailsStore.gameOptions"></q-select>
       </div>
       <q-separator
          dark
-         :color="pkType1 ? `${pkType1}Type` : 'primary'"></q-separator>
+         :color="PokemonStore.pkType1 ? `${PokemonStore.pkType1}Type` : 'primary'"></q-separator>
       <div
-         v-if="currentGameDetails.length > 0"
+         v-if="PokemonDetailsStore.currentGameDetails.length > 0"
          class="location-container column text-white full-width justify-between q-pa-lg q-mt-md">
          <div
-            v-for="gameDetails in currentGameDetails"
+            v-for="gameDetails in PokemonDetailsStore.currentGameDetails"
             :key="gameDetails.game">
             <h6 class="game-name">{{ gameDetails.game }}</h6>
             <q-separator
                dark
                class="q-my-sm"
-               :color="pkType2 ? `${pkType2}Type` : `${pkType1}Type`"></q-separator>
+               :color="PokemonStore.pkType2 ? `${PokemonStore.pkType2}Type` :
+               `${PokemonStore.pkType1}Type`"></q-separator>
             <div class="row justify-between">
                <div
                   class="game-locations q-ma-xs q-mb-lg  row items-center text-subtitle1"
@@ -35,7 +37,8 @@
                   <div class="flex items-center justify-center location-icon">
                      <q-icon
                         size="sm"
-                        :color="pkType2 ? `${pkType2}Type` : `${pkType1}Type`"
+                        :color="PokemonStore.pkType2 ? `${PokemonStore.pkType2}Type` :
+                        `${PokemonStore.pkType1}Type`"
                         name="icon-poke-pokeball"/>
                   </div>
                   <div class="location-description">
@@ -54,7 +57,9 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { usePokemonStore } from "pages/tracker/_PokemonStore";
+import { usePokemonDetailsStore } from "pages/tracker/_PokemonDetailsStore";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 export default {
    name: "LocationDetails",
@@ -68,26 +73,21 @@ export default {
          gameLocations3: ""
       };
    },
+   setup() {
+      const PokemonStore = usePokemonStore();
+      const PokemonDetailsStore = usePokemonDetailsStore();
+      const UserStore = useUserStore();
+      return {
+         PokemonStore,
+         PokemonDetailsStore,
+         UserStore
+      };
+   },
    methods: {
-      ...mapActions("tracker/details", ["getLocationDetails", "changeLocationDetails"]),
       desktopCheck() {
          return this.$q.screen.gt.sm;
       }
-   },
-   computed: {
-      ...mapGetters("tracker/details", ["gameOptions", "locationDetails", "currentGameDetails"]),
-      ...mapGetters("tracker", ["pkType1", "pkType2"]),
-      selectedGame: {
-         get() {
-            return this.$store.getters["authorization/selectedGame"];
-         },
-         async set(val) {
-            await this.$store.dispatch("authorization/setSelectedGame", val);
-            await this.changeLocationDetails();
-         }
-      }
    }
-
 };
 </script>
 

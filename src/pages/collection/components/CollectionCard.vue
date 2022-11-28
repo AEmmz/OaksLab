@@ -114,7 +114,7 @@
 import { defineAsyncComponent } from "vue";
 import FitText from "../../../components/ui/FitText/FitText.vue";
 import FitTextAlt from "../../../components/ui/FitText/FitText-Alt.vue";
-import { mapActions } from "vuex";
+import { useCollectionStore } from "pages/collection/_CollectionStore";
 
 const MoreInfo = defineAsyncComponent(() => import("./MoreInfo/MoreInfoDialog.vue"));
 const CollectionQuickEdit = defineAsyncComponent(() => import("pages/collection/components/QuickEdit/CollectionQuickEdit.vue"));
@@ -124,6 +124,7 @@ export default {
    props: {
       pokemon: { type: Object }, shinyView: { type: String }
    },
+
    data() {
       return {
          flipped: false,
@@ -139,7 +140,13 @@ export default {
       };
    },
    async mounted() {
-      this.statusLock = await this.lockCheck(this.pokemon.apiNo);
+      const collectionStore = useCollectionStore();
+      this.statusLock = await collectionStore.lockCheck(this.pokemon.apiNo);
+   },
+
+   setup() {
+      const collectionStore = useCollectionStore();
+      return { collectionStore };
    },
 
    computed: {
@@ -169,7 +176,6 @@ export default {
       }
    },
    methods: {
-      ...mapActions("collection", ["lockCheck"]),
       toggleDetails() {
          this.details = false;
       },

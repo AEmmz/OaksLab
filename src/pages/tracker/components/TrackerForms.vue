@@ -20,16 +20,16 @@
                   outlined
                   dark
                   label="Choose A Hunt"
-                  v-model="selectedHunt"
-                  :model-value="selectedHunt"
-                  :options="huntList"
+                  v-model="PokemonStore.selectors.hunt"
+                  :model-value="PokemonStore.selectors.hunt"
+                  :options="PokemonStore.huntList"
                   @update:model-value="desktopCheckHunt()"
                   options-dark
-                  :options-selected-class="`bg-${pkType1}Type text-light`"></q-select>
+                  :options-selected-class="`bg-${PokemonStore.pkType1}Type text-light`"></q-select>
             </div>
             <div
                class="q-px-md q-py-lg column items-center mobile-form"
-               v-for="(form, index) in forms"
+               v-for="(form, index) in PokemonFormStore.forms"
                :key="index">
                <span class="mobile-form-name text-light">{{ form.name }}</span>
                <q-img
@@ -38,17 +38,6 @@
                   :alt="form.name"
                   @click="mobileChangePokemon(form)"></q-img>
             </div>
-            <!--        <q-page-sticky-->
-            <!--          class="lt-md"-->
-            <!--          position="bottom"-->
-            <!--          :offset="[18, 15]">-->
-            <!--          <q-btn-->
-            <!--            @click="$emit('closeFormDialog')"-->
-            <!--            vertical-actions-align="right"-->
-            <!--            color="primary"-->
-            <!--            size="1em"-->
-            <!--            label="Close"></q-btn>-->
-            <!--        </q-page-sticky>-->
          </div>
       </div>
 
@@ -61,7 +50,7 @@
             :indicator-color="pkTypeColor()"
             dense>
             <div
-               v-for="(form, index) in forms"
+               v-for="(form, index) in PokemonFormStore.forms"
                :key="index">
                <q-route-tab
                   :to="formRoute(form)"
@@ -82,7 +71,9 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { usePokemonStore } from "pages/tracker/_PokemonStore";
+import { usePokemonFormStore } from "pages/tracker/_PokemonFormStore";
+import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
 
 export default {
    data() {
@@ -90,24 +81,17 @@ export default {
          scrollAmount: 0
       };
    },
-   computed: {
-      ...mapGetters("tracker/forms", ["forms"]),
-      ...mapGetters("tracker", ["pkType1", "huntList", "hunt"]),
-      ...mapGetters("tracker/counter", ["timerRunning"]),
-      selectedHunt: {
-         get() {
-            return this.$store.getters["tracker/hunt"];
-         },
-         set(val) {
-            this.$store.commit("tracker/setHunt", val);
-         }
-      }
+   setup() {
+      const PokemonStore = usePokemonStore();
+      const PokemonFormStore = usePokemonFormStore();
+      const PokemonTrackerStore = usePokemonTrackerStore();
+      return {
+         PokemonStore,
+         PokemonFormStore,
+         PokemonTrackerStore
+      };
    },
    methods: {
-      ...mapActions("tracker/forms", ["fetchForms"]),
-      ...mapActions("tracker", ["changeActivePokemon"]),
-      ...mapActions("tracker/counter", ["changeCount", "changeHuntCount"]),
-
       desktopCheckHunt() {
          if (this.$q.screen.gt.sm) this.searchHunt();
       },
@@ -126,8 +110,8 @@ export default {
       },
 
       async changePokemon(form) {
-         if (this.timerRunning) {
-            this.$store.commit("tracker/counter/setTimerRunning", false);
+         if (this.PokemonTrackerStore.timerRunning) {
+            this.PokemonTrackerStore.setTimerRunning(false);
          }
          const inputPokemon = {
             apiNo: form.apiNo,
@@ -135,14 +119,14 @@ export default {
             setName: form.name,
             setType: form.types
          };
-         await this.changeActivePokemon(inputPokemon);
-         const huntType = this.hunt.toLowerCase();
-         await this.changeCount();
-         await this.changeHuntCount(huntType);
-         await this.fetchForms();
+         await this.PokemonStore.changeActivePokemon(inputPokemon);
+         await this.PokemonTrackerStore.changeCount();
+         await
+            this.PokemonTrackerStore.changeHuntCount(this.PokemonStore.selectors.hunt.toLowerCase());
+         await this.PokemonFormStore.fetchForms();
       },
       pkTypeColor() {
-         return `${this.pkType1}Type`;
+         return `${this.PokemonStore.pkType1}Type`;
       },
       desktopCheck() {
          return this.$q.screen.gt.sm;

@@ -9,7 +9,7 @@
          class="tab"
          :class="{'row justify-center': !desktopCheck()}"
          to="/tracker"
-         v-if="isLoggedIn">
+         v-if="userStore.isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
             size="md"
@@ -25,7 +25,7 @@
          class="tab"
          :class="{'row justify-center': !desktopCheck()}"
          to="/collection"
-         v-if="isLoggedIn">
+         v-if="userStore.isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
             size="md"
@@ -41,7 +41,7 @@
          class="tab"
          :class="{'row justify-center': !desktopCheck()}"
          to="/statistics"
-         v-if="isLoggedIn">
+         v-if="userStore.isLoggedIn">
          <q-icon
             class="lt-md q-pa-sm"
             size="md"
@@ -56,7 +56,7 @@
 
       <!--Desktop Admin Button-->
       <q-btn
-         v-if="isLoggedIn && desktopCheck()"
+         v-if="userStore.isLoggedIn && desktopCheck()"
          class="q-ml-sm"
          unelevated
          flat
@@ -116,16 +116,16 @@
 
 <script>
 import { useRouter } from "vue-router";
-import { mapActions, mapGetters } from "vuex";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 export default {
-   computed: {
-      ...mapGetters("authorization", ["isLoggedIn"])
+   setup() {
+      const userStore = useUserStore();
+      return { userStore };
    },
    methods: {
-      ...mapActions("authorization", ["logout"]),
       commitLogout() {
-         this.logout();
+         this.userStore.logout();
          this.$router.replace("/home");
       },
       desktopCheck() {

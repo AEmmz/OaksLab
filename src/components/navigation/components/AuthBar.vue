@@ -2,7 +2,7 @@
    <transition mode="out-in">
       <div
          class="btn-container"
-         v-if="!isLoggedIn">
+         v-if="!userStore.isLoggedIn">
          <q-btn
             size="lg"
             stretch
@@ -103,21 +103,21 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { useUserStore } from "pages/authorization/_UserStore";
 
 export default {
+   setup() {
+      const userStore = useUserStore();
+      return { userStore };
+   },
    methods: {
-      ...mapActions("authorization", ["logout"]),
       commitLogout() {
-         this.logout();
+         this.userStore.logout();
          this.$router.replace("/home");
       },
       desktopCheck() {
          return this.$q.screen.gt.sm;
       }
-   },
-   computed: {
-      ...mapGetters("authorization", ["isLoggedIn"])
    }
 };
 </script>
