@@ -147,14 +147,18 @@
    </q-page>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
+
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonFormStore } from "pages/tracker/_PokemonFormStore";
 import { usePokemonDetailsStore } from "pages/tracker/_PokemonDetailsStore";
 import { usePokemonCatchStatusStore } from "pages/tracker/_PokemonCatchStatusStore";
 import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
 
+//Components
 const PokemonImages = defineAsyncComponent(() => import("./components/PokemonImages.vue"));
 const CaughtButtons = defineAsyncComponent(() => import("./components/CaughtToggleButtons/CaughtButtons.vue"));
 const TypeBar = defineAsyncComponent(() => import("./components/TypeBar.vue"));
@@ -164,7 +168,16 @@ const TrackerForms = defineAsyncComponent(() => import("./components/TrackerForm
 const TimerCard = defineAsyncComponent(() => import("./components/TimerCard.vue"));
 const LocationDetails = defineAsyncComponent(() => import("./components/LocationDetails.vue"));
 
-export default {
+//Types
+type TheTrackerState = {
+   moreFab: boolean,
+   searchFab: boolean,
+   searchDialog: boolean,
+   formDialog: boolean,
+   catchDialog: boolean
+}
+
+export default defineComponent({
    components: {
       CaughtButtons,
       PokemonImages,
@@ -174,7 +187,7 @@ export default {
       TrackerForms,
       TimerCard, LocationDetails
    },
-   data() {
+   data(): TheTrackerState {
       return {
          moreFab: false,
          searchFab: false,
@@ -226,7 +239,7 @@ export default {
       this.PokemonTrackerStore.defaultAllCounts();
       this.PokemonCatchStatusStore.defaultToggles();
    }
-};
+});
 </script>
 
 <style

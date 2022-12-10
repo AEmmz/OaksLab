@@ -14,24 +14,25 @@
                name="normal"
                class="bg-dark panels">
                <quick-edit-tab-normal
-                  :quickEditPokemon="quickEditPokemon"></quick-edit-tab-normal>
+                  :pokemon="pokemon"></quick-edit-tab-normal>
             </q-tab-panel>
             <q-tab-panel
                name="shiny"
                class="bg-dark panels">
                <quick-edit-tab-shiny
-                  :quickEditPokemon="quickEditPokemon"></quick-edit-tab-shiny>
+                  :pokemon="pokemon"></quick-edit-tab-shiny>
             </q-tab-panel>
             <q-tab-panel
                name="tera"
                class="bg-dark panels">
                <quick-edit-tab-tera
-                  :quickEditPokemon="quickEditPokemon"></quick-edit-tab-tera>
+                  :pokemon="pokemon"></quick-edit-tab-tera>
             </q-tab-panel>
             <!--        <q-tab-panel-->
             <!--          name="pokeball"-->
             <!--          class="bg-dark">-->
-            <!--          <quick-edit-tab-pokeball :quickEditPokemon="quickEditPokemon"></quick-edit-tab-pokeball>-->
+            <!--          <quick-edit-tab-pokeball
+            :pokemon="pokemon"></quick-edit-tab-pokeball>-->
             <!--        </q-tab-panel>-->
          </q-tab-panels>
          <div
@@ -59,56 +60,50 @@
    </div>
 </template>
 
-<script>
-import quickEditMenu from "pages/collection/components/QuickEdit/QuickEditMenu.vue";
-import quickEditTabNormal from "./QuickEditTab_Normal.vue";
-import quickEditTabShiny from "./QuickEditTab_Shiny.vue";
-import quickEditTabTera from "./QuickEditTab_Tera.vue";
-import { useCollectionStore } from "pages/collection/_CollectionStore";
+<script lang="ts">
+//Imports
+import { defineComponent, defineAsyncComponent, PropType } from "vue";
 
-export default {
-   async mounted() {
-      this.caughtData = await this.CollectionStore.quickEditCaughtCheck(this.quickEditPokemon);
-   },
+//Stores
+import { useCollectionStore } from "pages/collection/_CollectionStore";
+import IPokemonSingleCollection from "src/interfaces/pokemon/IPokemonSingleCollection";
+
+//Components
+const quickEditMenu = defineAsyncComponent(() => import("pages/collection/components/QuickEdit/QuickEditMenu.vue"));
+const quickEditTabNormal = defineAsyncComponent(() => import("./QuickEditTab_Normal.vue"));
+const quickEditTabShiny = defineAsyncComponent(() => import("./QuickEditTab_Shiny.vue"));
+const quickEditTabTera = defineAsyncComponent(() => import("./QuickEditTab_Tera.vue"));
+
+//Types
+type CollectionQuickEditState = {
+   tab: "normal" | "shiny" | "tera"
+}
+
+
+export default defineComponent({
    components: { quickEditMenu, quickEditTabNormal, quickEditTabShiny, quickEditTabTera },
+   props: {
+      pokemon: { type: Object as PropType<IPokemonSingleCollection>, required: true }
+   },
+   data(): CollectionQuickEditState {
+      return {
+         tab: "normal"
+      };
+   },
    setup() {
       const CollectionStore = useCollectionStore();
       return { CollectionStore };
    },
-   data() {
-      return {
-         tab: "normal",
-         toggleSize: "80px"
-      };
-   },
-   props: { quickEditPokemon: { type: Object, required: false } },
-   computed: {
-      pkToggleColor() {
-         return `${this.quickEditPokemon.type[0]}Type`;
-      },
-      pkIsActive() {
-         return this.quickEditPokemon.apiNo !== "";
-      }
+   mounted() {
+      this.CollectionStore.quickEditCaughtCheck(+this.pokemon.apiNo).catch(err =>
+         console.log(err));
    },
    methods: {
-      setToggler(huntType) {
-         if (this.pkIsActive) {
-            this.caughtData.caught[huntType] = !this.caughtData.caught[huntType];
-            this.CollectionStore.quickEditToggler({
-               huntType: huntType,
-               apiNo: this.quickEditPokemon.apiNo,
-               caughtData: this.caughtData
-            });
-         }
-      },
-      sizeCheck() {
-         return this.$q.screen.md ? "63px" : "80px";
-      },
-      async changeTab(tab) {
+      changeTab(tab: CollectionQuickEditState["tab"]) {
          this.tab = tab;
       }
    }
-};
+});
 </script>
 
 <style
@@ -138,7 +133,7 @@ body.screen--sm {
    }
 }
 
-body.screen--md, body.screen--lg, body.screen--lx {
+body.screen--md, body.screen--lg, body.screen--xl {
    .close-button {
       transform: translateY(2rem);
    }

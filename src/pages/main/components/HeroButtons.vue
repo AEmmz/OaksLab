@@ -50,10 +50,13 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
 
-export default {
+export default defineComponent({
    name: "HeroButtons",
    props: { "intersecting": { type: Boolean } },
    setup() {
@@ -65,7 +68,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

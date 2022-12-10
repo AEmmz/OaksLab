@@ -7,33 +7,27 @@
       class="chart"></apex-chart>
 </template>
 
-<script>
-import ApexChart from "vue3-apexcharts";
+<script lang="ts">
+//Import
+import { defineComponent, defineAsyncComponent, PropType } from "vue";
+
+//Stores
 import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+import StatisticsGenerationCountsModel from "src/models/statistics/StatisticsGenerationCountsModel";
+import { StatisticsChartsDataType } from "src/util/types/StatisticsChartsDataType";
 
-// const ApexChart = defineAsyncComponent(() => import("vue3-apexcharts"));
+//Components
+const ApexChart = defineAsyncComponent(() => import("vue3-apexcharts"));
 
-export default {
+export default defineComponent({
    name: "TabGenerationChart",
-   props: { id: { type: String } },
-   components: { ApexChart },
-   setup() {
-      const StatisticsStore = useStatisticsStore();
-      return { StatisticsStore };
-   },
-   mounted() {
-      this.chartOptions.chart.id = `dexhunt-completion-gen-${this.id}`;
-   },
-   computed: {
-      series() {
-         return [
-            {
-               name: "completion-percentage",
-               data: this.StatisticsStore.generationData(this.id)?.data
-            }
-         ];
+   props: {
+      id: {
+         type: String as PropType<keyof StatisticsGenerationCountsModel>,
+         required: true
       }
    },
+   components: { ApexChart },
    data() {
       return {
          chartOptions: {
@@ -44,7 +38,6 @@ export default {
                height: "400px",
                toolbar: { show: false }
             },
-
             plotOptions: {
                bar: {
                   borderRadius: 4,
@@ -72,7 +65,7 @@ export default {
                }
             },
             dataLabels: {
-               formatter: (val) => {
+               formatter: (val: string) => {
                   return `${val} %`;
                },
                style: {
@@ -85,8 +78,10 @@ export default {
                   fontFamily: "Futura, sans-serif"
                },
                y: {
-                  formatter: (val, e) => {
-                     const data = this.StatisticsStore.generationData(this.id);
+                  formatter: (val: string, e: { dataPointIndex: number; }) => {
+                     // const data = this.StatisticsStore.bind(this).generationData(this.id);
+                     // return `${data.total[e.dataPointIndex]} of ${data.available[e.dataPointIndex]}`;
+                     const data = this.generationData() as StatisticsChartsDataType;
                      return `${data.total[e.dataPointIndex]} of ${data.available[e.dataPointIndex]}`;
                   },
                   title: {
@@ -97,8 +92,28 @@ export default {
          }
       };
    },
+   setup() {
+      const StatisticsStore = useStatisticsStore();
+      return { StatisticsStore };
+   },
+   mounted() {
+      this.chartOptions.chart.id = `dexhunt-completion-gen-${this.id}`;
+   },
+   computed: {
+      generationData() {
+         return this.StatisticsStore.generationData(this.id);
+      },
+      series() {
+         return [
+            {
+               name: "completion-percentage",
+               data: this.StatisticsStore.generationData(this.id).data
+            }
+         ];
+      }
+   },
    methods: {
-      changeData(event, chartContext, config) {
+      changeData(e: void, c: void, config: { w: { config: { xaxis: { categories: { [x: string]: string; }; }; }; }; selectedDataPoints: (string | number)[][]; }) {
          const data = config.w.config.xaxis.categories[config.selectedDataPoints[0][0]] || "All";
          const dataShort = data.toLowerCase().replace(" ", "");
          this.$emit("changeData", dataShort);
@@ -110,7 +125,7 @@ export default {
          return this.$q.screen.sm;
       }
    }
-};
+});
 </script>
 
 <style lang="scss">
@@ -131,7 +146,7 @@ body.screen--xs {
    padding: 0.5rem !important;
    min-width: 175px !important;
    background-color: $primary !important;
-   border: 0px !important;
+   border: 0 !important;
 }
 
 .apexcharts-menu-item {

@@ -332,12 +332,35 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
+//Types
+type TheAdmin = {
+   newUsername: string,
+   newEmail: string,
+   newEmailPassword: string,
+   currentPassword: string,
+   newPassword: string,
+   newPasswordConfirm: string,
+   deletePassword: string,
+   usernameError: string,
+   usernameSuccess: string,
+   passwordError: string,
+   passwordSuccess: string,
+   emailError: string,
+   emailSuccess: string,
+   deletePasswordError: string,
+   usernameDialog: boolean,
+   deleteDialog: boolean,
+   deleteDialogPassword: boolean
+}
 
-export default {
+export default defineComponent({
    name: "TheAdmin",
-   data() {
+   data(): TheAdmin {
       return {
          newUsername: "",
          newEmail: "",
@@ -369,33 +392,39 @@ export default {
          return this.$q.screen.gt.sm;
       },
       async usernameCheck() {
+         const usernameList = await this.UserStore.getUsernamesList();
          if (!this.newUsername) {
             this.usernameError = "Please enter a new username";
             return;
          }
-         if (this.newUsername === this.UserStore.username) {
+         if (this.newUsername.toLowerCase() === this.UserStore.username?.toLowerCase()) {
             this.usernameError = "This is already your username!";
+            return;
+         }
+         if (usernameList && usernameList.includes(this.newUsername.toLocaleLowerCase())) {
+            this.usernameError = "This username is already in use. Please try another username.";
+            return;
          }
          this.usernameDialog = true;
       },
-
       async updateUsername() {
          this.usernameDialog = false;
          const update = await this.UserStore.updateUsernameDb(this.newUsername);
-         if (update?.error) {
+         if (update.error) {
             this.usernameError = update.error;
             return;
          }
          this.usernameError = "";
-         this.usernameSuccess = update.message;
+         if (update.message) {
+            this.usernameSuccess = update.message;
+         }
       },
-
       async updateEmail() {
          if (!this.newEmail || !this.newEmailPassword) {
             this.emailError = "Please fill out all fields to change email.";
             return;
          }
-         if (this.newEmail === this.UserStore.currentUser.email) {
+         if (this.newEmail === this.UserStore.email) {
             this.emailError = "Current email and new email cannot be the same.";
             return;
          }
@@ -435,7 +464,6 @@ export default {
          this.passwordError = "";
          this.passwordSuccess = update.message;
       },
-
       async deleteAccount() {
          if (!this.deletePassword) {
             this.deletePasswordError = "Please enter your password.";
@@ -447,10 +475,10 @@ export default {
             return;
          }
          this.deletePasswordError = "";
-         this.$router.replace("/");
+         await this.$router.replace("/");
       }
    }
-};
+});
 </script>
 
 <style
@@ -481,7 +509,7 @@ body.screen--md {
    }
 }
 
-body.screen--lg, body.screen--lx {
+body.screen--lg, body.screen--xl {
 
    .my-card {
       border-radius: 0.7rem;
@@ -499,7 +527,7 @@ body.screen--lg, body.screen--lx {
       width: 20%;
    }
 
-   .passwordButton, .password-input, .my-card-inner {
+   .passwordButton, .password-input {
       width: 100%;
    }
 

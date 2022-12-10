@@ -18,18 +18,18 @@
                <q-tab-panel name="caught">
                   <div class="full-width items-center full-height">
                      <more-info-type-tabs
-                        :pokemonInfo="pokemonInfo"
+                        :pokemon="pokemon"
                         :caught="true"
-                        :isAvailable="isAvailable"></more-info-type-tabs>
+                        :pokemonAvailability="pokemonAvailability"></more-info-type-tabs>
                   </div>
                </q-tab-panel>
 
                <q-tab-panel name="uncaught">
                   <div class="full-width items-center full-height">
                      <more-info-type-tabs
-                        :pokemonInfo="pokemonInfo"
+                        :pokemon="pokemon"
                         :caught="false"
-                        :isAvailable="isAvailable"></more-info-type-tabs>
+                        :pokemonAvailability="pokemonAvailability"></more-info-type-tabs>
                   </div>
                </q-tab-panel>
             </q-tab-panels>
@@ -38,35 +38,45 @@
    </q-card>
 </template>
 
-<script>
-import MoreInfoTypeTabs
-   from "pages/collection/components/MoreInfo/MoreInfoTypeTabs/MoreInfoTypeTabs.vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent, PropType } from "vue";
+import { moreInfoAvailability } from "pages/collection/utility/moreInfoAvailability";
+
+//Stores
 import { useCollectionStore } from "pages/collection/_CollectionStore";
 
-export default {
+//Components
+const MoreInfoTypeTabs = defineAsyncComponent(() =>
+   import("./MoreInfoTypeTabs/MoreInfoTypeTabs.vue"));
+
+//Interfaces
+import IPokemonCatchLock from "src/interfaces/pokemon/IPokemonCatchLock";
+import IPokemonSingleCollection from "src/interfaces/pokemon/IPokemonSingleCollection";
+
+//Types
+type MoreInfoTabContentState = {
+   pokemonAvailability: IPokemonCatchLock
+}
+
+export default defineComponent({
    name: "MoreInfoTabContent",
    components: { MoreInfoTypeTabs },
    props: {
-      pokemonInfo: { type: Object },
+      pokemon: { type: Object as PropType<IPokemonSingleCollection>, required: true },
       tabs: { type: String }
    },
-   data() {
+   data(): MoreInfoTabContentState {
       return {
-         isAvailable: {
-            shinyAvailable: true,
-            alphaAvailable: true,
-            shinyAlphaAvailable: true,
-            markedAvailable: true,
-            shinyMarkedAvailable: true
-         }
+         pokemonAvailability: { ...moreInfoAvailability }
       };
    },
    setup() {
       const CollectionStore = useCollectionStore();
       return { CollectionStore };
    },
-   async mounted() {
-      this.isAvailable = this.CollectionStore.lockCheck(this.pokemonInfo.apiNo);
+   mounted() {
+      this.pokemonAvailability = this.CollectionStore.lockCheck(+this.pokemon.apiNo);
    },
    computed: {
       selectedTab() {
@@ -78,7 +88,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

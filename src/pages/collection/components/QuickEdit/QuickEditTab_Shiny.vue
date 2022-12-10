@@ -66,16 +66,21 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Import
+import { defineComponent, PropType } from "vue";
+
+//Stores
 import { useCollectionStore } from "pages/collection/_CollectionStore";
 
-export default {
-   data() {
-      return {
-         tab: "normal"
-      };
+//Interfaces
+import IPokemonSingleCollection from "src/interfaces/pokemon/IPokemonSingleCollection";
+import { HuntType } from "src/util/types/HuntTypes";
+
+export default defineComponent({
+   props: {
+      pokemon: { type: Object as PropType<IPokemonSingleCollection>, required: true }
    },
-   props: { quickEditPokemon: { type: Object } },
    setup() {
       const CollectionStore = useCollectionStore();
       return { CollectionStore };
@@ -85,19 +90,19 @@ export default {
          return this.CollectionStore.caughtData.shiny;
       },
       pkToggleColor() {
-         return `${this.quickEditPokemon.type[0]}Type`;
+         return `${this.pokemon.type[0]}Type`;
       },
       pkIsActive() {
-         return this.quickEditPokemon.apiNo !== "";
+         return this.pokemon.apiNo !== "";
       }
    },
    methods: {
-      async setToggler(huntType) {
+      async setToggler(huntType: HuntType) {
          if (this.pkIsActive) {
             await this.CollectionStore.quickEditToggler({
                tab: "shiny",
-               huntType: huntType,
-               pokemon: this.quickEditPokemon
+               pokemon: this.pokemon,
+               huntType: huntType
             });
          }
       },
@@ -105,7 +110,7 @@ export default {
          return this.$q.screen.md ? "63px" : "80px";
       }
    }
-};
+});
 </script>
 
 <style
@@ -135,7 +140,7 @@ body.screen--sm {
    }
 }
 
-body.screen--md, body.screen--lg, body.screen--lx {
+body.screen--md, body.screen--lg, body.screen--xl {
    .close-button {
       transform: translateY(2rem);
    }

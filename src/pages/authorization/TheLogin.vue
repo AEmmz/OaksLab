@@ -73,39 +73,57 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
+import { Quasar, useQuasar } from "quasar";
+//Types
+type TheLoginState = {
+   email: string,
+   password: string,
+   formIsValid: boolean,
+   errors: {
+      errorField: string[],
+      errorArray: string[],
+   }
+}
 
-export default {
-   data() {
+export default defineComponent({
+   data(): TheLoginState {
       return {
          email: "",
          password: "",
          formIsValid: true,
-         isLoading: false,
-         errors: null
+         errors: {
+            errorField: [],
+            errorArray: []
+         }
       };
    },
    setup() {
       const UserStore = useUserStore();
-      return { UserStore };
+      const Quasar = useQuasar();
+
+      return { UserStore, Quasar };
    },
    methods: {
       async submitForm() {
          try {
+            this.Quasar.loading.show();
             this.formIsValid = true;
-            this.isLoading = true;
             const userData = {
                email: this.email,
                password: this.password
             };
 
             //Local Authentication
-            const localAuth = await this.UserStore.clientAuth(userData);
+            const localAuth = this.UserStore.clientAuth(userData);
             if (localAuth) {
                this.errors = localAuth;
                this.formIsValid = false;
-               this.isLoading = false;
+               this.Quasar.loading.hide();
                return;
             }
             //Server Authentication
@@ -113,19 +131,20 @@ export default {
             if (servAuth) {
                this.errors = servAuth;
                this.formIsValid = false;
-               this.isLoading = false;
+               this.Quasar.loading.hide();
                return;
             }
 
-            this.isLoading = false;
-            const redirect = "/" + (this.$route.query.redirect || "home");
-            this.$router.replace(redirect);
-         } catch (error) {
-            this.errors = ["Something went wrong. Please Try Again"];
+            this.Quasar.loading.hide();
+            const redirect = `/${this.$route.query.redirect as string || "home"}`;
+            await this.$router.replace(redirect);
+         } catch (err) {
+            console.log(err);
+            this.errors.errorArray = ["Something went wrong. Please Try Again"];
          }
       }
    }
-};
+});
 </script>
 
 <style

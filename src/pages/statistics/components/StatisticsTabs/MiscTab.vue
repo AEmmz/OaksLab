@@ -96,13 +96,22 @@
    </div>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
-import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
 
 const RadialChart = defineAsyncComponent(() => import("./MiscRadialChart.vue"));
 
-export default {
+//Stores
+import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+import StatisticsMiscModel from "src/models/statistics/StatisticsMiscModel";
+import {
+   StatisticsMiscDexModel,
+   StatisticsMiscDexTypes
+} from "src/models/statistics/StatisticsMiscDexModel";
+
+
+export default defineComponent({
    name: "MiscTab",
    components: { RadialChart },
    props: { tabName: { type: String }, id: { type: String } },
@@ -210,18 +219,22 @@ export default {
       }
    },
    methods: {
-      calculateCategories(name) {
+      calculateCategories(name: keyof StatisticsMiscModel | keyof StatisticsMiscDexModel) {
          const data = [];
-         const statsArray = this.StatisticsStore.miscStats?.[name];
-         for (const stat in statsArray) {
-            if (statsArray[stat].available > 0) data.push(statsArray[stat].type);
+         const statsArray = this.StatisticsStore.miscStats[name];
+         let stat: keyof StatisticsMiscDexTypes;
+         for (stat in statsArray) {
+            if (statsArray[stat].available > 0)
+               data.push(statsArray[stat].type);
          }
          return data;
       },
-      calculateData(name) {
+
+      calculateData(name: keyof StatisticsMiscModel | keyof StatisticsMiscDexModel) {
          const data = [];
-         const statsArray = this.StatisticsStore.miscStats?.[name];
-         for (const stat in statsArray) {
+         const statsArray = this.StatisticsStore.miscStats[name];
+         let stat: keyof StatisticsMiscDexTypes;
+         for (stat in statsArray) {
             if (statsArray[stat].available > 0) {
                const percent = (((statsArray[stat].total / statsArray[stat].available)) * 100).toFixed(1);
                data.push(percent);
@@ -229,10 +242,12 @@ export default {
          }
          return data;
       },
-      calculateCaught(name) {
+
+      calculateCaught(name: keyof StatisticsMiscModel | keyof StatisticsMiscDexModel) {
          const data = [];
-         const statsArray = this.StatisticsStore.miscStats?.[name];
-         for (const stat in statsArray) {
+         const statsArray = this.StatisticsStore.miscStats[name];
+         let stat: keyof StatisticsMiscDexTypes;
+         for (stat in statsArray) {
             if (statsArray[stat].available > 0) {
                const caught = statsArray[stat].total;
                data.push(caught);
@@ -240,10 +255,12 @@ export default {
          }
          return data;
       },
-      calculateAvailable(name) {
+
+      calculateAvailable(name: keyof StatisticsMiscModel | keyof StatisticsMiscDexModel) {
          const data = [];
          const statsArray = this.StatisticsStore.miscStats?.[name];
-         for (const stat in statsArray) {
+         let stat: keyof StatisticsMiscDexTypes;
+         for (stat in statsArray) {
             if (statsArray[stat].available > 0) {
                const avl = statsArray[stat].available;
                data.push(avl);
@@ -259,7 +276,7 @@ export default {
       }
    }
 
-};
+});
 </script>
 
 <style

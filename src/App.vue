@@ -25,27 +25,30 @@
    </q-layout>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
+//Store
 import { useUserStore } from "pages/authorization/_UserStore";
-import { mapState, mapActions } from "pinia";
-import TheNavigationBar from "./components/navigation/TheNavigationBar.vue";
+//Components
+const TheNavigationBar = defineAsyncComponent(() => import ("./components/navigation/TheNavigationBar.vue"));
 
-export default {
+export default defineComponent({
    components: {
       TheNavigationBar
    },
+   setup() {
+      const UserStore = useUserStore();
+      return { UserStore };
+   },
    mounted() {
-      if (this.uid) {
-         this.retrieveUserSettings();
+      if (this.UserStore.uid) {
+         this.UserStore.retrieveUserSettings().catch(err =>
+            console.log(err));
       }
-   },
-   computed: {
-      ...mapState(useUserStore, ["uid"])
-   },
-   methods: {
-      ...mapActions(useUserStore, ["retrieveUserSettings"])
    }
-};
+
+});
 </script>
 
 <style>

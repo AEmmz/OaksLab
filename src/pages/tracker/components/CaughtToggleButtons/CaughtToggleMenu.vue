@@ -21,8 +21,11 @@
    </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+
+export default defineComponent({
    name: "CaughtToggleMenu",
    data() {
       return {
@@ -36,5 +39,5 @@ export default {
          }
       }
    }
-};
+});
 </script>

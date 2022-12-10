@@ -232,13 +232,15 @@
    </div>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
+//Stores
 import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
-
+//Components
 const TeraChart = defineAsyncComponent(() => import("./TeraChart.vue"));
 
-export default {
+export default defineComponent({
    name: "TabAll",
    props: { tabName: { type: String }, id: { type: String }, isShiny: { type: Boolean } },
    components: { TeraChart },
@@ -429,30 +431,25 @@ export default {
             caught: caughtStats[this.selectedType?.value],
             available: availableStats[this.selectedType?.value]
          };
-      },
-      genDataTitle() {
-         const title = this.selectedGeneration.split("");
-         const titleArray = title.slice(0, 1).join().toUpperCase() + title.slice(1, 3).join("") + " " + title.slice(3, 4);
-         return titleArray.trim();
       }
    },
    methods: {
-      updatedSelectedGeneration(val) {
+      updatedSelectedGeneration(val: string) {
          this.selectedGeneration = val;
       },
-      hours(val) {
+      hours(val: number) {
          return Math.floor(val / (1000 * 60 * 60)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
          });
       },
-      minutes(val) {
+      minutes(val: number) {
          return Math.floor(val % (1000 * 60 * 60) / (1000 * 60)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
          });
       },
-      seconds(val) {
+      seconds(val: number) {
          return Math.floor(val % (1000 * 60) / (1000)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
@@ -462,7 +459,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

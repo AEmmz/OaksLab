@@ -19,7 +19,7 @@ const db = getFirestore(app);
 
 export { db };
 
-export default boot(async ({}) => {
+export default boot(async () => {
   const authStatus = () => {
     return new Promise((resolve, reject) => {
       try {
@@ -30,9 +30,9 @@ export default boot(async ({}) => {
             userStore.autoAuth({
               isLoggedIn: true,
               uid: user.uid,
-              email: user.email,
-              currentUser: user.auth.currentUser
-            });
+              email: user.email
+            }).catch(err =>
+              console.log(err));
             resolve(user);
           }
           if (!user) {
@@ -44,6 +44,5 @@ export default boot(async ({}) => {
       }
     });
   };
-
-  const user = await authStatus();
+  await authStatus();
 });

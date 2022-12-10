@@ -12,8 +12,8 @@
          <div class="full-width">
             <collection-filters
                v-if="desktopCheck()"
-               :getSearch="getSearch"
-               :getShinyView="changeShinyView"></collection-filters>
+               @submitFilter="submitFilter"
+               @changeShinyView="changeShinyView"></collection-filters>
          </div>
          <q-separator
             class="header-seperator"
@@ -24,7 +24,7 @@
             class="full-width"
             grid
             :columns="columns"
-            :rows="rows"
+            :rows="pokemonList"
             :filter="filter"
             :filter-method="filterData"
             hide-pagination
@@ -96,9 +96,9 @@
             class="lt-md">
             <q-card class="bg-dark filter-cont flex justify-around items-center q-px-md q-py-lg">
                <collection-filters
-                  :closeDialog="closeDialog"
-                  :getSearch="getSearch"
-                  :getShinyView="changeShinyView"></collection-filters>
+                  @closeDialog="closeDialog"
+                  @submitFilter="submitFilter"
+                  @changeShinyView="changeShinyView"></collection-filters>
             </q-card>
          </q-dialog>
 
@@ -124,25 +124,54 @@
    </div>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
 import { useQuasar } from "quasar";
 import { catchLock } from "src/util/tracker/catchLock";
+import { PokemonTypings } from "src/util/types/PokemonTypings";
+
+//Stores
 import { useCollectionStore } from "pages/collection/_CollectionStore";
 
+//Interfaces
+import IPokemonSingleCollection from "src/interfaces/pokemon/IPokemonSingleCollection";
+import IPokemonSingleDatabaseCatchData
+   from "src/interfaces/pokemon/IPokemonSingleDatabaseCatchData";
+import IPokemonCatchLock from "src/interfaces/pokemon/IPokemonCatchLock";
+
+//Components
 const CollectionFilters = defineAsyncComponent(() => import("./components/CollectionFilters.vue"));
 const CollectionCard = defineAsyncComponent(() => import("./components/CollectionCard.vue"));
 
-export default {
+//Types
+import {
+   GeneralFilterType, PaginationType,
+   ShinyFilterType
+} from "src/util/types/CollectionFilterTypes";
+
+type CollectionState = {
+   shinyView: string,
+   pokemonList: IPokemonSingleCollection[],
+   columns: object[],
+   filter: GeneralFilterType,
+   paginationOption: number,
+   pagination: PaginationType,
+   filterFab: boolean,
+   filterDialog: boolean,
+   endPage: boolean
+};
+
+export default defineComponent({
    components: {
       CollectionCard,
       CollectionFilters
    },
 
-   data() {
+   data(): CollectionState {
       return {
          shinyView: "All Normal",
-         rows: [],
+         pokemonList: [],
          columns: [
             { name: "name", label: "Name", field: "name", sortable: true, sortOrder: "ad" },
             { name: "dexNo", label: "Pokedex Number", field: "dexNo", sortable: true },
@@ -179,23 +208,24 @@ export default {
       };
    },
 
-   async mounted() {
+   mounted() {
       const $q = useQuasar();
       $q.loading.show();
-      await this.CollectionStore.retrieveList();
-      this.CollectionStore.userList.forEach((pokemon) => {
-         const locked = catchLock(+pokemon[0]);
-         this.rows.push({
-            name: pokemon[1].name,
-            apiNo: pokemon[0],
-            dexNo: pokemon[1].dexNo,
-            type: [pokemon[1].type1, pokemon[1].type2],
-            caught: [pokemon[1].catch],
-            need: [pokemon[1].catch],
-            locked: locked
+      this.CollectionStore.retrieveList().then(() => {
+         this.CollectionStore.userList.forEach((pokemon) => {
+            const locked = catchLock(+pokemon[0]);
+            this.pokemonList.push({
+               name: pokemon[1].name,
+               apiNo: pokemon[0],
+               dexNo: pokemon[1].dexNo,
+               type: [pokemon[1].type1, pokemon[1].type2],
+               caught: pokemon[1].catch,
+               locked: locked
+            });
          });
-      });
-      $q.loading.hide();
+         $q.loading.hide();
+      }).catch(err =>
+         console.log(err));
    },
 
    unmounted() {
@@ -203,7 +233,7 @@ export default {
    },
 
    computed: {
-      maxPages() {
+      maxPages(): number {
          return Math.ceil(this.pagination.dataLength / this.pagination.rowsPerPage);
       },
       mobilePages() {
@@ -216,7 +246,7 @@ export default {
    },
 
    methods: {
-      onIntersection(entry) {
+      onIntersection(entry: { isIntersecting: boolean }) {
          this.endPage = entry.isIntersecting;
          setTimeout(() => {
             this.endPage = false;
@@ -228,7 +258,7 @@ export default {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
-      getSearch(input) {
+      submitFilter(input: CollectionState["filter"]) {
          this.filter.searchQuery = input.searchQuery;
          this.filter.sortQuery = input.sortQuery;
          this.filter.caughtQuery = input.caughtQuery;
@@ -237,96 +267,162 @@ export default {
          this.filter.typeQuery1 = input.typeQuery1;
          this.filter.typeQuery2 = input.typeQuery2;
       },
-      changeShinyView(input) {
+      async changeShinyView(input: ShinyFilterType) {
          this.shinyView = input;
-         this.CollectionStore.updateShinyView(input);
+         await this.CollectionStore.updateShinyView(input);
       },
-      filterData(rows, terms) {
+      filterData(filteredPokemonList: CollectionState["pokemonList"], terms: CollectionState["filter"]) {
+         //Updates filter for specific catch types
+         const caughtFilter = (typeCaught: string, caughtOrNeed: "caught" | "need") => {
+            if (typeCaught) {
+               const typeCaughtValue = `${typeCaught}Caught` as keyof IPokemonSingleDatabaseCatchData;
+               filteredPokemonList = filteredPokemonList.filter((pokemon) => {
+                  if (caughtOrNeed === "caught") {
+                     return pokemon.caught?.[typeCaughtValue] && pokemon.locked?.[typeCaught as
+                        keyof IPokemonCatchLock];
+                  } else {
+                     return !pokemon.caught?.[typeCaughtValue] && pokemon.locked?.[typeCaught as
+                        keyof IPokemonCatchLock];
+                  }
+               });
+            }
+         };
+
+         //Iterates through catch types to update filter
+         const specificTypeFilter = (filterArray: { label: string, value: string }[], query:
+            string, caughtOrNeed: "caught" | "need") => {
+            for (const filter of filterArray) {
+               if (query === filter.value) {
+                  caughtFilter(filter.value, caughtOrNeed);
+                  break;
+               }
+            }
+         };
+
          for (const term in terms) {
             if (term === "searchQuery") {
-               const q = this.filter.searchQuery;
-               if (q) rows = rows.filter((a) => a.name.toLowerCase().includes(q.toLowerCase()));
+               const query = this.filter.searchQuery;
+               if (query) filteredPokemonList = filteredPokemonList.filter((pokemon) => pokemon.name.toLowerCase().includes(query.toLowerCase()));
             }
             if (term === "sortQuery") {
-               const q = this.filter.sortQuery;
-               if (q.value === "dexAsc") rows.sort((a, b) => a.dexNo - b.dexNo);
-               if (q.value === "dexDesc") rows.sort((a, b) => b.dexNo - a.dexNo);
-               if (q.value === "nameAz") rows.sort((a, b) => a.name.localeCompare(b.name));
-               if (q.value === "nameZa") rows.sort((a, b) => b.name.localeCompare(a.name));
+               const query = this.filter.sortQuery.value;
+               if (query === "dexAsc") filteredPokemonList.sort((a, b) => +a.dexNo - +b.dexNo);
+               if (query === "dexDesc") filteredPokemonList.sort((a, b) => +b.dexNo - +a.dexNo);
+               if (query === "nameAz") filteredPokemonList.sort((a, b) => a.name.localeCompare(b.name));
+               if (query === "nameZa") filteredPokemonList.sort((a, b) => b.name.localeCompare(a.name));
             }
             if (term === "caughtQuery") {
-               const q = this.filter.caughtQuery.value;
-               const filterArray = this.CollectionStore.filterTypes.caughtFilter.filter((filter) =>
-                  filter.value !== "showAll" && filter.value !== "complete" && filter.value !== "myCaught");
-               const caughtFilter = (typeCaught) => {
-                  const typeCaughtValue = `${typeCaught}Caught`;
-                  rows = rows.filter((a) => a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught]);
-               };
-               filterArray.forEach((filter) => {
-                  if (q === filter.value) caughtFilter(filter.value);
-               });
-               if (q === "showAll") rows;
-               if (q === "myCaught") rows = rows.filter((a) => {
-                  const caught = Object.values(a.caught[0]);
-                  return caught.some((a) => a === true);
-               });
-               if (q === "complete") {
-                  rows = rows.filter((a) => {
-                     const caught = a.caught[0];
-                     const lockCheck = a.locked;
-                     const lockCount = Object.values(lockCheck).filter(e => e === false).length;
-                     const categoryCount = Object.values(lockCheck).length;
-                     const caughtCount = Object.values(caught).filter(e => e === true).length;
-                     const totalAvailable = categoryCount - lockCount;
-                     return caughtCount === totalAvailable;
-                  });
+               const query = this.filter.caughtQuery.value;
+               switch (query) {
+                  case "showAll":
+                     break;
+                  case "myCaught":
+                     filteredPokemonList = filteredPokemonList.filter((pokemon) => {
+                        if (pokemon.caught) {
+                           const caught = Object.values(pokemon.caught);
+                           return caught.some((a) => a === true);
+                        }
+                     });
+                     break;
+                  case "complete":
+                     filteredPokemonList = filteredPokemonList.filter((pokemon) => {
+                        if (pokemon.caught && pokemon.locked) {
+                           const lockCount = Object.values(pokemon.locked).filter(e => e === false).length;
+                           const categoryCount = Object.values(pokemon.locked).length;
+                           const caughtCount = Object.values(pokemon.caught).filter(e => e === true).length;
+                           const totalAvailable = categoryCount - lockCount;
+                           return caughtCount === totalAvailable;
+                        }
+                     });
+                     break;
+                  default: {
+                     const filterArray = this.CollectionStore.filterTypes.caughtFilter.filter((filter) =>
+                        filter.value !== "showAll" && filter.value !== "complete" && filter.value !== "myCaught");
+                     specificTypeFilter(filterArray, query, "caught");
+                     break;
+                  }
                }
             }
             if (term === "needQuery") {
-               const q = this.filter.needQuery.value;
-               const filterArray = this.CollectionStore.filterTypes.needFilter.filter((filter) => filter.value !== "none" && filter.value !== "all");
-               if (q === "none") rows;
-
-               const caughtFilter = (typeCaught) => {
-                  const typeCaughtValue = `${typeCaught}Caught`;
-                  rows = rows.filter((a) => !a.caught[0]?.[typeCaughtValue] && a.locked?.[typeCaught]);
-               };
-               filterArray.forEach((filter) => {
-                  if (q === filter.value) caughtFilter(filter.value);
-               });
+               const query = this.filter.needQuery.value;
+               switch (query) {
+                  case "none":
+                     break;
+                  default: {
+                     const filterArray = this.CollectionStore.filterTypes.needFilter.filter((filter) =>
+                        filter.value !== "none" && filter.value !== "all");
+                     specificTypeFilter(filterArray, query, "need");
+                     break;
+                  }
+               }
             }
             if (term === "typeQuery1" || term === "typeQuery2") {
-               let q;
-               const filterArray = this.CollectionStore.filterTypes.typeFilter.filter((filter) => filter.value !== "all");
-               if (term === "typeQuery1") q = this.filter.typeQuery1.value;
-               if (term === "typeQuery2") q = this.filter.typeQuery2.value;
-               if (q === "all") rows;
-               const caughtFilter = (type) => {
-                  rows = rows.filter((a) => a.type.includes(type));
-               };
-               filterArray.forEach((filter) => {
-                  if (q === filter.value) caughtFilter(filter.value);
-               });
+               let query = "";
+               if (term === "typeQuery1") query = this.filter.typeQuery1.value;
+               if (term === "typeQuery2") query = this.filter.typeQuery2.value;
+               switch (query) {
+                  case "all":
+                     break;
+                  default: {
+                     const filterArray = this.CollectionStore.filterTypes.typeFilter.filter((filter) => filter.value !== "all");
+                     for (const filter of filterArray) {
+                        if (query === filter.value) {
+                           filteredPokemonList = filteredPokemonList.filter((pokemon) =>
+                              pokemon.type.includes(filter.value as PokemonTypings));
+                           break;
+                        }
+                     }
+                     break;
+                  }
+               }
             }
             if (term === "generationQuery") {
-               const q = this.filter.generationQuery.value;
-               if (q === "all") rows;
-               if (q === "gen1") rows = rows.filter((a) => a.dexNo >= 1 && a.dexNo <= 151);
-               if (q === "gen2") rows = rows.filter((a) => a.dexNo >= 152 && a.dexNo <= 251);
-               if (q === "gen3") rows = rows.filter((a) => a.dexNo >= 252 && a.dexNo <= 386);
-               if (q === "gen4") rows = rows.filter((a) => a.dexNo >= 387 && a.dexNo <= 493);
-               if (q === "gen5") rows = rows.filter((a) => a.dexNo >= 494 && a.dexNo <= 649);
-               if (q === "gen6") rows = rows.filter((a) => a.dexNo >= 650 && a.dexNo <= 721);
-               if (q === "gen7") rows = rows.filter((a) => a.dexNo >= 722 && a.dexNo <= 809);
-               if (q === "gen8") rows = rows.filter((a) => a.dexNo >= 810 && a.dexNo <= 905);
-               if (q === "gen9") rows = rows.filter((a) => a.dexNo >= 906 && a.dexNo <= 1500);
+               const query = this.filter.generationQuery.value;
+               //Filters Pokemon by Generation
+               const generationCheck = (lowestPokedexNumber: number, highestPokedexNumber: number) => {
+                  filteredPokemonList = filteredPokemonList.filter((pokemon) => {
+                     return +pokemon.dexNo >= lowestPokedexNumber && +pokemon.dexNo <= highestPokedexNumber;
+                  });
+               };
+
+               switch (query) {
+                  case "all":
+                     break;
+                  case "gen1":
+                     generationCheck(1, 151);
+                     break;
+                  case "gen2":
+                     generationCheck(152, 251);
+                     break;
+                  case "gen3":
+                     generationCheck(252, 386);
+                     break;
+                  case "gen4":
+                     generationCheck(387, 493);
+                     break;
+                  case "gen5":
+                     generationCheck(494, 649);
+                     break;
+                  case "gen6":
+                     generationCheck(650, 721);
+                     break;
+                  case "gen7":
+                     generationCheck(722, 809);
+                     break;
+                  case "gen8":
+                     generationCheck(810, 905);
+                     break;
+                  case "gen9":
+                     generationCheck(906, 1010);
+                     break;
+               }
             }
          }
-         this.pagination.dataLength = rows.length;
-         return rows;
+         this.pagination.dataLength = filteredPokemonList.length;
+         return filteredPokemonList;
       }
    }
-};
+});
 </script>
 
 <style

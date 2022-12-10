@@ -100,14 +100,33 @@
    </div>
 </template>
 
-<script>
-import { VueRecaptcha } from "vue-recaptcha";
+<script lang="ts">
+//Imports
+import { defineComponent, defineAsyncComponent } from "vue";
+import axios from "axios";
+//Components
+const { VueRecaptcha } = defineAsyncComponent(() => import("vue-recaptcha"));
+//Interfaces
+import IUserFeatureRequest from "src/interfaces/user/IUserFeatureRequest";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
+//Types
+type TheBugReport = {
+   verification: boolean,
+   failedVerification: boolean,
+   formName: string,
+   form: {
+      featureType: string,
+      shortDescription: string,
+      longDescription: string
+   },
+   featureOptions: string[]
+}
 
-export default {
+export default defineComponent({
    name: "TheBugReport",
    components: { VueRecaptcha },
-   data() {
+   data(): TheBugReport {
       return {
          verification: false,
          failedVerification: false,
@@ -131,15 +150,15 @@ export default {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
-      encode(data) {
+      encode(data: IUserFeatureRequest) {
          return Object.keys(data)
             .map(
-               key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+               key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key as keyof IUserFeatureRequest])}`
             )
             .join("&");
       },
-      async handleSubmit(e) {
-         if (this.verification) {
+      async handleSubmit() {
+         if (this.verification && this.UserStore.username) {
             const encodedData = this.encode(
                {
                   "form-name": "Bug Report",
@@ -149,18 +168,17 @@ export default {
                   "long-description": this.form.longDescription
                }
             );
-
-            await this.$axios.post("/", encodedData);
-            this.$router.push("/tracker");
+            await axios.post("/", encodedData);
+            await this.$router.push("/tracker");
          } else {
             this.failedVerification = true;
          }
       },
-      recaptchaSuccess(response) {
+      recaptchaSuccess(response: object) {
          if (response) this.verification = true;
       }
    }
-};
+});
 </script>
 
 <style
@@ -196,7 +214,7 @@ body.screen--md {
    }
 }
 
-body.screen--lg, body.screen--lx {
+body.screen--lg, body.screen--xl {
    .my-card {
       width: 30%;
       border-radius: 0.7rem;

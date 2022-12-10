@@ -6,37 +6,37 @@
       :series="series"/>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent, PropType } from "vue";
 
 const ApexChart = defineAsyncComponent(() => import("vue3-apexcharts"));
 
 
-export default {
+export default defineComponent({
    name: "MiscRadialChart",
    components: { ApexChart },
    props: {
-      categories: { type: Array },
-      data: { type: Array },
-      caught: { type: Array },
-      available: { type: Array }
+      categories: { type: Object as PropType<string[]>, required: true },
+      data: { type: Object as PropType<string[]>, required: true },
+      caught: { type: Object as PropType<number[]>, required: true },
+      available: { type: Object as PropType<number[]>, required: true }
    },
    computed: {
-      series() {
+      series(): object[] {
          return [
             {
                data: this.data
             }
          ];
       },
-      chartOptions() {
+      chartOptions(): object {
          return {
             chart: {
                type: "bar",
                fontFamily: "Gellix, sans-serif",
                toolbar: { show: false }
             },
-
             plotOptions: {
                bar: {
                   borderRadius: 4,
@@ -65,7 +65,7 @@ export default {
             },
             dataLabels: {
                enabled: true,
-               formatter: (val) => {
+               formatter: (val: number) => {
                   return `${val} %`;
                },
                offsetX: 10
@@ -76,7 +76,7 @@ export default {
                   fontFamily: "Futura, sans-serif"
                },
                y: {
-                  formatter: (val, e) => {
+                  formatter: (val: number, e: { dataPointIndex: number }) => {
                      return `${this.caught[e.dataPointIndex]} of ${this.available[e.dataPointIndex]}`;
                   },
                   title: {
@@ -86,11 +86,8 @@ export default {
             }
          };
       }
-   },
-   data() {
-      return {};
    }
-};
+});
 </script>
 
 <style scoped>

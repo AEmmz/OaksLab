@@ -63,11 +63,14 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonCatchStatusStore } from "pages/tracker/_PokemonCatchStatusStore";
+import { HuntType } from "src/util/types/HuntTypes";
 
-export default {
+export default defineComponent({
    name: "Tab_Shiny",
    setup() {
       const PokemonStore = usePokemonStore();
@@ -83,14 +86,14 @@ export default {
       }
    },
    methods: {
-      setToggler(type) {
+      async setToggler(type: HuntType) {
          if (this.PokemonStore.apiNo !== "") {
-            this.PokemonCatchStatusStore.toggler(type);
+            await this.PokemonCatchStatusStore.toggler(type);
          }
       },
       sizeCheck() {
          return this.$q.screen.md ? "63px" : "80px";
       }
    }
-};
+});
 </script>

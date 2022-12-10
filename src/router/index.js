@@ -17,7 +17,7 @@ import { useUserStore } from "pages/authorization/_UserStore";
  * with the Router instance.
  */
 
-export default route(function({}) {
+export default route(function() {
   const userStore = useUserStore();
   const createHistory = process.env.SERVER
     ? createMemoryHistory
@@ -35,15 +35,15 @@ export default route(function({}) {
     history: createHistory(process.env.VUE_ROUTER_BASE)
   });
 
-  Router.beforeEach(async (to, from, next) => {
+  Router.beforeEach((to, from, next) => {
     if (
       to.matched.some((record) => record.meta.requiresAuth) &&
-      !userStore.currentUser
+      !userStore.uid
     ) {
       next("/login");
     } else if (
       to.matched.some((record) => record.meta.requiresNotAuth) &&
-      userStore.currentUser
+      userStore.uid
     ) {
       next("/home");
     } else {

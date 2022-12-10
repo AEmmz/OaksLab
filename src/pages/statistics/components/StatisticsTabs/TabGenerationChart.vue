@@ -1,21 +1,32 @@
 <template>
    <apex-chart
-      @dataPointSelection="changeData"
       :options="chartOptions"
       :series="series"
       :height="desktopCheck() ? '' : smallCheck() ? '350px' : '400px'"
       class="chart"></apex-chart>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
-import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent, PropType } from "vue";
 
 const ApexChart = defineAsyncComponent(() => import("vue3-apexcharts"));
 
-export default {
+//Stores
+import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+
+import StatisticsGenerationCountsModel from "src/models/statistics/StatisticsGenerationCountsModel";
+import { StatisticsChartsDataType } from "src/util/types/StatisticsChartsDataType";
+
+
+export default defineComponent({
    name: "TabGenerationChart",
-   props: { id: { type: String } },
+   props: {
+      id: {
+         type: String as PropType<keyof StatisticsGenerationCountsModel>,
+         required: true
+      }
+   },
    components: { ApexChart },
    data() {
       return {
@@ -55,7 +66,7 @@ export default {
                }
             },
             dataLabels: {
-               formatter: (val) => {
+               formatter: (val: number) => {
                   return `${val} %`;
                },
                style: {
@@ -68,8 +79,10 @@ export default {
                   fontFamily: "Futura, sans-serif"
                },
                y: {
-                  formatter: (val, e) => {
-                     const data = this.StatisticsStore.generationData(this.id);
+                  formatter: (val: number, e: { dataPointIndex: number }) => {
+                     // const data = this.StatisticsStore.bind(this).generationData(this.id);
+                     // return `${data.total[e.dataPointIndex]} of ${data.available[e.dataPointIndex]}`;
+                     const data = this.generationData() as StatisticsChartsDataType;
                      return `${data.total[e.dataPointIndex]} of ${data.available[e.dataPointIndex]}`;
                   },
                   title: {
@@ -95,14 +108,12 @@ export default {
                data: this.StatisticsStore.generationData(this.id).data
             }
          ];
+      },
+      generationData() {
+         return this.StatisticsStore.generationData(this.id);
       }
    },
    methods: {
-      changeData(event, chartContext, config) {
-         const data = config.w.config.xaxis.categories[config.selectedDataPoints[0][0]] || "All";
-         const dataShort = data.toLowerCase().replace(" ", "");
-         this.$emit("changeData", dataShort);
-      },
       desktopCheck() {
          return this.$q.screen.gt.sm ? true : false;
       },
@@ -110,7 +121,7 @@ export default {
          return this.$q.screen.sm ? true : false;
       }
    }
-};
+});
 </script>
 
 <style lang="scss">
@@ -131,7 +142,7 @@ body.screen--xs {
    padding: 0.5rem !important;
    min-width: 175px !important;
    background-color: $primary !important;
-   border: 0px !important;
+   border: 0 !important;
 }
 
 .apexcharts-menu-item {

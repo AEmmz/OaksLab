@@ -8,10 +8,16 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function(/* ctx */) {
   return {
+    supportTS: {
+      tsCheckerConfig: {
+        eslint: true
+      }
+    },
     eslint: {
       // fix: true,
       // include = [],

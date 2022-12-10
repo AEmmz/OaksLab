@@ -114,25 +114,27 @@
    </q-tabs>
 </template>
 
-<script>
-import { useRouter } from "vue-router";
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
 
-export default {
+export default defineComponent({
    setup() {
       const userStore = useUserStore();
       return { userStore };
    },
    methods: {
-      commitLogout() {
-         this.userStore.logout();
-         this.$router.replace("/home");
+      async commitLogout() {
+         await this.userStore.logout();
+         await this.$router.replace("/home");
       },
       desktopCheck() {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style
@@ -161,7 +163,7 @@ body.screen--md, body.screen--lg, body.screen--xl, {
    .admin-menu-section {
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       gap: 10px
    }

@@ -1,14 +1,15 @@
-const Tracker = () => import("../pages/tracker/TheTracker.vue");
-const Home = () => import("../pages/main/TheHome.vue");
-const Register = () => import("../pages/authorization/TheRegister.vue");
-const Login = () => import("../pages/authorization/TheLogin.vue");
 const Admin = () => import("../pages/authorization/TheAdmin.vue");
+const BugReport = () => import("../pages/authorization/TheBugReport.vue");
 const Collection = () => import("../pages/collection/TheCollection.vue");
+const FeatureRequest = () => import("../pages/authorization/TheFeatureRequest.vue");
+const Home = () => import("src/pages/main/TheHome.vue");
+const LocationMaps = () => import("src/pages/location-maps/LocationMaps.vue");
+const Login = () => import("../pages/authorization/TheLogin.vue");
+const QuickCollectionUpdate = () => import("../pages/collection/components/QuickCollectionUpdate/QuickCollectionUpdate.vue");
+const Register = () => import("../pages/authorization/TheRegister.vue");
 const Statistics = () => import("../pages/statistics/TheStatistics.vue");
 // const StreamerTools = () => import("../pages/streamer-tools/StreamerTools.vue");
-const QuickCollectionUpdate = () => import("../pages/collection/components/QuickCollectionUpdate/QuickCollectionUpdate.vue");
-const BugReport = () => import("../pages/authorization/TheBugReport.vue");
-const FeatureRequest = () => import("../pages/authorization/TheFeatureRequest.vue");
+const Tracker = () => import("../pages/tracker/TheTracker.vue");
 const NotFound = () => import("../pages/page-not-found/PageNotFound.vue");
 
 const routes = [
@@ -62,6 +63,14 @@ const routes = [
     path: "/statistics",
     component: Statistics,
     name: "statistics",
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/location-maps",
+    component: LocationMaps,
+    name: "location-maps",
     meta: {
       requiresAuth: true
     }

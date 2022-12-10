@@ -51,10 +51,14 @@
 </template>
 
 <script>
+//Imports
+import { defineComponent, defineAsyncComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
-import WhatsNewDialog from "components/navigation/components/WhatsNewDialog.vue";
+//Components
+const WhatsNewDialog = defineAsyncComponent(() => import("components/navigation/components/WhatsNewDialog.vue"));
 
-export default {
+export default defineComponent({
    name: "SocialMenu",
    components: { WhatsNewDialog },
    setup() {
@@ -67,12 +71,12 @@ export default {
       };
    },
    methods: {
-      viewedWhatsNew() {
+      async viewedWhatsNew() {
          this.whatsNewDialog = false;
-         this.userStore.toggleWhatsNew(this.whatsNewDialog);
+         await this.userStore.toggleWhatsNew(this.whatsNewDialog);
       }
    }
-};
+});
 </script>
 
 <style

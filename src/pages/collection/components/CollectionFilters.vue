@@ -11,7 +11,7 @@
             outlined
             clearable
             label="Search By Name"
-            @update:model-value="sendSearch">
+            @update:model-value="submitFilter">
             <template v-slot:prepend>
                <q-icon
                   name="fas fa-magnifying-glass"
@@ -28,7 +28,7 @@
             :options="CollectionStore.filterTypes.sortFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
          <q-select
             class="filter"
             dark
@@ -39,7 +39,7 @@
             :options="CollectionStore.filterTypes.caughtFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
          <q-select
             class="filter"
             dark
@@ -50,7 +50,7 @@
             :options="CollectionStore.filterTypes.needFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
 
          <!-- Mobile -->
          <q-select
@@ -65,7 +65,7 @@
             :options="CollectionStore.filterTypes.generationFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
          <q-select
             v-if="!desktopCheck()"
             class="filter"
@@ -77,7 +77,7 @@
             :options="CollectionStore.filterTypes.typeFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
          <q-select
             v-if="!desktopCheck()"
             class="filter"
@@ -89,7 +89,7 @@
             :options="CollectionStore.filterTypes.typeFilter"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="sendSearch"></q-select>
+            @update:model-value="submitFilter"></q-select>
          <q-select
             v-if="!desktopCheck() && !isQuickEdit"
             class="filter"
@@ -101,7 +101,7 @@
             :options="CollectionStore.filterTypes.shinyViewOptions"
             transition-show="jump-up"
             transition-hide="jump-up"
-            @update:model-value="getShinyView(setFilters.shinyView)"></q-select>
+            @update:model-value="$emit('changeShinyView',setFilters.shinyView)"></q-select>
 
          <div
             class="buttons-container q-gutter-x-md"
@@ -120,7 +120,7 @@
                class="close-button"
                color="primary"
                text-color="light"
-               @click="closeDialog"/>
+               @click="$emit('closeDialog')"/>
          </div>
       </div>
       <div
@@ -170,7 +170,7 @@
                   :options="CollectionStore.filterTypes.generationFilter"
                   transition-show="jump-up"
                   transition-hide="jump-up"
-                  @update:model-value="sendSearch"></q-select>
+                  @update:model-value="submitFilter"></q-select>
                <q-select
                   class="filter"
                   dark
@@ -181,7 +181,7 @@
                   :options="CollectionStore.filterTypes.typeFilter"
                   transition-show="jump-up"
                   transition-hide="jump-up"
-                  @update:model-value="sendSearch"></q-select>
+                  @update:model-value="submitFilter"></q-select>
                <q-select
                   class="filter"
                   dark
@@ -192,7 +192,7 @@
                   :options="CollectionStore.filterTypes.typeFilter"
                   transition-show="jump-up"
                   transition-hide="jump-up"
-                  @update:model-value="sendSearch"></q-select>
+                  @update:model-value="submitFilter"></q-select>
                <q-select
                   v-if="!isQuickEdit"
                   class="filter"
@@ -204,40 +204,61 @@
                   :options="CollectionStore.filterTypes.shinyViewOptions"
                   transition-show="jump-up"
                   transition-hide="jump-up"
-                  @update:model-value="getShinyView(setFilters.shinyView)"></q-select>
+                  @update:model-value="$emit('changeShinyView',setFilters.shinyView)"></q-select>
             </div>
          </q-slide-transition>
       </div>
    </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { useCollectionStore } from "pages/collection/_CollectionStore";
-import { mapState } from "pinia";
+import { ShinyFilterType } from "src/util/types/CollectionFilterTypes";
+import ICollectionFilters from "src/interfaces/collection/ICollectionFilters";
 
-export default {
-   props: {
-      getSearch: { type: Function },
-      getShinyView: { type: Function },
-      closeDialog: { type: Function },
-      isQuickEdit: { type: Boolean }
-   },
+type CollectionFilterState = {
+   moreOptionsVisible: boolean,
+   setFilters: ICollectionFilters
+   // setFilters: {
+   //    searchQuery: string | null,
+   //    sortQuery: string | null,
+   //    caughtQuery: string | null,
+   //    needQuery: string | null,
+   //    generationQuery: string | null,
+   //    typeQuery1: string | null,
+   //    typeQuery2: string | null,
+   //    shinyView: ShinyFilterType
+   // }
+}
+
+export default defineComponent({
+   props: { isQuickEdit: { type: Boolean } },
    setup() {
       const CollectionStore = useCollectionStore();
       return { CollectionStore };
    },
-   data() {
+   data(): CollectionFilterState {
       return {
          moreOptionsVisible: false,
          setFilters: {
-            searchQuery: null,
-            sortQuery: null,
-            caughtQuery: null,
-            needQuery: null,
-            generationQuery: null,
-            typeQuery1: null,
-            typeQuery2: null,
-            shinyView: null
+            // searchQuery: null,
+            // sortQuery: null,
+            // caughtQuery: null,
+            // needQuery: null,
+            // generationQuery: null,
+            // typeQuery1: null,
+            // typeQuery2: null,
+            // shinyView: "All Normal"
+
+            searchQuery: "",
+            sortQuery: { label: "Dex: Asc", value: "dexAsc" },
+            caughtQuery: { label: "My Caught", value: "myCaught" },
+            needQuery: { label: "None", value: "none" },
+            typeQuery1: { label: "All", value: "all" },
+            typeQuery2: { label: "All", value: "all" },
+            generationQuery: { label: "All", value: "all" },
+            shinyView: "All Normal"
          }
       };
    },
@@ -250,7 +271,7 @@ export default {
       collectionSettings(curVal, prevVal) {
          if (curVal !== prevVal) {
             this.setFilters.shinyView = this.CollectionStore.collectionSettings.shinyView;
-            this.getShinyView(this.setFilters.shinyView);
+            this.$emit("changeShinyView", this.setFilters.shinyView);
          }
       }
    },
@@ -271,8 +292,8 @@ export default {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
-      sendSearch() {
-         this.getSearch({
+      submitFilter() {
+         this.$emit("submitFilter", {
             searchQuery: this.setFilters.searchQuery,
             sortQuery: this.setFilters.sortQuery,
             caughtQuery: this.setFilters.caughtQuery,
@@ -283,18 +304,22 @@ export default {
          });
       },
       resetFilters() {
-         if (this.isQuickEdit) this.setFilters.caughtQuery = "Show All";
-         else this.setFilters.caughtQuery = "My Caught";
          this.setFilters.searchQuery = "";
-         this.setFilters.sortQuery = "Dex: Asc";
-         this.setFilters.needQuery = "None";
-         this.setFilters.generationQuery = "All";
-         this.setFilters.typeQuery1 = "All";
-         this.setFilters.typeQuery2 = "All";
-         this.sendSearch();
+         this.setFilters.sortQuery = { label: "Dex: Asc", value: "dexAsc" };
+         this.setFilters.needQuery = { label: "None", value: "none" };
+         this.setFilters.generationQuery = { label: "All", value: "all" };
+         this.setFilters.typeQuery1 = { label: "All", value: "all" };
+         this.setFilters.typeQuery2 = { label: "All", value: "all" };
+
+         if (this.isQuickEdit) {
+            this.setFilters.caughtQuery = { label: "Show All", value: "showAll" };
+         } else {
+            this.setFilters.caughtQuery = { label: "My Caught", value: "myCaught" };
+         }
+         this.submitFilter();
       }
    }
-};
+});
 </script>
 
 <style

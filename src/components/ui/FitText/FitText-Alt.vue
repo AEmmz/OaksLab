@@ -1,42 +1,49 @@
 <template>
-	<span class="fitted"><slot></slot></span>
+   <span class="fitted"><slot></slot></span>
 </template>
 
-<script>
-import fitty from 'fitty';
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+import fitty, { FittyInstance } from "fitty";
 
-export default {
-	name: 'FitText',
-	props: {
-		options: {
-			type: Object,
-			required: false,
-			default() {
-				return {
-					minSize: 12,
-					maxSize: 30,
-					multiLine: true,
-				};
-			},
-		},
-	},
-	data() {
-		return {
-			$_fitty: undefined,
-		};
-	},
-	destroy() {
-		this.$_fitty.unsubscribe();
-	},
-	mounted() {
-		this.$_fitty = fitty(this.$el, this.options);
-	},
-};
+type FittyState = {
+   $_fitty: FittyInstance | undefined
+}
+export default defineComponent({
+   name: "FitText",
+   props: {
+      options: {
+         type: Object,
+         required: false,
+         default() {
+            return {
+               minSize: 12,
+               maxSize: 30,
+               multiLine: true
+            };
+         }
+      }
+   },
+   data(): FittyState {
+      return {
+         $_fitty: undefined
+      };
+   },
+   mounted() {
+      this.$_fitty = fitty(this.$el as HTMLElement, this.options);
+   },
+   destroy() {
+      if (this.$_fitty) {
+         this.$_fitty.unsubscribe();
+      }
+   }
+});
 </script>
 
 <style scoped>
 .fitted {
-	display: inline-block;
-	white-space: nowrap;
+   display: inline-block;
+   white-space: nowrap;
 }
 </style>

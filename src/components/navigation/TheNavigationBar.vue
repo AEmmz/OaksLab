@@ -110,13 +110,19 @@
    </q-header>
 </template>
 
-<script>
-import { useUserStore } from "pages/authorization/_UserStore";
-import AuthBar from "./components/AuthBar.vue";
-import MenuBar from "./components/MenuBar.vue";
-import SocialBar from "./components/SocialBar.vue";
+<script lang="ts">
+//Imports
+import { defineComponent, defineAsyncComponent } from "vue";
 
-export default {
+//Stores
+import { useUserStore } from "pages/authorization/_UserStore";
+
+//Components
+const AuthBar = defineAsyncComponent(() => import("./components/AuthBar.vue"));
+const MenuBar = defineAsyncComponent(() => import("./components/MenuBar.vue"));
+const SocialBar = defineAsyncComponent(() => import("./components/SocialBar.vue"));
+
+export default defineComponent({
    components: { AuthBar, MenuBar, SocialBar },
    setup() {
       const userStore = useUserStore();
@@ -140,11 +146,12 @@ export default {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
-      onIntersection(entry) {
+      onIntersection(entry: { isIntersecting: boolean }) {
          this.headerIntersect = entry.isIntersecting;
       }
    }
-};
+});
+
 </script>
 
 <style
@@ -155,13 +162,6 @@ export default {
    //display: none
 }
 
-//.auth-bar,
-//.name-bar,
-//.menu-bar {
-//  width: 25%;
-//}
-
-.auth-bar,
 .menu-bar {
    height: 100%;
 }

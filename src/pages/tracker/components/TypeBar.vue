@@ -33,10 +33,12 @@
    </q-card>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 
-export default {
+export default defineComponent({
    setup() {
       const PokemonStore = usePokemonStore();
       return {
@@ -61,7 +63,7 @@ export default {
          }
       }
    }
-};
+});
 </script>
 
 <style

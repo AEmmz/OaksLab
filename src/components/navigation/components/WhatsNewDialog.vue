@@ -69,8 +69,11 @@
    </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+
+export default defineComponent({
    name: "WhatsNewDialog",
    data() {
       return {
@@ -126,7 +129,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

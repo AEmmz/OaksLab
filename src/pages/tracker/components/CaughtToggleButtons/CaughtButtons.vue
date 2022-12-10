@@ -42,15 +42,21 @@
    </div>
 </template>
 
-<script>
-import caughtButtonMenu from "./CaughtToggleMenu.vue";
-import tabNormal from "./Tab_Normal.vue";
-import tabShiny from "./Tab_Shiny.vue";
-import tabTera from "./Tab_Tera.vue";
+<script lang="ts">
+//Imports
+import { defineComponent, defineAsyncComponent } from "vue";
+
+//Components
+const caughtButtonMenu = defineAsyncComponent(() => import("./CaughtToggleMenu.vue"));
+const tabNormal = defineAsyncComponent(() => import("./Tab_Normal.vue"));
+const tabShiny = defineAsyncComponent(() => import("./Tab_Shiny.vue"));
+const tabTera = defineAsyncComponent(() => import("./Tab_Tera.vue"));
+
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 
 
-export default {
+export default defineComponent({
    components: { caughtButtonMenu, tabNormal, tabShiny, tabTera },
    data() {
       return {
@@ -72,11 +78,11 @@ export default {
       }
    },
    methods: {
-      async changeTab(tab) {
+      changeTab(tab: string) {
          this.tab = tab;
       }
    }
-};
+});
 </script>
 
 <style

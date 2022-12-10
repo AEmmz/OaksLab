@@ -22,7 +22,7 @@ export default defineComponent({
       const handleError = () => {
          // Do some validation
       };
-      const handleSuccess = (response) => {
+      const handleSuccess = () => {
          // Do some validation
       };
       return {

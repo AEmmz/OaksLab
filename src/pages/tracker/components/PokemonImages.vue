@@ -47,11 +47,18 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
+//Types
+type PokemonImageState = {
+   shinyIsActive: boolean,
+}
 
-export default {
-   data() {
+export default defineComponent({
+   data(): PokemonImageState {
       return {
          shinyIsActive: false
       };
@@ -78,7 +85,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

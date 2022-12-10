@@ -76,15 +76,24 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Import
+import { defineComponent } from "vue";
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
+//Types
+type TimeState = {
+   timer: undefined | ReturnType<typeof setInterval>,
+   savedTimer: number,
+   timerDialog: boolean
+}
 
-export default {
+export default defineComponent({
    name: "TimerCard",
-   data() {
+   data(): TimeState {
       return {
-         timer: null,
+         timer: undefined,
          savedTimer: 0,
          timerDialog: false
       };
@@ -98,15 +107,16 @@ export default {
       };
    },
    beforeMount() {
-      window.addEventListener("beforeunload", this.preventNav);
+      window.addEventListener("beforeunload", this.preventNav.bind(this));
    },
    unmounted() {
-      this.stop();
+      this.stop().catch(err =>
+         console.log(err));
    },
 
    watch: {
-      timerRunning(newVal) {
-         if (!newVal) this.stop();
+      async timerRunning(newVal) {
+         if (!newVal) await this.stop();
       }
    },
 
@@ -138,7 +148,7 @@ export default {
       }
    },
    methods: {
-      preventNav(event) {
+      preventNav(event: { preventDefault: () => void; returnValue: string; }) {
          if (!this.PokemonTrackerStore.timerRunning) {
             return;
          }
@@ -152,11 +162,11 @@ export default {
          return this.$q.screen.md;
       },
 
-      toggleStart() {
+      async toggleStart() {
          if (!this.PokemonTrackerStore.timerRunning) {
             this.start();
          } else {
-            this.stop();
+            await this.stop();
          }
       },
 
@@ -167,26 +177,26 @@ export default {
             this.PokemonTrackerStore.mainTimer += 1000;
          }, 1000);
       },
-      stop() {
+      async stop() {
          clearInterval(this.timer);
          this.PokemonTrackerStore.timerRunning = false;
          if (this.PokemonTrackerStore.mainTimer > 0 && !this.isSaved) {
-            this.PokemonTrackerStore.updateTimer();
+            await this.PokemonTrackerStore.updateTimer();
             this.savedTimer = this.PokemonTrackerStore.mainTimer;
          }
       },
-      reset() {
+      async reset() {
          clearInterval(this.timer);
          this.PokemonTrackerStore.timerRunning = false;
          this.timerDialog = false;
          if (this.PokemonTrackerStore.mainTimer > 0) {
             this.PokemonTrackerStore.mainTimer = 0;
             this.savedTimer = 0;
-            this.PokemonTrackerStore.updateTimer();
+            await this.PokemonTrackerStore.updateTimer();
          }
       }
    }
-};
+});
 </script>
 
 <style

@@ -102,13 +102,19 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
+//Types
+type CounterCardState = {
+   counterDialog: boolean
+}
 
-export default {
-   components: {},
-   data() {
+export default defineComponent({
+   data(): CounterCardState {
       return {
          counterDialog: false
       };
@@ -131,14 +137,14 @@ export default {
       pkTypeColor2() {
          return `${this.PokemonStore.pkType2 || this.PokemonStore.pkType1}Type`;
       },
-      reset() {
+      async reset() {
          if (this.PokemonTrackerStore.mainCount > 0) {
-            this.PokemonTrackerStore.resetCounter();
+            await this.PokemonTrackerStore.resetCounter();
             this.counterDialog = false;
          }
       }
    }
-};
+});
 </script>
 
 <style

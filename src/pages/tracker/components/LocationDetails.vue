@@ -56,23 +56,16 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonDetailsStore } from "pages/tracker/_PokemonDetailsStore";
 import { useUserStore } from "pages/authorization/_UserStore";
 
-export default {
+export default defineComponent({
    name: "LocationDetails",
-   data() {
-      return {
-         gameName1: "",
-         gameLocations1: "",
-         gameName2: "",
-         gameLocations: "",
-         gameName3: "",
-         gameLocations3: ""
-      };
-   },
    setup() {
       const PokemonStore = usePokemonStore();
       const PokemonDetailsStore = usePokemonDetailsStore();
@@ -88,7 +81,7 @@ export default {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

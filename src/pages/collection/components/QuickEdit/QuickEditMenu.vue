@@ -21,10 +21,18 @@
    </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+
+//Types
+type CaughtToggleMenuState = {
+   tab: "normal" | "shiny" | "tera"
+}
+
+export default defineComponent({
    name: "CaughtToggleMenu",
-   data() {
+   data(): CaughtToggleMenuState {
       return {
          tab: "normal"
       };
@@ -36,6 +44,6 @@ export default {
          }
       }
    }
-};
+});
 </script>
 

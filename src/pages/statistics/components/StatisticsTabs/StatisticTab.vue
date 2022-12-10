@@ -29,7 +29,7 @@
                <div class="cat-header">Total Caught:</div>
                <div
                   class="cat-value"
-                  :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics?.caught?.total }}
+                  :class="desktopCheck() ? 'text-h4':'text-h5'">{{ statistics.caught.total }}
                </div>
             </div>
          </q-card>
@@ -91,8 +91,7 @@
             :flat="!desktopCheck()">
             <div class="cat-header text-light">Completion By Generation:</div>
             <generation-chart
-               :id="id"
-               @changeData="updatedSelectedGeneration"></generation-chart>
+               :id="id"></generation-chart>
          </q-card>
 
          <q-separator
@@ -207,15 +206,27 @@
    </div>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
-import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent, PropType } from "vue";
 
+//Stores
+import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+import StatisticsAvailableModel from "src/models/statistics/StaticsicsAvailableModel";
+import StatisticsAllCountsModel from "src/models/statistics/StatisticsAllCountsModel";
+
+//Components
 const GenerationChart = defineAsyncComponent(() => import("./TabGenerationChart.vue"));
 
-export default {
+export default defineComponent({
    name: "TabAll",
-   props: { tabName: { type: String }, id: { type: String } },
+   props: {
+      tabName: { type: String },
+      id: {
+         type: String as PropType<keyof StatisticsAvailableModel>,
+         required: true
+      }
+   },
    components: { GenerationChart },
    data() {
       return {
@@ -227,56 +238,45 @@ export default {
       return { StatisticsStore };
    },
    computed: {
-      completionPercentage() {
-         const percent = ((this.statistics?.caught?.total / this.statistics?.available) * 100).toFixed(1);
-         if (percent === "NaN") {
-            return 0;
-         }
-         return percent;
-      },
-      statistics() {
+      statistics(): { caught: StatisticsAllCountsModel, available: number } {
          return {
-            caught: this.StatisticsStore[`${this.id}Stats`],
+            caught: this.StatisticsStore.statistics.caught[this.id],
             available: this.StatisticsStore.availableStats[this.id]
          };
       },
-      genDataTitle() {
-         const title = this.selectedGeneration.split("");
-         const titleArray = title.slice(0, 1).join().toUpperCase() + title.slice(1, 3).join("") + " " + title.slice(3, 4);
-         return titleArray.trim();
+
+      completionPercentage() {
+         return ((this.statistics.caught.total / this.statistics.available) * 100).toFixed(1);
       }
    },
    methods: {
-      updatedSelectedGeneration(val) {
-         this.selectedGeneration = val;
-      },
-      hours(val) {
+      hours(val: number) {
          return Math.floor(val / (1000 * 60 * 60)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
          });
       },
-      minutes(val) {
+      minutes(val: number) {
          return Math.floor(val % (1000 * 60 * 60) / (1000 * 60)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
          });
       },
-      seconds(val) {
+      seconds(val: number) {
          return Math.floor(val % (1000 * 60) / (1000)).toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false
          });
       },
       desktopCheck() {
-         return this.$q.screen.gt.sm ? true : false;
+         return this.$q.screen.gt.sm;
       },
       mediumCheck() {
-         return this.$q.screen.md ? true : false;
+         return this.$q.screen.md;
       }
 
    }
-};
+});
 </script>
 
 <style

@@ -70,12 +70,17 @@
    </q-card>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { usePokemonStore } from "pages/tracker/_PokemonStore";
 import { usePokemonFormStore } from "pages/tracker/_PokemonFormStore";
 import { usePokemonTrackerStore } from "pages/tracker/_PokemonTrackerStore";
+//Interfaces
+import IPokemonSingleCollection from "src/interfaces/pokemon/IPokemonSingleCollection";
 
-export default {
+export default defineComponent({
    data() {
       return {
          scrollAmount: 0
@@ -93,36 +98,37 @@ export default {
    },
    methods: {
       desktopCheckHunt() {
-         if (this.$q.screen.gt.sm) this.searchHunt();
+         if (this.$q.screen.gt.sm) {
+            this.PokemonTrackerStore.changeHuntCount(this.PokemonStore.selectors.hunt.toLowerCase());
+         }
       },
-      formRoute(form) {
+      formRoute(form: IPokemonSingleCollection) {
          let route = "/tracker/" + form.name.toLowerCase().replaceAll(" ", "-");
          if (route === "/tracker/unown-?") route = "/tracker/unown-question";
          return route;
       },
 
-      async mobileChangePokemon(form) {
+      async mobileChangePokemon(form: IPokemonSingleCollection) {
          let route = "/tracker/" + form.name.toLowerCase().replaceAll(" ", "-");
          if (route === "/tracker/unown-?") route = "/tracker/unown-question";
-         this.$router.replace(route);
+         await this.$router.replace(route);
          await this.changePokemon(form);
          this.$emit("closeFormDialog");
       },
 
-      async changePokemon(form) {
+      async changePokemon(form: IPokemonSingleCollection) {
          if (this.PokemonTrackerStore.timerRunning) {
             this.PokemonTrackerStore.setTimerRunning(false);
          }
          const inputPokemon = {
             apiNo: form.apiNo,
             dexNo: form.dexNo,
-            setName: form.name,
-            setType: form.types
+            name: form.name,
+            type: form.type
          };
          await this.PokemonStore.changeActivePokemon(inputPokemon);
          await this.PokemonTrackerStore.changeCount();
-         await
-            this.PokemonTrackerStore.changeHuntCount(this.PokemonStore.selectors.hunt.toLowerCase());
+         this.PokemonTrackerStore.changeHuntCount(this.PokemonStore.selectors.hunt.toLowerCase());
          await this.PokemonFormStore.fetchForms();
       },
       pkTypeColor() {
@@ -135,7 +141,7 @@ export default {
          return this.$q.screen.md;
       }
    }
-};
+});
 </script>
 
 <style

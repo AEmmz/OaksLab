@@ -102,24 +102,27 @@
    </transition>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
 
-export default {
+export default defineComponent({
    setup() {
       const userStore = useUserStore();
       return { userStore };
    },
    methods: {
-      commitLogout() {
-         this.userStore.logout();
-         this.$router.replace("/home");
+      async commitLogout() {
+         await this.userStore.logout();
+         await this.$router.replace("/home");
       },
       desktopCheck() {
          return this.$q.screen.gt.sm;
       }
    }
-};
+});
 </script>
 
 <style

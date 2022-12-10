@@ -49,44 +49,38 @@
                   class="input"
                   v-model="password"
                   :model-value="password"
-                  type="password"
+                  :type="hidePassword ? 'password' : 'text'"
                   label="Password"
-                  clearable
                   rounded
                   outlined>
                   <template v-slot:prepend>
                      <q-icon name="fa-solid fa-key"/>
+                  </template>
+                  <template v-slot:append>
+                     <q-icon
+                        :name="hidePassword ? 'visibility_off' : 'visibility'"
+                        class="cursor-pointer"
+                        @click="hidePassword = !hidePassword"/>
                   </template>
                </q-input>
                <q-input
                   class="input"
                   v-model="confirmPassword"
                   :model-value="confirmPassword"
-                  type="password"
+                  :type="hidePassword ? 'password' : 'text'"
                   label="Confirm Password"
-                  clearable
                   rounded
                   outlined>
                   <template v-slot:prepend>
                      <q-icon name="fa-solid fa-key"/>
                   </template>
+                  <template v-slot:append>
+                     <q-icon
+                        :name="hidePassword ? 'visibility_off' : 'visibility'"
+                        class="cursor-pointer"
+                        @click="hidePassword = !hidePassword"/>
+                  </template>
                </q-input>
-
-               <!-- Beta Passoword -->
-               <!--          <q-input-->
-               <!--            class="input"-->
-               <!--            v-model="betaKey"-->
-               <!--            :model-value="betaKey"-->
-               <!--            type="password"-->
-               <!--            label="Beta Key"-->
-               <!--            clearable-->
-               <!--            rounded-->
-               <!--            outlined>-->
-               <!--            <template v-slot:prepend>-->
-               <!--              <q-icon name="fa-solid fa-lock"/>-->
-               <!--            </template>-->
-               <!--          </q-input>-->
-
                <q-btn
                   class="submit self-center"
                   padding="md"
@@ -113,14 +107,37 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
+//Imports
+import { defineComponent } from "vue";
+//Stores
 import { useUserStore } from "pages/authorization/_UserStore";
+import { useQuasar } from "quasar";
+//Types
+type TheRegisterState = {
+   username: string,
+   userList: string[] | undefined,
+   usernameAvailability: boolean,
+   email: string,
+   password: string,
+   confirmPassword: string,
+   hidePassword: boolean,
+   formIsValid: boolean,
+   errors: {
+      errorField: string[],
+      errorArray: string[],
+   }
+   usernameError: boolean,
+   emailError: boolean,
+   passwordError: boolean
+}
 
-export default {
+export default defineComponent({
    mounted() {
-      this.pullDb();
+      this.pullDb().catch(err =>
+         console.log(err));
    },
-   data() {
+   data(): TheRegisterState {
       return {
          username: "",
          userList: [],
@@ -128,22 +145,25 @@ export default {
          email: "",
          password: "",
          confirmPassword: "",
+         hidePassword: true,
          formIsValid: true,
-         isLoading: false,
-         errors: null,
+         errors: {
+            errorField: [],
+            errorArray: []
+         },
          usernameError: false,
          emailError: false,
          passwordError: false
-         // betaKey: ""
       };
    },
    setup() {
       const UserStore = useUserStore();
-      return { UserStore };
+      const Quasar = useQuasar();
+      return { UserStore, Quasar };
    },
    watch: {
       username() {
-         if (this.username) {
+         if (this.username && this.userList) {
             this.usernameAvailability = !this.userList.some((u) => {
                return u[0] === this.username;
             });
@@ -177,16 +197,14 @@ export default {
 
       async submitForm() {
          try {
+            this.Quasar.loading.show();
             this.formIsValid = true;
-            this.isLoading = true;
             const userData = {
-               username: this.username,
-               email: this.email,
-               password1: this.password,
-               password2: this.confirmPassword
-               // betaKey: this.betaKey
+               username: this.username.trim(),
+               email: this.email.trim(),
+               password1: this.password.trim(),
+               password2: this.confirmPassword.trim()
             };
-
             //Local Authentication
             const localAuth = await this.UserStore.clientAuthSignup(userData);
             if (localAuth) {
@@ -195,28 +213,27 @@ export default {
                if (localAuth.errorField.includes("username")) this.usernameError = true;
                if (localAuth.errorField.includes("password")) this.passwordError = true;
                this.formIsValid = false;
-               this.isLoading = false;
+               this.Quasar.loading.hide();
                return;
             }
-
             //Finalize Signup
             const servAuth = await this.UserStore.signup(userData);
             if (servAuth) {
                this.formIsValid = false;
                this.errors = servAuth;
-               this.isLoading = false;
+               this.Quasar.loading.hide();
                return;
             }
-            this.isLoading = false;
-            const redirect = "/" + (this.$route.query.redirect || "home");
-            this.$router.replace(redirect);
-         } catch (error) {
-            console.log(error);
-            this.errors = ["Something went wrong. Please Try Again"];
+            this.Quasar.loading.hide();
+            const redirect = `/${this.$route.query.redirect as string || "home"}`;
+            await this.$router.replace(redirect);
+         } catch (err) {
+            console.log(err);
+            this.errors.errorArray = ["Something went wrong. Please Try Again"];
          }
       }
    }
-};
+});
 </script>
 
 <style
@@ -301,13 +318,6 @@ body.screen--lg, body.screen--xl, {
    text-align: center;
 }
 
-.inner-container {
-   position: relative;
-   display: grid;
-   color: var(--bg-offwhite2);
-   overflow: hidden;
-}
-
 form {
    position: relative;
    padding: 2rem 1.2rem;
@@ -325,22 +335,6 @@ input {
    width: 90%;
 }
 
-.form-control {
-   margin: 0 0 3rem 0;
-   font-size: 3rem;
-}
-
-.username-check {
-   font-size: 2rem;
-   margin: 1rem 5rem;
-   text-align: left;
-   color: greenyellow;
-}
-
-.invalidUsername {
-   color: rgb(255, 116, 116);
-}
-
 .submit {
    width: 70%;
    transition: 800ms all;
@@ -352,64 +346,9 @@ input {
    cursor: pointer;
 }
 
-.inner-container::before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   height: 100%;
-   width: 2%;
-   background-color: var(--main-red);
-   box-shadow: 4px 0 19px 3px #c33c5571;
-}
-
-.inner-container::after {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 98%;
-   bottom: 0;
-   height: 100%;
-   width: 2%;
-   background-color: var(--login-color);
-   box-shadow: -4px 0px 19px 3px #17a39d8f;
-}
-
-.switch {
-   padding-top: 2rem;
-   font-size: 1.8rem;
-}
-
-.error-cont {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding-bottom: 0.5rem;
-}
-
-.error-list {
-   display: flex;
-   justify-content: center;
-}
-
 .error {
    background: #ff515167;
    border-radius: 0.7rem;
-}
-
-.exclamation {
-   height: 32px;
-   width: 32px;
-   transition: 800ms all;
-   color: #ff0000;
-   padding-bottom: 0.5rem;
-}
-
-.input-error {
-   background: #ffc4c4;
-   border: 0.3rem solid rgb(182, 0, 0);
-   transition: 800ms all;
 }
 
 a {
@@ -443,9 +382,6 @@ a {
    }
    .container.card {
       padding: 0;
-   }
-   .inner-container {
-      width: 100%;
    }
 }
 </style>

@@ -23,8 +23,7 @@
             <div class="menu-container">
                <statistics-menu
                   class="menu-bar bg-dark full-width"
-                  @changeTab="changeTab"
-                  :closeDialog="closeDialog"></statistics-menu>
+                  @changeTab="changeTab"></statistics-menu>
                <q-page-sticky
                   position="bottom"
                   class="floating-button">
@@ -79,17 +78,29 @@
    </q-page>
 </template>
 
-<script>
-import { defineAsyncComponent } from "vue";
+<script lang="ts">
+//Imports
+import { defineAsyncComponent, defineComponent } from "vue";
 import { useQuasar } from "quasar";
-import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
 
+//Stores
+import { useStatisticsStore } from "pages/statistics/_StatisticsStore";
+import { StatisticsTabsType } from "src/util/types/StatisticsTabsType";
+
+//Components
 const StatisticsMenu = defineAsyncComponent(() => import("./components/StatisticsMenu.vue"));
 const StatisticsTabs = defineAsyncComponent(() => import("./components/StatisticsTabs.vue"));
 
-export default {
+//Types
+type TheStatisticsState = {
+   selectedTab: StatisticsTabsType,
+   loading: boolean,
+   statDialog: boolean
+}
+
+export default defineComponent({
    components: { StatisticsMenu, StatisticsTabs },
-   data() {
+   data(): TheStatisticsState {
       return {
          selectedTab: "all",
          loading: false,
@@ -100,29 +111,26 @@ export default {
       const StatisticsStore = useStatisticsStore();
       return { StatisticsStore };
    },
-   async mounted() {
+   mounted() {
       const $q = useQuasar();
       $q.loading.show();
       this.loading = true;
-      const data = await this.StatisticsStore.fetchStats();
-      this.loading = false;
-      await this.StatisticsStore.formStats(data);
-      await this.StatisticsStore.pokemonStats(data);
-      $q.loading.hide();
+      this.StatisticsStore.fetchStats().then(() => {
+         this.loading = false;
+         $q.loading.hide();
+      }).catch(err =>
+         console.log(err));
    },
    methods: {
       desktopCheck() {
          return this.$q.screen.gt.sm;
       },
-      changeTab(tab) {
+      changeTab(tab: StatisticsTabsType) {
          this.selectedTab = tab;
-         this.statDialog = false;
-      },
-      closeDialog() {
          this.statDialog = false;
       }
    }
-};
+});
 </script>
 
 <style
