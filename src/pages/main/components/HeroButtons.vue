@@ -2,51 +2,59 @@
    <div
       class="row justify-center button-container"
       :class="[{'logged-in': userStore.isLoggedIn }, intersecting? 'q-my-sm' :'top']">
-      <q-btn
-         v-if="!userStore.isLoggedIn"
-         :size="!intersecting ? 'md' : 'lg'"
-         :unelevated="!intersecting"
-         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
-         class="button q-mx-xs q-my-md"
-         to="/login"
-         color="primary">Login
-      </q-btn>
-      <q-btn
-         v-if="!userStore.isLoggedIn"
-         :size="!intersecting ? 'md' : 'lg'"
-         :unelevated="!intersecting"
-         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
-         to="/register"
-         class="button q-mx-xs q-my-md"
-         color="positive">
-         <div class="text-center">
-            Signup
-         </div>
-      </q-btn>
-      <q-btn
-         v-if="userStore.isLoggedIn"
-         :size="!intersecting ? 'md' : 'lg'"
-         :unelevated="!intersecting"
-         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
-         to="/tracker"
-         class="button q-mx-xs q-my-md"
-         color="positive">
-         <div class="text-center">
-            Tracker
-         </div>
-      </q-btn>
-      <q-btn
-         v-if="userStore.isLoggedIn"
-         :size="!intersecting ? 'md' : 'lg'"
-         :unelevated="!intersecting"
-         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
-         to="/collection"
-         class="button q-mx-xs q-my-md"
-         color="positive">
-         <div class="text-center">
-            Collection
-         </div>
-      </q-btn>
+           <q-btn
+              :size="!intersecting ? 'md' : 'lg'"
+              :unelevated="!intersecting"
+              :padding="desktopCheck() ? '10px 32px' : '10px 25px'"
+              class="button q-mx-xs q-my-md"
+              href="https://twitter.com/_dexhunt"
+              color="primary">Twitter
+           </q-btn>
+<!--      <q-btn-->
+<!--         v-if="!userStore.isLoggedIn"-->
+<!--         :size="!intersecting ? 'md' : 'lg'"-->
+<!--         :unelevated="!intersecting"-->
+<!--         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"-->
+<!--         class="button q-mx-xs q-my-md"-->
+<!--         to="/login"-->
+<!--         color="primary">Login-->
+<!--      </q-btn>-->
+<!--      <q-btn-->
+<!--         v-if="!userStore.isLoggedIn"-->
+<!--         :size="!intersecting ? 'md' : 'lg'"-->
+<!--         :unelevated="!intersecting"-->
+<!--         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"-->
+<!--         to="/register"-->
+<!--         class="button q-mx-xs q-my-md"-->
+<!--         color="positive">-->
+<!--         <div class="text-center">-->
+<!--            Signup-->
+<!--         </div>-->
+<!--      </q-btn>-->
+<!--      <q-btn-->
+<!--         v-if="userStore.isLoggedIn"-->
+<!--         :size="!intersecting ? 'md' : 'lg'"-->
+<!--         :unelevated="!intersecting"-->
+<!--         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"-->
+<!--         to="/tracker"-->
+<!--         class="button q-mx-xs q-my-md"-->
+<!--         color="positive">-->
+<!--         <div class="text-center">-->
+<!--            Tracker-->
+<!--         </div>-->
+<!--      </q-btn>-->
+<!--      <q-btn-->
+<!--         v-if="userStore.isLoggedIn"-->
+<!--         :size="!intersecting ? 'md' : 'lg'"-->
+<!--         :unelevated="!intersecting"-->
+<!--         :padding="desktopCheck() ? '10px 32px' : '10px 25px'"-->
+<!--         to="/collection"-->
+<!--         class="button q-mx-xs q-my-md"-->
+<!--         color="positive">-->
+<!--         <div class="text-center">-->
+<!--            Collection-->
+<!--         </div>-->
+<!--      </q-btn>-->
    </div>
 </template>
 

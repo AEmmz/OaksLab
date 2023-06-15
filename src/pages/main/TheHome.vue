@@ -35,16 +35,18 @@
       <div
         class="hero-header text-dark"
         :class="[{'vanish' : cardPosition === 10}, desktopCheck() ? 'absolute-bottom-left q-ma-xl' : 'text-h3']">
-        Gotta
-        Track<br/>'Em
-        All
+<!--        Gotta-->
+<!--        Track<br/>'Em-->
+<!--        All-->
+        Under<br/>Construction
       </div>
       <div
         class="hero-subheader justify-center column items-center text-dark "
         :class="{'absolute-top-right q-ma-xl': desktopCheck()}">
         <div
           class="subheader text-h6 text-center"
-          v-intersection="buttonIntersect">Collect the way that you want to collect.
+          v-intersection="buttonIntersect">We are currently undergoing maintenance, please see our Twitter page for more details.
+        <!--          v-intersection="buttonIntersect">Collect the way that you want to collect.-->
         </div>
         <hero-buttons :intersecting="intersecting"/>
       </div>

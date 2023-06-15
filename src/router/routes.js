@@ -21,7 +21,8 @@ const routes = [
     component: Tracker,
     name: "tracker",
     meta: { requiresAuth: true },
-    children: [{ path: ":pkName", component: Tracker }]
+    children: [{ path: ":pkName", component: Tracker }],
+    redirect: "/home"
   },
   {
     path: "/home",
@@ -32,31 +33,36 @@ const routes = [
     path: "/register",
     name: "register",
     component: Register,
-    meta: { requiresNotAuth: true }
+    meta: { requiresNotAuth: true },
+    redirect: "/home"
   },
   {
     path: "/login",
     name: "login",
     component: Login,
-    meta: { requiresNotAuth: true }
+    meta: { requiresNotAuth: true },
+    redirect: "/home"
   },
   {
     path: "/admin",
     name: "admin",
     component: Admin,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
+    redirect: "/home"
   },
   {
     path: "/collection/quick-update",
     name: "quick-update",
     component: QuickCollectionUpdate,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
+    redirect: "/home"
   },
   {
     path: "/collection/",
     name: "collection",
     component: Collection,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
+    redirect: "/home"
   },
   {
     path: "/statistics",
@@ -64,7 +70,8 @@ const routes = [
     name: "statistics",
     meta: {
       requiresAuth: true
-    }
+    },
+    redirect: "/home"
   },
   {
     path: "/bug-report",
@@ -72,7 +79,8 @@ const routes = [
     name: "bug-report",
     meta: {
       requiresAuth: true
-    }
+    },
+    redirect: "/home"
   },
   {
     path: "/feature-request",
@@ -80,7 +88,8 @@ const routes = [
     name: "feature-request",
     meta: {
       requiresAuth: true
-    }
+    },
+    redirect: "/home"
   },
   // {
   //   path: "/streamer",
