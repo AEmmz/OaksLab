@@ -22,7 +22,7 @@ const routes = [
     name: "tracker",
     meta: { requiresAuth: true },
     children: [{ path: ":pkName", component: Tracker }],
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/home",
@@ -34,35 +34,35 @@ const routes = [
     name: "register",
     component: Register,
     meta: { requiresNotAuth: true },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/login",
     name: "login",
     component: Login,
     meta: { requiresNotAuth: true },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/admin",
     name: "admin",
     component: Admin,
     meta: { requiresAuth: true },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/collection/quick-update",
     name: "quick-update",
     component: QuickCollectionUpdate,
     meta: { requiresAuth: true },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/collection/",
     name: "collection",
     component: Collection,
     meta: { requiresAuth: true },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/statistics",
@@ -71,7 +71,7 @@ const routes = [
     meta: {
       requiresAuth: true
     },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/bug-report",
@@ -80,7 +80,7 @@ const routes = [
     meta: {
       requiresAuth: true
     },
-    redirect: "/home"
+    // redirect: "/home"
   },
   {
     path: "/feature-request",
@@ -89,7 +89,7 @@ const routes = [
     meta: {
       requiresAuth: true
     },
-    redirect: "/home"
+    // redirect: "/home"
   },
   // {
   //   path: "/streamer",

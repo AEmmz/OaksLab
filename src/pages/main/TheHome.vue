@@ -45,8 +45,7 @@
         :class="{'absolute-top-right q-ma-xl': desktopCheck()}">
         <div
           class="subheader text-h6 text-center"
-          v-intersection="buttonIntersect">We are currently undergoing maintenance, please see our Twitter page for more details.
-        <!--          v-intersection="buttonIntersect">Collect the way that you want to collect.-->
+                  v-intersection="buttonIntersect">Collect the way that you want to collect.
         </div>
         <hero-buttons :intersecting="intersecting"/>
       </div>
@@ -97,6 +96,7 @@ export default {
       this.intersecting = entry.isIntersecting;
     },
     cardIntersect(entry) {
+      console.log(entry.intersectionRatio);
       this.cardIntersecting = entry.intersectionRatio;
     },
     desktopCheck() {
